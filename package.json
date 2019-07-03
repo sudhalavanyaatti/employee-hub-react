@@ -4,7 +4,12 @@
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
+    "react-add-space": "^1.0.7",
     "react-dom": "^16.8.6",
+    "react-flexbox-grid": "^2.1.2",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-router-hash-link": "^1.2.1",
     "react-scripts": "3.0.1"
   },
   "scripts": {
