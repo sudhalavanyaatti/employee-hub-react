@@ -41,10 +41,10 @@ class SignIn extends React.Component {
           xs={10}
         >
           <div>
-          <Row center="xs">
-          <Col>
-            <h1>Login Here</h1>
-            </Col>
+            <Row center="xs">
+              <Col>
+                <h1>Login Here</h1>
+              </Col>
             </Row>
             <input
               type="email"
@@ -62,10 +62,7 @@ class SignIn extends React.Component {
             />
             <Row center="xs">
               <Col>
-                <button
-                  className="button"
-                  onClick={event => this.handleSubmit(event)}
-                >
+                <button className="button" onClick={() => this.handleSubmit()}>
                   SignIn
                 </button>
                 <p>Create an account?</p>

@@ -46,8 +46,8 @@ class Signup extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  async handleSubmit(event) {
+    //  event.preventDefault();
     const data = {
       fullName: this.state.fullName,
       email: this.state.email,
@@ -57,13 +57,11 @@ class Signup extends React.Component {
       address: this.state.address
     };
     console.log('data', data);
-    fetch('https://localhost:3001/routes/register', {
-      method: 'post',
+    await fetch('http://localhost:3001/register', {
+      method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        // 'cache-control': 'no-cache',
-        // Authorization: 'Bearer 5anDHuoU2mXhewL16yobo8fdHanV',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }
     })
       .then(res => res.json())
