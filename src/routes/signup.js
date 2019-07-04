@@ -1,17 +1,17 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Row, Col } from "react-flexbox-grid";
 
 class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullName: '',
-      email: '',
-      password: '',
-      category: '',
-      phone: '',
-      address: ''
+      fullName: "",
+      email: "",
+      password: "",
+      category: "",
+      phone: "",
+      address: ""
     };
   }
   handleChangeFullname(event) {
@@ -56,18 +56,19 @@ class Signup extends React.Component {
       phone: this.state.phone,
       address: this.state.address
     };
-    console.log('data', data);
-    await fetch('http://localhost:3001/register', {
-      method: 'POST',
+    console.log("data", data);
+    await fetch("http://localhost:3001/register", {
+      method: "POST",
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json"
       }
     })
       .then(res => res.json())
       .then(response => {
         console.log(response);
       });
+    this.props.history.push("/otpVal", { phone: this.state.phone });
   }
   render() {
     return (
