@@ -1,13 +1,13 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Row, Col } from "react-flexbox-grid";
 
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
   }
 
@@ -23,8 +23,24 @@ class SignIn extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  async handleSubmit(event) {
+    //event.preventDefault();
+    const data = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    console.log("data", data);
+    await fetch("http://localhost:3001/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(response => {
+        console.log(response);
+      });
   }
 
   render() {
