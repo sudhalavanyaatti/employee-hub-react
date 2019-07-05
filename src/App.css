@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  background: url('../src/images/Employee-Hub.jpg') no-repeat center center
+  background: url("../src/images/Employee-Hub.jpg") no-repeat center center
     fixed;
   flex-direction: column;
   align-items: center;
@@ -28,4 +28,3 @@
 .App-link1 {
   color: white;
 }
-

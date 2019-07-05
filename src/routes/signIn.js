@@ -10,39 +10,36 @@ class SignIn extends React.Component {
       password: ""
     };
   }
-
   handleChange(event) {
     this.setState({
       email: event.target.value
     });
-    console.log(this.state.email);
   }
-
   handleChangePass(event) {
     this.setState({
       password: event.target.value
     });
   }
-
   handleSubmit(data) {
     data = {
       email: this.state.email,
       password: this.state.password
     };
-    console.log(data);
-
-    fetch("http://localhost3001/login", {
+    console.log("data", data);
+    fetch("http://localhost:3001/login", {
       method: "post",
       body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" }
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
     })
       .then(res => res.json())
       .then(data => {
         localStorage.setItem("token", data.token);
       });
-    //this.props.history.push("/details");
+    this.props.history.push("/details");
   }
-
   render() {
     return (
       <Row>
@@ -91,5 +88,4 @@ class SignIn extends React.Component {
     );
   }
 }
-
 export default SignIn;
