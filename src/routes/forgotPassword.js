@@ -2,26 +2,24 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
 
-class Otp extends Component {
+class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      otp: '',
       phone: ''
     };
   }
-  handleChangeNumber(event) {
+  handleChangephone(event) {
     this.setState({
-      otp: event.target.value
+      phone: event.target.value
     });
   }
   async handleSubmit(event) {
     const data = {
-      otp: this.state.otp,
-      phone: this.props.location.state.phone
+      phone: this.state.phone
     };
     //console.log('phone otp', data);
-    await fetch('http://localhost:3001/validate-otp', {
+    await fetch('http://localhost:3001/forgot-password', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -30,12 +28,8 @@ class Otp extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        this.props.history.push('/signIn');
-        // if (response.success === 'true') this.props.history.push('/signIn');
-        // else {
-        //   alert('enter Valid OTP');
-        //   //this.props.history.push('/otpVal');
-        // }
+        console.log(response);
+        this.props.history.push('/passwordOtpVal',{phone: this.state.phone});
       });
   }
   render() {
@@ -43,14 +37,17 @@ class Otp extends Component {
       <div>
         <Row center="xs">
           <Col xs={3}>
+          <Row center="xs">
+              <Col>
+                <h1>Forgot Password</h1>
+              </Col>
+            </Row>
             <input
               type="tel"
-              name="otp"
-              maxLength="6"
-              minLength="6"
-              value={this.state.otp}
-              onChange={event => this.handleChangeNumber(event)}
-              placeholder="Enter your OTP"
+              name="phone"
+              value={this.state.phone}
+              onChange={event => this.handleChangephone(event)}
+              placeholder="Enter your Mobile Number"
             />
             <br />
             <br />
@@ -59,7 +56,7 @@ class Otp extends Component {
             </button>
             <br />
             <br />
-            <Link to="/otpVal">Resend OTP</Link>
+            <Link to="/signIn">SignIn</Link>
           </Col>
         </Row>
       </div>
@@ -67,4 +64,4 @@ class Otp extends Component {
   }
 }
 
-export default Otp;
+export default ForgotPassword;

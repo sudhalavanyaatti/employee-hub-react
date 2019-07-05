@@ -69,9 +69,9 @@ class Signup extends React.Component {
         if (response.message !== 'success') {
           alert('Try with another email');
         }
-        //this.props.history.push('/otpVal', {phone: this.state.phone});
+        this.props.history.push('/otpVal', {phone: this.state.phone});
       });
-    this.props.history.push("/otpVal", { phone: this.state.phone });
+    //this.props.history.push("/otpVal", { phone: this.state.phone });
   }
   render() {
     return (

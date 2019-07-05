@@ -6,16 +6,15 @@ class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      phone: "",
       password: ""
     };
   }
 
   handleChange(event) {
     this.setState({
-      email: event.target.value
+      phone: event.target.value
     });
-    console.log(this.state.email);
   }
 
   handleChangePass(event) {
@@ -26,7 +25,7 @@ class SignIn extends React.Component {
 
   handleSubmit(data) {
     data = {
-      email: this.state.email,
+      phone: this.state.phone,
       password: this.state.password
     };
     console.log(data);
@@ -63,11 +62,13 @@ class SignIn extends React.Component {
               </Col>
             </Row>
             <input
-              type="email"
-              name="email"
-              value={this.state.email}
+              type="tel"
+              name="phone"
+              maxLength="10"
+              minLength="10"
+              value={this.state.phone}
               onChange={event => this.handleChange(event)}
-              placeholder="Email"
+              placeholder="Mobile Number"
             />
             <input
               type="password"
@@ -81,6 +82,7 @@ class SignIn extends React.Component {
                 <button className="button" onClick={() => this.handleSubmit()}>
                   SignIn
                 </button>
+                <Link to="/forgotPassword">Forgot Password ?</Link>
                 <p>Create an account?</p>
                 <Link to="/signup">Signup</Link>
               </Col>

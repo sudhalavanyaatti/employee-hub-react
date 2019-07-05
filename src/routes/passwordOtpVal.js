@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
 
-class Otp extends Component {
+class PassOtpValidation extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,7 @@ class Otp extends Component {
       phone: this.props.location.state.phone
     };
     //console.log('phone otp', data);
-    await fetch('http://localhost:3001/validate-otp', {
+    await fetch('http://localhost:3001/password-OtpVal', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -30,8 +30,8 @@ class Otp extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        this.props.history.push('/signIn');
-        // if (response.success === 'true') this.props.history.push('/signIn');
+        this.props.history.push('/newPassword',{phone: this.props.location.state.phone});
+        // if (response.success === 'true') this.props.history.push('/newPassword',{phone: this.state.phone});
         // else {
         //   alert('enter Valid OTP');
         //   //this.props.history.push('/otpVal');
@@ -43,6 +43,11 @@ class Otp extends Component {
       <div>
         <Row center="xs">
           <Col xs={3}>
+          <Row center="xs">
+              <Col>
+                <h1>Forgot Password</h1>
+              </Col>
+            </Row>
             <input
               type="tel"
               name="otp"
@@ -59,7 +64,7 @@ class Otp extends Component {
             </button>
             <br />
             <br />
-            <Link to="/otpVal">Resend OTP</Link>
+            <Link to="/passwordOtpVal">Resend OTP</Link>
           </Col>
         </Row>
       </div>
@@ -67,4 +72,4 @@ class Otp extends Component {
   }
 }
 
-export default Otp;
+export default PassOtpValidation;
