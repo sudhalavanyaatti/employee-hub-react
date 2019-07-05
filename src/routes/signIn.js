@@ -23,8 +23,22 @@ class SignIn extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  async handleSubmit(event) {
+    const data = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    await fetch('http://localhost:3001/login', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(res => res.json())
+      .then(response => {
+        console.log(response);
+      });
   }
 
   render() {

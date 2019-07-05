@@ -61,12 +61,15 @@ class Signup extends React.Component {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       }
     })
       .then(res => res.json())
       .then(response => {
-        console.log(response);
+        if (response.message !== 'success') {
+          alert('Try with another email');
+        }
+        this.props.history.push('/otpVal', {phone: this.state.phone});
       });
   }
   render() {
