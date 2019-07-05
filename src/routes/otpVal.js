@@ -1,39 +1,26 @@
-import React, {Component} from 'react';
-//import {Row, Col} from 'react-flexbox-grid';
+import React, { Component } from "react";
+import {Link} from 'react-router-dom';
+import {Row, Col} from 'react-flexbox-grid';
 
 class Otp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      otp: '',
-      phone: ''
+      otp: "",
+      phone: ""
     };
   }
-
-  // componentDidMount() {
-  //   console.log('props', this.props);
-  //   const {state} = this.props.location;
-  //   if (state !== undefined) {
-  //     this.props.history.push('/otpVal');
-  //     this.setState({
-  //       phone: state.phone
-  //     });
-  //   }
-  //   this.props.history.push('/signup');
-  // }
-
   handleChangeNumber(event) {
     this.setState({
       otp: event.target.value
     });
   }
-
   async handleSubmit(event) {
     const data = {
       otp: this.state.otp,
       phone: this.props.location.state.phone
     };
-    console.log('phone otp', data);
+    //console.log('phone otp', data);
     await fetch('http://localhost:3001/validate-otp', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -47,10 +34,11 @@ class Otp extends Component {
         this.props.history.push('/signIn');
       });
   }
-
   render() {
     return (
       <div>
+      <Row center="xs">
+      <Col xs={3}>
         <input
           type="tel"
           name="otp"
@@ -60,11 +48,18 @@ class Otp extends Component {
           onChange={event => this.handleChangeNumber(event)}
           placeholder="Enter your OTP"
         />
-
+        <br />
+        <br />
         <button className="button" onClick={() => this.handleSubmit()}>
           Submit
         </button>
+        <br />
+        <br />
+        <Link to="/otpVal">Resend OTP</Link>
+        </Col>
+        </Row>
       </div>
+      
     );
   }
 }

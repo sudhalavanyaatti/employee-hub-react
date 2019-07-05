@@ -1,13 +1,13 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Row, Col } from "react-flexbox-grid";
 
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
   }
 
@@ -15,6 +15,7 @@ class SignIn extends React.Component {
     this.setState({
       email: event.target.value
     });
+    console.log(this.state.email);
   }
 
   handleChangePass(event) {
@@ -23,22 +24,23 @@ class SignIn extends React.Component {
     });
   }
 
-  async handleSubmit(event) {
-    const data = {
+  handleSubmit(data) {
+    data = {
       email: this.state.email,
       password: this.state.password
     };
-    await fetch('http://localhost:3001/login', {
-      method: 'POST',
+    console.log(data);
+
+    fetch("http://localhost3001/login", {
+      method: "post",
       body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      }
+      headers: { "Content-Type": "application/json" }
     })
       .then(res => res.json())
-      .then(response => {
-        console.log(response);
+      .then(data => {
+        localStorage.setItem("token", data.token);
       });
+    //this.props.history.push("/details");
   }
 
   render() {
