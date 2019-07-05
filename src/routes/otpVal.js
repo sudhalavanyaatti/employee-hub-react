@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
+=======
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Row, Col } from "react-flexbox-grid";
+>>>>>>> 32a4a5c23bca8768c441f1b31c48b5db7f2d8ab6
 
 class Otp extends Component {
   constructor(props) {
@@ -21,11 +27,11 @@ class Otp extends Component {
       phone: this.props.location.state.phone
     };
     //console.log('phone otp', data);
-    await fetch('http://localhost:3001/validate-otp', {
-      method: 'POST',
+    await fetch("http://localhost:3001/validate-otp", {
+      method: "POST",
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
     })
       .then(res => res.json())
@@ -42,7 +48,7 @@ class Otp extends Component {
     return (
       <div>
         <Row center="xs">
-          <Col xs={3}>
+          <Col xs={3} className="col">
             <input
               type="tel"
               name="otp"

@@ -82,3 +82,21 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
 }
+.container-fluid {
+  padding: 0;
+}
+.row {
+  margin: 0;
+}
+
+.col {
+  padding: 0;
+}
+table,
+td {
+  border: solid black;
+}
+th {
+  text-align: left;
+  border: solid black;
+}

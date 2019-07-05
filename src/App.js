@@ -10,6 +10,7 @@ import Otp from './routes/otpVal';
 import ForgotPassword from './routes/forgotPassword';
 import PassOtpValidation from './routes/passwordOtpVal';
 import NewPassword from './routes/newPassword';
+import Details from './routes/details';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/forgotPassword" component={ForgotPassword} />
       <Route path="/passwordOtpVal" component={PassOtpValidation} />
       <Route path="/newPassword" component={NewPassword} />
+      <Route path="/details" component={Details} />
     </Router>
   );
 }
