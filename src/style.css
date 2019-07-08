@@ -17,8 +17,8 @@
   background-color: #ddd;
   color: black;
 }
-.bg-image {
-  background-image: url("../src/images/Employee-Hub.jpg");
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../src/images/Employee-Hub.jpg");
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
 
 class PassOtpValidation extends Component {
@@ -30,12 +29,31 @@ class PassOtpValidation extends Component {
     })
       .then(res => res.json())
       .then(response => {
+        console.log(response);
         this.props.history.push('/newPassword',{phone: this.props.location.state.phone});
-        // if (response.success === 'true') this.props.history.push('/newPassword',{phone: this.state.phone});
-        // else {
-        //   alert('enter Valid OTP');
-        //   //this.props.history.push('/otpVal');
-        // }
+        //  if (response.success === 'true') this.props.history.push('/newPassword',{phone: this.state.phone});
+        //  else {
+        //    alert('enter Valid OTP');
+        // //   //this.props.history.push('/otpVal');
+        //  }
+      });
+  }
+  async handleSubmitresend(event) {
+    const data = {
+      phone: this.props.location.state.phone
+    };
+    //console.log('phone otp', data);
+    await fetch('http://localhost:3001/forgot-password', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(response => {
+        console.log(response);
+        //this.props.history.push('/passwordOtpVal',{phone: this.state.phone});
       });
   }
   render() {
@@ -62,9 +80,9 @@ class PassOtpValidation extends Component {
             <button className="button" onClick={() => this.handleSubmit()}>
               Submit
             </button>
-            <br />
-            <br />
-            <Link to="/passwordOtpVal">Resend OTP</Link>
+            <button className="button" onClick={() => this.handleSubmitresend()}>
+              Resend OTP
+            </button>
           </Col>
         </Row>
       </div>

@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
-=======
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Row, Col } from "react-flexbox-grid";
->>>>>>> 32a4a5c23bca8768c441f1b31c48b5db7f2d8ab6
 
 class Otp extends Component {
   constructor(props) {
@@ -44,6 +37,24 @@ class Otp extends Component {
         // }
       });
   }
+  async handleSubmitresend(event) {
+    const data = {
+      phone: this.props.location.state.phone
+    };
+    //console.log('phone otp', data);
+    await fetch('http://localhost:3001/forgot-password', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(response => {
+        console.log(response);
+        //this.props.history.push('/passwordOtpVal',{phone: this.state.phone});
+      });
+  }
   render() {
     return (
       <div>
@@ -63,9 +74,9 @@ class Otp extends Component {
             <button className="button" onClick={() => this.handleSubmit()}>
               Submit
             </button>
-            <br />
-            <br />
-            <Link to="/otpVal">Resend OTP</Link>
+            <button className="button" onClick={() => this.handleSubmitresend()}>
+              Resend OTP
+            </button>
           </Col>
         </Row>
       </div>

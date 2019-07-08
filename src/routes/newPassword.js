@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
-
+// import _ from 'lodash';
+// import isEqual from 'lodash/isEqual';
 class NewPassword extends React.Component {
   constructor(props) {
     super(props);
@@ -31,20 +32,20 @@ class NewPassword extends React.Component {
       phone: this.props.location.state.phone
     };
     console.log(data);
-    // if(this.state.newPassword===this.state.confirmPassword){
-
-    await fetch('http://localhost:3001/update-password', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.props.history.push('/signIn');
-        // localStorage.setItem("token", data.token);
-      });
+    if (this.state.newPassword === this.state.confirmPassword) {
+      await fetch('http://localhost:3001/update-password', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          this.props.history.push('/signIn');
+          // localStorage.setItem("token", data.token);
+        });
+    } else alert('Enter Same Password');
     //this.props.history.push("/details");
     //     }
     //     else
@@ -72,7 +73,7 @@ class NewPassword extends React.Component {
             </Row>
             <input
               type="password"
-              name="password"
+              name="newPassword"
               value={this.state.newPassword}
               onChange={event => this.handleChange(event)}
               placeholder="New Password"
