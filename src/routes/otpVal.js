@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
-=======
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-flexbox-grid";
->>>>>>> 32a4a5c23bca8768c441f1b31c48b5db7f2d8ab6
 
 class Otp extends Component {
   constructor(props) {
