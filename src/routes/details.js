@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Map, GoogleApiWrapper, Marker} from 'google-maps-react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import "../App.css";
 
 class Details extends Component {
   state = {
@@ -60,7 +61,8 @@ class Details extends Component {
   };
   render() {
     return (
-      <Grid fluid>
+     <div className="detailsbg">
+        <Grid fluid>
         <Header />
         <Row>
           <Col lg={6} md={6} sm={6} xs={6} className="col">
@@ -92,6 +94,7 @@ class Details extends Component {
           </Col>
         </Row>
       </Grid>
+     </div>
     );
   }
 }

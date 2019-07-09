@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
-
+import "../App.css";
 class About extends Component {
   render() {
     return (
-      <div>
+      <div className="aboutbg">
         <Header />
         <div className="text">
           <h1>Comming soon...!</h1>

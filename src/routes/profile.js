@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
+import "../App.css";
 
 class Profile extends Component {
   render() {
     return (
-      <div>
+      <div className="profilebg">
         <Header />
         <div className="text">
           <h1>Comming soon...!</h1>

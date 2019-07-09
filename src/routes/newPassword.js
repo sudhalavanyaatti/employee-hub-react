@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import "../App.css";
 
 // import _ from 'lodash';
 // import isEqual from 'lodash/isEqual';
@@ -56,7 +57,7 @@ class NewPassword extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="newpasswordbg">
         <Header/>
       
       <Row>
@@ -73,7 +74,7 @@ class NewPassword extends React.Component {
           <div>
             <Row center="xs">
               <Col>
-                <h1>Rest Your password</h1>
+                <h1>Reset Your password</h1>
               </Col>
             </Row>
             <input

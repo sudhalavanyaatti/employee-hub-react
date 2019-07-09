@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-flexbox-grid";
 import Header from '../components/header';
-
+import "../App.css";
 
 class Otp extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ class Otp extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="otpvalbg">
         <Header />
         <Row center="xs">
           <Col xs={3} className="col">

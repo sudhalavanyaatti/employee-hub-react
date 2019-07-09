@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import "../App.css";
 
 class PassOtpValidation extends Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class PassOtpValidation extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="passwordbg">
         <Header />
         <Row center="xs">
           <Col xs={3}>
