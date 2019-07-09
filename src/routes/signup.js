@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-flexbox-grid";
+import Script from "react-load-script";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -11,8 +12,58 @@ class Signup extends React.Component {
       password: "",
       category: "",
       phone: "",
-      address: ""
+      address: "",
+      query: "",
+      latitude: "",
+      longitude: ""
     };
+     // Bind Functions
+     this.handleScriptLoad = this.handleScriptLoad.bind(this);
+     this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
+  }
+  handleScriptLoad() {
+    // Declare Options For Autocomplete
+    var options = {
+      types: ["(cities)"]
+    }; 
+
+    // Initialize Google Autocomplete
+    /*global google*/ this.autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById("autocomplete"),
+      options
+    );
+
+    // Fire Event when a suggested name is selected
+    this.autocomplete.addListener("place_changed", this.handlePlaceSelect);
+  }
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(position => {
+      console.log(position.coords.latitude + " " + position.coords.longitude);
+
+      this.setState(
+        {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        },
+        () => console.log("lat:"+ this.state.latitude)
+      );
+    });
+  }
+
+  handlePlaceSelect() {
+    // Extract City From Address Object
+    let addressObject = this.autocomplete.getPlace();
+    let address1 = addressObject.address_components;
+
+    // Check if address is valid
+    if (address1) {
+      // Set State
+      this.setState({
+        address: address1[0].long_name,
+        query: addressObject.formatted_address
+      });
+    }
+    
   }
   handleChangeFullname(event) {
     this.setState({
@@ -40,11 +91,7 @@ class Signup extends React.Component {
       phone: event.target.value
     });
   }
-  handleChangeAddress(event) {
-    this.setState({
-      address: event.target.value
-    });
-  }
+ 
 
   async handleSubmit(event) {
     //  event.preventDefault();
@@ -54,7 +101,9 @@ class Signup extends React.Component {
       password: this.state.password,
       category: this.state.category,
       phone: this.state.phone,
-      address: this.state.address
+      address: this.state.address,
+      latitude: this.state.latitude,
+      longitude: this.state.longitude
     };
     console.log("data", data);
     await fetch("http://localhost:3001/register", {
@@ -135,16 +184,18 @@ class Signup extends React.Component {
               placeholder="Don't prefix +91"
             />
             <br />
-            <textarea
-              rows="5"
-              cols="30"
-              name="address"
-              value={this.state.address}
-              onChange={event => this.handleChangeAddress(event)}
-              placeholder="Enter your Address"
-              textarea
-            />
-            <br />
+            <div>
+              <Script
+                url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvcv2xuV3aMp9kPJOq1igVNAf2UceH0N8&libraries=places"
+                onLoad={this.handleScriptLoad}
+              />
+              <input
+                type="text"
+                id="autocomplete"
+                placeholder="enter address"
+                value={this.state.query}
+              />
+            </div>
             <Row center="xs">
               <Col>
                 <button
