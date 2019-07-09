@@ -28,3 +28,17 @@
 .App-link1 {
   color: white;
 }
+.signupbg {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWaTh2xPJBT_QUHEB4j0nCXsavL23ORXBNVNr3Y33loLSJKyv-");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  .signinbg {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpYt6t-faUT1Z4TLSeO1xwM1YwL_ZTbRA4ZcnVUnV5df-5sIN4LQ");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
