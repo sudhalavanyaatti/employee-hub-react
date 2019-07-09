@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
 
-class About extends Component {
+class Profile extends Component {
   render() {
     return (
       <div>
@@ -14,4 +14,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default Profile;

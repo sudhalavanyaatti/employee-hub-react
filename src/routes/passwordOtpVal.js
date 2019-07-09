@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Row, Col} from 'react-flexbox-grid';
+import Header from '../components/header';
 
 class PassOtpValidation extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class PassOtpValidation extends Component {
       otp: this.state.otp,
       phone: this.props.location.state.phone
     };
-    //console.log('phone otp', data);
+    console.log('otp', data);
     await fetch('http://localhost:3001/password-OtpVal', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -29,13 +30,13 @@ class PassOtpValidation extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        console.log(response);
-        this.props.history.push('/newPassword',{phone: this.props.location.state.phone});
-        //  if (response.success === 'true') this.props.history.push('/newPassword',{phone: this.state.phone});
-        //  else {
-        //    alert('enter Valid OTP');
-        // //   //this.props.history.push('/otpVal');
-        //  }
+        if (!response.response.success) {
+          alert('enter Valid OTP');
+        } else {
+          this.props.history.push('/newPassword', {
+            phone: this.props.location.state.phone
+          });
+        }
       });
   }
   async handleSubmitresend(event) {
@@ -59,9 +60,10 @@ class PassOtpValidation extends Component {
   render() {
     return (
       <div>
+        <Header />
         <Row center="xs">
           <Col xs={3}>
-          <Row center="xs">
+            <Row center="xs">
               <Col>
                 <h1>Forgot Password</h1>
               </Col>
@@ -80,7 +82,10 @@ class PassOtpValidation extends Component {
             <button className="button" onClick={() => this.handleSubmit()}>
               Submit
             </button>
-            <button className="button" onClick={() => this.handleSubmitresend()}>
+            <button
+              className="button"
+              onClick={() => this.handleSubmitresend()}
+            >
               Resend OTP
             </button>
           </Col>

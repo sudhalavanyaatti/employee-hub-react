@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 
-class ForgotPassword extends Component {
+class NumberVal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +18,6 @@ class ForgotPassword extends Component {
     const data = {
       phone: this.state.phone
     };
-    //console.log('phone otp', data);
     await fetch('http://localhost:3001/forgot-password', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -30,7 +28,7 @@ class ForgotPassword extends Component {
       .then(res => res.json())
       .then(response => {
         console.log(response);
-        this.props.history.push('/passwordOtpVal', {phone: this.state.phone});
+        this.props.history.push('/otpVal', {phone: this.state.phone});
       });
   }
   render() {
@@ -41,7 +39,7 @@ class ForgotPassword extends Component {
           <Col xs={3}>
             <Row center="xs">
               <Col>
-                <h1>Forgot Password</h1>
+                <h1>Enter Your Mobile Number</h1>
               </Col>
             </Row>
             <input
@@ -49,16 +47,13 @@ class ForgotPassword extends Component {
               name="phone"
               value={this.state.phone}
               onChange={event => this.handleChangephone(event)}
-              placeholder="Enter your Mobile Number"
+              placeholder="Mobile Number"
             />
             <br />
             <br />
             <button className="button" onClick={() => this.handleSubmit()}>
               Submit
             </button>
-            <br />
-            <br />
-            <Link to="/signIn">SignIn</Link>
           </Col>
         </Row>
       </div>
@@ -66,4 +61,4 @@ class ForgotPassword extends Component {
   }
 }
 
-export default ForgotPassword;
+export default NumberVal;

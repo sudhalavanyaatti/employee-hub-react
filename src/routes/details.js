@@ -1,34 +1,36 @@
-import React, { Component } from "react";
-import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
-import { Grid, Row, Col } from "react-flexbox-grid";
+import React, {Component} from 'react';
+import {Map, GoogleApiWrapper, Marker} from 'google-maps-react';
+import {Grid, Row, Col} from 'react-flexbox-grid';
+import Header from '../components/header';
 
 class Details extends Component {
   state = {
-    categories: "",
+    categories: '',
     list: [],
     stores: [
-      { lat: 17.68009, lng: 83.20161 },
-      { latitude: 22.56263, longitude: 88.36304 },
-      { latitude: 16.51928, longitude: 80.63049 },
-      { latitude: 19.07283, longitude: 72.88261 },
-      { latitude: 13.08784, longitude: 80.27847 },
-      { latitude: 12.97194, longitude: 77.59369 }
+      {lat: 17.68009, lng: 83.20161},
+      {latitude: 22.56263, longitude: 88.36304},
+      {latitude: 16.51928, longitude: 80.63049},
+      {latitude: 19.07283, longitude: 72.88261},
+      {latitude: 13.08784, longitude: 80.27847},
+      {latitude: 12.97194, longitude: 77.59369}
     ]
   };
   changeText(e) {
-    this.setState({ categories: e.target.value });
+    this.setState({categories: e.target.value});
   }
   componentDidMount() {
-    const api = localStorage.getItem("token");
-
-    console.log(api);
-    fetch("http://localhost:3001/details", {
-      method: "get",
+    const api = localStorage.getItem('token');
+    if (api === null) {
+      this.props.history.push('/signIn');
+    }
+    fetch('http://localhost:3001/details', {
+      method: 'get',
       headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "no-cors",
-        "Access-Control-Allow-Credentials": true,
-        "X-Access-Token": api
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'no-cors',
+        'Access-Control-Allow-Credentials': true,
+        'X-Access-Token': api
       }
     })
       .then(res => res.json())
@@ -51,7 +53,7 @@ class Details extends Component {
             lat: store.latitude,
             lng: store.longitude
           }}
-          onClick={() => console.log("You clicked me!")}
+          onClick={() => console.log('You clicked me!')}
         />
       );
     });
@@ -59,10 +61,11 @@ class Details extends Component {
   render() {
     return (
       <Grid fluid>
+        <Header />
         <Row>
           <Col lg={6} md={6} sm={6} xs={6} className="col">
             <Map
-              style={{ width: "50%", height: "50", position: "absolute" }}
+              style={{width: '50%', height: '50', position: 'absolute'}}
               google={this.props.google}
               zoom={14}
               initialCenter={{
@@ -93,5 +96,5 @@ class Details extends Component {
   }
 }
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo"
+  apiKey: 'AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo'
 })(Details);

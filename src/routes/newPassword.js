@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
+import Header from '../components/header';
+
 // import _ from 'lodash';
 // import isEqual from 'lodash/isEqual';
 class NewPassword extends React.Component {
@@ -54,6 +56,9 @@ class NewPassword extends React.Component {
 
   render() {
     return (
+      <div>
+        <Header/>
+      
       <Row>
         <Col
           lgOffset={7}
@@ -96,6 +101,7 @@ class NewPassword extends React.Component {
           </div>
         </Col>
       </Row>
+      </div>
     );
   }
 }

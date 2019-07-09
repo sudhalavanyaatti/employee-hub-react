@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-flexbox-grid";
+import Header from '../components/header';
+
 
 class Otp extends Component {
   constructor(props) {
@@ -29,12 +31,10 @@ class Otp extends Component {
     })
       .then(res => res.json())
       .then(response => {
+        if(!response.response.success)
+        alert('Enter valid OTP');
+        else
         this.props.history.push('/signIn');
-        // if (response.success === 'true') this.props.history.push('/signIn');
-        // else {
-        //   alert('enter Valid OTP');
-        //   //this.props.history.push('/otpVal');
-        // }
       });
   }
   async handleSubmitresend(event) {
@@ -58,6 +58,7 @@ class Otp extends Component {
   render() {
     return (
       <div>
+        <Header />
         <Row center="xs">
           <Col xs={3} className="col">
             <input
