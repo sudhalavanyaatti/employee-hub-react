@@ -23,6 +23,9 @@ class Header extends Component {
       userStatus: false
     });
   }
+  handleprofile() {
+    
+  }
 
   render() {
     return (
@@ -35,8 +38,8 @@ class Header extends Component {
                   {this.state.userStatus ? (
                     <div>
                       <Link to="/">Home</Link>
-                      <Link to="/profile">Profile</Link>
-                      <Link to="/about">About</Link>
+                      <Link onClick={() => this.handleprofile()} to="/profile">Profile</Link>
+                      <Link to="/details">Details</Link>
                       <Link
                         onClick={() => this.handleClearToken()}
                         to="/signIn"

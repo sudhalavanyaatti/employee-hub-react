@@ -12,6 +12,7 @@ import NewPassword from './routes/newPassword';
 import Details from './routes/details';
 import NumberVal from './routes/phoneNumberVal';
 import Profile from './routes/profile';
+import Update_Details from'./routes/update-details';
 
 class App extends React.Component {
   render() {
@@ -28,6 +29,7 @@ class App extends React.Component {
         <Route path="/details" component={Details} />
         <Route path="/phoneNumberVal" component={NumberVal} />
         <Route path="/profile" component={Profile} />
+        <Route path="/update-details" component={Update_Details} />
       </Router>
     );
   }

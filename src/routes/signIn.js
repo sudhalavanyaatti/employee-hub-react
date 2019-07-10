@@ -54,7 +54,7 @@ class SignIn extends React.Component {
         console.log('status', data.data.twilioStatus);
         if(data.data==='incorrect')
         alert('Invalid Login');
-       else if (data.data.twilioStatus==='false') {
+       else if (!data.data.twilioStatus) {
           this.props.history.push('/phoneNumberVal');
         }
         else
