@@ -28,3 +28,59 @@
 .App-link1 {
   color: white;
 }
+.homebg {
+  background-image: url("https://images.pexels.com/photos/943630/pexels-photo-943630.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+.signupbg {
+  background-image: url("https://images.pexels.com/photos/1906440/pexels-photo-1906440.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  .signinbg {
+    background-image: url("https://images.pexels.com/photos/1007026/pexels-photo-1007026.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .aboutbg {
+      background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      }
+      .profilebg {
+        background-image: url("https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+        .detailsbg {
+          background-image: url("https://images.pexels.com/photos/1020320/pexels-photo-1020320.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+          height: 100vh;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size:cover;
+          }   
+          .passwordbg,.phnobg,.forgotpasswordbg,.otpvalbg {
+            background-image: url("https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+            height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size:cover;
+            }   
+            .newpasswordbg {
+              background-image: url("https://images.pexels.com/photos/1496139/pexels-photo-1496139.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+              height: 100vh;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size:cover;
+              }   

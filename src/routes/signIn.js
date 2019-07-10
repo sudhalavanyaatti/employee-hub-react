@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import '../App.css';
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -69,7 +70,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="signinbg">
         <Header />
 
         <Row>

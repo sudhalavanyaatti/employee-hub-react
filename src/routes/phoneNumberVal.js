@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import "../App.css";
 
 class NumberVal extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class NumberVal extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="phnobg">
         <Header />
         <Row center="xs">
           <Col xs={3}>

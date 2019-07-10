@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import Script from "react-load-script";
+import '../App.css';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -126,7 +127,7 @@ class Signup extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="signupbg">
         <Header/>
       
       <Row>

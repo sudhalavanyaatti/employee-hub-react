@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import "../App.css";
 
 class ForgotPassword extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class ForgotPassword extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="forgotpasswordbg">
         <Header />
         <Row center="xs">
           <Col xs={3}>
