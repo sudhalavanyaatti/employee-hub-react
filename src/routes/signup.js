@@ -152,6 +152,7 @@ class Signup extends React.Component {
               value={this.state.fullName}
               onChange={event => this.handleChangeFullname(event)}
               placeholder="Enter your Name"
+              required
             />
             <br />
             <input
@@ -160,6 +161,7 @@ class Signup extends React.Component {
               value={this.state.email}
               onChange={event => this.handleChangeEmail(event)}
               placeholder="Enter your Email"
+              required
             />
             <br />
             <input
@@ -168,6 +170,7 @@ class Signup extends React.Component {
               value={this.state.password}
               onChange={event => this.handleChangePass(event)}
               placeholder="Enter your Password"
+              required
             />
             <br />
             <input
@@ -176,6 +179,7 @@ class Signup extends React.Component {
               value={this.state.category}
               onChange={event => this.handleChangeCategory(event)}
               placeholder="Enter your Category"
+              required
             />
             <br />
             <input
@@ -186,6 +190,7 @@ class Signup extends React.Component {
               value={this.state.phone}
               onChange={event => this.handleChangeNumber(event)}
               placeholder="Don't prefix +91"
+              required
             />
             <br />
             <div>
@@ -198,6 +203,7 @@ class Signup extends React.Component {
                 id="autocomplete"
                 placeholder="enter address"
                 value={this.state.query}
+                required
               />
             </div>
             <Row center="xs">

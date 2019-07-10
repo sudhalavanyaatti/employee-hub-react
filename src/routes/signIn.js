@@ -47,14 +47,24 @@ class SignIn extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
+        if(data.data)
+        {
         localStorage.setItem('token', data.token);
         console.log('status', data.data.twilioStatus);
-        if (!data.data.twilioStatus) {
+        if(data.data==='incorrect')
+        alert('Invalid Login');
+       else if (data.data.twilioStatus==='false') {
           this.props.history.push('/phoneNumberVal');
         }
         else
         this.props.history.push('/details');
+      }
+      else{
+        alert('You are not Registered..!');
+        this.props.history.push('/signup');
+      }
       });
+    
   }
 
   render() {
@@ -87,6 +97,7 @@ class SignIn extends React.Component {
                 value={this.state.phone}
                 onChange={event => this.handleChange(event)}
                 placeholder="Mobile Number"
+                required
               />
               <input
                 type="password"
@@ -94,6 +105,7 @@ class SignIn extends React.Component {
                 value={this.state.password}
                 onChange={event => this.handleChangePass(event)}
                 placeholder="Password"
+                required
               />
               <Row center="xs">
                 <Col>

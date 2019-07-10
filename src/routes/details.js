@@ -67,10 +67,10 @@ class Details extends Component {
             <Map
               style={{width: '50%', height: '50', position: 'absolute'}}
               google={this.props.google}
-              zoom={14}
+              zoom={5}
               initialCenter={{
-                lat: -1.2884,
-                lng: 36.8233
+                lat: 20.5937,
+                lng: 78.9629
               }}
             >
               {this.displayMarkers()}

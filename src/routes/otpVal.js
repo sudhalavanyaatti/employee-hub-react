@@ -61,6 +61,11 @@ class Otp extends Component {
         <Header />
         <Row center="xs">
           <Col xs={3} className="col">
+          <Row center="xs">
+              <Col>
+                <h1>Enter your OTP</h1>
+              </Col>
+            </Row>
             <input
               type="tel"
               name="otp"
@@ -68,7 +73,7 @@ class Otp extends Component {
               minLength="6"
               value={this.state.otp}
               onChange={event => this.handleChangeNumber(event)}
-              placeholder="Enter your OTP"
+              placeholder="6 Digits OTP"
             />
             <br />
             <br />

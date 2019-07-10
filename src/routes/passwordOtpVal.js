@@ -75,7 +75,7 @@ class PassOtpValidation extends Component {
               minLength="6"
               value={this.state.otp}
               onChange={event => this.handleChangeNumber(event)}
-              placeholder="Enter your OTP"
+              placeholder="6 Digits OTP"
             />
             <br />
             <br />
