@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {Row, Col} from 'react-flexbox-grid';
+//import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
 class PassOtpValidation extends Component {
@@ -60,37 +62,34 @@ class PassOtpValidation extends Component {
   }
   render() {
     return (
-      <div className="passwordbg">
+      <div >
         <Header />
-        <Row center="xs">
-          <Col xs={3}>
-            <Row center="xs">
-              <Col>
-                <h1>Forgot Password</h1>
-              </Col>
-            </Row>
-            <input
-              type="tel"
-              name="otp"
-              maxLength="6"
-              minLength="6"
-              value={this.state.otp}
-              onChange={event => this.handleChangeNumber(event)}
-              placeholder="6 Digits OTP"
-            />
-            <br />
-            <br />
-            <button className="button" onClick={() => this.handleSubmit()}>
-              Submit
-            </button>
-            <button
-              className="button"
-              onClick={() => this.handleSubmitresend()}
-            >
-              Resend OTP
-            </button>
-          </Col>
-        </Row>
+        <div className="col-md-4 col-md-offset-4" >
+        <MDBContainer>  
+        <h1><br/>Password OTP</h1>
+        <MDBRow>
+             <MDBCol md="9">
+             <MDBInput
+                 type="tel"
+                 name="otp"
+                 maxLength="6"
+                 minLength="6"
+                 value={this.state.otp}
+                 onChange={event => this.handleChangeNumber(event)}
+                 label="6 Digits OTP"
+                 id="materialFormRegisterotpEx"              
+              >
+              </MDBInput>
+             </MDBCol>
+           </MDBRow>
+           <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+                Submit
+              </MDBBtn>  
+              <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmitresend()}>
+                Resend OTP
+              </MDBBtn>          
+        </MDBContainer>
+        </div>
       </div>
     );
   }

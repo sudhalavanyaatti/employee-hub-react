@@ -1,6 +1,7 @@
 import React from 'react';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+
 import '../App.css';
 
 class Update_Details extends React.Component {
@@ -13,7 +14,9 @@ class Update_Details extends React.Component {
       email: '',
       category: '',
       phone: '',
-      address: '',
+      city: '',
+      zip:'',
+      state:'',
       dob: '',
       blood_Group: '',
       language: '',
@@ -44,7 +47,9 @@ class Update_Details extends React.Component {
             email: data.data.email,
             phone: data.data.phone,
             category: data.data.category,
-            address: data.data.address,
+            city: data.data.city,
+            state: data.data.state,
+            zip:data.data.zip,
             dob: data.data.date_of_birth,
             blood_Group: data.data.blood_Group,
             language: data.data.language,
@@ -60,8 +65,8 @@ class Update_Details extends React.Component {
       fullName: event.target.value
     });
   }
-  //   handleChangeGender(event) {
-  //     this.setState({
+   // handleChangeGender(event) {
+   //    this.setState({
   //       gender: event.target.value
   //     });
   //   }
@@ -107,6 +112,22 @@ class Update_Details extends React.Component {
       experience: event.target.value
     });
   }
+  handleChangeCity(event) {
+    this.setState({
+      city: event.target.value
+    });
+  }
+  handleChangeState(event) {
+    this.setState({
+      state: event.target.value
+    });
+  }
+  handleChangeZip(event) {
+    this.setState({
+      zip: event.target.value
+    });
+  }
+
 
   async handleSubmit(event) {
     //  event.preventDefault();
@@ -117,7 +138,9 @@ class Update_Details extends React.Component {
       email: this.state.email,
       phone: this.state.phone,
       category: this.state.category,
-      address: this.state.address,
+      city: this.state.city,
+      state:this.state.state,
+      zip:this.state.zip,
       date_of_birth: this.state.dob,
       blood_Group: this.state.blood_Group,
       language: this.state.language,
@@ -196,7 +219,7 @@ class Update_Details extends React.Component {
               />
               <br />
               <div>
-                <input type="text" value={this.state.address} required />
+                <input type="text" value={this.state.city} required />
                 <br />
                 <input
                   type="date"

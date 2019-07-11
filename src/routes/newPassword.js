@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
+//import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
 // import _ from 'lodash';
@@ -57,51 +59,51 @@ class NewPassword extends React.Component {
 
   render() {
     return (
-      <div className="newpasswordbg">
+      <div >
         <Header/>
-      
-      <Row>
-        <Col
-          lgOffset={7}
-          lg={3}
-          mdOffset={6}
-          md={4}
-          smOffset={4}
-          sm={4}
-          xsOffset={1}
-          xs={10}
-        >
-          <div>
-            <Row center="xs">
-              <Col>
-                <h1>Reset Your password</h1>
-              </Col>
-            </Row>
-            <input
-              type="password"
-              name="newPassword"
-              value={this.state.newPassword}
-              onChange={event => this.handleChange(event)}
-              placeholder="New Password"
-            />
-            <input
-              type="password"
-              name="confirmPassword"
-              value={this.state.confirmPassword}
-              onChange={event => this.handleChangePass(event)}
-              placeholder="Confirm Password"
-            />
-            <Row center="xs">
-              <Col>
-                <button className="button" onClick={() => this.handleSubmit()}>
-                  SignIn
-                </button>
-                <Link to="/signIn">SignIn</Link>
-              </Col>
-            </Row>
-          </div>
-        </Col>
-      </Row>
+       <div className="col-md-4 col-md-offset-4">
+       <MDBContainer>
+         <h1 ><br/>Reset Your Password</h1>
+       
+        <MDBRow  >
+            <MDBCol md="9">
+              <MDBInput
+                type="password"
+                name="newPassword"
+                value={this.state.newPassword}
+                onChange={event => this.handleChange(event)}
+                 label="New Password"
+                 id="materialFormRegisterPassEx"
+                
+                required
+              >
+              </MDBInput>
+            </MDBCol>
+            </MDBRow>
+            <MDBRow  >
+            <MDBCol md="9">
+              <MDBInput
+                  type="password"
+                  name="confirmPassword"
+                  value={this.state.confirmPassword}
+                  onChange={event => this.handleChangePass(event)}
+                 label="Confirm Password"
+                 id="materialFormRegisterPhnEx"
+                
+                required
+              >
+              </MDBInput>
+            </MDBCol>
+            </MDBRow>
+             
+           <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+                Submit
+          </MDBBtn>  
+              <div  >
+              <Link to="/signIn">SignIn</Link>   
+            </div> 
+        </MDBContainer>
+       </div>      
       </div>
     );
   }

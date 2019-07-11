@@ -12,7 +12,9 @@ class Profile extends Component {
       email: '',
       mobile: '',
       category: '',
-      address: '',
+      city: '',
+      state:'',
+      zip:'',
       dob: '',
       blood_Group: '',
       language: '',
@@ -42,7 +44,9 @@ class Profile extends Component {
             email: data.data.email,
             mobile: data.data.phone,
             category: data.data.category,
-            address: data.data.address,
+            city: data.data.city,
+            state:data.data.state,
+            zip:data.data.zip,
             dob: data.data.date_of_birth,
             blood_Group: data.data.blood_Group,
             language: data.data.language,
@@ -82,8 +86,16 @@ class Profile extends Component {
             <td>{this.state.category}</td>
           </tr>
           <tr>
-            <td>Address :</td>
-            <td>{this.state.address}</td>
+            <td>City :</td>
+            <td>{this.state.city}</td>
+          </tr>
+          <tr>
+            <td>State :</td>
+            <td>{this.state.state}</td>
+          </tr>
+          <tr>
+            <td>Zip Code:</td>
+            <td>{this.state.zip}</td>
           </tr>
           <tr>
             <td>Date Of Birth :</td>

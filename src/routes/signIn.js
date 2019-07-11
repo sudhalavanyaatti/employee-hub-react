@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Header from '../components/header';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 import 'mdbreact/dist/css/mdb.css';
+import "../App.css";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -71,7 +72,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div   >
+      <div className="signinbg"  >
          <Header />
         <div className="col-md-4 col-md-offset-4" >
        <MDBContainer>
@@ -79,7 +80,7 @@ class SignIn extends React.Component {
           <h1 align="center">Login Here</h1>
           
           <MDBRow  >
-            <MDBCol md="10">
+            <MDBCol md="11">
               <MDBInput
                  type="tel"
                  name="phone"
@@ -96,7 +97,7 @@ class SignIn extends React.Component {
             </MDBCol>
             </MDBRow>
             <MDBRow>
-            <MDBCol md="10">
+            <MDBCol md="11">
               <MDBInput
                 type="password"
                 name="password"
@@ -109,9 +110,9 @@ class SignIn extends React.Component {
               </MDBInput>
             </MDBCol>
           </MDBRow>
-       <div class="col-md-3 col-md-offset-4">
+       <div align="center">
            
-       <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+       <MDBBtn color="success"  type="submit"  onClick={() => this.handleSubmit() }>
             Submit
           </MDBBtn>  
               
