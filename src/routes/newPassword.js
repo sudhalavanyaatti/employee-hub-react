@@ -59,7 +59,7 @@ class NewPassword extends React.Component {
 
   render() {
     return (
-      <div >
+      <div className="newpassbg">
         <Header/>
        <div className="col-md-4 col-md-offset-4">
        <MDBContainer>

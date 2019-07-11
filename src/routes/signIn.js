@@ -72,7 +72,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div className="signinbg"  >
+      <div className="signupbg">
          <Header />
         <div className="col-md-4 col-md-offset-4" >
        <MDBContainer>

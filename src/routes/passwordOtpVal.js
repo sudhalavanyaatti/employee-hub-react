@@ -62,7 +62,7 @@ class PassOtpValidation extends Component {
   }
   render() {
     return (
-      <div >
+      <div className="passwordbg">
         <Header />
         <div className="col-md-4 col-md-offset-4" >
         <MDBContainer>  

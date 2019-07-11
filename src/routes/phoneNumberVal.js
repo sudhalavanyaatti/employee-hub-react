@@ -36,7 +36,7 @@ class NumberVal extends Component {
   }
   render() {
     return (
-      <div >
+      <div className="phnobg">
         <Header />
         <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
