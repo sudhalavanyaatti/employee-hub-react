@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
+//import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
-import '../App.css';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'mdbreact/dist/css/mdb.css';
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -70,61 +71,61 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div className="signinbg">
-        <Header />
-
-        <Row>
-          <Col
-            lgOffset={7}
-            lg={3}
-            mdOffset={6}
-            md={4}
-            smOffset={4}
-            sm={4}
-            xsOffset={1}
-            xs={10}
-          >
-            <div>
-              <Row center="xs">
-                <Col>
-                  <h1>Login Here</h1>
-                </Col>
-              </Row>
-              <input
-                type="tel"
-                name="phone"
-                maxLength="10"
-                minLength="10"
-                value={this.state.phone}
-                onChange={event => this.handleChange(event)}
-                placeholder="Mobile Number"
+      <div   >
+         <Header />
+        <div className="col-md-4 col-md-offset-4" >
+       <MDBContainer>
+        
+          <h1 align="center">Login Here</h1>
+          
+          <MDBRow  >
+            <MDBCol md="10">
+              <MDBInput
+                 type="tel"
+                 name="phone"
+                 maxLength="10"
+                 minLength="10"
+                 value={this.state.phone}
+                 onChange={event => this.handleChange(event)}
+                 label="Phone no:"
+                 id="materialFormRegisterPhnEx"
+                
                 required
-              />
-              <input
+              >
+              </MDBInput>
+            </MDBCol>
+            </MDBRow>
+            <MDBRow>
+            <MDBCol md="10">
+              <MDBInput
                 type="password"
                 name="password"
                 value={this.state.password}
                 onChange={event => this.handleChangePass(event)}
-                placeholder="Password"
+                id="materialFormRegisterPasswordEx2"
+                label="Password:"
                 required
-              />
-              <Row center="xs">
-                <Col>
-                  <button
-                    className="button"
-                    onClick={() => this.handleSubmit()}
-                  >
-                    SignIn
-                  </button>
-                  <Link to="/forgotPassword">Forgot Password ?</Link>
+              >
+              </MDBInput>
+            </MDBCol>
+          </MDBRow>
+       <div class="col-md-3 col-md-offset-4">
+           
+       <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+            Submit
+          </MDBBtn>  
+              
+         </div>    
+  
+       <div  align="center">
+       <Link to="/forgotPassword">Forgot Password ?</Link>
                   <p>Create an account?</p>
                   <Link to="/signup">Signup</Link>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
+       </div>
+       </MDBContainer>
+        </div>
       </div>
+      
     );
   }
 }
