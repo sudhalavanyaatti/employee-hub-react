@@ -1,15 +1,16 @@
 import React from 'react';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import Select from 'react-select';
+import options from '../components/category';
 import '../App.css';
-
 class Update_Details extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       id: '',
       fullName: '',
-      //gender:'',
+      gender: '',
       email: '',
       category: '',
       phone: '',
@@ -21,6 +22,7 @@ class Update_Details extends React.Component {
       experience: ''
     };
   }
+
   componentDidMount() {
     const data = {
       token: localStorage.getItem('token')
@@ -40,7 +42,7 @@ class Update_Details extends React.Component {
           this.setState({
             id: data.data._id,
             fullName: data.data.fullName,
-            //gender: data.data.gender,
+            gender: data.data.gender,
             email: data.data.email,
             phone: data.data.phone,
             category: data.data.category,
@@ -60,20 +62,14 @@ class Update_Details extends React.Component {
       fullName: event.target.value
     });
   }
-  //   handleChangeGender(event) {
-  //     this.setState({
-  //       gender: event.target.value
-  //     });
-  //   }
+  handleChangeGender(event) {
+    this.setState({
+      gender: event.target.value
+    });
+  }
   handleChangeEmail(event) {
     this.setState({
       email: event.target.value
-    });
-  }
-
-  handleChangeCategory(event) {
-    this.setState({
-      category: event.target.value
     });
   }
   handleChangeNumber(event) {
@@ -108,15 +104,19 @@ class Update_Details extends React.Component {
     });
   }
 
+  handleChange(event) {
+    this.setState({category: event});
+  }
+
   async handleSubmit(event) {
     //  event.preventDefault();
     const data = {
       id: this.state.id,
       fullName: this.state.fullName,
-      //gender: this.state.gender,
+      gender: this.state.gender,
       email: this.state.email,
       phone: this.state.phone,
-      category: this.state.category,
+      category: this.state.category.value,
       address: this.state.address,
       date_of_birth: this.state.dob,
       blood_Group: this.state.blood_Group,
@@ -135,14 +135,15 @@ class Update_Details extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-          if(data){
-        console.log(data);
-        alert('Details Updated successfully...!');
-        this.props.history.push('/profile');
-          }
+        if (data) {
+          console.log(data);
+          alert('Details Updated successfully...!');
+          this.props.history.push('/profile');
+        }
       });
   }
   render() {
+    console.log('gfdh', {options});
     return (
       <div className="profilebg">
         <Header />
@@ -151,9 +152,9 @@ class Update_Details extends React.Component {
           <h1>Update Your Details</h1>
 
           <Col
-            lgOffset={1}
+            lgOffset={3}
             lg={3}
-            mdOffset={3}
+            mdOffset={1}
             md={4}
             smOffset={4}
             sm={4}
@@ -170,21 +171,38 @@ class Update_Details extends React.Component {
               />
               <br />
               <input
+                type="radio"
+                name="gender"
+                value="Male"
+                onClick={this.state.gender === 'Male'}
+                onChange={event => this.handleChangeGender(event)}
+                required
+              />
+              Male
+              <input
+                type="radio"
+                name="gender"
+                value="Female"
+                onClick={this.state.gender === 'Female'}
+                onChange={event => this.handleChangeGender(event)}
+                required
+              />
+              Female
+              <br />
+              <input
                 type="email"
                 name="email"
                 value={this.state.email}
                 onChange={event => this.handleChangeEmail(event)}
-                required
+                disabled
               />
-              <br />
-              <input
-                type="text"
-                name="category"
+              <Select
+                options={options}
                 value={this.state.category}
-                onChange={event => this.handleChangeCategory(event)}
-                required
+                name="category"
+                placeholder="Select Category"
+                onChange={event => this.handleChange(event)}
               />
-              <br />
               <input
                 type="tel"
                 name="phone"
@@ -194,52 +212,44 @@ class Update_Details extends React.Component {
                 onChange={event => this.handleChangeNumber(event)}
                 disabled
               />
-              <br />
-              <div>
-                <input type="text" value={this.state.address} required />
-                <br />
-                <input
-                  type="date"
-                  name="dob"
-                  value={this.state.dob}
-                  onChange={event => this.handleChangeDob(event)}
-                  required
-                />
-                <br />
-                <input
-                  type="text"
-                  name="language"
-                  value={this.state.language}
-                  onChange={event => this.handleChangeLanguage(event)}
-                  required
-                />
-                <br />
-                <input
-                  type="text"
-                  name="blood_Group"
-                  value={this.state.blood_Group}
-                  onChange={event => this.handleChangeblood_Group(event)}
-                  required
-                />
-                <br />
-                <input
-                  type="text"
-                  name="companyName"
-                  value={this.state.companyName}
-                  onChange={event => this.handleChangeCompanyName(event)}
-                  required
-                />
-                <br />
-                <input
-                  type="tel"
-                  name="experience"
-                  maxLength="2"
-                  minLength="1"
-                  value={this.state.experience}
-                  onChange={event => this.handleChangeExperience(event)}
-                  required
-                />
-              </div>
+              <input type="text" value={this.state.address} required />
+              <input
+                type="date"
+                name="dob"
+                value={this.state.dob}
+                onChange={event => this.handleChangeDob(event)}
+                required
+              />
+              <input
+                type="text"
+                name="language"
+                value={this.state.language}
+                onChange={event => this.handleChangeLanguage(event)}
+                required
+              />
+              <input
+                type="text"
+                name="blood_Group"
+                value={this.state.blood_Group}
+                onChange={event => this.handleChangeblood_Group(event)}
+                required
+              />
+              <input
+                type="text"
+                name="companyName"
+                value={this.state.companyName}
+                onChange={event => this.handleChangeCompanyName(event)}
+                required
+              />
+              <input
+                type="tel"
+                name="experience"
+                maxLength="2"
+                minLength="1"
+                value={this.state.experience}
+                onChange={event => this.handleChangeExperience(event)}
+                required
+              />
               <Row center="xs">
                 <Col>
                   <button

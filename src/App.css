@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  background: url("../src/images/Employee-Hub.jpg") no-repeat center center
-    fixed;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  display: flex;
-
-  font-size: calc(10px + 2vmin);
-}
 
 .App-header {
   background-color: #282c34;
@@ -58,7 +47,7 @@
       }
       .profilebg {
         background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
-        height: 100vh;
+        height: 130vh;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

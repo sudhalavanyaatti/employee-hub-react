@@ -17,7 +17,8 @@ class Profile extends Component {
       blood_Group: '',
       language: '',
       companyName: '',
-      experience: ''
+      experience: '',
+      join: ''
     };
   }
   componentDidMount() {
@@ -47,7 +48,8 @@ class Profile extends Component {
             blood_Group: data.data.blood_Group,
             language: data.data.language,
             companyName: data.data.company_name,
-            experience: data.data.experience
+            experience: data.data.experience,
+            join: data.data.join_date
           });
         }
       });
@@ -104,6 +106,10 @@ class Profile extends Component {
           <tr>
             <td>Experience :</td>
             <td>{this.state.experience}</td>
+          </tr>
+          <tr>
+            <td>Date of Join :</td>
+            <td>{this.state.join}</td>
           </tr>
         </table>
         <Row center="xs">

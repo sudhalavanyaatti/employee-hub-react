@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import Script from "react-load-script";
+import Select from 'react-select';
+import options from '../components/category';
 import '../App.css';
 
 class Signup extends React.Component {
@@ -84,9 +86,7 @@ class Signup extends React.Component {
   }
 
   handleChangeCategory(event) {
-    this.setState({
-      category: event.target.value
-    });
+    this.setState({category: event});
   }
   handleChangeNumber(event) {
     this.setState({
@@ -118,9 +118,11 @@ class Signup extends React.Component {
     })
       .then(res => res.json())
       .then(response => {
+        console.log(response);
         if (response.message !== 'success') {
-          alert('Try with another email');
+          alert('Mobile number already exists');
         }
+        else
         this.props.history.push('/otpVal', {phone: this.state.phone});
       });
     //this.props.history.push("/otpVal", { phone: this.state.phone });
@@ -173,15 +175,13 @@ class Signup extends React.Component {
               placeholder="Enter your Password"
               required
             />
-            <br />
-            <input
-              type="text"
-              name="category"
-              value={this.state.category}
-              onChange={event => this.handleChangeCategory(event)}
-              placeholder="Enter your Category"
-              required
-            />
+              <Select
+                options={options}
+                value={this.state.category}
+                name="category"
+                placeholder="Select Category"
+                onChange={event => this.handleChangeCategory(event)}
+              />
             <br />
             <input
               type="tel"
