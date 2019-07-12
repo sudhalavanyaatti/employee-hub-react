@@ -66,7 +66,7 @@ class PassOtpValidation extends Component {
         <Header />
         <div className="col-md-4 col-md-offset-4" >
         <MDBContainer>  
-        <h1><br/>Password OTP</h1>
+        <h1><br/><strong>Password OTP</strong></h1>
         <MDBRow>
              <MDBCol md="9">
              <MDBInput
@@ -82,10 +82,10 @@ class PassOtpValidation extends Component {
               </MDBInput>
              </MDBCol>
            </MDBRow>
-           <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+           <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
               </MDBBtn>  
-              <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmitresend()}>
+              <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmitresend()}>
                 Resend OTP
               </MDBBtn>          
         </MDBContainer>

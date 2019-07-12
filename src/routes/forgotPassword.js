@@ -43,7 +43,7 @@ class ForgotPassword extends Component {
 
        <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
-        <h1><br/>Forgot Password?</h1>
+        <h1><br/><strong>Forgot Password?</strong></h1>
           <MDBRow>
           <MDBCol md="8">
           <MDBInput
@@ -61,11 +61,11 @@ class ForgotPassword extends Component {
               </MDBInput>
           </MDBCol>
           </MDBRow>
-           <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+           <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
           </MDBBtn>  
             <div  >
-              <Link to="/signIn">SignIn</Link>   
+              <Link to="/signIn"><strong>SignIn</strong></Link>   
             </div> 
         </MDBContainer>
        </div>

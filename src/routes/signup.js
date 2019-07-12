@@ -119,12 +119,12 @@ class Signup extends React.Component {
   }
   render() {
     return (
-      <div >
+      <div  className="signinbg" >
         <Header/>
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
             
-              <h1 align="center">Register Here</h1>
+              <h1 align="center"><strong>Register Here</strong></h1>
               <MDBRow>
                 <MDBCol md="6">
                   <MDBInput
@@ -132,20 +132,20 @@ class Signup extends React.Component {
                     name="name"
                     value={this.state.fullName}
                     onChange={event => this.handleChangeFullname(event)}
-                    label="Full Name"
+                    label="Full Name:"
                     id="materialFormRegisterNameEx"
                     required
                   />
                 </MDBCol>
                 <MDBCol md="6">
                 <Select
-                options={options}
-                value={this.state.category}
-                name="category"
-                placeholder="Select Category"
-                onChange={event => this.handleChangeCategory(event)}
-                    label="Category"
-                    required
+                   options={options}
+                   type="text"
+                   value={this.state.category}
+                   name="category"
+                   onChange={event => this.handleChangeCategory(event)}
+                       label="Category:"
+                       required
                   />
                 </MDBCol>
               </MDBRow>
@@ -157,7 +157,7 @@ class Signup extends React.Component {
                     value={this.state.email}
                     onChange={event => this.handleChangeEmail(event)}
                     id="materialFormRegisterEmailEx2"
-                    label="Email"
+                    label="Email:"
                     required
                   />
                 </MDBCol>
@@ -170,7 +170,7 @@ class Signup extends React.Component {
                     value={this.state.phone}
                     onChange={event => this.handleChangeNumber(event)}
                     id="materialFormRegisterPhnEx2"
-                    label="Phone "
+                    label="Phone: "
                     required
                   />
                 </MDBCol>
@@ -183,7 +183,7 @@ class Signup extends React.Component {
                     value={this.state.password}
                     onChange={event => this.handleChangePass(event)}
                     id="materialFormRegisterPasswordEx2"
-                    label="Password"
+                    label="Password:"
                     required
                   />
                 </MDBCol>
@@ -194,7 +194,7 @@ class Signup extends React.Component {
                     value={this.state.city}
                     onChange={event => this.handleChangeCity(event)}
                     id="materialFormRegisterCityEx2"
-                    label="City"
+                    label="City:"
                     required
                   />
                 </MDBCol>
@@ -207,7 +207,7 @@ class Signup extends React.Component {
                     id="materialFormRegisterZipEx2"
                     value={this.state.zip}
                     onChange={event => this.handleChangeZip(event)}
-                    label="Zip"
+                    label="Zip:"
                     required
                   />
                 </MDBCol>
@@ -218,7 +218,7 @@ class Signup extends React.Component {
                     value={this.state.state}
                     onChange={event => this.handleChangeState(event)}
                     id="materialFormRegisterStateEx2"
-                    label="State"
+                    label="State:"
                     required
                   />
                 </MDBCol>
@@ -226,7 +226,7 @@ class Signup extends React.Component {
 
               <div align="center">
                 <MDBBtn
-                  color="success"
+                  gradient="blue"
                   type="submit"
                   onClick={() => this.handleSubmit()}
                 >
@@ -234,8 +234,8 @@ class Signup extends React.Component {
                 </MDBBtn>
               </div>
             <div align="center">
-              <p>You have account??</p>
-              <Link to="/signIn">SignIn</Link>
+              <p><h3>You have account??</h3></p>
+              <Link to="/signIn"><strong>SignIn</strong></Link>
             </div>
           </MDBContainer>
         </div>

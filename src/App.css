@@ -24,7 +24,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   }
- .signupbg,.signinbg,.forgotPasswordbg,.newpassbg{
+ .signupbg,.signinbg,.forgotpasswordbg,.newpassbg{
     background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
     height: 100vh;
     background-position: center;
@@ -40,7 +40,7 @@
       }
       .profilebg,.updatebg {
         background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
-        height: 135vh;
+        height: 141vh;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

@@ -77,7 +77,7 @@ class SignIn extends React.Component {
         <div className="col-md-4 col-md-offset-4" >
        <MDBContainer>
         
-          <h1 align="center">Login Here</h1>
+          <h1 align="center"><strong>Login Here</strong></h1>
           
           <MDBRow  >
             <MDBCol md="11">
@@ -112,16 +112,16 @@ class SignIn extends React.Component {
           </MDBRow>
        <div align="center">
            
-       <MDBBtn color="success"  type="submit"  onClick={() => this.handleSubmit() }>
+       <MDBBtn gradient="blue"  type="submit"  onClick={() => this.handleSubmit() }>
             Submit
           </MDBBtn>  
               
          </div>    
   
        <div  align="center">
-       <Link to="/forgotPassword">Forgot Password ?</Link>
-                  <p>Create an account?</p>
-                  <Link to="/signup">Signup</Link>
+       <Link to="/forgotPassword"><strong>Forgot Password ?</strong></Link>
+                  <p><h3>Create an account?</h3></p>
+                  <Link to="/signup"><strong>Signup</strong></Link>
        </div>
        </MDBContainer>
         </div>

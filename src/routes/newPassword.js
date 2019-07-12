@@ -63,7 +63,7 @@ class NewPassword extends React.Component {
         <Header/>
        <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
-         <h1 ><br/>Reset Your Password</h1>
+         <h1 ><br/><strong>Reset Your Password</strong></h1>
        
         <MDBRow  >
             <MDBCol md="9">
@@ -95,12 +95,11 @@ class NewPassword extends React.Component {
               </MDBInput>
             </MDBCol>
             </MDBRow>
-             
-           <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+           <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
-          </MDBBtn>  
-              <div  >
-              <Link to="/signIn">SignIn</Link>   
+          </MDBBtn> 
+              <div>
+              <Link to="/signIn"><strong>SignIn</strong></Link>   
             </div> 
         </MDBContainer>
        </div>      

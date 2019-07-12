@@ -68,59 +68,59 @@ class Profile extends Component {
         <Header />
         <table>
           <tr>
-            <td>Name :</td>
+            <td><strong>Name :</strong></td>
             <td>{this.state.name}</td>
           </tr>
           <tr>
-            <td>Gender :</td>
+            <td><strong>Gender :</strong></td>
             <td>{this.state.gender}</td>
           </tr>
           <tr>
-            <td>Email :</td>
+            <td><strong>Email :</strong></td>
             <td>{this.state.email}</td>
           </tr>
           <tr>
-            <td>Mobile :</td>
+            <td><strong>Mobile :</strong></td>
             <td>{this.state.mobile}</td>
           </tr>
           <tr>
-            <td>Category :</td>
+            <td><strong>Category :</strong></td>
             <td>{this.state.category}</td>
           </tr>
           <tr>
-            <td>City :</td>
+            <td><strong>City :</strong></td>
             <td>{this.state.city}</td>
           </tr>
           <tr>
-            <td>State :</td>
+            <td><strong>State :</strong></td>
             <td>{this.state.state}</td>
           </tr>
           <tr>
-            <td>Zip Code:</td>
+            <td><strong>Zip Code:</strong></td>
             <td>{this.state.zip}</td>
           </tr>
           <tr>
-            <td>Date Of Birth :</td>
+            <td><strong>Date Of Birth :</strong></td>
             <td>{this.state.dob}</td>
           </tr>
           <tr>
-            <td>Blood Group :</td>
+            <td><strong>Blood Group :</strong></td>
             <td>{this.state.blood_Group}</td>
           </tr>
           <tr>
-            <td>Languages :</td>
+            <td><strong>Languages :</strong></td>
             <td>{this.state.language}</td>
           </tr>
           <tr>
-            <td>Company Name :</td>
+            <td><strong>Company Name :</strong></td>
             <td>{this.state.companyName}</td>
           </tr>
           <tr>
-            <td>Experience :</td>
+            <td><strong>Experience :</strong></td>
             <td>{this.state.experience}</td>
           </tr>
           <tr>
-            <td>Date of Join :</td>
+            <td><strong>Date of Join :</strong></td>
             <td>{this.state.join}</td>
           </tr>
         </table>

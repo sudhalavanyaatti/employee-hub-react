@@ -63,7 +63,7 @@ class Otp extends Component {
         <Header />
         <div className="col-md-4 col-md-offset-4" >
         <MDBContainer >
-        <h1> <br/>Enter your OTP</h1>
+        <h1> <br/><strong>Enter your OTP</strong></h1>
            <MDBRow>
              <MDBCol md="9">
              <MDBInput
@@ -81,10 +81,10 @@ class Otp extends Component {
            </MDBRow>
            <div >
            
-           <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+           <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
               </MDBBtn>  
-              <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmitresend()}>
+              <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmitresend()}>
                 Resend OTP
               </MDBBtn>                    
              </div>    

@@ -40,7 +40,7 @@ class NumberVal extends Component {
         <Header />
         <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
-       <h1><br/>Enter Mobile No.</h1>
+       <h1><br/><strong>Enter Mobile No.</strong></h1>
        <MDBRow>
           <MDBCol md="8">
           <MDBInput
@@ -58,7 +58,7 @@ class NumberVal extends Component {
               </MDBInput>
           </MDBCol>
           </MDBRow>
-          <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+          <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
           </MDBBtn>  
        </MDBContainer>
