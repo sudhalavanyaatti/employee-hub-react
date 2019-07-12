@@ -1,8 +1,10 @@
 import React from 'react';
-import {Row, Col} from 'react-flexbox-grid';
+//import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import Select from 'react-select';
 import options from '../components/category';
+import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
+import 'mdbreact/dist/css/mdb.css';
 import '../App.css';
 class Update_Details extends React.Component {
   constructor(props) {
@@ -14,7 +16,9 @@ class Update_Details extends React.Component {
       email: '',
       category: '',
       phone: '',
-      address: '',
+      city: '',
+      zip: '',
+      state: '',
       dob: '',
       blood_Group: '',
       language: '',
@@ -46,7 +50,9 @@ class Update_Details extends React.Component {
             email: data.data.email,
             phone: data.data.phone,
             category: data.data.category,
-            address: data.data.address,
+            city: data.data.city,
+            state: data.data.state,
+            zip: data.data.zip,
             dob: data.data.date_of_birth,
             blood_Group: data.data.blood_Group,
             language: data.data.language,
@@ -103,8 +109,23 @@ class Update_Details extends React.Component {
       experience: event.target.value
     });
   }
+  handleChangeCity(event) {
+    this.setState({
+      city: event.target.value
+    });
+  }
+  handleChangeState(event) {
+    this.setState({
+      state: event.target.value
+    });
+  }
+  handleChangeZip(event) {
+    this.setState({
+      zip: event.target.value
+    });
+  }
 
-  handleChange(event) {
+  handleChangeCategory(event) {
     this.setState({category: event});
   }
 
@@ -117,7 +138,9 @@ class Update_Details extends React.Component {
       email: this.state.email,
       phone: this.state.phone,
       category: this.state.category.value,
-      address: this.state.address,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip,
       date_of_birth: this.state.dob,
       blood_Group: this.state.blood_Group,
       language: this.state.language,
@@ -145,124 +168,196 @@ class Update_Details extends React.Component {
   render() {
     console.log('gfdh', {options});
     return (
-      <div className="profilebg">
+      <div className="updatebg">
         <Header />
+        <div className="col-md-4 col-md-offset-4">
+          <MDBContainer>
+            <form>
+              <h1 align="center">Update Your Details</h1>
+              <MDBRow>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="text"
+                    name="name"
+                    value={this.state.fullName}
+                    onChange={event => this.handleChangeFullname(event)}
+                    label="Full Name"
+                    id="materialFormRegisterNameEx"
+                    required
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="radio"
+                    name="gender"
+                    value="Male"
+                    onClick={this.state.gender === 'Male'}
+                    onChange={event => this.handleChangeGender(event)}
+                    label="Male"
+                    id="materialFormRegisterNameEx"
+                    required
+                  />
+                  <MDBInput
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  onClick={this.state.gender === 'Female'}
+                  onChange={event => this.handleChangeGender(event)}
+                    label="Female"
+                    id="materialFormRegisterNameEx"
+                    required
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <Select
+                    options={options}
+                    value={this.state.category}
+                    name="category"
+                    placeholder="Select Category"
+                    onChange={event => this.handleChangeCategory(event)}
+                    label="Category"
+                    id="materialFormRegisterNameEx"
+                    required
+                  />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={event => this.handleChangeEmail(event)}
+                    label="Email"
+                    id="materialFormRegisterEmailEx2"
+                    required
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="tel"
+                    name="phone"
+                    maxLength="10"
+                    minLength="10"
+                    value={this.state.phone}
+                    onChange={event => this.handleChangeNumber(event)}
+                    label="Phone "
+                    id="materialFormRegisterPhnEx2"
+                    required
+                  />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="tel"
+                    name="experience"
+                    maxLength="2"
+                    minLength="1"
+                    value={this.state.experience}
+                    onChange={event => this.handleChangeExperience(event)}
+                    label="Experience"
+                    id="materialFormRegisterExperienceEx2"
+                    required
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <MDBInput
+                    name="city"
+                    type="text"
+                    value={this.state.city}
+                    onChange={event => this.handleChangeCity(event)}
+                    label="City"
+                    id="materialFormRegisterCityEx2"
+                    required
+                  />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="text"
+                    name="zip"
+                    value={this.state.zip}
+                    onChange={event => this.handleChangeZip(event)}
+                    label="Zip"
+                    id="materialFormRegisterZipEx2"
+                    required
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <MDBInput
+                    name="state"
+                    type="text"
+                    value={this.state.state}
+                    onChange={event => this.handleChangeState(event)}
+                    label="State"
+                    id="materialFormRegisterStateEx2"
+                    required
+                  />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="date"
+                    name="dob"
+                    value={this.state.dob}
+                    onChange={event => this.handleChangeDob(event)}
+                    label="D.O.B"
+                    id="materialFormRegisterDobEx2"
+                    required
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="text"
+                    name="language"
+                    value={this.state.language}
+                    onChange={event => this.handleChangeLanguage(event)}
+                    label="Language"
+                    id="materialFormRegisterLanguageEx2"
+                    required
+                  />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="text"
+                    name="blood_Group"
+                    value={this.state.blood_Group}
+                    onChange={event => this.handleChangeblood_Group(event)}
+                    label="Blood group"
+                    id="materialFormRegisterBGEx"
+                    required
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <MDBInput
+                    type="text"
+                    name="companyName"
+                    value={this.state.companyName}
+                    onChange={event => this.handleChangeCompanyName(event)}
+                    id="materialFormRegisterCompanyEx2"
+                    label="Company name"
+                    required
+                  />
+                </MDBCol>
+              </MDBRow>
 
-        <Row center="xs">
-          <h1>Update Your Details</h1>
-
-          <Col
-            lgOffset={3}
-            lg={3}
-            mdOffset={1}
-            md={4}
-            smOffset={4}
-            sm={4}
-            xsOffset={1}
-            xs={10}
-          >
-            <div>
-              <input
-                type="text"
-                name="name"
-                value={this.state.fullName}
-                onChange={event => this.handleChangeFullname(event)}
-                required
-              />
-              <br />
-              <input
-                type="radio"
-                name="gender"
-                value="Male"
-                onClick={this.state.gender === 'Male'}
-                onChange={event => this.handleChangeGender(event)}
-                required
-              />
-              Male
-              <input
-                type="radio"
-                name="gender"
-                value="Female"
-                onClick={this.state.gender === 'Female'}
-                onChange={event => this.handleChangeGender(event)}
-                required
-              />
-              Female
-              <br />
-              <input
-                type="email"
-                name="email"
-                value={this.state.email}
-                onChange={event => this.handleChangeEmail(event)}
-                disabled
-              />
-              <Select
-                options={options}
-                value={this.state.category}
-                name="category"
-                placeholder="Select Category"
-                onChange={event => this.handleChange(event)}
-              />
-              <input
-                type="tel"
-                name="phone"
-                maxLength="10"
-                minLength="10"
-                value={this.state.phone}
-                onChange={event => this.handleChangeNumber(event)}
-                disabled
-              />
-              <input type="text" value={this.state.address} required />
-              <input
-                type="date"
-                name="dob"
-                value={this.state.dob}
-                onChange={event => this.handleChangeDob(event)}
-                required
-              />
-              <input
-                type="text"
-                name="language"
-                value={this.state.language}
-                onChange={event => this.handleChangeLanguage(event)}
-                required
-              />
-              <input
-                type="text"
-                name="blood_Group"
-                value={this.state.blood_Group}
-                onChange={event => this.handleChangeblood_Group(event)}
-                required
-              />
-              <input
-                type="text"
-                name="companyName"
-                value={this.state.companyName}
-                onChange={event => this.handleChangeCompanyName(event)}
-                required
-              />
-              <input
-                type="tel"
-                name="experience"
-                maxLength="2"
-                minLength="1"
-                value={this.state.experience}
-                onChange={event => this.handleChangeExperience(event)}
-                required
-              />
-              <Row center="xs">
-                <Col>
-                  <button
-                    className="button"
-                    onClick={event => this.handleSubmit(event)}
-                  >
-                    Save
-                  </button>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
+              <div align="center">
+                <MDBBtn
+                  color="success"
+                  type="submit"
+                  onClick={() => this.handleSubmit()}
+                >
+                  Submit
+                </MDBBtn>
+              </div>
+            </form>
+          </MDBContainer>
+        </div>
       </div>
     );
   }

@@ -24,15 +24,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   }
-.signupbg {
-  background-image: url("https://images.pexels.com/photos/1906440/pexels-photo-1906440.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-  .signinbg {
-    background-image: url("https://images.pexels.com/photos/1007026/pexels-photo-1007026.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+ .signupbg,.signinbg,.forgotPasswordbg,.newpassbg{
+    background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -45,9 +38,9 @@
       background-repeat: no-repeat;
       background-size:cover;
       }
-      .profilebg {
+      .profilebg,.updatebg {
         background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
-        height: 130vh;
+        height: 135vh;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -59,17 +52,12 @@
           background-repeat: no-repeat;
           background-size:cover;
           }   
-          .passwordbg,.phnobg,.forgotpasswordbg,.otpvalbg {
+          .passwordbg,.phnobg,.otpvalbg{
             background-image: url("https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
             height: 100vh;
             background-position: center;
             background-repeat: no-repeat;
             background-size:cover;
             }   
-            .newpasswordbg {
-              background-image: url("https://images.pexels.com/photos/1496139/pexels-photo-1496139.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
-              height: 100vh;
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size:cover;
-              }   
+            
+              

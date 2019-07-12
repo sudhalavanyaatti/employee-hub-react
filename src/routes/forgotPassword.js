@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
+//import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
 class ForgotPassword extends Component {
@@ -38,30 +40,35 @@ class ForgotPassword extends Component {
     return (
       <div className="forgotpasswordbg">
         <Header />
-        <Row center="xs">
-          <Col xs={3}>
-            <Row center="xs">
-              <Col>
-                <h1>Forgot Password</h1>
-              </Col>
-            </Row>
-            <input
-              type="tel"
-              name="phone"
-              value={this.state.phone}
-              onChange={event => this.handleChangephone(event)}
-              placeholder="Enter your Mobile Number"
-            />
-            <br />
-            <br />
-            <button className="button" onClick={() => this.handleSubmit()}>
-              Submit
-            </button>
-            <br />
-            <br />
-            <Link to="/signIn">SignIn</Link>
-          </Col>
-        </Row>
+
+       <div className="col-md-4 col-md-offset-4">
+       <MDBContainer>
+        <h1><br/>Forgot Password?</h1>
+          <MDBRow>
+          <MDBCol md="8">
+          <MDBInput
+                 type="tel"
+                 name="phone"
+                 maxLength="10"
+                 minLength="10"
+                 value={this.state.phone}
+                 onChange={event => this.handleChangephone(event)}
+                 label="Enter Your Mobile Number"
+                 id="materialFormRegisterPhnEx" 
+                 
+                required
+              >
+              </MDBInput>
+          </MDBCol>
+          </MDBRow>
+           <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+                Submit
+          </MDBBtn>  
+            <div  >
+              <Link to="/signIn">SignIn</Link>   
+            </div> 
+        </MDBContainer>
+       </div>
       </div>
     );
   }
