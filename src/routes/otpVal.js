@@ -2,6 +2,7 @@ import React, { Component } from "react";
 //import { Row, Col } from "react-flexbox-grid";
 import Header from '../components/header';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -74,6 +75,7 @@ class Otp extends Component {
                  value={this.state.otp}
                  onChange={event => this.handleChangeNumber(event)}
                  label="6 Digits OTP"
+                 icon="comment"
                  id="materialFormRegisterotpEx"              
               >
               </MDBInput>

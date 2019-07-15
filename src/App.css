@@ -24,8 +24,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   }
- .signupbg,.signinbg,.forgotpasswordbg,.newpassbg{
-    background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
+  .updatebg,.signupbg,.signinbg,.forgotpasswordbg,.newpassbg{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,15 +38,15 @@
       background-repeat: no-repeat;
       background-size:cover;
       }
-      .profilebg,.updatebg {
-        background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
+      .profilebg{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
         height: 141vh;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         }
         .detailsbg {
-          background-image: url("https://images.pexels.com/photos/1020320/pexels-photo-1020320.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+          background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
           height: 100vh;
           background-position: center;
           background-repeat: no-repeat;

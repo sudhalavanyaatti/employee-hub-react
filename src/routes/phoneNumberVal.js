@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -51,6 +52,7 @@ class NumberVal extends Component {
                  value={this.state.phone}
                  onChange={event => this.handleChangephone(event)}
                  label="Enter Your Mobile Number"
+                 icon="phone"
                  id="materialFormRegisterPhnEx" 
                  
                 required

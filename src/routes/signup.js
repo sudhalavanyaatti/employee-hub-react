@@ -2,11 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
-//import Script from "react-load-script";
-import Select from 'react-select';
+//import Select from 'react-select';
 import options from '../components/category';
 import '../App.css';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
+import 'font-awesome/css/font-awesome.min.css';
 import "mdbreact/dist/css/mdb.css";
 
 class Signup extends React.Component {
@@ -59,7 +59,7 @@ class Signup extends React.Component {
   }
 
   handleChangeCategory(event) {
-    this.setState({category: event});
+    this.setState({category: event.target.value});
   }
   handleChangeNumber(event) {
     this.setState({
@@ -133,19 +133,21 @@ class Signup extends React.Component {
                     value={this.state.fullName}
                     onChange={event => this.handleChangeFullname(event)}
                     label="Full Name:"
+                    icon="user"
                     id="materialFormRegisterNameEx"
                     required
                   />
                 </MDBCol>
                 <MDBCol md="6">
-                <Select
-                   options={options}
+                <MDBInput
+                   //options={options}
                    type="text"
                    value={this.state.category}
                    name="category"
                    onChange={event => this.handleChangeCategory(event)}
-                       label="Category:"
-                       required
+                   label="Category:"
+                   icon="th-large"
+                    required
                   />
                 </MDBCol>
               </MDBRow>
@@ -158,6 +160,7 @@ class Signup extends React.Component {
                     onChange={event => this.handleChangeEmail(event)}
                     id="materialFormRegisterEmailEx2"
                     label="Email:"
+                    icon="envelope"
                     required
                   />
                 </MDBCol>
@@ -171,6 +174,7 @@ class Signup extends React.Component {
                     onChange={event => this.handleChangeNumber(event)}
                     id="materialFormRegisterPhnEx2"
                     label="Phone: "
+                    icon="phone"
                     required
                   />
                 </MDBCol>
@@ -184,6 +188,7 @@ class Signup extends React.Component {
                     onChange={event => this.handleChangePass(event)}
                     id="materialFormRegisterPasswordEx2"
                     label="Password:"
+                    icon="lock"
                     required
                   />
                 </MDBCol>
@@ -195,6 +200,7 @@ class Signup extends React.Component {
                     onChange={event => this.handleChangeCity(event)}
                     id="materialFormRegisterCityEx2"
                     label="City:"
+                    icon="home"
                     required
                   />
                 </MDBCol>
@@ -208,6 +214,7 @@ class Signup extends React.Component {
                     value={this.state.zip}
                     onChange={event => this.handleChangeZip(event)}
                     label="Zip:"
+                    icon="file"
                     required
                   />
                 </MDBCol>
@@ -219,6 +226,7 @@ class Signup extends React.Component {
                     onChange={event => this.handleChangeState(event)}
                     id="materialFormRegisterStateEx2"
                     label="State:"
+                    icon="map-marker"
                     required
                   />
                 </MDBCol>

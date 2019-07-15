@@ -1,7 +1,7 @@
 import React from 'react';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
-import Select from 'react-select';
+//import Select from 'react-select';
 import options from '../components/category';
 import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
 import 'mdbreact/dist/css/mdb.css';
@@ -126,7 +126,7 @@ class Update_Details extends React.Component {
   }
 
   handleChangeCategory(event) {
-    this.setState({category: event});
+    this.setState({category: event.target.value});
   }
 
   async handleSubmit(event) {
@@ -182,6 +182,7 @@ class Update_Details extends React.Component {
                     value={this.state.fullName}
                     onChange={event => this.handleChangeFullname(event)}
                     label="Full Name"
+                    icon="user"
                     id="materialFormRegisterNameEx"
                     required
                   />    
@@ -193,6 +194,7 @@ class Update_Details extends React.Component {
                     value={this.state.email}
                     onChange={event => this.handleChangeEmail(event)}
                     label="Email"
+                    icon="envelope"
                     id="materialFormRegisterEmailEx2"
                     required
                   /> 
@@ -206,6 +208,7 @@ class Update_Details extends React.Component {
                     value={this.state.phone}
                     onChange={event => this.handleChangeNumber(event)}
                     label="Phone "
+                    icon="phone"
                     id="materialFormRegisterPhnEx2"
                     required
                   />
@@ -224,13 +227,14 @@ class Update_Details extends React.Component {
                     />
                   </MDBCol>
                    <MDBCol md="4">
-                   <Select
-                   options={options}
+                   <MDBInput
+                  // options={options}
                    value={this.state.category}
                     name="category"
                     placeholder="Select Category"
                    onChange={event => this.handleChangeCategory(event)}
                   label="Category"
+                  icon="th-large"
                    id="materialFormRegisterNameEx"
                   required
                    />
@@ -243,6 +247,7 @@ class Update_Details extends React.Component {
                         onChange={event => this.handleChangeCompanyName(event)}
                          id="materialFormRegisterCompanyEx2"
                         label="Company name"
+                        icon="building"
                         required
                        />
                    </MDBCol>
@@ -253,12 +258,13 @@ class Update_Details extends React.Component {
                     type="tel"
                      name="experience"
                      maxLength="2"
-                       minLength="1"
+                     minLength="1"
                      value={this.state.experience}
-                       onChange={event => this.handleChangeExperience(event)}
-                      label="Experience"
-                    id="materialFormRegisterExperienceEx2"
-                  required
+                     onChange={event => this.handleChangeExperience(event)}
+                     label="Experience"
+                     icon="exclamation"
+                     id="materialFormRegisterExperienceEx2"
+                     required
                     />
                    </MDBCol>
                    <MDBCol md="4">
@@ -268,6 +274,7 @@ class Update_Details extends React.Component {
                      value={this.state.language}
                      onChange={event => this.handleChangeLanguage(event)}
                      label="Language"
+                     icon="language"
                      id="materialFormRegisterLanguageEx2"
                     required
                     />
@@ -279,6 +286,7 @@ class Update_Details extends React.Component {
                      value={this.state.blood_Group}
                      onChange={event => this.handleChangeblood_Group(event)}
                      label="Blood group"
+                     icon="tint"
                       id="materialFormRegisterBGEx"
                      required
                       />
@@ -292,6 +300,7 @@ class Update_Details extends React.Component {
                      value={this.state.city}
                      onChange={event => this.handleChangeCity(event)}
                      label="City"
+                     icon="home"
                      id="materialFormRegisterCityEx2"
                      required
                   />
@@ -303,6 +312,7 @@ class Update_Details extends React.Component {
                      value={this.state.zip}
                       onChange={event => this.handleChangeZip(event)}
                        label="Zip"
+                       icon="file"
                      id="materialFormRegisterZipEx2"
                     required
                    />
@@ -314,17 +324,12 @@ class Update_Details extends React.Component {
                     value={this.state.state}
                     onChange={event => this.handleChangeState(event)}
                     label="State"
+                    icon="map-marker"
                     id="materialFormRegisterStateEx2"
                       required
                      />
                   </MDBCol>
                 </MDBRow>
-
-
-
-
-
-
                  <MDBRow>
                  <MDBCol md="4">
                    <MDBInput

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -81,7 +82,7 @@ class SignIn extends React.Component {
           
           <MDBRow  >
             <MDBCol md="11">
-              <MDBInput
+              <MDBInput    
                  type="tel"
                  name="phone"
                  maxLength="10"
@@ -89,6 +90,7 @@ class SignIn extends React.Component {
                  value={this.state.phone}
                  onChange={event => this.handleChange(event)}
                  label="Phone no:"
+                 icon="phone"
                  id="materialFormRegisterPhnEx"
                 
                 required
@@ -105,6 +107,7 @@ class SignIn extends React.Component {
                 onChange={event => this.handleChangePass(event)}
                 id="materialFormRegisterPasswordEx2"
                 label="Password:"
+                icon="lock"
                 required
               >
               </MDBInput>

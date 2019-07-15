@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -73,6 +74,7 @@ class NewPassword extends React.Component {
                 value={this.state.newPassword}
                 onChange={event => this.handleChange(event)}
                  label="New Password"
+                 icon="lock"
                  id="materialFormRegisterPassEx"
                 
                 required
@@ -88,6 +90,7 @@ class NewPassword extends React.Component {
                   value={this.state.confirmPassword}
                   onChange={event => this.handleChangePass(event)}
                  label="Confirm Password"
+                 icon="lock"
                  id="materialFormRegisterPhnEx"
                 
                 required
