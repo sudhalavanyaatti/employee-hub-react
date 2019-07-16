@@ -30,8 +30,11 @@ class NumberVal extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        console.log(response);
+        console.log('gf',response);
+        if(response.response!=='null')
         this.props.history.push('/otpVal', {phone: this.state.phone});
+        else
+        alert('Enter valid number');
       });
   }
   render() {

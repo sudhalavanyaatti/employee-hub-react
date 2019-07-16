@@ -3,6 +3,8 @@ import React from 'react';
 import Header from '../components/header';
 import Select from 'react-select';
 import options from '../components/category';
+import axios from 'axios';
+//import btoa from 'btoa';
 import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
 import 'mdbreact/dist/css/mdb.css';
 import '../App.css';
@@ -23,7 +25,9 @@ class Update_Details extends React.Component {
       blood_Group: '',
       language: '',
       companyName: '',
-      experience: ''
+      experience: '',
+      profilePic: null,
+      photo: ''
     };
   }
 
@@ -129,8 +133,28 @@ class Update_Details extends React.Component {
     this.setState({category: event});
   }
 
+  onChangeHandler(event) {
+    this.setState(
+      {
+        profilePic: event.target.files[0]
+      },
+      () => {
+        const data = new FormData();
+        data.append('profilePic', this.state.profilePic);
+        data.append('id', this.state.id);
+        axios
+          .post('http://localhost:3001/update-photo', data, {})
+          .then(data => {
+            console.log(data.data.data.profilePic);
+            this.setState({
+              photo: data.data.data.profilePic
+            });
+          });
+      }
+    );
+  }
+
   async handleSubmit(event) {
-    //  event.preventDefault();
     const data = {
       id: this.state.id,
       fullName: this.state.fullName,
@@ -159,14 +183,12 @@ class Update_Details extends React.Component {
       .then(res => res.json())
       .then(data => {
         if (data) {
-          console.log(data);
           alert('Details Updated successfully...!');
           this.props.history.push('/profile');
         }
       });
   }
   render() {
-    console.log('gfdh', {options});
     return (
       <div className="updatebg">
         <Header />
@@ -198,11 +220,11 @@ class Update_Details extends React.Component {
                     required
                   />
                   <MDBInput
-                  type="radio"
-                  name="gender"
-                  value="Female"
-                  onClick={this.state.gender === 'Female'}
-                  onChange={event => this.handleChangeGender(event)}
+                    type="radio"
+                    name="gender"
+                    value="Female"
+                    onClick={this.state.gender === 'Female'}
+                    onChange={event => this.handleChangeGender(event)}
                     label="Female"
                     id="materialFormRegisterNameEx"
                     required
@@ -341,9 +363,15 @@ class Update_Details extends React.Component {
                     onChange={event => this.handleChangeCompanyName(event)}
                     id="materialFormRegisterCompanyEx2"
                     label="Company name"
-                    required
+                    requiredb64
                   />
                 </MDBCol>
+                <input
+                  type="file"
+                  name="profilePic"
+                  onChange={event => this.onChangeHandler(event)}
+                />
+                <img src={`${this.state.photo}`} alt='profile' height="60" width="90"/>
               </MDBRow>
 
               <div align="center">

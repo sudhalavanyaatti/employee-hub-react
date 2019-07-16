@@ -52,15 +52,17 @@ class SignIn extends React.Component {
       .then(data => {
         if(data.data)
         {
-        localStorage.setItem('token', data.token);
+        
         console.log('status', data.data.twilioStatus);
         if(data.data==='incorrect')
         alert('Invalid Login');
-       else if (!data.data.twilioStatus) {
+       else if (data.data==='statusFalse') {
           this.props.history.push('/phoneNumberVal');
         }
-        else
+        else{
+        localStorage.setItem('token', data.token);
         this.props.history.push('/details');
+        }
       }
       else{
         alert('You are not Registered..!');

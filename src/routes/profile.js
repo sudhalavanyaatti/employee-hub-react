@@ -20,7 +20,8 @@ class Profile extends Component {
       language: '',
       companyName: '',
       experience: '',
-      join: ''
+      join: '',
+      profilePic:''
     };
   }
   componentDidMount() {
@@ -53,7 +54,8 @@ class Profile extends Component {
             language: data.data.language,
             companyName: data.data.company_name,
             experience: data.data.experience,
-            join: data.data.join_date
+            join: data.data.join_date,
+            profilePic: data.data.profilePic
           });
         }
       });
@@ -66,6 +68,11 @@ class Profile extends Component {
     return (
       <div className="profilebg">
         <Header />
+        <Row>
+          <Col >
+        <img src={`${this.state.profilePic}`} alt='profile' width="200" height="250"/>
+        </Col>
+        </Row>
         <table>
           <tr>
             <td>Name :</td>
