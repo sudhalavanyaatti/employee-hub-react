@@ -1,8 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import SideBar from "../components/sidebar";
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn,MDBModalFooter } from 'mdbreact';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -74,16 +76,24 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div className="signupbg">
-         <Header />
+      <div className="signinbg">
+      
+        <div className="header">
+          <div className="mobile-only">
+             <SideBar/>
+          </div>
+          <div className="desktop-only">
+               <Header/>
+          </div>
+        </div>
+
         <div className="col-md-4 col-md-offset-4" >
        <MDBContainer>
-        
-          <h1 align="center">Login Here</h1>
+       <h1 align="center"><strong>Login Here</strong></h1>
           
           <MDBRow  >
             <MDBCol md="11">
-              <MDBInput
+              <MDBInput    
                  type="tel"
                  name="phone"
                  maxLength="10"
@@ -91,6 +101,7 @@ class SignIn extends React.Component {
                  value={this.state.phone}
                  onChange={event => this.handleChange(event)}
                  label="Phone no:"
+                 icon="phone"
                  id="materialFormRegisterPhnEx"
                 
                 required
@@ -107,6 +118,7 @@ class SignIn extends React.Component {
                 onChange={event => this.handleChangePass(event)}
                 id="materialFormRegisterPasswordEx2"
                 label="Password:"
+                icon="lock"
                 required
               >
               </MDBInput>
@@ -114,17 +126,19 @@ class SignIn extends React.Component {
           </MDBRow>
        <div align="center">
            
-       <MDBBtn color="success"  type="submit"  onClick={() => this.handleSubmit() }>
+       <MDBBtn gradient="blue"  type="submit"  onClick={() => this.handleSubmit() }>
             Submit
           </MDBBtn>  
               
          </div>    
   
-       <div  align="center">
-       <Link to="/forgotPassword">Forgot Password ?</Link>
-                  <p>Create an account?</p>
-                  <Link to="/signup">Signup</Link>
+        <MDBModalFooter>
+        <div  align="center">
+       <Link to="/forgotPassword"><strong>Forgot Password ?</strong></Link>
+                  <p><h3>Not a member?</h3></p> <Link to="/signup"><strong>Signup</strong></Link>
        </div>
+        </MDBModalFooter>
+    
        </MDBContainer>
         </div>
       </div>
@@ -133,3 +147,5 @@ class SignIn extends React.Component {
   }
 }
 export default SignIn;
+
+      

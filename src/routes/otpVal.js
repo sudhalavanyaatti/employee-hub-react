@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 //import { Row, Col } from "react-flexbox-grid";
 import Header from '../components/header';
+import SideBar from "../components/sidebar";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -60,12 +62,21 @@ class Otp extends Component {
   render() {
     return (
       <div className="otpvalbg">
-        <Header />
+        
+        <div className="header">
+            <div className="mobile-only">
+               <SideBar/>
+            </div>
+            <div className="desktop-only">
+                <Header/>
+            </div>
+        </div>
+
         <div className="col-md-4 col-md-offset-4" >
         <MDBContainer >
-        <h1> <br/>Enter your OTP</h1>
+        <h1 align="center"> <br/><strong>Enter your OTP</strong></h1>
            <MDBRow>
-             <MDBCol md="9">
+             <MDBCol md="11">
              <MDBInput
                  type="tel"
                  name="otp"
@@ -74,20 +85,21 @@ class Otp extends Component {
                  value={this.state.otp}
                  onChange={event => this.handleChangeNumber(event)}
                  label="6 Digits OTP"
+                 icon="comment"
                  id="materialFormRegisterotpEx"              
               >
               </MDBInput>
              </MDBCol>
            </MDBRow>
-           <div >
+           <div align="center" >
            
-           <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+             <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
               </MDBBtn>  
-              <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmitresend()}>
+              <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmitresend()}>
                 Resend OTP
               </MDBBtn>                    
-             </div>    
+          </div>    
         </MDBContainer>
         </div>
       </div>

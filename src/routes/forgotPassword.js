@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import SideBar from "../components/sidebar";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -39,13 +41,21 @@ class ForgotPassword extends Component {
   render() {
     return (
       <div className="forgotpasswordbg">
-        <Header />
+
+        <div className="header">
+            <div className="mobile-only">
+               <SideBar/>
+            </div>
+            <div className="desktop-only">
+                <Header/>
+            </div>
+        </div>
 
        <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
-        <h1><br/>Forgot Password?</h1>
+       <h1 align="center"><br/><strong>Forgot Password?</strong></h1>
           <MDBRow>
-          <MDBCol md="8">
+          <MDBCol md="11">
           <MDBInput
                  type="tel"
                  name="phone"
@@ -54,6 +64,7 @@ class ForgotPassword extends Component {
                  value={this.state.phone}
                  onChange={event => this.handleChangephone(event)}
                  label="Enter Your Mobile Number"
+                 icon="phone"
                  id="materialFormRegisterPhnEx" 
                  
                 required
@@ -61,11 +72,13 @@ class ForgotPassword extends Component {
               </MDBInput>
           </MDBCol>
           </MDBRow>
-           <MDBBtn  color="success" type="submit"  onClick={() => this.handleSubmit()}>
+          <div align="center">
+          <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
           </MDBBtn>  
-            <div  >
-              <Link to="/signIn">SignIn</Link>   
+          </div>
+            <div align="center"  >
+              <Link to="/signIn"><strong>SignIn</strong></Link>   
             </div> 
         </MDBContainer>
        </div>
