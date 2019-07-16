@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import SideBar from "../components/sidebar";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -61,13 +62,20 @@ class NewPassword extends React.Component {
   render() {
     return (
       <div className="newpassbg">
-        <Header/>
+         <div className="header">
+           <div className="mobile-only">
+             <SideBar/>
+           </div>
+           <div className="desktop-only">
+               <Header/>
+           </div>
+        </div>
        <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
-         <h1 ><br/><strong>Reset Your Password</strong></h1>
+         <h1 align="center"><br/><strong>Reset Your Password</strong></h1>
        
         <MDBRow  >
-            <MDBCol md="9">
+            <MDBCol md="11">
               <MDBInput
                 type="password"
                 name="newPassword"
@@ -83,7 +91,7 @@ class NewPassword extends React.Component {
             </MDBCol>
             </MDBRow>
             <MDBRow  >
-            <MDBCol md="9">
+            <MDBCol md="11">
               <MDBInput
                   type="password"
                   name="confirmPassword"
@@ -98,12 +106,14 @@ class NewPassword extends React.Component {
               </MDBInput>
             </MDBCol>
             </MDBRow>
-           <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
-                Submit
-          </MDBBtn> 
-              <div>
-              <Link to="/signIn"><strong>SignIn</strong></Link>   
-            </div> 
+              <div align="center">
+                 <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
+                    Submit
+                 </MDBBtn> 
+              </div>
+              <div align="center">
+                 <Link to="/signIn"><strong>SignIn</strong></Link>   
+              </div> 
         </MDBContainer>
        </div>      
       </div>

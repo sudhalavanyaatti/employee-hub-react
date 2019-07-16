@@ -1,6 +1,7 @@
 import React from 'react';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import SideBar from "../components/sidebar";
 //import Select from 'react-select';
 import options from '../components/category';
 import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
@@ -169,8 +170,15 @@ class Update_Details extends React.Component {
     console.log('gfdh', {options});
     return (
       <div className="updatebg">
-        <Header />
-        <div className="col-md-offset-4" >
+         <div className="header">
+           <div className="mobile-only">
+               <SideBar/>
+            </div>
+            <div className="desktop-only">
+                <Header/>
+            </div>
+         </div>
+        <div className="col-md-4 col-md-offset-4" >
           <MDBContainer>
             <form>
               <h1 align="center"><strong>Update Your Details</strong></h1>
@@ -331,6 +339,7 @@ class Update_Details extends React.Component {
                   </MDBCol>
                 </MDBRow>
                  <MDBRow>
+                   
                  <MDBCol md="4">
                    <MDBInput
                       type="radio"

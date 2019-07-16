@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
+import SideBar from "../components/sidebar";
 import {Row, Col} from 'react-flexbox-grid';
 import '../App.css';
 
@@ -64,8 +65,16 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="profilebg">
-        <Header />
+      <div className="profilebg" align="center">
+           <div className="header">
+          <div className="mobile-only">
+             <SideBar/>
+          </div>
+          <div className="desktop-only">
+               <Header/>
+          </div>
+        </div>
+        <h1 align="center"><strong>User Profile</strong></h1><br/><br/>
         <table>
           <tr>
             <td><strong>Name :</strong></td>

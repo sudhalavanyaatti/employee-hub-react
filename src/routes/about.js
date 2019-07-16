@@ -1,14 +1,25 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
+import SideBar from "../components/sidebar";
 import "../App.css";
 class About extends Component {
   render() {
     return (
       <div className="aboutbg">
-        <Header />
-        <div className="text">
-          <h1>Comming soon...!</h1>
+        
+        <div className="header">
+            <div className="mobile-only">
+               <SideBar/>
+            </div>
+            <div className="desktop-only">
+                <Header/>
+            </div>
         </div>
+  
+
+          <div className="text">
+             <h1>Comming soon...!</h1>
+          </div>
       </div>
     );
   }

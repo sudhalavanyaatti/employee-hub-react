@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
+import SideBar from "../components/sidebar";
 import '../App.css';
 
 //import { Map, GoogleApiWrapper } from "google-maps-react";
@@ -10,7 +11,16 @@ class Home extends Component {
     console.log('token', localStorage.getItem('token'));
     return (
       <div className="homebg" >
-        <Header />
+
+         <div className="header">
+           <div className="mobile-only">
+             <SideBar/>
+           </div>
+           <div className="desktop-only">
+               <Header/>
+           </div>
+        </div>
+
         <div className="text">
           <h1>Welcome To Employee HUB</h1>
         </div>

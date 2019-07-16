@@ -2,8 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import SideBar from "../components/sidebar";
 //import Select from 'react-select';
-import options from '../components/category';
+//import options from '../components/category';
 import '../App.css';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import 'font-awesome/css/font-awesome.min.css';
@@ -119,11 +120,20 @@ class Signup extends React.Component {
   }
   render() {
     return (
-      <div  className="signinbg" >
-        <Header/>
+      <div  className="signupbg" >
+        
+        <div className="header">
+          <div className="mobile-only">
+             <SideBar/>
+          </div> 
+          <div className="desktop-only">
+               <Header/>
+          </div>
+        </div>
+
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
-            
+          
               <h1 align="center"><strong>Register Here</strong></h1>
               <MDBRow>
                 <MDBCol md="6">

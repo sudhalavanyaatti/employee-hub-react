@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Map, GoogleApiWrapper, Marker} from 'google-maps-react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import SideBar from "../components/sidebar";
 import "../App.css";
 
 class Details extends Component {
@@ -61,9 +62,18 @@ class Details extends Component {
   };
   render() {
     return (
+      
      <div className="detailsbg">
+        <div className="header">
+          <div className="mobile-only">
+             <SideBar/>
+          </div>
+          <div className="desktop-only">
+               <Header/>
+          </div>
+        </div>
+        <h1 align="center"><strong>Details</strong></h1>
         <Grid fluid>
-        <Header />
         <Row>
           <Col lg={6} md={6} sm={6} xs={6} className="col">
             <Map
