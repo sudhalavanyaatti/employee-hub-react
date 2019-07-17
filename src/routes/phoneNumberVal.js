@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import SideBar from "../components/sidebar";
@@ -8,7 +7,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
-class ForgotPassword extends Component {
+class NumberVal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +23,6 @@ class ForgotPassword extends Component {
     const data = {
       phone: this.state.phone
     };
-    //console.log('phone otp', data);
     await fetch('http://localhost:3001/forgot-password', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -34,29 +32,33 @@ class ForgotPassword extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        console.log(response);
-        this.props.history.push('/passwordOtpVal', {phone: this.state.phone});
+        console.log('gf',response);
+        if(response.response!=='null')
+        this.props.history.push('/otpVal', {phone: this.state.phone});
+        else
+        alert('Enter valid number');
       });
   }
   render() {
     return (
-      <div className="forgotpasswordbg">
-
+      <div className="phnobg">
+        
         <div className="header">
-            <div className="mobile-only">
-               <SideBar/>
-            </div>
-            <div className="desktop-only">
-                <Header/>
-            </div>
+          <div className="mobile-only">
+             <SideBar/>
+          </div>
+          <div className="desktop-only">
+               <Header/>
+          </div>
         </div>
 
-       <div className="col-md-4 col-md-offset-4">
+        <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
-       <h1 align="center"><br/><strong>Forgot Password?</strong></h1>
-          <MDBRow>
-          <MDBCol md="11">
+       <h1 align="center"><br/><strong>Enter Mobile No.</strong></h1>
+       <MDBRow>
+          <MDBCol md="11" >
           <MDBInput
+                 
                  type="tel"
                  name="phone"
                  maxLength="10"
@@ -75,16 +77,13 @@ class ForgotPassword extends Component {
           <div align="center">
           <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
-          </MDBBtn>  
-          </div>
-            <div align="center"  >
-              <Link to="/signIn"><strong>SignIn</strong></Link>   
-            </div> 
-        </MDBContainer>
+          </MDBBtn>     
+           </div>
+       </MDBContainer>
        </div>
       </div>
     );
   }
 }
 
-export default ForgotPassword;
+export default NumberVal;

@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  background: url("../src/images/Employee-Hub.jpg") no-repeat center center
-    fixed;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  display: flex;
-
-  font-size: calc(10px + 2vmin);
-}
 
 .App-header {
   background-color: #282c34;
@@ -28,3 +17,76 @@
 .App-link1 {
   color: white;
 }
+.homebg {
+  background-image: url("https://images.pexels.com/photos/943630/pexels-photo-943630.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  .forgotpasswordbg,.newpassbg{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+    height: 110vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .updatebg,.profilebg{
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+      height: 290vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+         
+      }
+      .signupbg{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+        height: 220vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+           
+        }
+    .signinbg{
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+         
+      }
+    .aboutbg {
+      background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      }
+    
+      .detailsbg {
+          background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
+          height: 100vh;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size:cover;
+          }   
+          .passwordbg,.phnobg,.otpvalbg{
+            background-image: url("https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+            height: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size:cover;
+            }   
+            @media screen and (min-width: 768px) {
+              div.mobile-only {
+                display: none;
+              }
+            }
+            @media screen and (max-width: 767px) {
+              div.desktop-only {
+                display: none;
+              }
+            }
+            h1 {
+              margin:0px;
+            }

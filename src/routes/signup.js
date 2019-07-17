@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-flexbox-grid";
-import Script from "react-load-script";
+//import {Row, Col} from 'react-flexbox-grid';
+import Header from "../components/header";
+import SideBar from "../components/sidebar";
+//import Select from 'react-select';
+//import options from '../components/category';
+import "../App.css";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
+// import 'font-awesome/css/font-awesome.min.css';
+import "mdbreact/dist/css/mdb.css";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -12,30 +19,14 @@ class Signup extends React.Component {
       password: "",
       category: "",
       phone: "",
-      address: "",
-      query: "",
+      city: "",
+      state: "",
+      zip: "",
       latitude: "",
       longitude: ""
     };
-    // Bind Functions
-    this.handleScriptLoad = this.handleScriptLoad.bind(this);
-    this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
   }
-  handleScriptLoad() {
-    // Declare Options For Autocomplete
-    var options = {
-      types: ["(cities)"]
-    };
 
-    // Initialize Google Autocomplete
-    /*global google*/ this.autocomplete = new google.maps.places.Autocomplete(
-      document.getElementById("autocomplete"),
-      options
-    );
-
-    // Fire Event when a suggested name is selected
-    this.autocomplete.addListener("place_changed", this.handlePlaceSelect);
-  }
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(position => {
       console.log(position.coords.latitude + " " + position.coords.longitude);
@@ -50,20 +41,6 @@ class Signup extends React.Component {
     });
   }
 
-  handlePlaceSelect() {
-    // Extract City From Address Object
-    let addressObject = this.autocomplete.getPlace();
-    let address1 = addressObject.address_components;
-
-    // Check if address is valid
-    if (address1) {
-      // Set State
-      this.setState({
-        address: address1[0].long_name,
-        query: addressObject.formatted_address
-      });
-    }
-  }
   handleChangeFullname(event) {
     this.setState({
       fullName: event.target.value
@@ -81,29 +58,44 @@ class Signup extends React.Component {
   }
 
   handleChangeCategory(event) {
-    this.setState({
-      category: event.target.value
-    });
+    this.setState({ category: event.target.value });
   }
   handleChangeNumber(event) {
     this.setState({
       phone: event.target.value
     });
   }
+  handleChangeCity(event) {
+    this.setState({
+      city: event.target.value
+    });
+  }
+  handleChangeState(event) {
+    this.setState({
+      state: event.target.value
+    });
+  }
+  handleChangeZip(event) {
+    this.setState({
+      zip: event.target.value
+    });
+  }
 
-  async handleSubmit(event) {
-  
-    const data = {
+  async handleSubmit(data) {
+    //  event.preventDefault();
+
+    data = {
       fullName: this.state.fullName,
       email: this.state.email,
       password: this.state.password,
-      category: this.state.category,
+      category: this.state.category.value,
       phone: this.state.phone,
-      address: this.state.address,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip,
       latitude: this.state.latitude,
       longitude: this.state.longitude
     };
-    console.log("data", data);
     await fetch("http://localhost:3001/register", {
       method: "POST",
       body: JSON.stringify(data),
@@ -114,102 +106,158 @@ class Signup extends React.Component {
     })
       .then(res => res.json())
       .then(response => {
-        if (response.message !== "success") {
-          alert("Try with another email");
-        }
-        this.props.history.push("/otpVal", { phone: this.state.phone });
+        console.log(response);
+        if (response.response.success) {
+          this.props.history.push("/otpVal", { phone: this.state.phone });
+        } else alert("Use Another Mobile Number");
       });
-    
   }
   render() {
     return (
-      <Row>
-        <Col
-          lgOffset={7}
-          lg={3}
-          mdOffset={6}
-          md={4}
-          smOffset={4}
-          sm={4}
-          xsOffset={1}
-          xs={10}
-        >
-          <div>
-            <Row center="xs">
-              <Col>
-                <h1>Register Here</h1>
-              </Col>
-            </Row>
-            <input
-              type="text"
-              name="name"
-              value={this.state.fullName}
-              onChange={event => this.handleChangeFullname(event)}
-              placeholder="Enter your Name"
-            />
-            <br />
-            <input
-              type="email"
-              name="email"
-              value={this.state.email}
-              onChange={event => this.handleChangeEmail(event)}
-              placeholder="Enter your Email"
-            />
-            <br />
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={event => this.handleChangePass(event)}
-              placeholder="Enter your Password"
-            />
-            <br />
-            <input
-              type="text"
-              name="category"
-              value={this.state.category}
-              onChange={event => this.handleChangeCategory(event)}
-              placeholder="Enter your Category"
-            />
-            <br />
-            <input
-              type="tel"
-              name="phone"
-              maxLength="10"
-              minLength="10"
-              value={this.state.phone}
-              onChange={event => this.handleChangeNumber(event)}
-              placeholder="Don't prefix +91"
-            />
-            <br />
-            <div>
-              <Script
-                url="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places"
-                onLoad={this.handleScriptLoad}
-              />
-              <input
-                type="text"
-                id="autocomplete"
-                placeholder="enter address"
-                value={this.state.query}
-              />
-            </div>
-            <Row center="xs">
-              <Col>
-                <button
-                  className="button"
-                  onClick={event => this.handleSubmit(event)}
-                >
-                  SignUp
-                </button>
-                <p>You have account??</p>
-                <Link to="/signIn">SignIn</Link>
-              </Col>
-            </Row>
+      <div className="signupbg">
+        <div className="header">
+          <div className="mobile-only">
+            <SideBar />
           </div>
-        </Col>
-      </Row>
+          <div className="desktop-only">
+            <Header />
+          </div>
+        </div>
+
+        <div className="col-md-4 col-md-offset-4">
+          <MDBContainer>
+            <h1 align="center">
+              <strong>Register Here</strong>
+            </h1>
+            <MDBRow>
+              <MDBCol md="6">
+                <MDBInput
+                  type="text"
+                  name="name"
+                  value={this.state.fullName}
+                  onChange={event => this.handleChangeFullname(event)}
+                  label="Full Name:"
+                  icon="user"
+                  id="materialFormRegisterNameEx"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="6">
+                <MDBInput
+                  //options={options}
+                  type="text"
+                  value={this.state.category}
+                  name="category"
+                  onChange={event => this.handleChangeCategory(event)}
+                  label="Category:"
+                  icon="th-large"
+                  required
+                />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="6">
+                <MDBInput
+                  type="email"
+                  name="email"
+                  value={this.state.email}
+                  onChange={event => this.handleChangeEmail(event)}
+                  id="materialFormRegisterEmailEx2"
+                  label="Email:"
+                  icon="envelope"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="6">
+                <MDBInput
+                  type="tel"
+                  name="phone"
+                  maxLength="10"
+                  minLength="10"
+                  value={this.state.phone}
+                  onChange={event => this.handleChangeNumber(event)}
+                  id="materialFormRegisterPhnEx2"
+                  label="Phone: "
+                  icon="phone"
+                  required
+                />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="6">
+                <MDBInput
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={event => this.handleChangePass(event)}
+                  id="materialFormRegisterPasswordEx2"
+                  label="Password:"
+                  icon="lock"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="6">
+                <MDBInput
+                  name="city"
+                  type="text"
+                  value={this.state.city}
+                  onChange={event => this.handleChangeCity(event)}
+                  id="materialFormRegisterCityEx2"
+                  label="City:"
+                  icon="home"
+                  required
+                />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="6">
+                <MDBInput
+                  type="text"
+                  name="zip"
+                  id="materialFormRegisterZipEx2"
+                  value={this.state.zip}
+                  onChange={event => this.handleChangeZip(event)}
+                  label="Zip:"
+                  icon="file"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="6">
+                <MDBInput
+                  name="state"
+                  type="text"
+                  value={this.state.state}
+                  onChange={event => this.handleChangeState(event)}
+                  id="materialFormRegisterStateEx2"
+                  label="State:"
+                  icon="map-marker"
+                  required
+                />
+              </MDBCol>
+            </MDBRow>
+
+            <div align="center">
+              <MDBBtn
+                gradient="blue"
+                type="submit"
+                onClick={() => this.handleSubmit()}
+              >
+                Submit
+              </MDBBtn>
+            </div>
+            <div align="center">
+              <p>
+                <h3>You have account??</h3>
+              </p>
+              <Link to="/signIn">
+                <strong>SignIn</strong>
+              </Link>
+            </div>
+          </MDBContainer>
+        </div>
+      </div>
     );
   }
 }
+
 export default Signup;

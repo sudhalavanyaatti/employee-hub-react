@@ -41,10 +41,10 @@ class Details extends Component {
     await fetch("http://localhost:3001/details", {
       method: "get",
       headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "no-cors",
-        "Access-Control-Allow-Credentials": true,
-        "X-Access-Token": api
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'no-cors',
+        'Access-Control-Allow-Credentials': true,
+        'X-Access-Token': api
       }
     })
       .then(res => res.json())

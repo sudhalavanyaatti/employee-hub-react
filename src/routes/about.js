@@ -1,15 +1,26 @@
 import React, {Component} from 'react';
-//import {Row, Col} from 'react-flexbox-grid';
+import Header from '../components/header';
+import SideBar from "../components/sidebar";
+import "../App.css";
 class About extends Component {
   render() {
     return (
-      <html>
-        <body>
+      <div className="aboutbg">
+        
+        <div className="header">
+            <div className="mobile-only">
+               <SideBar/>
+            </div>
+            <div className="desktop-only">
+                <Header/>
+            </div>
+        </div>
+  
+
           <div className="text">
-            <h1>Comming Soon.....!</h1>
+             <h1>Comming soon...!</h1>
           </div>
-        </body>
-      </html>
+      </div>
     );
   }
 }

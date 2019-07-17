@@ -1,19 +1,30 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Row, Col } from "react-flexbox-grid";
-import "../style.css";
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import {Row, Col} from 'react-flexbox-grid';
+import '../style.css';
 
 class Header extends Component {
   state = {
-    login: false
+    userStatus: false
   };
 
   componentDidMount() {
-    const token = localStorage.getItem("token");
-    console.log(token, "token");
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.setState({
+        userStatus: true
+      });
+    }
+  }
+
+  handleClearToken() {
+    localStorage.clear();
     this.setState({
-      login: this.props.login
+      userStatus: false
     });
+  }
+  handleprofile() {
+    
   }
 
   render() {
@@ -22,13 +33,27 @@ class Header extends Component {
         <Row>
           <Col xs={12} className="col">
             <Row end="xs">
-              <Col xs={3} className="col">
+              <Col xs={4} className="col">
                 <div>
-                  <Link to="/">Home</Link>
-                  <Link to="/signIn">
-                    {!this.state.login ? "SignIn" : "Sign Out"}
-                  </Link>
-                  <Link to="/about">About</Link>
+                  {this.state.userStatus ? (
+                    <div>
+                      <Link to="/">Home</Link>
+                      <Link onClick={() => this.handleprofile()} to="/profile">Profile</Link>
+                      <Link to="/details">Details</Link>
+                      <Link
+                        onClick={() => this.handleClearToken()}
+                        to="/signIn"
+                      >
+                        Sign Out
+                      </Link>
+                    </div>
+                  ) : (
+                    <div>
+                      <Link to="/">Home</Link>
+                      <Link to="/signIn">SignIn</Link>
+                      <Link to="/about">About</Link>
+                    </div>
+                  )}
                 </div>
               </Col>
             </Row>
