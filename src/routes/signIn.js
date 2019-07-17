@@ -38,8 +38,6 @@ class SignIn extends React.Component {
       .then(data => {
         localStorage.setItem("token", data.token);
       });
-    const tokenss = localStorage.getItem("token");
-    console.log("signin ", tokenss);
     this.props.history.push("/details");
   }
   render() {

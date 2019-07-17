@@ -17,15 +17,15 @@ class Signup extends React.Component {
       latitude: "",
       longitude: ""
     };
-     // Bind Functions
-     this.handleScriptLoad = this.handleScriptLoad.bind(this);
-     this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
+    // Bind Functions
+    this.handleScriptLoad = this.handleScriptLoad.bind(this);
+    this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
   }
   handleScriptLoad() {
     // Declare Options For Autocomplete
     var options = {
       types: ["(cities)"]
-    }; 
+    };
 
     // Initialize Google Autocomplete
     /*global google*/ this.autocomplete = new google.maps.places.Autocomplete(
@@ -45,7 +45,7 @@ class Signup extends React.Component {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude
         },
-        () => console.log("lat:"+ this.state.latitude)
+        () => console.log("lat:" + this.state.latitude)
       );
     });
   }
@@ -63,7 +63,6 @@ class Signup extends React.Component {
         query: addressObject.formatted_address
       });
     }
-    
   }
   handleChangeFullname(event) {
     this.setState({
@@ -91,10 +90,9 @@ class Signup extends React.Component {
       phone: event.target.value
     });
   }
- 
 
   async handleSubmit(event) {
-    //  event.preventDefault();
+  
     const data = {
       fullName: this.state.fullName,
       email: this.state.email,
@@ -119,9 +117,9 @@ class Signup extends React.Component {
         if (response.message !== "success") {
           alert("Try with another email");
         }
-        this.props.history.push('/otpVal', {phone: this.state.phone});
+        this.props.history.push("/otpVal", { phone: this.state.phone });
       });
-    //this.props.history.push("/otpVal", { phone: this.state.phone });
+    
   }
   render() {
     return (
@@ -186,7 +184,7 @@ class Signup extends React.Component {
             <br />
             <div>
               <Script
-                url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvcv2xuV3aMp9kPJOq1igVNAf2UceH0N8&libraries=places"
+                url="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places"
                 onLoad={this.handleScriptLoad}
               />
               <input

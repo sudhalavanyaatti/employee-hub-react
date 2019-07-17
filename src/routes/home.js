@@ -3,6 +3,7 @@ import React, { Component } from "react";
 //import {Row, Col} from 'react-flexbox-grid';
 
 class Home extends Component {
+ 
   render() {
     return (
       <div>

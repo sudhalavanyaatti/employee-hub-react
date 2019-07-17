@@ -1,15 +1,15 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Row, Col } from "react-flexbox-grid";
 // import _ from 'lodash';
 // import isEqual from 'lodash/isEqual';
 class NewPassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newPassword: '',
-      confirmPassword: '',
-      phone: ''
+      newPassword: "",
+      confirmPassword: "",
+      phone: ""
     };
   }
 
@@ -33,19 +33,19 @@ class NewPassword extends React.Component {
     };
     console.log(data);
     if (this.state.newPassword === this.state.confirmPassword) {
-      await fetch('http://localhost:3001/update-password', {
-        method: 'POST',
+      await fetch("http://localhost:3001/update-password", {
+        method: "POST",
         body: JSON.stringify(data),
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         }
       })
         .then(res => res.json())
         .then(data => {
-          this.props.history.push('/signIn');
+          this.props.history.push("/signIn");
           // localStorage.setItem("token", data.token);
         });
-    } else alert('Enter Same Password');
+    } else alert("Enter Same Password");
     //this.props.history.push("/details");
     //     }
     //     else
@@ -56,6 +56,7 @@ class NewPassword extends React.Component {
     return (
       <Row>
         <Col
+          className="col"
           lgOffset={7}
           lg={3}
           mdOffset={6}
@@ -67,7 +68,7 @@ class NewPassword extends React.Component {
         >
           <div>
             <Row center="xs">
-              <Col>
+              <Col className="col">
                 <h1>Rest Your password</h1>
               </Col>
             </Row>
@@ -86,7 +87,7 @@ class NewPassword extends React.Component {
               placeholder="Confirm Password"
             />
             <Row center="xs">
-              <Col>
+              <Col className="col">
                 <button className="button" onClick={() => this.handleSubmit()}>
                   SignIn
                 </button>

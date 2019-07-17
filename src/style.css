@@ -18,7 +18,8 @@
   color: black;
 }
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../src/images/Employee-Hub.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../src/images/Employee-Hub.jpg");
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;
@@ -38,6 +39,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
+}
+.gm-style-iw {
+  background-color: rgb(237, 28, 36);
+  border: 1px solid blue;
+  border-radius: 10px;
+  box-shadow: 10px 10px blue;
+  color: red;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  top: 15px !important;
+  width: 150px !important;
 }
 
 .button {
@@ -92,11 +104,20 @@ select {
 .col {
   padding: 0;
 }
-table,
-td {
-  border: solid black;
+
+.mapElement {
+  flex-direction: column;
+  width: 50%;
 }
-th {
-  text-align: left;
-  border: solid black;
+.loadingElement {
+  width: 50%;
+  height: 200px;
+}
+
+ul li {
+  background: #17d394;
+  margin: 5px;
+  margin-block: 5px;
+  margin: 0;
+  padding: 0;
 }

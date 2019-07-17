@@ -13,6 +13,28 @@ import NewPassword from "./routes/newPassword";
 import Details from "./routes/details";
 
 class App extends React.Component {
+  // state = {
+  //   places: [
+  //     {
+  //       name: "Sydney",
+  //       title: "Sydney",
+  //       position: { lat: -33.847927, lng: 150.6517938 }
+  //     },
+  //     {
+  //       name: "Melbourne",
+  //       title: "Melbourne",
+  //       position: { lat: -37.9722342, lng: 144.7729561 }
+  //     },
+  //     {
+  //       name: "Perth",
+  //       title: "Perth",
+  //       position: { lat: -31.9546904, lng: 115.8350292 }
+  //     }
+  //   ]
+  // };
+  // render() {
+  //   return <MapContainer places={this.state.places} />;
+  // }
   render() {
     return (
       <Router>
