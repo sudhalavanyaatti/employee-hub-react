@@ -81,93 +81,97 @@ class Profile extends Component {
         </h1>
         <br />
         <br />
-        <img src={`${this.state.profilePic}`} alt="profile" height="200" width="250" />
-        <table>
-          <tr>
-            <td>
+        <img src={`${this.state.profilePic}`} alt="profile" height="180" width="180" />
+       <div> 
+       <table >
+         <tbody>
+         <tr>
+            <td id="eg1">
               <strong>Name :</strong>
-            </td>
-            <td>{this.state.name}</td>
+            </td >
+            <td id="eg2">{this.state.name}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Gender :</strong>
             </td>
-            <td>{this.state.gender}</td>
+            <td id="eg2">{this.state.gender}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1" >
               <strong>Email :</strong>
             </td>
-            <td>{this.state.email}</td>
+            <td id="eg2">{this.state.email}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Mobile :</strong>
             </td>
-            <td>{this.state.mobile}</td>
+            <td id="eg2">{this.state.mobile}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Category :</strong>
             </td>
-            <td>{this.state.category}</td>
+            <td id="eg2">{this.state.category}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>City :</strong>
             </td>
-            <td>{this.state.city}</td>
+            <td id="eg2">{this.state.city}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>State :</strong>
             </td>
-            <td>{this.state.state}</td>
+            <td id="eg2">{this.state.state}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Zip Code:</strong>
             </td>
-            <td>{this.state.zip}</td>
+            <td id="eg2">{this.state.zip}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Date Of Birth :</strong>
             </td>
-            <td>{this.state.dob}</td>
+            <td id="eg2">{this.state.dob}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Blood Group :</strong>
             </td>
-            <td>{this.state.blood_Group}</td>
+            <td id="eg2">{this.state.blood_Group}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Languages :</strong>
             </td>
-            <td>{this.state.language}</td>
+            <td id="eg2">{this.state.language}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Company Name :</strong>
             </td>
-            <td>{this.state.companyName}</td>
+            <td id="eg2">{this.state.companyName}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Experience :</strong>
             </td>
-            <td>{this.state.experience}</td>
+            <td id="eg2">{this.state.experience}</td>
           </tr>
           <tr>
-            <td>
+            <td id="eg1">
               <strong>Date of Join :</strong>
             </td>
-            <td>{this.state.join}</td>
+            <td id="eg2">{this.state.join}</td>
           </tr>
+         </tbody>
         </table>
+       </div>
         <Row center="xs">
           <Col>
             <button className="button" onClick={() => this.handleSubmit()}>

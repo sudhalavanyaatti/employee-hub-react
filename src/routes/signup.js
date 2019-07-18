@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from "../components/header";
 import SideBar from "../components/sidebar";
-//import Select from 'react-select';
-//import options from '../components/category';
+import Select from 'react-select';
+import options from '../components/category';
 import "../App.css";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
-// import 'font-awesome/css/font-awesome.min.css';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact"; 
+import 'font-awesome/css/font-awesome.min.css';
 import "mdbreact/dist/css/mdb.css";
 
 class Signup extends React.Component {
@@ -107,7 +107,7 @@ class Signup extends React.Component {
       .then(res => res.json())
       .then(response => {
         console.log(response);
-        if (response.response.success) {
+        if (response.response!=="null") {
           this.props.history.push("/otpVal", { phone: this.state.phone });
         } else alert("Use Another Mobile Number");
       });
@@ -143,14 +143,14 @@ class Signup extends React.Component {
                 />
               </MDBCol>
               <MDBCol md="6">
-                <MDBInput
-                  //options={options}
-                  type="text"
+                <Select  className="browser-default custom-select"
+                  options={options}
+                 // type="text"
                   value={this.state.category}
                   name="category"
                   onChange={event => this.handleChangeCategory(event)}
-                  label="Category:"
-                  icon="th-large"
+                  //label="Category:"
+                //  icon="th-large"
                   required
                 />
               </MDBCol>

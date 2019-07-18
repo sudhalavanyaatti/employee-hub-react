@@ -5,7 +5,7 @@ import React from 'react';
 import Header from '../components/header';
 import SideBar from '../components/sidebar';
 //import Select from 'react-select';
-import options from '../components/category';
+//import options from '../components/category';
 import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
 import 'mdbreact/dist/css/mdb.css';
 import '../App.css';
@@ -206,6 +206,20 @@ class Update_Details extends React.Component {
               <h1 align="center">
                 <strong>Update Your Details</strong>
               </h1>
+              <br/>
+              <br/>
+              <MDBRow  >
+                <MDBCol md="3"></MDBCol>
+              <MDBCol align="center" md="7" >
+              <img src={`${this.state.photo}`} height="180" width="180"  alt="ProfilePic" />
+              <MDBInput
+                 type="file"
+                 name="profilePic"
+                 onChange={event => this.onChangeHandler(event)}
+                 hint="profilepic"
+                />
+              </MDBCol>    
+              </MDBRow>
               <MDBRow>
                 <MDBCol md="4">
                   <MDBInput
@@ -386,17 +400,7 @@ class Update_Details extends React.Component {
                   />
                 </MDBCol>
               </MDBRow>
-              <input
-                type="file"
-                name="profilePic"
-                onChange={event => this.onChangeHandler(event)}
-              />
-              <img
-                src={`${this.state.photo}`}
-                alt="profile"
-                height="60"
-                width="90"
-              />
+            
               <div align="center">
                 <MDBBtn
                   gradient="blue"

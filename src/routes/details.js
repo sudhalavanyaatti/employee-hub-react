@@ -4,6 +4,9 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import Header from "../components/header";
+import SideBar from "../components/sidebar";
+import "../App.css";
 
 library.add(faEnvelope);
 
@@ -51,7 +54,7 @@ class Details extends Component {
       .then(data =>
         this.setState(
           {
-            list: data.details
+            list: [data.details]
           },
           () => console.log("details", this.state.list)
         )
@@ -131,7 +134,15 @@ class Details extends Component {
 
   render() {
     return (
-      <div>
+      <div className="detailsbg">
+        <div className="header">
+          <div className="mobile-only">
+            <SideBar />
+          </div>
+          <div className="desktop-only">
+            <Header />
+          </div>
+        </div>
         <Grid fluid>
           <Row>
             <Col lg={6} sm={6} md={6} xs={6} className="col">

@@ -94,9 +94,16 @@ table {
 }
 
 td {
-  text-align: left;
+  
   font-weight: bold;
   padding: 20px;
+}
+#eg1 { text-align: right; }
+#eg2 { text-align: center; }
+
+h4{
+  font-style: italic;
+  color:white;
 }
 
 

@@ -21,6 +21,7 @@
   background-image: url("https://images.pexels.com/photos/943630/pexels-photo-943630.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   height: 100vh;
   background-position: center;
+  
   background-repeat: no-repeat;
   background-size: cover;
   }
@@ -33,7 +34,7 @@
     }
     .updatebg,.profilebg{
       background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-      height: 290vh;
+      height: 340vh;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -41,7 +42,7 @@
       }
       .signupbg{
         background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-        height: 220vh;
+        height: 235vh;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -49,7 +50,7 @@
         }
     .signinbg{
       background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-      height: 100vh;
+      height: 110vh;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
