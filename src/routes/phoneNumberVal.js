@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import Header from '../components/header';
 import SideBar from "../components/sidebar";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
-import 'font-awesome/css/font-awesome.min.css';
+// import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 

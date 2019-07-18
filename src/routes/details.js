@@ -1,33 +1,45 @@
-import React, {Component} from 'react';
-import {Map, GoogleApiWrapper, Marker} from 'google-maps-react';
-import {Grid, Row, Col} from 'react-flexbox-grid';
-import Header from '../components/header';
-import SideBar from "../components/sidebar";
-import "../App.css";
+import React, { Component } from "react";
+import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
+import { Grid, Row, Col } from "react-flexbox-grid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+library.add(faEnvelope);
 
 class Details extends Component {
   state = {
-    categories: '',
+    categories: [],
     list: [],
-    stores: [
-      {lat: 17.68009, lng: 83.20161},
-      {latitude: 22.56263, longitude: 88.36304},
-      {latitude: 16.51928, longitude: 80.63049},
-      {latitude: 19.07283, longitude: 72.88261},
-      {latitude: 13.08784, longitude: 80.27847},
-      {latitude: 12.97194, longitude: 77.59369}
-    ]
+    details: true,
+    updatedData: [],
+    address: [],
+    addr: [],
+
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {}
   };
-  changeText(e) {
-    this.setState({categories: e.target.value});
-  }
-  componentDidMount() {
-    const api = localStorage.getItem('token');
-    if (api === null) {
-      this.props.history.push('/signIn');
-    }
-    fetch('http://localhost:3001/details', {
-      method: 'get',
+
+  onMarkerClick = (props, marker, e) => {
+    const { showingInfoWindow } = this.state;
+    this.setState(
+      {
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: !showingInfoWindow
+      },
+      () => {
+        console.log(this.state.showingInfoWindow);
+      }
+    );
+  };
+
+  async componentDidMount() {
+    const api = localStorage.getItem("token");
+
+    await fetch("http://localhost:3001/details", {
+      method: "get",
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': 'no-cors',
@@ -41,73 +53,173 @@ class Details extends Component {
           {
             list: data.details
           },
-          () => console.log(this.state.list)
+          () => console.log("details", this.state.list)
         )
       );
-  }
-  displayMarkers = () => {
-    return this.state.stores.map((store, index) => {
-      return (
-        <Marker
-          key={index}
-          id={index}
-          position={{
-            lat: store.latitude,
-            lng: store.longitude
-          }}
-          onClick={() => console.log('You clicked me!')}
-        />
-      );
+
+    this.setState(
+      {
+        categories: this.state.list.map(cat => cat.category)
+      },
+      () => console.log("cay", this.state.categories)
+    );
+    this.setState({
+      updatedData: this.state.categories
     });
-  };
+
+    this.setState(
+      {
+        address: this.state.list.map(cat => cat.address)
+      },
+      () => console.log("add", this.state.address)
+    );
+    this.setState({
+      addr: this.state.address
+    });
+  }
+
+  textChange(event) {
+    let updatedList = this.state.categories;
+    updatedList = updatedList.filter(
+      item => item.toLowerCase().search(event.target.value.toLowerCase()) !== -1
+    );
+
+    this.setState({ updatedData: updatedList }, () =>
+      console.log("bshc", this.state.updatedData)
+    );
+  }
+  addChange(event) {
+    let updatedList = this.state.address;
+    updatedList = updatedList.filter(
+      item => item.toLowerCase().search(event.target.value.toLowerCase()) !== -1
+    );
+
+    this.setState({ addr: updatedList }, () =>
+      console.log("bshjcbc", this.state.addr)
+    );
+  }
+
+  handleClick() {
+    const { details } = this.state;
+    this.setState({ details: !details }, () =>
+      console.log(this.state.details, "details")
+    );
+  }
+
+  renderDetails() {
+    return (
+      <div>
+        {this.state.list.map(details => {
+          return (
+            <div key={details._id}>
+              <ul
+                style={{
+                  listStyleType: "square",
+                  listStylePosition: "inside"
+                }}
+              >
+                <li>email:{details.email}</li>
+                <li>fullName:{details.fullName}</li>
+                <li>address:{details.address}</li>
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
   render() {
     return (
-      
-     <div className="detailsbg">
-        <div className="header">
-          <div className="mobile-only">
-             <SideBar/>
-          </div>
-          <div className="desktop-only">
-               <Header/>
-          </div>
-        </div>
-        <h1 align="center"><strong>Details</strong></h1>
+      <div>
         <Grid fluid>
-        <Row>
-          <Col lg={6} md={6} sm={6} xs={6} className="col">
-            <Map
-              style={{width: '50%', height: '50', position: 'absolute'}}
-              google={this.props.google}
-              zoom={5}
-              initialCenter={{
-                lat: 20.5937,
-                lng: 78.9629
-              }}
-            >
-              {this.displayMarkers()}
-            </Map>
-          </Col>
-          <Col lg={6} md={6} sm={6} xs={6} className="col">
-            <table>
-              <tbody>
-                <tr>
-                  <th>Email</th>
-                  <th>fullName</th>
-                </tr>
-                <tr>
-                  <td>{this.state.list.email}</td>
-                  <td>{this.state.list.fullName}</td>
-                </tr>
-              </tbody>
-            </table>
-          </Col>
-        </Row>
-      </Grid>
-     </div>
+          <Row>
+            <Col lg={6} sm={6} md={6} xs={6} className="col">
+              {this.state.details ? (
+                <div>
+                  {this.state.list.map((store, index) => {
+                    return (
+                      <Map
+                        key={index}
+                        google={this.props.google}
+                        zoom={6}
+                        initialCenter={{ lat: 17.6868, lng: 83.20161 }}
+                        style={{ position: "absolute", width: "50%" }}
+                      >
+                        <Marker
+                          position={{
+                            lat: store.latitude,
+                            lng: store.longitude
+                          }}
+                          name={"Changing Colors Garage"}
+                          onClick={this.onMarkerClick}
+                        />
+
+                        <InfoWindow
+                          marker={this.state.activeMarker}
+                          visible={this.state.showingInfoWindow}
+                          style={{ width: "50%" }}
+                        >
+                          <div>
+                            <p>
+                              <b> {store.fullName}</b>
+
+                              <p>{store.address}</p>
+                              <a href={`mailto:${store.email}`}>
+                                <FontAwesomeIcon icon="envelope" />
+                              </a>
+                              <p> {store.phone}</p>
+                            </p>
+                          </div>
+                        </InfoWindow>
+                      </Map>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div>{this.renderDetails()}</div>
+              )}
+            </Col>
+            <Col lg={6} md={6} sm={6} xs={6} className="col">
+              <input
+                type="button"
+                onClick={() => this.handleClick()}
+                style={{ position: "absolute" }}
+                value="MAPVIEW/LISTVIEW"
+              />
+              <div> list:{this.renderDetails()}</div>
+
+              <input
+                type="text"
+                onChange={event => {
+                  this.addChange(event);
+                  this.textChange(event);
+                }}
+                style={{
+                  position: "relative",
+                  width: "20%",
+                  border: "solid",
+                  borderColor: "blue"
+                }}
+              />
+              {this.state.updatedData.map((design, index) => {
+                return (
+                  <li key={index} style={{ listStyleType: "circle" }}>
+                    {design}
+                  </li>
+                );
+              })}
+              {this.state.addr.map((add, index) => {
+                return <li key={index}>{add}</li>;
+              })}
+            </Col>
+          </Row>
+        </Grid>
+      </div>
     );
   }
 }
+
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo'
+  apiKey: "AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places"
 })(Details);

@@ -7,6 +7,7 @@ import '../App.css';
 //import {Row, Col} from 'react-flexbox-grid';
 
 class Home extends Component {
+ 
   render() {
     console.log('token', localStorage.getItem('token'));
     return (

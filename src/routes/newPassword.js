@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-//import {Row, Col} from 'react-flexbox-grid';
+import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import SideBar from "../components/sidebar";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
-import 'font-awesome/css/font-awesome.min.css';
+// import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -14,9 +14,9 @@ class NewPassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newPassword: '',
-      confirmPassword: '',
-      phone: ''
+      newPassword: "",
+      confirmPassword: "",
+      phone: ""
     };
   }
 
@@ -40,19 +40,19 @@ class NewPassword extends React.Component {
     };
     console.log(data);
     if (this.state.newPassword === this.state.confirmPassword) {
-      await fetch('http://localhost:3001/update-password', {
-        method: 'POST',
+      await fetch("http://localhost:3001/update-password", {
+        method: "POST",
         body: JSON.stringify(data),
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         }
       })
         .then(res => res.json())
         .then(data => {
-          this.props.history.push('/signIn');
+          this.props.history.push("/signIn");
           // localStorage.setItem("token", data.token);
         });
-    } else alert('Enter Same Password');
+    } else alert("Enter Same Password");
     //this.props.history.push("/details");
     //     }
     //     else

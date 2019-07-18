@@ -4,7 +4,7 @@ import SideBar from "../../../employee-hub/src/components/sidebar";
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn,MDBModalFooter } from 'mdbreact';
-import 'font-awesome/css/font-awesome.min.css';
+//import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 

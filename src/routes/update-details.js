@@ -162,7 +162,7 @@ class Update_Details extends React.Component {
       gender: this.state.gender,
       email: this.state.email,
       phone: this.state.phone,
-      category: this.state.category.value,
+      category: this.state.category,
       city: this.state.city,
       state: this.state.state,
       zip: this.state.zip,
