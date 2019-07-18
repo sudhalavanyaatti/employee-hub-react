@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
-import SideBar from "../components/sidebar";
+import SideBar from "../../../employee-hub/src/components/sidebar";
 //import Select from 'react-select';
 //import options from '../components/category';
 import '../App.css';

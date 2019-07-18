@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
-import SideBar from '../components/sidebar';
+import SideBar from '../../../employee-hub/src/components/sidebar';
 import {Row, Col} from 'react-flexbox-grid';
 import '../App.css';
 

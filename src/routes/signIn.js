@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import SideBar from "../components/sidebar";
+import SideBar from "../../../employee-hub/src/components/sidebar";
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn,MDBModalFooter } from 'mdbreact';
