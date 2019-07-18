@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from '../components/header';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -41,10 +42,10 @@ class Details extends Component {
     await fetch("http://localhost:3001/details", {
       method: "get",
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'no-cors',
-        'Access-Control-Allow-Credentials': true,
-        'X-Access-Token': api
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "no-cors",
+        "Access-Control-Allow-Credentials": true,
+        "X-Access-Token": api
       }
     })
       .then(res => res.json())
@@ -69,7 +70,7 @@ class Details extends Component {
 
     this.setState(
       {
-        address: this.state.list.map(cat => cat.address)
+        address: this.state.list.map(cat => cat.city)
       },
       () => console.log("add", this.state.address)
     );
@@ -132,6 +133,7 @@ class Details extends Component {
   render() {
     return (
       <div>
+        <Header/>
         <Grid fluid>
           <Row>
             <Col lg={6} sm={6} md={6} xs={6} className="col">
@@ -144,7 +146,11 @@ class Details extends Component {
                         google={this.props.google}
                         zoom={6}
                         initialCenter={{ lat: 17.6868, lng: 83.20161 }}
-                        style={{ position: "absolute", width: "50%" }}
+                        style={{
+                          position: "absolute",
+                          width: "50%",
+                          padding: 0
+                        }}
                       >
                         <Marker
                           position={{
@@ -210,7 +216,11 @@ class Details extends Component {
                 );
               })}
               {this.state.addr.map((add, index) => {
-                return <li key={index}>{add}</li>;
+                return (
+                  <li key={index} style={{ listStyleType: "circle" }}>
+                    {add}
+                  </li>
+                );
               })}
             </Col>
           </Row>

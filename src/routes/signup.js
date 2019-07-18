@@ -88,7 +88,7 @@ class Signup extends React.Component {
       fullName: this.state.fullName,
       email: this.state.email,
       password: this.state.password,
-      category: this.state.category.value,
+      category: this.state.category,
       phone: this.state.phone,
       city: this.state.city,
       state: this.state.state,
