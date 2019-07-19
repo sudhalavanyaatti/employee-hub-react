@@ -74,7 +74,7 @@ class Otp extends Component {
 
         <div className="col-md-4 col-md-offset-4" >
         <MDBContainer >
-        <h1 align="center"> <br/><strong>Enter your OTP</strong></h1>
+        <h1 align="center"><br/> <br/><strong>Enter your OTP</strong></h1>
            <MDBRow>
              <MDBCol md="11">
              <MDBInput

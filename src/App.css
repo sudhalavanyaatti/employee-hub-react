@@ -27,22 +27,23 @@
   }
   .forgotpasswordbg,.newpassbg{
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-    height: 110vh;
+    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     }
-    .updatebg,.profilebg{
+    .updatebg{
       background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-      height: 340vh;
+      height: 140vh;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
          
       }
+     
       .signupbg{
         background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-        height: 235vh;
+        height: 120vh;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -50,12 +51,20 @@
         }
     .signinbg{
       background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-      height: 110vh;
+      height: 100vh;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
          
       }
+      .profilebg{
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+        height: 105vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+           
+        }
     .aboutbg {
       background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
       height: 100vh;
@@ -91,3 +100,7 @@
             h1 {
               margin:0px;
             }
+            .img-circle {
+              border-radius: 50%;            
+          }
+         

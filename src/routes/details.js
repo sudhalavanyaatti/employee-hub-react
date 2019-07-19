@@ -5,7 +5,6 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import Header from "../components/header";
 import SideBar from "../components/sidebar";
 import "../App.css";
 
@@ -135,7 +134,6 @@ class Details extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <div className="detailsbg">
         <div className="header">
           <div className="mobile-only">
@@ -145,10 +143,6 @@ class Details extends Component {
             <Header />
           </div>
         </div>
-=======
-      <div>
-        <Header/>
->>>>>>> 294a178d92057d2ff701af485b0c50f1be73a81b
         <Grid fluid>
           <Row>
             <Col lg={6} sm={6} md={6} xs={6} className="col">

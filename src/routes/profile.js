@@ -3,6 +3,7 @@ import Header from '../components/header';
 import SideBar from '../components/sidebar';
 import {Row, Col} from 'react-flexbox-grid';
 import '../App.css';
+import '../style.css';
 
 class Profile extends Component {
   constructor(props) {
@@ -76,102 +77,57 @@ class Profile extends Component {
             <Header />
           </div>
         </div>
-        <h1 align="center">
-          <strong>User Profile</strong>
-        </h1>
-        <br />
-        <br />
-        <img src={`${this.state.profilePic}`} alt="profile" height="180" width="180" />
-       <div> 
-       <table >
-         <tbody>
-         <tr>
-            <td id="eg1">
-              <strong>Name :</strong>
-            </td >
-            <td id="eg2">{this.state.name}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Gender :</strong>
-            </td>
-            <td id="eg2">{this.state.gender}</td>
-          </tr>
-          <tr>
-            <td id="eg1" >
-              <strong>Email :</strong>
-            </td>
-            <td id="eg2">{this.state.email}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Mobile :</strong>
-            </td>
-            <td id="eg2">{this.state.mobile}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Category :</strong>
-            </td>
-            <td id="eg2">{this.state.category}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>City :</strong>
-            </td>
-            <td id="eg2">{this.state.city}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>State :</strong>
-            </td>
-            <td id="eg2">{this.state.state}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Zip Code:</strong>
-            </td>
-            <td id="eg2">{this.state.zip}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Date Of Birth :</strong>
-            </td>
-            <td id="eg2">{this.state.dob}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Blood Group :</strong>
-            </td>
-            <td id="eg2">{this.state.blood_Group}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Languages :</strong>
-            </td>
-            <td id="eg2">{this.state.language}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Company Name :</strong>
-            </td>
-            <td id="eg2">{this.state.companyName}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Experience :</strong>
-            </td>
-            <td id="eg2">{this.state.experience}</td>
-          </tr>
-          <tr>
-            <td id="eg1">
-              <strong>Date of Join :</strong>
-            </td>
-            <td id="eg2">{this.state.join}</td>
-          </tr>
-         </tbody>
-        </table>
-       </div>
+        <br/><br/><br/> <br/>
+  <table class="table table-borderless" id="table1">
+  <tbody>
+    <tr>
+            <td id="eg3">
+              <img className="img-circle" src={`${this.state.profilePic}`} alt="profile" height="180" width="180" />
+              <h1 align="center">{this.state.name}</h1>
+           </td>
+            <td>
+                <table id="table2">
+                  <tbody>
+                  <tr>
+                    <td id="eg1"><strong>Name:</strong> &nbsp;&nbsp;&nbsp; {this.state.name}</td >
+                    <td id="eg1"><strong>Mobile:</strong> &nbsp;&nbsp;&nbsp; {this.state.mobile}</td > 
+                 </tr>
+                 <tr>
+                    <td id="eg1"><strong>Email:</strong> &nbsp;&nbsp;&nbsp; {this.state.email}</td >
+                    <td id="eg1"><strong>Gender:</strong> &nbsp;&nbsp;&nbsp; {this.state.gender}</td >
+                </tr>
+                <tr>
+                    <td id="eg1"><strong>Category:</strong> &nbsp;&nbsp;&nbsp; {this.state.category}</td >
+                    <td id="eg1"><strong>Date Of Birth:</strong> &nbsp;&nbsp;&nbsp; {this.state.dob}</td >
+    
+                </tr>
+                <tr>
+                    <td id="eg1"><strong>Company :</strong> &nbsp;&nbsp;&nbsp; {this.state.companyName}</td >
+                    <td id="eg1"><strong>Blood Group:</strong> &nbsp;&nbsp;&nbsp; {this.state.blood_Group}</td >  
+                </tr>
+                <tr>
+                    <td id="eg1"><strong>Experience:</strong> &nbsp;&nbsp;&nbsp; {this.state.experience}</td >
+                    <td id="eg1"><strong>Zip Code:</strong> &nbsp;&nbsp;&nbsp; {this.state.zip}</td >
+ 
+                </tr>
+                <tr>
+               
+                <td id="eg1"><strong>Languages:</strong> &nbsp;&nbsp;&nbsp; {this.state.language}</td >
+                 <td id="eg1"><strong>City:</strong> &nbsp;&nbsp;&nbsp; {this.state.city}</td >
+                </tr>
+                <tr>
+                
+                <td id="eg1"><strong>Date of Join:</strong> &nbsp;&nbsp;&nbsp; {this.state.join}</td >
+                <td id="eg1"><strong>State:</strong> &nbsp;&nbsp;&nbsp; {this.state.state}</td >
+                </tr>
+                
+                  </tbody>
+                </table>
+                </td>
+     </tr>
+  
+  </tbody>
+</table><br/>
         <Row center="xs">
           <Col>
             <button className="button" onClick={() => this.handleSubmit()}>
@@ -185,3 +141,16 @@ class Profile extends Component {
 }
 
 export default Profile;
+
+
+
+
+
+
+
+
+
+
+
+ 
+  

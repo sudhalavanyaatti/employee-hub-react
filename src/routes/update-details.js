@@ -202,21 +202,21 @@ class Update_Details extends React.Component {
         </div>
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
-            <form>
-              <h1 align="center">
-                <strong>Update Your Details</strong>
+          
+              <h1 align="center"><br/><br/>
+                <strong>Edit Your Profile</strong>
               </h1>
               <br/>
               <br/>
+              <br/>
               <MDBRow  >
-                <MDBCol md="3"></MDBCol>
-              <MDBCol align="center" md="7" >
-              <img src={`${this.state.photo}`} height="180" width="180"  alt="ProfilePic" />
+              <MDBCol align="center" md="12" >
+              <img class="img-circle" src={`${this.state.photo}`} height="180" width="180"  alt="UpdatePic" />
               <MDBInput
                  type="file"
                  name="profilePic"
                  onChange={event => this.onChangeHandler(event)}
-                 hint="profilepic"
+    
                 />
               </MDBCol>    
               </MDBRow>
@@ -234,19 +234,7 @@ class Update_Details extends React.Component {
                   />
                 </MDBCol>
                 <MDBCol md="4">
-                  <MDBInput
-                    type="email"
-                    name="email"
-                    value={this.state.email}
-                    onChange={event => this.handleChangeEmail(event)}
-                    label="Email"
-                    icon="envelope"
-                    id="materialFormRegisterEmailEx2"
-                    required
-                  />
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
+                <MDBInput
                     type="tel"
                     name="phone"
                     maxLength="10"
@@ -258,20 +246,23 @@ class Update_Details extends React.Component {
                     id="materialFormRegisterPhnEx2"
                     required
                   />
+                 
                 </MDBCol>
-              </MDBRow>
-              <MDBRow>
                 <MDBCol md="4">
-                  <MDBInput
-                    type="date"
-                    name="dob"
-                    value={this.state.dob}
-                    onChange={event => this.handleChangeDob(event)}
-                    label="D.O.B"
-                    id="materialFormRegisterDobEx2"
+                 
+                   <MDBInput
+                    type="email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={event => this.handleChangeEmail(event)}
+                    label="Email"
+                    icon="envelope"
+                    id="materialFormRegisterEmailEx2"
                     required
                   />
                 </MDBCol>
+              </MDBRow>
+              <MDBRow>
                 <MDBCol md="4">
                   <MDBInput
                     // options={options}
@@ -292,13 +283,11 @@ class Update_Details extends React.Component {
                     value={this.state.companyName}
                     onChange={event => this.handleChangeCompanyName(event)}
                     id="materialFormRegisterCompanyEx2"
-                    label="Company name"
+                    label="Company"
                     icon="building"
                     required
                   />
                 </MDBCol>
-              </MDBRow>
-              <MDBRow>
                 <MDBCol md="4">
                   <MDBInput
                     type="tel"
@@ -313,8 +302,10 @@ class Update_Details extends React.Component {
                     required
                   />
                 </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
+              </MDBRow>
+              <MDBRow>
+              <MDBCol md="4">
+              <MDBInput
                     type="text"
                     name="language"
                     value={this.state.language}
@@ -324,6 +315,17 @@ class Update_Details extends React.Component {
                     id="materialFormRegisterLanguageEx2"
                     required
                   />
+              </MDBCol>
+                <MDBCol md="4">
+                <MDBInput
+                   type="date"
+                   name="dob"
+                   value={this.state.dob}
+                   onChange={event => this.handleChangeDob(event)}
+                   label="D.O.B"
+                    id="materialFormRegisterDobEx2"
+                      required
+                />
                 </MDBCol>
                 <MDBCol md="4">
                   <MDBInput
@@ -331,7 +333,7 @@ class Update_Details extends React.Component {
                     name="blood_Group"
                     value={this.state.blood_Group}
                     onChange={event => this.handleChangeblood_Group(event)}
-                    label="Blood group"
+                    label="Blood grp"
                     icon="tint"
                     id="materialFormRegisterBGEx"
                     required
@@ -410,7 +412,7 @@ class Update_Details extends React.Component {
                   Submit
                 </MDBBtn>
               </div>
-            </form>
+          
           </MDBContainer>
         </div>
       </div>

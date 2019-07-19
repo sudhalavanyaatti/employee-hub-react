@@ -84,23 +84,29 @@ select {
   padding-right: 0px;
   padding-left: 0px;
 }
-.container-fluid {
-   padding-right: -16px; 
-   padding-left: -16px; 
-}
 
-table {
+
+#table1 {
+ 
+  width: 80%;
+  border: 1px solid black;
+  background-color:lightgrey;
+  height:20%;
+}
+#table2 {
   border-collapse: collapse;
-  width: 40%;
-}
-
+  width: 90%;
+ }
 td {
   
   font-weight: bold;
   padding: 20px;
+  width:10px;
 }
-#eg1 { text-align: right; }
-#eg2 { text-align: center; }
+#eg1 { text-align: left; }
+#eg2 { text-align: left; }
+#eg3{text-align: center;vertical-align: top;}
+
 
 h4{
   font-style: italic;
