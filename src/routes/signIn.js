@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom';
 import SideBar from "../../../employee-hub/src/components/sidebar";
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import Bottom from '../components/bottom';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn,MDBModalFooter } from 'mdbreact';
-//import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -85,6 +86,7 @@ class SignIn extends React.Component {
           <div className="desktop-only">
                <Header/>
           </div>
+          <Bottom/>
         </div>
 
         <div className="col-md-4 col-md-offset-4" >

@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from "../components/header";
+import Bottom from '../components/bottom';
 import SideBar from "../components/sidebar";
 //import Select from 'react-select';
 //import options from '../components/category';
 import "../App.css";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
-// import 'font-awesome/css/font-awesome.min.css';
+ import 'font-awesome/css/font-awesome.min.css';
 import "mdbreact/dist/css/mdb.css";
 
 class Signup extends React.Component {
@@ -80,18 +81,21 @@ class Signup extends React.Component {
       zip: event.target.value
     });
   }
+  Capitalize(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+    }
 
   async handleSubmit(data) {
     //  event.preventDefault();
 
     data = {
-      fullName: this.state.fullName,
-      email: this.state.email,
+      fullName: this.Capitalize(this.state.fullName),
+      email: this.Capitalize(this.state.email),
       password: this.state.password,
-      category: this.state.category,
+      category: this.Capitalize(this.state.category),
       phone: this.state.phone,
-      city: this.state.city,
-      state: this.state.state,
+      city: this.Capitalize(this.state.city),
+      state: this.Capitalize(this.state.state),
       zip: this.state.zip,
       latitude: this.state.latitude,
       longitude: this.state.longitude
@@ -122,6 +126,7 @@ class Signup extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
+          <Bottom/>
         </div>
 
         <div className="col-md-4 col-md-offset-4">
@@ -217,6 +222,7 @@ class Signup extends React.Component {
                   id="materialFormRegisterZipEx2"
                   value={this.state.zip}
                   onChange={event => this.handleChangeZip(event)}
+                  maxLength="6"
                   label="Zip:"
                   icon="file"
                   required

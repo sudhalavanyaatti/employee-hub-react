@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 //import { Row, Col } from "react-flexbox-grid";
 import Header from '../components/header';
+import Bottom from '../components/bottom';
 import SideBar from "../components/sidebar";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 // import 'font-awesome/css/font-awesome.min.css';
@@ -70,6 +71,7 @@ class Otp extends Component {
             <div className="desktop-only">
                 <Header/>
             </div>
+            <Bottom/>
         </div>
 
         <div className="col-md-4 col-md-offset-4" >

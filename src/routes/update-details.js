@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import Bottom from '../components/bottom';
 import SideBar from '../../../employee-hub/src/components/sidebar';
 //import Select from 'react-select';
 //import options from '../components/category';
@@ -154,22 +155,25 @@ class Update_Details extends React.Component {
       }
     );
   }
+  Capitalize(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+    }
 
   async handleSubmit(event) {
     const data = {
       id: this.state.id,
-      fullName: this.state.fullName,
+      fullName: this.Capitalize(this.state.fullName),
       gender: this.state.gender,
-      email: this.state.email,
+      email: this.Capitalize(this.state.email),
       phone: this.state.phone,
-      category: this.state.category,
-      city: this.state.city,
-      state: this.state.state,
+      category: this.Capitalize(this.state.category),
+      city: this.Capitalize(this.state.city),
+      state: this.Capitalize(this.state.state),
       zip: this.state.zip,
       date_of_birth: this.state.dob,
-      blood_Group: this.state.blood_Group,
-      language: this.state.language,
-      company_name: this.state.companyName,
+      blood_Group: this.Capitalize(this.state.blood_Group),
+      language: this.Capitalize(this.state.language),
+      company_name: this.Capitalize(this.state.companyName),
       experience: this.state.experience
     };
     console.log('data', data);
@@ -199,6 +203,7 @@ class Update_Details extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
+          <Bottom/>
         </div>
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>

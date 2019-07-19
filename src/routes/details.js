@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from '../components/header';
+import Bottom from '../components/bottom';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +10,9 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faEnvelope);
 
 class Details extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+  this.state = {
     categories: [],
     list: [],
     details: true,
@@ -21,6 +24,7 @@ class Details extends Component {
     activeMarker: {},
     selectedPlace: {}
   };
+}
 
   onMarkerClick = (props, marker, e) => {
     const { showingInfoWindow } = this.state;
@@ -49,13 +53,14 @@ class Details extends Component {
       }
     })
       .then(res => res.json())
-      .then(data =>
+      .then(data =>{
         this.setState(
           {
-            list: data.details
+            list: [data.details]
           },
           () => console.log("details", this.state.list)
-        )
+      )
+        }
       );
 
     this.setState(
@@ -106,6 +111,7 @@ class Details extends Component {
       console.log(this.state.details, "details")
     );
   }
+  
 
   renderDetails() {
     return (
@@ -119,9 +125,9 @@ class Details extends Component {
                   listStylePosition: "inside"
                 }}
               >
-                <li>email:{details.email}</li>
-                <li>fullName:{details.fullName}</li>
-                <li>address:{details.address}</li>
+                <li>Email:{details.email}</li>
+                <li>Full name:{details.fullName}</li>
+                <li>Address:{details.city}</li>
               </ul>
             </div>
           );
@@ -134,6 +140,7 @@ class Details extends Component {
     return (
       <div>
         <Header/>
+        <Bottom/>
         <Grid fluid>
           <Row>
             <Col lg={6} sm={6} md={6} xs={6} className="col">
@@ -149,6 +156,7 @@ class Details extends Component {
                         style={{
                           position: "absolute",
                           width: "50%",
+                          height:"80%",
                           padding: 0
                         }}
                       >

@@ -1,8 +1,7 @@
 .navbar {
   overflow: hidden;
-  background-color: #335;
+  background-color: rgba(66, 66, 70, 0.938);
 }
-
 .navbar a {
   float: left;
   display: block;
@@ -12,10 +11,37 @@
   text-decoration: none;
   font-size: 17px;
 }
-
 .navbar a:hover {
   background-color: #ddd;
   color: black;
+}
+.nav {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  right: 160px;
+  flex-direction: column;
+  background-color:rgba(66, 66, 70, 0.938);
+}
+.btmnavbar {
+  background-color: #333;
+  position: absolute;
+  width: 100%;
+  height: 30px;
+   left: 0;
+   bottom: 0;
+   color: white;
+   text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+img {
+  top: 100px;
+  width: 300px;
+  height: 300px;
+  padding: 45px 50px;
+  flex-direction: row;
 }
 .text {
   text-align: center;
@@ -166,3 +192,19 @@ item */ .bm-item {
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+.text1{
+  position: absolute;
+  bottom: 180px;
+  left: 20px;
+}
+.text2{
+  position: absolute;
+  bottom: 180px;
+  left: 500px;
+}
+.text3{
+  position: absolute;
+  bottom: 180px;
+  left: 900px;
+}
+

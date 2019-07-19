@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
+import Bottom from '../components/bottom';
 import SideBar from '../../../employee-hub/src/components/sidebar';
 import {Row, Col} from 'react-flexbox-grid';
 import '../App.css';
@@ -75,6 +76,7 @@ class Profile extends Component {
           <div className="desktop-only">
             <Header />
           </div>
+          <Bottom/>
         </div>
         <h1 align="center">
           <strong>User Profile</strong>

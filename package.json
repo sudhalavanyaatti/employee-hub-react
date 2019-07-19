@@ -19,6 +19,7 @@
     "react-add-space": "^1.0.7",
     "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
+    "react-dropdown": "^1.6.4",
     "react-flexbox-grid": "^2.1.2",
     "react-images-upload": "^1.2.7",
     "react-load-script": "0.0.6",
@@ -27,7 +28,8 @@
     "react-router-hash-link": "^1.2.1",
     "react-scripts": "^3.0.1",
     "react-select": "^3.0.4",
-    "react-select-search": "^0.9.6"
+    "react-select-search": "^0.9.6",
+    "semantic-ui-react": "^0.87.3"
   },
   "scripts": {
     "start": "react-scripts start",

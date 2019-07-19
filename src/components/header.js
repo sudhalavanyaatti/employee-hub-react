@@ -5,7 +5,9 @@ import '../style.css';
 
 class Header extends Component {
   state = {
-    userStatus: false
+    userStatus: false,
+    name: '',
+    showmenu: false
   };
 
   componentDidMount() {
@@ -14,9 +16,27 @@ class Header extends Component {
       this.setState({
         userStatus: true
       });
+      const data = {
+        token: localStorage.getItem('token')
+      };
+      fetch('http://localhost:3001/profile', {
+        method: 'post',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data) {
+            this.setState({
+              name: data.data.fullName
+            });
+          }
+        });
     }
   }
-
   handleClearToken() {
     localStorage.clear();
     this.setState({
@@ -24,7 +44,9 @@ class Header extends Component {
     });
   }
   handleprofile() {
-    
+    this.setState({
+      showmenu: true
+    });
   }
 
   render() {
@@ -37,21 +59,52 @@ class Header extends Component {
                 <div>
                   {this.state.userStatus ? (
                     <div>
-                      <Link to="/">Home</Link>
-                      <Link onClick={() => this.handleprofile()} to="/profile">Profile</Link>
-                      <Link to="/details">Details</Link>
-                      <Link
-                        onClick={() => this.handleClearToken()}
-                        to="/signIn"
-                      >
-                        Sign Out
+                      <Link to="/">
+                        <strong>Home</strong>
                       </Link>
+
+                      <Link to="/details">
+                        <strong>Details</strong>
+                      </Link>
+
+                      <div>
+                        <Link onClick={() => this.handleprofile()}>
+                          <strong>{this.state.name}</strong>
+                        </Link>
+
+                        <div>
+                          {this.state.showmenu ? (
+                            <div className="nav">
+                              <Link to="/profile">
+                                {' '}
+                                <strong>Profile</strong>
+                              </Link>
+
+                              <Link
+                                onClick={() => this.handleClearToken()}
+                                to="/signIn"
+                              >
+                                <strong>Sign Out</strong>
+                              </Link>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
                     </div>
                   ) : (
                     <div>
-                      <Link to="/">Home</Link>
-                      <Link to="/signIn">SignIn</Link>
-                      <Link to="/about">About</Link>
+                      <strong>
+                        {' '}
+                        <Link to="/">Home</Link>
+                      </strong>
+                      <strong>
+                        {' '}
+                        <Link to="/signIn">SignIn</Link>
+                      </strong>
+                      <strong>
+                        {' '}
+                        <Link to="/about">About</Link>
+                      </strong>
                     </div>
                   )}
                 </div>

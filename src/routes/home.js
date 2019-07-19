@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
 import SideBar from "../../../employee-hub/src/components/sidebar";
+import logo2 from "../images/476700.svg";
+import logo1 from "../images/417720.svg";
+import logo3 from "../images/1034146.svg";
 import '../App.css';
+import Bottom from '../components/bottom';
 
 //import { Map, GoogleApiWrapper } from "google-maps-react";
 //import {Row, Col} from 'react-flexbox-grid';
@@ -20,11 +24,14 @@ class Home extends Component {
            <div className="desktop-only">
                <Header/>
            </div>
+           <Bottom/>
         </div>
-
-        <div className="text">
-          <h1>Welcome To Employee HUB</h1>
-        </div>
+        <img src={logo1} alt="Logo" />
+        <img src={logo2} alt="Logo" />
+        <img src={logo3} alt="Logo" />
+        <div className="text1"><h1>You can find out at any where</h1></div>
+        <div className="text2"><h1>Find new people</h1></div>
+        <div className="text3"><h1>Contact them</h1></div>
       </div>
     );
   }
