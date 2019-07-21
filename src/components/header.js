@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
-import '../style.css';
+import {Container, Dropdown, Menu} from 'semantic-ui-react';
 
 class Header extends Component {
   state = {
     userStatus: false,
-    name: '',
-    showmenu: false
+    name: ''
   };
-
   componentDidMount() {
     const token = localStorage.getItem('token');
     if (token) {
@@ -43,75 +40,86 @@ class Header extends Component {
       userStatus: false
     });
   }
-  handleprofile() {
-    this.setState({
-      showmenu: true
-    });
-  }
+  handleprofile() {}
 
   render() {
     return (
-      <div className="navbar">
-        <Row>
-          <Col xs={12} className="col">
-            <Row end="xs">
-              <Col xs={4} className="col">
-                <div>
-                  {this.state.userStatus ? (
-                    <div>
-                      <Link to="/">
-                        <strong>Home</strong>
-                      </Link>
-
-                      <Link to="/details">
-                        <strong>Details</strong>
-                      </Link>
-
-                      <div>
-                        <Link onClick={() => this.handleprofile()}>
-                          <strong>{this.state.name}</strong>
-                        </Link>
-
-                        <div>
-                          {this.state.showmenu ? (
-                            <div className="nav">
-                              <Link to="/profile">
-                                {' '}
-                                <strong>Profile</strong>
-                              </Link>
-
-                              <Link
-                                onClick={() => this.handleClearToken()}
-                                to="/signIn"
-                              >
-                                <strong>Sign Out</strong>
-                              </Link>
-                            </div>
-                          ) : null}
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div>
-                      <strong>
-                        {' '}
-                        <Link to="/">Home</Link>
-                      </strong>
-                      <strong>
-                        {' '}
-                        <Link to="/signIn">SignIn</Link>
-                      </strong>
-                      <strong>
-                        {' '}
-                        <Link to="/about">About</Link>
-                      </strong>
-                    </div>
-                  )}
+      <div>
+        {this.state.userStatus ? (
+          <div>
+            <Menu fixed="top" inverted >
+              <Container>
+                {/* <img
+                  src={
+                    'https://cdn0.iconfinder.com/data/icons/seo-and-marketing-line-color-vol-2/62/user__replace__employee__transfer__avatar-512.png'
+                  }
+                  alt="Logo"
+                  style={{width: '10px', height: '10px',top: '10px'}}
+                /> */}
+                <Menu.Item as={Link} to="/" header>
+                  Employee HUB
+                </Menu.Item>
+                <div
+                  style={{
+                    margintop:'50px',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    position: 'absolute',
+                    right: '50px'
+                  }}
+                >
+                  <Menu.Item as={Link} to="/details">
+                    Details
+                  </Menu.Item>
+                  <Dropdown
+                    onClick={() => this.handleprofile()}
+                    item
+                    simple
+                    text={this.state.name}
+                  >
+                    <Dropdown.Menu>
+                      <Dropdown.Item as={Link} to="/profile">
+                        Profile
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() => this.handleClearToken()}
+                        as={Link}
+                        to="/signIn"
+                      >
+                        Sign Out
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </div>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+              </Container>
+            </Menu>
+          </div>
+        ) : (
+          <div>
+            <Menu fixed="top" inverted>
+              <Container>
+                <Menu.Item as={Link} to="/" header>
+                  Employee HUB
+                </Menu.Item>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    position: 'absolute',
+                    right: '50px'
+                  }}
+                >
+                  <Menu.Item as={Link} to="/signIn">
+                    SignIn
+                  </Menu.Item>
+                  <Menu.Item as={Link} to="/about">
+                    About
+                  </Menu.Item>
+                </div>
+              </Container>
+            </Menu>
+          </div>
+        )}
       </div>
     );
   }

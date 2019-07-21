@@ -7,8 +7,8 @@ import SideBar from "../components/sidebar";
 //import Select from 'react-select';
 //import options from '../components/category';
 import "../App.css";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
- import 'font-awesome/css/font-awesome.min.css';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact"; 
+import 'font-awesome/css/font-awesome.min.css';
 import "mdbreact/dist/css/mdb.css";
 
 class Signup extends React.Component {
@@ -111,7 +111,7 @@ class Signup extends React.Component {
       .then(res => res.json())
       .then(response => {
         console.log(response);
-        if (response.response.success) {
+        if (response.response!=="null") {
           this.props.history.push("/otpVal", { phone: this.state.phone });
         } else alert("Use Another Mobile Number");
       });
@@ -131,9 +131,9 @@ class Signup extends React.Component {
 
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
-            <h1 align="center">
+            <h1 align="center"><br/><br/>
               <strong>Register Here</strong>
-            </h1>
+            </h1><br/>
             <MDBRow>
               <MDBCol md="6">
                 <MDBInput
@@ -148,14 +148,16 @@ class Signup extends React.Component {
                 />
               </MDBCol>
               <MDBCol md="6">
-                <MDBInput
-                  //options={options}
-                  type="text"
-                  value={this.state.category}
-                  name="category"
-                  onChange={event => this.handleChangeCategory(event)}
-                  label="Category:"
-                  icon="th-large"
+              <MDBInput
+                  type="tel"
+                  name="phone"
+                  maxLength="10"
+                  minLength="10"
+                  value={this.state.phone}
+                  onChange={event => this.handleChangeNumber(event)}
+                  id="materialFormRegisterPhnEx2"
+                  label="Phone: "
+                  icon="phone"
                   required
                 />
               </MDBCol>
@@ -174,23 +176,7 @@ class Signup extends React.Component {
                 />
               </MDBCol>
               <MDBCol md="6">
-                <MDBInput
-                  type="tel"
-                  name="phone"
-                  maxLength="10"
-                  minLength="10"
-                  value={this.state.phone}
-                  onChange={event => this.handleChangeNumber(event)}
-                  id="materialFormRegisterPhnEx2"
-                  label="Phone: "
-                  icon="phone"
-                  required
-                />
-              </MDBCol>
-            </MDBRow>
-            <MDBRow>
-              <MDBCol md="6">
-                <MDBInput
+              <MDBInput
                   type="password"
                   name="password"
                   value={this.state.password}
@@ -201,22 +187,22 @@ class Signup extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="6">
-                <MDBInput
-                  name="city"
-                  type="text"
-                  value={this.state.city}
-                  onChange={event => this.handleChangeCity(event)}
-                  id="materialFormRegisterCityEx2"
-                  label="City:"
-                  icon="home"
-                  required
-                />
-              </MDBCol>
             </MDBRow>
             <MDBRow>
               <MDBCol md="6">
-                <MDBInput
+              <MDBInput
+               //options={options}
+                 type="text"
+                 value={this.state.category}
+                name="category"
+                onChange={event => this.handleChangeCategory(event)}
+                label="Category:"
+                icon="th-large"
+                required
+                />
+              </MDBCol>
+              <MDBCol md="6">
+              <MDBInput
                   type="text"
                   name="zip"
                   id="materialFormRegisterZipEx2"
@@ -225,6 +211,21 @@ class Signup extends React.Component {
                   maxLength="6"
                   label="Zip:"
                   icon="file"
+                  required
+                />
+                
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="6">
+              <MDBInput
+                  name="city"
+                  type="text"
+                  value={this.state.city}
+                  onChange={event => this.handleChangeCity(event)}
+                  id="materialFormRegisterCityEx2"
+                  label="City:"
+                  icon="home"
                   required
                 />
               </MDBCol>

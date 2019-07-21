@@ -6,6 +6,8 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import SideBar from "../components/sidebar";
+import "../App.css";
 
 library.add(faEnvelope);
 
@@ -138,9 +140,16 @@ class Details extends Component {
 
   render() {
     return (
-      <div>
-        <Header/>
-        <Bottom/>
+      <div className="detailsbg">
+        <div className="header">
+          <div className="mobile-only">
+            <SideBar />
+          </div>
+          <div className="desktop-only">
+            <Header />
+          </div>
+          <Bottom/>
+        </div>
         <Grid fluid>
           <Row>
             <Col lg={6} sm={6} md={6} xs={6} className="col">
@@ -148,17 +157,12 @@ class Details extends Component {
                 <div>
                   {this.state.list.map((store, index) => {
                     return (
+                      <div className="win">
                       <Map
                         key={index}
                         google={this.props.google}
                         zoom={6}
                         initialCenter={{ lat: 17.6868, lng: 83.20161 }}
-                        style={{
-                          position: "absolute",
-                          width: "50%",
-                          height:"80%",
-                          padding: 0
-                        }}
                       >
                         <Marker
                           position={{
@@ -187,6 +191,7 @@ class Details extends Component {
                           </div>
                         </InfoWindow>
                       </Map>
+                      </div>
                     );
                   })}
                 </div>

@@ -1,28 +1,4 @@
-.navbar {
-  overflow: hidden;
-  background-color: rgba(66, 66, 70, 0.938);
-}
-.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-.nav {
-  display: flex;
-  position: absolute;
-  top: 50px;
-  right: 160px;
-  flex-direction: column;
-  background-color:rgba(66, 66, 70, 0.938);
-}
+
 .btmnavbar {
   background-color: #333;
   position: absolute;
@@ -37,19 +13,18 @@
   font-size: 17px;
 }
 img {
-  top: 100px;
-  width: 300px;
-  height: 300px;
-  padding: 45px 50px;
+  margin-top: 100px;
+  width: 400px;
+  height: 400px;
+  padding: 55px 60px;
   flex-direction: row;
 }
-.text {
-  text-align: center;
+.win{
+  margin-top: 70px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
+  width: 50%;
+  height:80%;
+  padding: 0;
 }
 .gm-style-iw {
   background-color: rgb(237, 28, 36);
@@ -90,7 +65,7 @@ img {
   background-color: #f2f2f2;
   padding: 20px;
 } */
-input[type="text"],
+/* input[type="text"],
 [type="email"],
 [type="password"],
 [type="tel"],
@@ -103,27 +78,40 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-}
+} */
 
 
 .container-fluid {
   padding-right: 0px;
   padding-left: 0px;
 }
-.container-fluid {
-   padding-right: -16px; 
-   padding-left: -16px; 
-}
 
-table {
+
+#table1 {
+ 
+  width: 80%;
+  border: 1px solid black;
+  background-color:lightgrey;
+  height:20%;
+}
+#table2 {
   border-collapse: collapse;
-  width: 40%;
-}
-
+  width: 90%;
+ }
 td {
-  text-align: left;
+  
   font-weight: bold;
   padding: 20px;
+  width:10px;
+}
+#eg1 { text-align: left; }
+#eg2 { text-align: left; }
+#eg3{text-align: center;vertical-align: top;}
+
+
+h4{
+  font-style: italic;
+  color:white;
 }
 
 /* tr:nth-child(even) {background-color: #f2f2f2;} */
@@ -194,17 +182,17 @@ item */ .bm-item {
 }
 .text1{
   position: absolute;
-  bottom: 180px;
+  bottom: 120px;
   left: 20px;
 }
 .text2{
   position: absolute;
-  bottom: 180px;
+  bottom: 120px;
   left: 500px;
 }
 .text3{
   position: absolute;
-  bottom: 180px;
-  left: 900px;
+  bottom: 120px;
+  right: 200px;
 }
 

@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 //import Script from "react-load-script";
+import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
