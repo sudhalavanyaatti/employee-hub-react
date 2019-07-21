@@ -161,7 +161,7 @@ class Details extends Component {
                       <Map
                         key={index}
                         google={this.props.google}
-                        zoom={6}
+                        zoom={7}
                         initialCenter={{ lat: 17.6868, lng: 83.20161 }}
                       >
                         <Marker

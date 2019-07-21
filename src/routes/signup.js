@@ -90,7 +90,7 @@ class Signup extends React.Component {
 
     data = {
       fullName: this.Capitalize(this.state.fullName),
-      email: this.Capitalize(this.state.email),
+      email: this.state.email,
       password: this.state.password,
       category: this.Capitalize(this.state.category),
       phone: this.state.phone,

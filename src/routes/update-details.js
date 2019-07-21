@@ -1,9 +1,10 @@
 import axios from 'axios';
 //import btoa from 'btoa';
 import React from 'react';
+import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
-import Bottom from '../components/bottom';
+//import Bottom from '../components/bottom';
 import SideBar from '../../../employee-hub/src/components/sidebar';
 //import Select from 'react-select';
 //import options from '../components/category';
@@ -16,6 +17,7 @@ class Update_Details extends React.Component {
     this.state = {
       id: '',
       fullName: '',
+      password: '',
       gender: '',
       email: '',
       category: '',
@@ -52,6 +54,7 @@ class Update_Details extends React.Component {
           this.setState({
             id: data.data._id,
             fullName: data.data.fullName,
+            password:data.data.password,
             gender: data.data.gender,
             email: data.data.email,
             phone: data.data.phone,
@@ -85,9 +88,9 @@ class Update_Details extends React.Component {
     });
   }
   handleChangeNumber(event) {
-    this.setState({
-      phone: event.target.value
-    });
+    // this.setState({
+    //   phone: event.target.value
+    // });
   }
   handleChangeDob(event) {
     this.setState({
@@ -130,6 +133,10 @@ class Update_Details extends React.Component {
       zip: event.target.value
     });
   }
+  handleChangePhone1(event) {
+  }
+  handleChangePassword(event) {
+  }
 
   handleChangeCategory(event) {
     this.setState({category: event});
@@ -155,17 +162,16 @@ class Update_Details extends React.Component {
       }
     );
   }
-  Capitalize(str){
+  Capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
-    }
+  }
 
   async handleSubmit(event) {
     const data = {
       id: this.state.id,
       fullName: this.Capitalize(this.state.fullName),
       gender: this.state.gender,
-      email: this.Capitalize(this.state.email),
-      phone: this.state.phone,
+      email: this.state.email,
       category: this.Capitalize(this.state.category),
       city: this.Capitalize(this.state.city),
       state: this.Capitalize(this.state.state),
@@ -203,221 +209,241 @@ class Update_Details extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-          <Bottom/>
+          {/* <Bottom /> */}
         </div>
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
-          
-              <h1 align="center"><br/><br/>
-                <strong>Edit Your Profile</strong>
-              </h1>
-              <br/>
-              <br/>
-              <br/>
-              <MDBRow  >
-              <MDBCol align="center" md="12" >
-              <img class="img-circle" src={`${this.state.photo}`} height="180" width="180"  alt="UpdatePic" />
-              <MDBInput
-                 type="file"
-                 name="profilePic"
-                 onChange={event => this.onChangeHandler(event)}
-    
+            <h1 align="center">
+              <br />
+              <br />
+              <strong>Edit Your Profile</strong>
+            </h1>
+            <br />
+            <br />
+            <br />
+            <MDBRow>
+              <MDBCol align="center" md="12">
+                <img
+                  class="img-circle"
+                  src={`${this.state.photo}`}
+                  height="180"
+                  width="180"
+                  alt="UpdatePic"
                 />
-              </MDBCol>    
-              </MDBRow>
-              <MDBRow>
-                <MDBCol md="4">
-                  <MDBInput
-                    type="text"
-                    name="name"
-                    value={this.state.fullName}
-                    onChange={event => this.handleChangeFullname(event)}
-                    label="Full Name"
-                    icon="user"
-                    id="materialFormRegisterNameEx"
-                    required
-                  />
-                </MDBCol>
-                <MDBCol md="4">
                 <MDBInput
-                    type="tel"
-                    name="phone"
-                    maxLength="10"
-                    minLength="10"
-                    value={this.state.phone}
-                    onChange={event => this.handleChangeNumber(event)}
-                    label="Phone "
-                    icon="phone"
-                    id="materialFormRegisterPhnEx2"
-                    required
-                  />
-                 
-                </MDBCol>
-                <MDBCol md="4">
-                 
-                   <MDBInput
-                    type="email"
-                    name="email"
-                    value={this.state.email}
-                    onChange={event => this.handleChangeEmail(event)}
-                    label="Email"
-                    icon="envelope"
-                    id="materialFormRegisterEmailEx2"
-                    required
-                  />
-                </MDBCol>
-              </MDBRow>
-              <MDBRow>
-                <MDBCol md="4">
-                  <MDBInput
-                    // options={options}
-                    value={this.state.category}
-                    name="category"
-                    placeholder="Select Category"
-                    onChange={event => this.handleChangeCategory(event)}
-                    label="Category"
-                    icon="th-large"
-                    id="materialFormRegisterNameEx"
-                    required
-                  />
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
-                    type="text"
-                    name="companyName"
-                    value={this.state.companyName}
-                    onChange={event => this.handleChangeCompanyName(event)}
-                    id="materialFormRegisterCompanyEx2"
-                    label="Company"
-                    icon="building"
-                    required
-                  />
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
-                    type="tel"
-                    name="experience"
-                    maxLength="2"
-                    minLength="1"
-                    value={this.state.experience}
-                    onChange={event => this.handleChangeExperience(event)}
-                    label="Experience"
-                    icon="exclamation"
-                    id="materialFormRegisterExperienceEx2"
-                    required
-                  />
-                </MDBCol>
-              </MDBRow>
-              <MDBRow>
-              <MDBCol md="4">
-              <MDBInput
-                    type="text"
-                    name="language"
-                    value={this.state.language}
-                    onChange={event => this.handleChangeLanguage(event)}
-                    label="Language"
-                    icon="language"
-                    id="materialFormRegisterLanguageEx2"
-                    required
-                  />
+                  type="file"
+                  name="profilePic"
+                  onChange={event => this.onChangeHandler(event)}
+                />
               </MDBCol>
-                <MDBCol md="4">
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="4">
                 <MDBInput
-                   type="date"
-                   name="dob"
-                   value={this.state.dob}
-                   onChange={event => this.handleChangeDob(event)}
-                   label="D.O.B"
-                    id="materialFormRegisterDobEx2"
-                      required
+                  type="text"
+                  name="name"
+                  value={this.state.fullName}
+                  onChange={event => this.handleChangeFullname(event)}
+                  label="Full Name"
+                  icon="user"
+                  id="materialFormRegisterNameEx"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="4">
+                <MDBInput
+                  type="tel"
+                  name="phone"
+                  maxLength="10"
+                  minLength="10"
+                  value={this.state.phone}
+                  onChange={event => this.handleChangeNumber(event)}
+                  label="Phone "
+                  icon="phone"
+                  id="materialFormRegisterPhnEx2"
+                  disabled
                 />
                 </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
-                    type="text"
-                    name="blood_Group"
-                    value={this.state.blood_Group}
-                    onChange={event => this.handleChangeblood_Group(event)}
-                    label="Blood grp"
-                    icon="tint"
-                    id="materialFormRegisterBGEx"
-                    required
-                  />
-                </MDBCol>
+                <Link to={{pathname: '/updateNumber',state: { id: this.state.id }}}>Update Number</Link>
+                </MDBRow>
+                <MDBRow>
+              <MDBCol md="4">
+                <MDBInput
+                  type="email"
+                  name="email"
+                  value={this.state.email}
+                  onChange={event => this.handleChangeEmail(event)}
+                  label="Email"
+                  icon="envelope"
+                  id="materialFormRegisterEmailEx2"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="4">
+                <MDBInput
+                   type="password"
+                   name="password"
+                   value={this.state.password}
+                   onChange={event => this.handleChangePassword(event)}
+                   label="Password"
+                   icon="Password"
+                   id="materialFormRegisterEmailEx2"
+                   disabled
+                />
+              </MDBCol>
+              <Link to={{pathname: '/newPassword',state: { phone: this.state.phone }}}>Update Password</Link>
               </MDBRow>
-              <MDBRow>
-                <MDBCol md="4">
-                  <MDBInput
-                    name="city"
-                    type="text"
-                    value={this.state.city}
-                    onChange={event => this.handleChangeCity(event)}
-                    label="City"
-                    icon="home"
-                    id="materialFormRegisterCityEx2"
-                    required
-                  />
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
-                    type="text"
-                    name="zip"
-                    value={this.state.zip}
-                    onChange={event => this.handleChangeZip(event)}
-                    label="Zip"
-                    icon="file"
-                    id="materialFormRegisterZipEx2"
-                    required
-                  />
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
-                    name="state"
-                    type="text"
-                    value={this.state.state}
-                    onChange={event => this.handleChangeState(event)}
-                    label="State"
-                    icon="map-marker"
-                    id="materialFormRegisterStateEx2"
-                    required
-                  />
-                </MDBCol>
+            <MDBRow>
+              <MDBCol md="4">
+                <MDBInput
+                  type="text"
+                  name="companyName"
+                  value={this.state.companyName}
+                  onChange={event => this.handleChangeCompanyName(event)}
+                  id="materialFormRegisterCompanyEx2"
+                  label="Company"
+                  icon="building"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="4">
+                <MDBInput
+                  type="tel"
+                  name="experience"
+                  maxLength="2"
+                  minLength="1"
+                  value={this.state.experience}
+                  onChange={event => this.handleChangeExperience(event)}
+                  label="Experience"
+                  icon="exclamation"
+                  id="materialFormRegisterExperienceEx2"
+                  required
+                />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="4">
+                <MDBInput
+                  type="text"
+                  name="language"
+                  value={this.state.language}
+                  onChange={event => this.handleChangeLanguage(event)}
+                  label="Language"
+                  icon="language"
+                  id="materialFormRegisterLanguageEx2"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="4">
+                <MDBInput
+                  type="date"
+                  name="dob"
+                  value={this.state.dob}
+                  onChange={event => this.handleChangeDob(event)}
+                  label="D.O.B"
+                  id="materialFormRegisterDobEx2"
+                  required
+                />
+              </MDBCol>
               </MDBRow>
-              <MDBRow>
-                <MDBCol md="4">
-                  <MDBInput
-                    type="radio"
-                    name="gender"
-                    value="Male"
-                    onClick={this.state.gender === 'Male'}
-                    onChange={event => this.handleChangeGender(event)}
-                    label="Male"
-                    id="materialFormRegisterNameEx"
-                    required
-                  />
-                  <MDBInput
-                    type="radio"
-                    name="gender"
-                    value="Female"
-                    onClick={this.state.gender === 'Female'}
-                    onChange={event => this.handleChangeGender(event)}
-                    label="Female"
-                    id="materialFormRegisterNameEx"
-                    required
-                  />
-                </MDBCol>
+            <MDBRow>
+            <MDBCol md="4">
+                <MDBInput
+                  // options={options}
+                  value={this.state.category}
+                  name="category"
+                  placeholder="Select Category"
+                  onChange={event => this.handleChangeCategory(event)}
+                  label="Category"
+                  icon="th-large"
+                  id="materialFormRegisterNameEx"
+                  required
+                />
+              </MDBCol>
+              {/* <MDBCol md="4">
+                <MDBInput
+                  type="text"
+                  name="blood_Group"
+                  value={this.state.blood_Group}
+                  onChange={event => this.handleChangeblood_Group(event)}
+                  label="Blood grp"
+                  icon="tint"
+                  id="materialFormRegisterBGEx"
+                  required
+                />
+              </MDBCol> */}
+              <MDBCol md="4">
+                <MDBInput
+                  name="city"
+                  type="text"
+                  value={this.state.city}
+                  onChange={event => this.handleChangeCity(event)}
+                  label="City"
+                  icon="home"
+                  id="materialFormRegisterCityEx2"
+                  required
+                />
+              </MDBCol>
               </MDBRow>
-            
-              <div align="center">
-                <MDBBtn
-                  gradient="blue"
-                  type="submit"
-                  onClick={() => this.handleSubmit()}
-                >
-                  Submit
-                </MDBBtn>
-              </div>
-          
+            <MDBRow>
+              <MDBCol md="4">
+                <MDBInput
+                  type="text"
+                  name="zip"
+                  value={this.state.zip}
+                  onChange={event => this.handleChangeZip(event)}
+                  label="Zip"
+                  icon="file"
+                  id="materialFormRegisterZipEx2"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="4">
+                <MDBInput
+                  name="state"
+                  type="text"
+                  value={this.state.state}
+                  onChange={event => this.handleChangeState(event)}
+                  label="State"
+                  icon="map-marker"
+                  id="materialFormRegisterStateEx2"
+                  required
+                />
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="4">
+                <MDBInput
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  onClick={this.state.gender === 'Male'}
+                  onChange={event => this.handleChangeGender(event)}
+                  label="Male"
+                  id="materialFormRegisterNameEx"
+                  required
+                />
+                <MDBInput
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  onClick={this.state.gender === 'Female'}
+                  onChange={event => this.handleChangeGender(event)}
+                  label="Female"
+                  id="materialFormRegisterNameEx"
+                  required
+                />
+              </MDBCol>
+            </MDBRow>
+            <div align="center">
+              <MDBBtn
+                gradient="blue"
+                type="submit"
+                onClick={() => this.handleSubmit()}
+              >
+                Update
+              </MDBBtn>
+            </div>
           </MDBContainer>
         </div>
       </div>

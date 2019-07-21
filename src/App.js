@@ -12,8 +12,10 @@ import PassOtpValidation from './routes/passwordOtpVal';
 import NewPassword from './routes/newPassword';
 import Details from './routes/details';
 import NumberVal from './routes/phoneNumberVal';
+import UpdateNumber from './routes/updateNumber';
 import Profile from './routes/profile';
 import Update_Details from'./routes/update-details';
+import Number_OtpValidation from'./routes/updateNumberOtpVal';
 
 class App extends React.Component {
   // state = {
@@ -53,6 +55,8 @@ class App extends React.Component {
         <Route path="/phoneNumberVal" component={NumberVal} />
         <Route path="/profile" component={Profile} />
         <Route path="/update-details" component={Update_Details} />
+        <Route path="/updateNumber" component={UpdateNumber} />
+        <Route path="/updateNumberOtpVal" component={Number_OtpValidation} />
       </Router>
     );
   }

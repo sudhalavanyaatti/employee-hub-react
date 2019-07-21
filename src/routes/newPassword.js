@@ -50,6 +50,7 @@ class NewPassword extends React.Component {
       })
         .then(res => res.json())
         .then(data => {
+          alert("Password Updated successfully...!");
           this.props.history.push("/signIn");
           // localStorage.setItem("token", data.token);
         });
@@ -95,7 +96,7 @@ class NewPassword extends React.Component {
             <MDBRow  >
             <MDBCol md="11">
               <MDBInput
-                  type="password"
+                  type="text"
                   name="confirmPassword"
                   value={this.state.confirmPassword}
                   onChange={event => this.handleChangePass(event)}
