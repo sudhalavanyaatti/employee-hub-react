@@ -53,9 +53,9 @@ class Profile extends Component {
             state: data.data.state,
             zip: data.data.zip,
             dob: data.data.date_of_birth,
-            blood_Group: data.data.blood_Group,
-            language: data.data.language,
-            companyName: data.data.company_name,
+            blood_Group: this.Capitalize(data.data.blood_Group),
+            language: this.Capitalize(data.data.language),
+            companyName: this.Capitalize(data.data.company_name),
             experience: data.data.experience,
             join: data.data.join_date,
             profilePic: data.data.profilePic
@@ -65,6 +65,9 @@ class Profile extends Component {
   }
   handleSubmit() {
     this.props.history.push('/update-details');
+  }
+  Capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
   render() {

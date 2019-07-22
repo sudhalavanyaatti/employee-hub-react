@@ -184,15 +184,22 @@ item */ .bm-item {
   position: absolute;
   bottom: 120px;
   left: 20px;
+  color: #dad8cc;
+  font-weight: 900;
+
 }
 .text2{
   position: absolute;
   bottom: 120px;
   left: 500px;
+  color: #dad8cc;
+  font-weight: 900;
 }
 .text3{
   position: absolute;
   bottom: 120px;
   right: 200px;
+  color: #dad8cc;
+  font-weight: 900;
 }
 

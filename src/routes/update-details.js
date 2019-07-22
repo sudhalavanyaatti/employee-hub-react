@@ -162,24 +162,21 @@ class Update_Details extends React.Component {
       }
     );
   }
-  Capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
 
   async handleSubmit(event) {
     const data = {
       id: this.state.id,
-      fullName: this.Capitalize(this.state.fullName),
+      fullName: this.state.fullName,
       gender: this.state.gender,
       email: this.state.email,
-      category: this.Capitalize(this.state.category),
-      city: this.Capitalize(this.state.city),
-      state: this.Capitalize(this.state.state),
+      category:this.state.category,
+      city: this.state.city,
+      state: this.state.state,
       zip: this.state.zip,
       date_of_birth: this.state.dob,
-      blood_Group: this.Capitalize(this.state.blood_Group),
-      language: this.Capitalize(this.state.language),
-      company_name: this.Capitalize(this.state.companyName),
+      blood_Group:this.state.blood_Group,
+      language: this.state.language,
+      company_name: this.state.companyName,
       experience: this.state.experience
     };
     console.log('data', data);

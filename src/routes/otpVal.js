@@ -51,7 +51,8 @@ class Otp extends Component {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       }
     })
       .then(res => res.json())
@@ -98,7 +99,7 @@ class Otp extends Component {
              <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
               </MDBBtn>  
-              <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmitresend()}>
+              <MDBBtn  gradient="blue" type="reset"  onClick={() => this.handleSubmitresend()}>
                 Resend OTP
               </MDBBtn>                    
           </div>    

@@ -33,11 +33,13 @@ class Number_OtpValidation extends Component {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       }
     })
-      .then(res => res.json())
+    .then(res => res.json())
       .then(response => {
+        console.log('gfc',response)
         if (!response.response.success) {
           alert('enter Valid OTP');
         } else {
@@ -54,7 +56,8 @@ class Number_OtpValidation extends Component {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       }
     })
       .then(res => res.json())
@@ -97,7 +100,7 @@ class Number_OtpValidation extends Component {
               <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
               </MDBBtn>  
-              <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmitresend()}>
+              <MDBBtn  gradient="blue" type="reset"  onClick={() => this.handleSubmitresend()}>
                 Resend OTP
               </MDBBtn>      
            </div>    
