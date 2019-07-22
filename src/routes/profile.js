@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
-//import Footer from '../components/footer';
 import SideBar from '../components/sidebar';
 import {Row, Col} from 'react-flexbox-grid';
 import '../App.css';

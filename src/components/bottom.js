@@ -7,9 +7,8 @@ import '../style.css';
 class Bottom extends Component {
   render() {
     return <div className="btmnavbar">
-            
-
-    </div>
+            <span id="footer">&copy; 2019 EmployeeHub.All Rights Reserved.</span>
+           </div>
   }
 }
 

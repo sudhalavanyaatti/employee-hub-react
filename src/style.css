@@ -1,14 +1,16 @@
 
 .btmnavbar {
   background-color: #333;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 30px;
+  height: 40px;
    left: 0;
    bottom: 0;
+   margin-bottom: 0px;
    color: white;
    text-align: center;
   padding: 14px 16px;
+  
   text-decoration: none;
   font-size: 17px;
 }
@@ -194,4 +196,6 @@ item */ .bm-item {
   color: #dad8cc;
   font-weight: 900;
 }
-
+#footer{
+  color:white;
+}
