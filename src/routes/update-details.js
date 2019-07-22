@@ -199,7 +199,7 @@ class Update_Details extends React.Component {
   }
   render() {
     return (
-      <div className="updatebg">
+      <div className="updatebg" id="page-container">
         <div className="header">
           <div className="mobile-only">
             <SideBar />

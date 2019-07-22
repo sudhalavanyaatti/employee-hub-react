@@ -5,6 +5,7 @@ import logo2 from "../images/476700.svg";
 import logo1 from "../images/417720.svg";
 import logo3 from "../images/1034146.svg";
 import '../App.css';
+import '../style.css';
 import Bottom from '../components/bottom';
 
 //import { Map, GoogleApiWrapper } from "google-maps-react";
@@ -15,7 +16,7 @@ class Home extends Component {
   render() {
     console.log('token', localStorage.getItem('token'));
     return (
-      <div className="homebg" >
+      <div className="homebg" id="page-container">
 
          <div className="header">
            <div className="mobile-only">
