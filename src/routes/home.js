@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
-import SideBar from "../../../employee-hub/src/components/sidebar";
+import SideBar from '../components/sidebar';
 import logo2 from "../images/476700.svg";
 import logo1 from "../images/417720.svg";
 import logo3 from "../images/1034146.svg";

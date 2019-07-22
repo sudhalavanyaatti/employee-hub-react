@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import SideBar from "../../../employee-hub/src/components/sidebar";
+import SideBar from '../components/sidebar';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
