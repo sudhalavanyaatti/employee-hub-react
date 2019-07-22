@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from '../components/sidebar';
+import Top  from '../components/sidetab';
 import {Row, Col} from 'react-flexbox-grid';
 import '../App.css';
 import '../style.css';
@@ -73,6 +74,7 @@ class Profile extends Component {
     return (
       <div className="profilebg" align="center">
         <div className="header">
+        <Top/>
           <div className="mobile-only">
             <SideBar />
           </div>

@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from '../components/sidebar';
+import Top  from '../components/sidetab';
 //import Select from 'react-select';
 //import options from '../components/category';
 import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
@@ -140,7 +141,7 @@ class Update_Details extends React.Component {
   }
 
   handleChangeCategory(event) {
-    this.setState({category: event});
+    this.setState({category: event.target.value});
   }
 
   onChangeHandler(event) {
@@ -201,6 +202,7 @@ class Update_Details extends React.Component {
     return (
       <div className="updatebg">
         <div className="header">
+        <Top/>
           <div className="mobile-only">
             <SideBar />
           </div>

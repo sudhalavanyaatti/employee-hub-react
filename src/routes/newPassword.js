@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from "../components/sidebar";
+import Top  from '../components/sidetab';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -67,6 +68,7 @@ class NewPassword extends React.Component {
     return (
       <div className="newpassbg">
          <div className="header">
+         <Top/>
            <div className="mobile-only">
              <SideBar/>
            </div>

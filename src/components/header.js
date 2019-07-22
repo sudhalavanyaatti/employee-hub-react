@@ -75,7 +75,7 @@ class Header extends Component {
                   >
                     <Dropdown.Menu>
                       <Dropdown.Item as={Link} to="/profile">
-                        Profile
+                      My account
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={() => this.handleClearToken()}
