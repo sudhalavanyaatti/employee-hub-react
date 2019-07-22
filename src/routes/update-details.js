@@ -5,12 +5,13 @@ import {Link} from 'react-router-dom';
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 //import Bottom from '../components/bottom';
-import SideBar from '../../../employee-hub/src/components/sidebar';
+import SideBar from '../components/sidebar';
 //import Select from 'react-select';
 //import options from '../components/category';
 import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
 import 'mdbreact/dist/css/mdb.css';
 import '../App.css';
+import '../style.css';
 class Update_Details extends React.Component {
   constructor(props) {
     super(props);
@@ -212,15 +213,13 @@ class Update_Details extends React.Component {
           <MDBContainer>
             <h1 align="center">
               <br />
-              <br />
+              <br/>
               <strong>Edit Your Profile</strong>
             </h1>
-            <br />
-            <br />
-            <br />
+            <br/>
             <MDBRow>
               <MDBCol align="center" md="12">
-                <img
+                 <img
                   class="img-circle"
                   src={`${this.state.photo}`}
                   height="180"
@@ -235,7 +234,7 @@ class Update_Details extends React.Component {
               </MDBCol>
             </MDBRow>
             <MDBRow>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   type="text"
                   name="name"
@@ -247,7 +246,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   type="tel"
                   name="phone"
@@ -264,7 +263,7 @@ class Update_Details extends React.Component {
                 <Link to={{pathname: '/updateNumber',state: { id: this.state.id }}}>Update Number</Link>
                 </MDBRow>
                 <MDBRow>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   type="email"
                   name="email"
@@ -276,7 +275,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                    type="password"
                    name="password"
@@ -291,7 +290,7 @@ class Update_Details extends React.Component {
               <Link to={{pathname: '/newPassword',state: { phone: this.state.phone }}}>Update Password</Link>
               </MDBRow>
             <MDBRow>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   type="text"
                   name="companyName"
@@ -303,7 +302,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   type="tel"
                   name="experience"
@@ -319,7 +318,7 @@ class Update_Details extends React.Component {
               </MDBCol>
             </MDBRow>
             <MDBRow>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   type="text"
                   name="language"
@@ -331,7 +330,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   type="date"
                   name="dob"
@@ -344,7 +343,7 @@ class Update_Details extends React.Component {
               </MDBCol>
               </MDBRow>
             <MDBRow>
-            <MDBCol md="4">
+            <MDBCol md="6">
                 <MDBInput
                   // options={options}
                   value={this.state.category}
@@ -369,7 +368,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol> */}
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   name="city"
                   type="text"
@@ -383,7 +382,7 @@ class Update_Details extends React.Component {
               </MDBCol>
               </MDBRow>
             <MDBRow>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   type="text"
                   name="zip"
@@ -395,7 +394,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   name="state"
                   type="text"
@@ -409,7 +408,7 @@ class Update_Details extends React.Component {
               </MDBCol>
             </MDBRow>
             <MDBRow>
-              <MDBCol md="4">
+              <MDBCol md="6">
                 <MDBInput
                   type="radio"
                   name="gender"

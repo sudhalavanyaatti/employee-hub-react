@@ -12,13 +12,7 @@
   text-decoration: none;
   font-size: 17px;
 }
-img {
-  margin-top: 100px;
-  width: 400px;
-  height: 400px;
-  padding: 55px 60px;
-  flex-direction: row;
-}
+
 .win{
   margin-top: 70px;
   position: absolute;
@@ -86,17 +80,15 @@ select {
   padding-left: 0px;
 }
 
-
 #table1 {
  
-  width: 80%;
-  border: 1px solid black;
-  background-color:lightgrey;
-  height:20%;
+  width: 70%;
+  border: 1px solid #a2bee2;
+  height:30%;
 }
 #table2 {
   border-collapse: collapse;
-  width: 90%;
+  width: 100%;
  }
 td {
   
@@ -104,9 +96,9 @@ td {
   padding: 20px;
   width:10px;
 }
-#eg1 { text-align: left; }
+#eg1 { text-align: left;text-transform:capitalize;font-weight: bold; }
 #eg2 { text-align: left; }
-#eg3{text-align: center;vertical-align: top;}
+#eg3{text-align: center;vertical-align: top;text-transform:capitalize;}
 
 
 h4{
