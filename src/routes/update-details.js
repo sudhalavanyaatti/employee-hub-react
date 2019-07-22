@@ -246,7 +246,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="6">
+              <MDBCol md="4">
                 <MDBInput
                   type="tel"
                   name="phone"
@@ -257,10 +257,13 @@ class Update_Details extends React.Component {
                   label="Phone "
                   icon="phone"
                   id="materialFormRegisterPhnEx2"
+                 
                   disabled
                 />
                 </MDBCol>
-                <Link to={{pathname: '/updateNumber',state: { id: this.state.id }}}>Update Number</Link>
+                <MDBCol>
+                <Link to={{pathname: '/updateNumber',state: { id: this.state.id }}}>*Update</Link>
+                </MDBCol>
                 </MDBRow>
                 <MDBRow>
               <MDBCol md="6">
@@ -275,7 +278,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="6">
+              <MDBCol md="4">
                 <MDBInput
                    type="password"
                    name="password"
@@ -287,7 +290,7 @@ class Update_Details extends React.Component {
                    disabled
                 />
               </MDBCol>
-              <Link to={{pathname: '/newPassword',state: { phone: this.state.phone }}}>Update Password</Link>
+              <Link to={{pathname: '/newPassword',state: { phone: this.state.phone }}}>*Update </Link>
               </MDBRow>
             <MDBRow>
               <MDBCol md="6">
