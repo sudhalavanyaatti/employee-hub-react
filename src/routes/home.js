@@ -4,6 +4,7 @@ import SideBar from '../components/sidebar';
 import logo2 from "../images/476700.svg";
 import logo1 from "../images/417720.svg";
 import logo3 from "../images/1034146.svg";
+
 import '../App.css';
 import '../style.css';
 import Bottom from '../components/bottom';
@@ -27,9 +28,9 @@ class Home extends Component {
            </div>
            <Bottom/>
         </div>
-        <img src={logo1} alt="Logo" />
-        <img src={logo2} alt="Logo" />
-        <img src={logo3} alt="Logo" />
+        <img src={logo1} alt="Logo" className="pics" />
+        <img src={logo2} alt="Logo" className="pics" />
+        <img src={logo3} alt="Logo" className="pics" />
         <div className="text1"><h1>You can find out at any where</h1></div>
         <div className="text2"><h1>Find new people</h1></div>
         <div className="text3"><h1>Contact them</h1></div>

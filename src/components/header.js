@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Container, Dropdown, Menu} from 'semantic-ui-react';
+import {Container, Dropdown, Menu,Image} from 'semantic-ui-react';
+import logo from "../images/logo.png";
 
 class Header extends Component {
   state = {
@@ -47,25 +48,20 @@ class Header extends Component {
       <div>
         {this.state.userStatus ? (
           <div>
-            <Menu fixed="top" inverted >
+            <Menu fixed="top" inverted style={{ height: '50px'}} >
               <Container>
-                {/* <img
-                  src={
-                    'https://cdn0.iconfinder.com/data/icons/seo-and-marketing-line-color-vol-2/62/user__replace__employee__transfer__avatar-512.png'
-                  }
-                  alt="Logo"
-                  style={{width: '10px', height: '10px',top: '10px'}}
-                /> */}
-                <Menu.Item as={Link} to="/" header>
+              {/* <Image src={logo} style={{width: '80px', height: '52px'}} /> */}
+                <Menu.Item as={Link} to="/" header style={{ left: '-75px'}}>
+                <Image src={logo} style={{width: '80px', height: '52px'}} />
                   Employee HUB
                 </Menu.Item>
                 <div
                   style={{
-                    margintop:'50px',
                     display: 'flex',
                     flexDirection: 'row',
                     position: 'absolute',
-                    right: '50px'
+                    right: '30px',
+                    height: '50px'
                   }}
                 >
                   <Menu.Item as={Link} to="/details">
@@ -96,9 +92,10 @@ class Header extends Component {
           </div>
         ) : (
           <div>
-            <Menu fixed="top" inverted>
+            <Menu fixed="top" inverted style={{ height: '50px'}}>
               <Container>
-                <Menu.Item as={Link} to="/" header>
+                <Menu.Item as={Link} to="/" header style={{ left: '-75px'}}>
+                <Image src={logo} style={{width: '80px', height: '52px'}} />
                   Employee HUB
                 </Menu.Item>
                 <div
@@ -106,7 +103,8 @@ class Header extends Component {
                     display: 'flex',
                     flexDirection: 'row',
                     position: 'absolute',
-                    right: '50px'
+                    right: '30px',
+                    height: '50px'
                   }}
                 >
                   <Menu.Item as={Link} to="/signIn">

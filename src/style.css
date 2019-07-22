@@ -14,6 +14,13 @@
   text-decoration: none;
   font-size: 17px;
 }
+.pics {
+  margin-top: 100px;
+  width: 400px;
+  height: 400px;
+  padding: 55px 60px;
+  flex-direction: row;
+}
 
 .win{
   margin-top: 70px;
@@ -196,6 +203,10 @@ item */ .bm-item {
   color: #dad8cc;
   font-weight: 900;
 }
+/* .Menu{
+  padding-Bottom:25px;
+} */
+
 #footer{
   color:white;
 }
