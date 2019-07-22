@@ -1,43 +1,21 @@
-import React from 'react';
-import './App.css';
-import './style.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Home from '../src/routes/home';
-import SignIn from './routes/signIn';
-import Signup from './routes/signup';
-import About from './routes/about';
-import Otp from './routes/otpVal';
-import ForgotPassword from './routes/forgotPassword';
-import PassOtpValidation from './routes/passwordOtpVal';
-import NewPassword from './routes/newPassword';
-import Details from './routes/details';
-import NumberVal from './routes/phoneNumberVal';
-import Profile from './routes/profile';
-import Update_Details from'./routes/update-details';
+import React from "react";
+import "./App.css";
+import "./style.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "../src/routes/home";
+import SignIn from "./routes/signIn";
+import Signup from "./routes/signup";
+import About from "./routes/about";
+import Otp from "./routes/otpVal";
+import ForgotPassword from "./routes/forgotPassword";
+import PassOtpValidation from "./routes/passwordOtpVal";
+import NewPassword from "./routes/newPassword";
+import Details from "./routes/details";
+import NumberVal from "./routes/phoneNumberVal";
+import Profile from "./routes/profile";
+import Update_Details from "./routes/update-details";
 
 class App extends React.Component {
-  // state = {
-  //   places: [
-  //     {
-  //       name: "Sydney",
-  //       title: "Sydney",
-  //       position: { lat: -33.847927, lng: 150.6517938 }
-  //     },
-  //     {
-  //       name: "Melbourne",
-  //       title: "Melbourne",
-  //       position: { lat: -37.9722342, lng: 144.7729561 }
-  //     },
-  //     {
-  //       name: "Perth",
-  //       title: "Perth",
-  //       position: { lat: -31.9546904, lng: 115.8350292 }
-  //     }
-  //   ]
-  // };
-  // render() {
-  //   return <MapContainer places={this.state.places} />;
-  // }
   render() {
     return (
       <Router>
