@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 //import { Row, Col } from "react-flexbox-grid";
 import Header from '../components/header';
+import Bottom from '../components/bottom';
 import SideBar from "../components/sidebar";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
-// import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -50,7 +51,8 @@ class Otp extends Component {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       }
     })
       .then(res => res.json())
@@ -70,11 +72,12 @@ class Otp extends Component {
             <div className="desktop-only">
                 <Header/>
             </div>
+            <Bottom/>
         </div>
 
         <div className="col-md-4 col-md-offset-4" >
         <MDBContainer >
-        <h1 align="center"> <br/><strong>Enter your OTP</strong></h1>
+        <h1 align="center"><br/> <br/><strong>Enter your OTP</strong></h1>
            <MDBRow>
              <MDBCol md="11">
              <MDBInput
@@ -93,10 +96,10 @@ class Otp extends Component {
            </MDBRow>
            <div align="center" >
            
-             <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
+             <MDBBtn  color="black" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
               </MDBBtn>  
-              <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmitresend()}>
+              <MDBBtn   color="black" type="reset"  onClick={() => this.handleSubmitresend()}>
                 Resend OTP
               </MDBBtn>                    
           </div>    

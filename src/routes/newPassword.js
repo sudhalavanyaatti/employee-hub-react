@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-flexbox-grid';
+//import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
+import Bottom from '../components/bottom';
 import SideBar from "../components/sidebar";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
-// import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -44,11 +45,14 @@ class NewPassword extends React.Component {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*'
+
         }
       })
         .then(res => res.json())
         .then(data => {
+          alert("Password Updated successfully...!");
           this.props.history.push("/signIn");
           // localStorage.setItem("token", data.token);
         });
@@ -69,10 +73,11 @@ class NewPassword extends React.Component {
            <div className="desktop-only">
                <Header/>
            </div>
+           <Bottom/>
         </div>
        <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
-         <h1 align="center"><br/><strong>Reset Your Password</strong></h1>
+         <h1 align="center"><br/><br/><strong>Reset Your Password</strong></h1>
        
         <MDBRow  >
             <MDBCol md="11">
@@ -93,7 +98,7 @@ class NewPassword extends React.Component {
             <MDBRow  >
             <MDBCol md="11">
               <MDBInput
-                  type="password"
+                  type="text"
                   name="confirmPassword"
                   value={this.state.confirmPassword}
                   onChange={event => this.handleChangePass(event)}
@@ -107,7 +112,7 @@ class NewPassword extends React.Component {
             </MDBCol>
             </MDBRow>
               <div align="center">
-                 <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
+                 <MDBBtn  color="black" type="submit"  onClick={() => this.handleSubmit()}>
                     Submit
                  </MDBBtn> 
               </div>

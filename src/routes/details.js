@@ -1,17 +1,29 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import Header from "../components/header";
+=======
+import Header from '../components/header';
+import Bottom from '../components/bottom';
+>>>>>>> eb38d2d65ec0edf2b4ff56a1e49366aa4682f38e
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+<<<<<<< HEAD
 import Select from "react-select";
 import "../style.css";
+=======
+import SideBar from "../components/sidebar";
+import "../App.css";
+>>>>>>> eb38d2d65ec0edf2b4ff56a1e49366aa4682f38e
 
 library.add(faEnvelope);
 
 class Details extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+  this.state = {
     categories: [],
     list: [],
     details: true,
@@ -23,6 +35,7 @@ class Details extends Component {
     value1: "",
     value2: ""
   };
+}
 
   onMarkerClick = (props, marker, e) => {
     this.setState(
@@ -59,13 +72,14 @@ class Details extends Component {
       }
     })
       .then(res => res.json())
-      .then(data =>
+      .then(data =>{
         this.setState(
           {
-            list: data.details
+            list: [data.details]
           },
           () => console.log("details", this.state.list)
-        )
+      )
+        }
       );
 
     this.setState(
@@ -127,10 +141,12 @@ class Details extends Component {
       </div>
     );
   }
+  
 
   renderAddress() {
     return (
       <div>
+<<<<<<< HEAD
         <div>
           {this.state.list.map((data, index) => {
             if (data.city == this.state.value1) {
@@ -158,6 +174,24 @@ class Details extends Component {
             }
           })}
         </div>
+=======
+        {this.state.list.map(details => {
+          return (
+            <div key={details._id}>
+              <ul
+                style={{
+                  listStyleType: "square",
+                  listStylePosition: "inside"
+                }}
+              >
+                <li>Email:{details.email}</li>
+                <li>Full name:{details.fullName}</li>
+                <li>Address:{details.city}</li>
+              </ul>
+            </div>
+          );
+        })}
+>>>>>>> eb38d2d65ec0edf2b4ff56a1e49366aa4682f38e
       </div>
     );
   }
@@ -179,17 +213,17 @@ class Details extends Component {
     let addre = this.state.address.map(opt => ({ label: opt, value: opt }));
 
     return (
-      <div>
-        <Header />
-        <Grid
-          fluid
-          style={{
-            paddingRight: "0px",
-            paddingLeft: "0px",
-            margin: "0px",
-            height: "673px"
-          }}
-        >
+      <div className="detailsbg">
+        <div className="header">
+          <div className="mobile-only">
+            <SideBar />
+          </div>
+          <div className="desktop-only">
+            <Header />
+          </div>
+          <Bottom/>
+        </div>
+        <Grid fluid>
           <Row>
             <Col lg={6} sm={6} md={6} xs={6} className="col">
               {this.state.details ? (
@@ -197,10 +231,11 @@ class Details extends Component {
                   {this.state.list.map((store, index) => {
                     console.log(store.latitude, "dvfd");
                     return (
+                      <div className="win">
                       <Map
                         key={index}
                         google={this.props.google}
-                        zoom={6}
+                        zoom={7}
                         initialCenter={{ lat: 17.6868, lng: 83.20161 }}
                         style={{
                           position: "absolute",
@@ -248,6 +283,7 @@ class Details extends Component {
                           </div>
                         </InfoWindow>
                       </Map>
+                      </div>
                     );
                   })}
                 </div>

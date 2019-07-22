@@ -1,8 +1,12 @@
-import React, { Component } from "react";
-import Header from "../components/header";
-import SideBar from "../components/sidebar";
-import { Row, Col } from "react-flexbox-grid";
-import "../App.css";
+
+import React, {Component} from 'react';
+import Header from '../components/header';
+import Bottom from '../components/bottom';
+import SideBar from '../components/sidebar';
+import {Row, Col} from 'react-flexbox-grid';
+import '../App.css';
+import '../style.css';
+
 
 class Profile extends Component {
   constructor(props) {
@@ -75,116 +79,77 @@ class Profile extends Component {
           <div className="desktop-only">
             <Header />
           </div>
+          <Bottom/>
         </div>
-        <h1 align="center">
-          <strong>User Profile</strong>
-        </h1>
-        <br />
-        <br />
-        <img
-          src={`${this.state.profilePic}`}
-          alt="profile"
-          height="200"
-          width="250"
-        />
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <strong>Name :</strong>
-              </td>
-              <td>{this.state.name}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Gender :</strong>
-              </td>
-              <td>{this.state.gender}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Email :</strong>
-              </td>
-              <td>{this.state.email}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Mobile :</strong>
-              </td>
-              <td>{this.state.mobile}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Category :</strong>
-              </td>
-              <td>{this.state.category}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>City :</strong>
-              </td>
-              <td>{this.state.city}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>State :</strong>
-              </td>
-              <td>{this.state.state}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Zip Code:</strong>
-              </td>
-              <td>{this.state.zip}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Date Of Birth :</strong>
-              </td>
-              <td>{this.state.dob}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Blood Group :</strong>
-              </td>
-              <td>{this.state.blood_Group}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Languages :</strong>
-              </td>
-              <td>{this.state.language}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Company Name :</strong>
-              </td>
-              <td>{this.state.companyName}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Experience :</strong>
-              </td>
-              <td>{this.state.experience}</td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Date of Join :</strong>
-              </td>
-              <td>{this.state.join}</td>
-            </tr>
-          </tbody>
-        </table>
+        <br/><br/><br/> <br/>
+  <table class="table table-borderless" id="table1">
+  <tbody>
+   
+    <tr>
+            <td id="eg3">
+              <img className="img-circle" src={`${this.state.profilePic}`} alt="profile" height="180" width="180" />
+              <h1  align="center">{this.state.name}</h1>
+           </td>
+            <td>
+                <table id="table2">
+                  <tbody>
+                  <tr>
+                    <td id="eg1"><strong>Name: &nbsp;&nbsp;&nbsp; {this.state.name}</strong></td >
+                    <td id="eg1"><strong>Mobile: &nbsp;&nbsp;&nbsp; {this.state.mobile}</strong></td > 
+                 </tr>
+                 <tr>
+                    <td id="eg1"><strong>Email: &nbsp;&nbsp;&nbsp; {this.state.email}</strong></td >
+                    <td id="eg1"><strong>Gender: &nbsp;&nbsp;&nbsp; {this.state.gender}</strong></td >
+                </tr>
+                <tr>
+                    <td id="eg1"><strong>Category: &nbsp;&nbsp;&nbsp; {this.state.category}</strong></td >
+                    <td id="eg1"><strong>Date Of Birth: &nbsp;&nbsp;&nbsp; {this.state.dob}</strong></td >
+    
+                </tr>
+                <tr>
+                    <td id="eg1"><strong>Company : &nbsp;&nbsp;&nbsp; {this.state.companyName}</strong></td >
+                    <td id="eg1"><strong>Blood Group: &nbsp;&nbsp;&nbsp; {this.state.blood_Group}</strong></td >  
+                </tr>
+                <tr>
+                    <td id="eg1"><strong>Experience: &nbsp;&nbsp;&nbsp; {this.state.experience}</strong></td >
+                    <td id="eg1"><strong>Zip Code:&nbsp;&nbsp;&nbsp; {this.state.zip}</strong></td >
+ 
+                </tr>
+                <tr>
+               
+                <td id="eg1"><strong>Languages:&nbsp;&nbsp;&nbsp; {this.state.language}</strong></td >
+                 <td id="eg1"><strong>City: &nbsp;&nbsp;&nbsp; {this.state.city}</strong></td >
+                </tr>
+                <tr>
+                
+                <td id="eg1"><strong>Date of Join: &nbsp;&nbsp;&nbsp; {this.state.join}</strong></td >
+                <td id="eg1"><strong>State: &nbsp;&nbsp;&nbsp; {this.state.state}</strong></td >
+                </tr>
+                
+                  </tbody>
+                </table>
+                </td>
+     </tr>
+  
+  </tbody>
+</table><br/>
         <Row center="xs">
           <Col>
-            <button className="button" onClick={() => this.handleSubmit()}>
+            <button className="btn btn-dark" onClick={() => this.handleSubmit()}>
               Update
             </button>
           </Col>
         </Row>
+      
       </div>
     );
   }
 }
 
 export default Profile;
+
+
+
+
+ 
+  

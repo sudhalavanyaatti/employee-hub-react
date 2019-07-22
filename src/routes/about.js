@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Header from '../components/header';
+import Bottom from '../components/bottom';
 import SideBar from "../components/sidebar";
 import "../App.css";
 class About extends Component {
@@ -14,6 +15,7 @@ class About extends Component {
             <div className="desktop-only">
                 <Header/>
             </div>
+            <Bottom/>
         </div>
   
 

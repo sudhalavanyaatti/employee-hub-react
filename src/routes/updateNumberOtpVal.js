@@ -8,12 +8,13 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
-class PassOtpValidation extends Component {
+class Number_OtpValidation extends Component {
   constructor(props) {
     super(props);
     this.state = {
       otp: '',
-      phone: ''
+      phone: '',
+      id:''
     };
   }
   handleChangeNumber(event) {
@@ -21,13 +22,37 @@ class PassOtpValidation extends Component {
       otp: event.target.value
     });
   }
-  async handleSubmit(event) {
-    const data = {
+   handleSubmit(data) {
+     data = {
       otp: this.state.otp,
-      phone: this.props.location.state.phone
+      phone: this.props.location.state.phone,
+      id:this.props.location.state.id
     };
     console.log('otp', data);
-    await fetch('http://localhost:3001/password-OtpVal', {
+     fetch('http://localhost:3001/updateNumber-OtpVal', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
+    .then(res => res.json())
+      .then(response => {
+        console.log('gfc',response)
+        if (!response.response.success) {
+          alert('enter Valid OTP');
+        } else {
+          this.props.history.push('/profile');
+        }
+      });
+  }
+   handleSubmitresend(data) {
+    data = {
+      phone: this.props.location.state.phone
+    };
+    //console.log('phone otp', data);
+     fetch('http://localhost:3001/resend-otp', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -37,31 +62,7 @@ class PassOtpValidation extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        if (!response.response.success) {
-          alert('enter Valid OTP');
-        } else {
-          this.props.history.push('/newPassword', {
-            phone: this.props.location.state.phone
-          });
-        }
-      });
-  }
-  async handleSubmitresend(event) {
-    const data = {
-      phone: this.props.location.state.phone
-    };
-    //console.log('phone otp', data);
-    await fetch('http://localhost:3001/forgot-password', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(response => {
         console.log(response);
-        //this.props.history.push('/passwordOtpVal',{phone: this.state.phone});
       });
   }
   render() {
@@ -78,7 +79,7 @@ class PassOtpValidation extends Component {
         </div>
         <div className="col-md-4 col-md-offset-4" >
         <MDBContainer>  
-        <h1 align="center"><br/><br/><strong>Password OTP</strong></h1>
+        <h1 align="center"><br/><br/><strong>Update Mobile OTP</strong></h1>
         <MDBRow>
              <MDBCol md="11">
              <MDBInput
@@ -110,4 +111,4 @@ class PassOtpValidation extends Component {
   }
 }
 
-export default PassOtpValidation;
+export default Number_OtpValidation;
