@@ -118,7 +118,7 @@ class Signup extends React.Component {
   }
   render() {
     return (
-      <div className="signupbg">
+      <div className="signupbg" id="page-container">
         <div className="header">
           <div className="mobile-only">
             <SideBar />
@@ -245,7 +245,7 @@ class Signup extends React.Component {
 
             <div align="center">
               <MDBBtn
-                gradient="blue"
+                color="black"
                 type="submit"
                 onClick={() => this.handleSubmit()}
               >

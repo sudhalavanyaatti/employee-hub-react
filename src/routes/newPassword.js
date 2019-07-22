@@ -112,7 +112,7 @@ class NewPassword extends React.Component {
             </MDBCol>
             </MDBRow>
               <div align="center">
-                 <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
+                 <MDBBtn  color="black" type="submit"  onClick={() => this.handleSubmit()}>
                     Submit
                  </MDBBtn> 
               </div>

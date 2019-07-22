@@ -214,16 +214,16 @@ class Update_Details extends React.Component {
             <h1 align="center">
               <br />
               <br/>
-              <strong>Edit Your Profile</strong>
+              <strong>Edit Profile</strong>
             </h1>
-            <br/>
+            <br/><br/>
             <MDBRow>
               <MDBCol align="center" md="12">
                  <img
                   class="img-circle"
                   src={`${this.state.photo}`}
-                  height="180"
-                  width="180"
+                  height="200"
+                  width="200"
                   alt="UpdatePic"
                 />
                 <MDBInput
@@ -436,7 +436,7 @@ class Update_Details extends React.Component {
             </MDBRow>
             <div align="center">
               <MDBBtn
-                gradient="blue"
+                color="black"
                 type="submit"
                 onClick={() => this.handleSubmit()}
               >

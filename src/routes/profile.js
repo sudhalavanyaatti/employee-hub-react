@@ -135,7 +135,7 @@ class Profile extends Component {
 </table><br/>
         <Row center="xs">
           <Col>
-            <button className="button" onClick={() => this.handleSubmit()}>
+            <button className="btn btn-dark" onClick={() => this.handleSubmit()}>
               Update
             </button>
           </Col>

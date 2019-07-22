@@ -18,8 +18,8 @@
   color: white;
 }
 .homebg {
-  background-image: url("https://img.freepik.com/free-photo/smooth-dark-blue-with-black-vignette-studio-well-use-as-background-business-report-digital-website-template_1258-748.jpg?size=626&ext=jpg");
-  height:610vh;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+  height:100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -106,6 +106,4 @@
           #page-container{
             position: relative;
           }
-          #page-container2{
-            position: relative;
-          }
+         

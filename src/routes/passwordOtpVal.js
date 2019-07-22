@@ -96,10 +96,10 @@ class PassOtpValidation extends Component {
              </MDBCol>
            </MDBRow>
            <div align="center">
-              <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
+              <MDBBtn  color="black" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
               </MDBBtn>  
-              <MDBBtn  gradient="blue" type="reset"  onClick={() => this.handleSubmitresend()}>
+              <MDBBtn  color="black" type="reset"  onClick={() => this.handleSubmitresend()}>
                 Resend OTP
               </MDBBtn>      
            </div>    
