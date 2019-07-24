@@ -1,9 +1,8 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import SideBar from '../components/sidebar';
+import React from "react";
+import { Link } from "react-router-dom";
+import SideBar from "../components/sidebar";
 //import {Row, Col} from 'react-flexbox-grid';
-import Header from '../components/header';
-import Bottom from '../components/bottom';
+import Header from "../components/header";
 import {
   MDBContainer,
   MDBRow,
@@ -11,10 +10,10 @@ import {
   MDBInput,
   MDBBtn,
   MDBModalFooter
-} from 'mdbreact';
-import 'font-awesome/css/font-awesome.min.css';
-import 'mdbreact/dist/css/mdb.css';
-import '../App.css';
+} from "mdbreact";
+//import 'font-awesome/css/font-awesome.min.css';
+import "mdbreact/dist/css/mdb.css";
+import "../App.css";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -86,14 +85,11 @@ class SignIn extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-          <Bottom />
         </div>
 
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
             <h1 align="center">
-              <br />
-              <br />
               <strong>Login Here</strong>
             </h1>
 
@@ -145,7 +141,7 @@ class SignIn extends React.Component {
                 </Link>
                 <p>
                   <h3>Not a member?</h3>
-                </p>
+                </p>{" "}
                 <Link to="/signup">
                   <strong>Signup</strong>
                 </Link>
