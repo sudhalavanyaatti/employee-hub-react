@@ -65,7 +65,7 @@ class Details extends Component {
       .then(data =>
         this.setState(
           {
-            list: data.details
+            list: [data.details]
           },
           () => console.log("details", this.state.list)
         )
@@ -118,8 +118,8 @@ class Details extends Component {
     return (
       <div>
         <div>
-          {this.state.list.map((data, index) => {
-            if (data.category == this.state.value2) {
+          {this.state.list.map((data, index)=> {
+            if (data.category === this.state.value2) {
               return (
                 <div key={index}>
                   <Grid
@@ -168,6 +168,7 @@ class Details extends Component {
                 </div>
               );
             }
+            return console.log(data);
           })}
         </div>
       </div>
@@ -194,6 +195,7 @@ class Details extends Component {
                         <img
                           className="responsive"
                           src={data.profilePic}
+                          alt="photo"
                           style={{
                             width: "60px",
                             height: "60px",

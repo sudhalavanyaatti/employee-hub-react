@@ -1,77 +1,74 @@
-
 import React, {Component} from 'react';
+import axios from 'axios';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from '../components/sidebar';
-import {Row, Col} from 'react-flexbox-grid';
+import Account from '../components/account';
+import Address from '../components/address';
+import Number from '../components/updatenumber';
+import Password from '../components/resetpassword';
+import {Button,Divider,Icon} from 'semantic-ui-react';
 import '../App.css';
 import '../style.css';
-
-
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      gender: "",
-      email: "",
-      mobile: "",
-      category: "",
-      city: "",
-      state: "",
-      zip: "",
-      dob: "",
-      blood_Group: "",
-      language: "",
-      companyName: "",
-      experience: "",
-      join: "",
-      profilePic: ""
+      id: '',
+      name:'',
+      profilePic: '',
+      uploadpic:'',
+      displayContent: 'account'
     };
   }
   componentDidMount() {
     const data = {
-      token: localStorage.getItem("token")
+      token: localStorage.getItem('token')
     };
-    fetch("http://localhost:3001/profile", {
-      method: "post",
+    fetch('http://localhost:3001/profile', {
+      method: 'post',
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       }
     })
       .then(res => res.json())
       .then(data => {
-        console.log("token", data);
         if (data) {
           this.setState({
-            name: data.data.fullName,
-            gender: data.data.gender,
-            email: data.data.email,
-            mobile: data.data.phone,
-            category: data.data.category,
-            city: data.data.city,
-            state: data.data.state,
-            zip: data.data.zip,
-            dob: data.data.date_of_birth,
-            blood_Group: data.data.blood_Group,
-            language: data.data.language,
-            companyName: data.data.company_name,
-            experience: data.data.experience,
-            join: data.data.join_date,
+            id: data.data._id,
+            name:data.data.fullName,
             profilePic: data.data.profilePic
           });
         }
       });
   }
-  handleSubmit() {
-    this.props.history.push("/update-details");
+  onChangeUploadpic(event){
+    this.setState(
+    {
+      uploadpic: event.target.files[0]
+    },
+    () => {
+      const data = new FormData();
+      data.append('profilePic', this.state.uploadpic);
+      data.append('id', this.state.id);
+      axios
+        .post('http://localhost:3001/update-photo', data, {})
+        .then(data => {
+          if(data){
+          this.setState({
+            profilePic: data.data.data.profilePic
+          });
+          window.location.reload();
+        }
+        });
+    }
+    )
   }
-
   render() {
     return (
-      <div className="profilebg" align="center">
+      <div className="profilebg" align="center" id="page-container">
         <div className="header">
           <div className="mobile-only">
             <SideBar />
@@ -79,77 +76,102 @@ class Profile extends Component {
           <div className="desktop-only">
             <Header />
           </div>
-          <Bottom/>
+          <Bottom />
         </div>
-        <br/><br/><br/> <br/>
-  <table class="table table-borderless" id="table1">
-  <tbody>
-   
-    <tr>
-            <td id="eg3">
-              <img className="img-circle" src={`${this.state.profilePic}`} alt="profile" height="180" width="180" />
-              <h1  align="center">{this.state.name}</h1>
-           </td>
-            <td>
-                <table id="table2">
-                  <tbody>
-                  <tr>
-                    <td id="eg1"><strong>Name: &nbsp;&nbsp;&nbsp; {this.state.name}</strong></td >
-                    <td id="eg1"><strong>Mobile: &nbsp;&nbsp;&nbsp; {this.state.mobile}</strong></td > 
-                 </tr>
-                 <tr>
-                    <td id="eg1"><strong>Email: &nbsp;&nbsp;&nbsp; {this.state.email}</strong></td >
-                    <td id="eg1"><strong>Gender: &nbsp;&nbsp;&nbsp; {this.state.gender}</strong></td >
-                </tr>
-                <tr>
-                    <td id="eg1"><strong>Category: &nbsp;&nbsp;&nbsp; {this.state.category}</strong></td >
-                    <td id="eg1"><strong>Date Of Birth: &nbsp;&nbsp;&nbsp; {this.state.dob}</strong></td >
-    
-                </tr>
-                <tr>
-                    <td id="eg1"><strong>Company : &nbsp;&nbsp;&nbsp; {this.state.companyName}</strong></td >
-                    <td id="eg1"><strong>Blood Group: &nbsp;&nbsp;&nbsp; {this.state.blood_Group}</strong></td >  
-                </tr>
-                <tr>
-                    <td id="eg1"><strong>Experience: &nbsp;&nbsp;&nbsp; {this.state.experience}</strong></td >
-                    <td id="eg1"><strong>Zip Code:&nbsp;&nbsp;&nbsp; {this.state.zip}</strong></td >
- 
-                </tr>
-                <tr>
-               
-                <td id="eg1"><strong>Languages:&nbsp;&nbsp;&nbsp; {this.state.language}</strong></td >
-                 <td id="eg1"><strong>City: &nbsp;&nbsp;&nbsp; {this.state.city}</strong></td >
-                </tr>
-                <tr>
-                
-                <td id="eg1"><strong>Date of Join: &nbsp;&nbsp;&nbsp; {this.state.join}</strong></td >
-                <td id="eg1"><strong>State: &nbsp;&nbsp;&nbsp; {this.state.state}</strong></td >
-                </tr>
-                
-                  </tbody>
-                </table>
-                </td>
-     </tr>
-  
-  </tbody>
-</table><br/>
-        <Row center="xs">
-          <Col>
-            <button className="btn btn-dark" onClick={() => this.handleSubmit()}>
-              Update
-            </button>
-          </Col>
-        </Row>
-      
+        <div>
+          <img
+            className="img-circle"
+            src={`${this.state.profilePic}`}
+            alt="profile"
+            height="150"
+            width="150"
+            border="0"
+          /><div className="img-upld">
+          <input type="file" className="img-upload" onChange={event => this.onChangeUploadpic(event)} /></div>
+          <div className="P-name">{this.state.name}</div>
+          <div>
+            <Button.Group vertical className="sidenav" >
+              <Button
+                onClick={() =>
+                  this.setState({
+                    displayContent: 'account'
+                  })
+                }
+                icon labelPosition='right'
+              >
+                Account
+                <Icon name='angle double right' />
+              </Button>
+              <Divider fitted />
+              <Button
+                onClick={() =>
+                  this.setState({
+                    displayContent: 'address'
+                  })
+                }
+                icon labelPosition='right'
+              >
+                Address
+                <Icon name='angle double right' />
+              </Button>
+              <Divider fitted />
+              <Button
+                onClick={() =>
+                  this.setState({
+                    displayContent: 'number'
+                  })
+                }
+                icon labelPosition='right'
+              >
+                Update Mobile Number
+                <Icon name='angle double right' />
+              </Button>
+              <Divider fitted />
+              <Button
+                onClick={() =>
+                  this.setState({
+                    displayContent: 'password'
+                  })
+                }
+                icon labelPosition='right'
+              >
+                Reset Password
+                <Icon name='angle double right' />
+              </Button>
+            </Button.Group>
+          </div>
+        </div>
+        {this.state.displayContent === 'account' ? (
+          <div>
+            <Account />
+          </div>
+        ) : (
+          <div />
+        )}
+        {this.state.displayContent === 'address' ? (
+          <div>
+            <Address />
+          </div>
+        ) : (
+          <div />
+        )}
+        {this.state.displayContent === 'number' ? (
+          <div>
+            <Number />
+          </div>
+        ) : (
+          <div />
+        )}
+        {this.state.displayContent === 'password' ? (
+          <div>
+            <Password />
+          </div>
+        ) : (
+          <div />
+        )}
       </div>
     );
   }
 }
 
 export default Profile;
-
-
-
-
- 
-  

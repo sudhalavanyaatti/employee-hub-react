@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SideBar from "../components/sidebar";
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from "../components/header";
+import Bottom from '../components/bottom';
 import {
   MDBContainer,
   MDBRow,
@@ -11,7 +12,7 @@ import {
   MDBBtn,
   MDBModalFooter
 } from "mdbreact";
-//import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import "mdbreact/dist/css/mdb.css";
 import "../App.css";
 
@@ -19,15 +20,15 @@ class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      phone: "",
-      password: ""
+      phone: '',
+      password: ''
     };
   }
 
   componentDidMount() {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
     if (token !== null) {
-      this.props.history.push("/details");
+      this.props.history.push('/details');
     }
   }
 
@@ -49,35 +50,35 @@ class SignIn extends React.Component {
       password: this.state.password
     };
     //console.log('data', data);
-    fetch("http://localhost:3001/login", {
-      method: "post",
+    fetch('http://localhost:3001/login', {
+      method: 'post',
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       }
     })
       .then(res => res.json())
       .then(data => {
         if (data.data) {
-          console.log("status", data.data.twilioStatus);
-          if (data.data === "incorrect") alert("Invalid Login");
-          else if (data.data === "statusFalse") {
-            this.props.history.push("/phoneNumberVal");
+          console.log('status', data.data.twilioStatus);
+          if (data.data === 'incorrect') alert('Invalid Login');
+          else if (data.data === 'statusFalse') {
+            this.props.history.push('/phoneNumberVal');
           } else {
-            localStorage.setItem("token", data.token);
-            this.props.history.push("/details");
+            localStorage.setItem('token', data.token);
+            this.props.history.push('/details');
           }
         } else {
-          alert("You are not Registered..!");
-          this.props.history.push("/signup");
+          alert('You are not Registered..!');
+          this.props.history.push('/signup');
         }
       });
   }
 
   render() {
     return (
-      <div className="signinbg">
+      <div className="signinbg" id="page-container">
         <div className="header">
           <div className="mobile-only">
             <SideBar />
@@ -85,9 +86,11 @@ class SignIn extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-        </div>
+          <Bottom/>
+        </div><br/><br/><br/><br/><br/><br/><br/><br/>
 
         <div className="col-md-4 col-md-offset-4">
+
           <MDBContainer>
             <h1 align="center">
               <strong>Login Here</strong>
@@ -123,27 +126,28 @@ class SignIn extends React.Component {
                 />
               </MDBCol>
             </MDBRow>
+
             <div align="center">
               <MDBBtn
-                gradient="blue"
+                color="blue"
                 type="submit"
                 onClick={() => this.handleSubmit()}
               >
                 Submit
               </MDBBtn>
-            </div>
+            </div><br/>
 
             <MDBModalFooter>
-              <div align="center">
-                <Link to="/forgotPassword">
-                  <strong>Forgot Password ?</strong>
-                </Link>
-                <p>
-                  <h3>Not a member?</h3>
-                </p>{" "}
-                <Link to="/signup">
-                  <strong>Signup</strong>
-                </Link>
+              <div align="center" >
+                  <h5>
+                  <Link id="linksize" to="/forgotPassword">
+                 Forgot Password ?
+                </Link><br/>
+                    Not a member?
+                <Link id="linksize" to="/signup">
+                  Signup
+                </Link></h5>
+              
               </div>
             </MDBModalFooter>
           </MDBContainer>

@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -18,92 +17,112 @@
   color: white;
 }
 .homebg {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-  height:100vh;
+  background-color: rgba(50, 115, 220, 0.048);
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  }
-  .forgotpasswordbg,.newpassbg{
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+}
+
+
+
+
+  .forgotpasswordbg,
+  .newpassbg {
+    background-color: rgba(50, 115, 220, 0.048);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+  .updatebg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 180vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .signupbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .signinbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .profilebg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .aboutbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .detailsbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .passwordbg,
+  .phnobg,
+  .otpvalbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media screen and (min-width: 768px) {
+    div.mobile-only {
+      display: none;
     }
-    .updatebg{
-      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-      height: 180vh;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-   
-         
-      }
-     
-      .signupbg{
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-        height: 120vh;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-           
-        }
-    .signinbg{
-      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-      height: 100vh;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-         
-      }
-      .profilebg{
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
-        height: 100vh;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-           
-        }
-    .aboutbg {
-      background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-      height: 100vh;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size:cover;
-      }
-    
-      .detailsbg {
-          background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
-          height: 100vh;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size:cover;
-          }   
-          .passwordbg,.phnobg,.otpvalbg{
-            background-image: url("https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-            height: 100vh;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size:cover;
-            }   
-            @media screen and (min-width: 768px) {
-              div.mobile-only {
-                display: none;
-              }
-            }
-            @media screen and (max-width: 767px) {
-              div.desktop-only {
-                display: none;
-              }
-            }
-            h1 {
-              margin:0px;
-            }
-            .img-circle {
-              border-radius: 50%;            
-          }
-          #page-container{
-            position: relative;
-          }
-         
+  }
+  @media screen and (max-width: 767px) {
+    div.desktop-only {
+      display: none;
+    }
+  }
+  h1 {
+    color: black;
+    margin: 0px;
+  }
+  .img-circle {
+    position: absolute;
+    border-radius: 50%;
+    top: 90px;
+    left: 170px;
+  }
+  .img-upload {
+    position: absolute;
+    border-radius: 50%;
+    top: 90px;
+    left: 170px;
+    height: 150px;
+    width: 150px;
+    z-index: 10;
+  }
+  .img-upld {
+    opacity: 0;
+    z-index: 0;
+    font-size: 0px;
+  }
+
+#page-container {
+  position: relative;
+}

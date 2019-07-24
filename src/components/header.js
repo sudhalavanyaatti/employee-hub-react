@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Dropdown, Menu,Image} from 'semantic-ui-react';
-import logo from "../images/logo.png";
+import logo from "../images/logo2.png";
 
 class Header extends Component {
   state = {
@@ -48,10 +48,10 @@ class Header extends Component {
       <div>
         {this.state.userStatus ? (
           <div>
-            <Menu fixed="top" inverted style={{ height: '50px'}} >
+            <Menu id="headbg"fixed="top" inverted style={{ height: '50px'}} >
               <Container>
-              {/* <Image src={logo} style={{width: '80px', height: '52px'}} /> */}
-                <Menu.Item as={Link} to="/" header style={{ left: '-75px'}}>
+             
+                <Menu.Item id="textclr" as={Link} to="/" header style={{ left: '-75px'}}>
                 <Image src={logo} style={{width: '80px', height: '52px'}} />
                   Employee HUB
                 </Menu.Item>
@@ -61,21 +61,23 @@ class Header extends Component {
                     flexDirection: 'row',
                     position: 'absolute',
                     right: '30px',
-                    height: '50px'
+                    height: '50px',
+                    fontSize:'18px'
                   }}
                 >
-                  <Menu.Item as={Link} to="/details">
+                  <Menu.Item id="textclr" as={Link} to="/details" style={{fontSize:'18px'}}>
                     Details
                   </Menu.Item>
-                  <Dropdown
+                  <Dropdown  id="textclr"
                     onClick={() => this.handleprofile()}
                     item
                     simple
                     text={this.state.name}
+                    
                   >
-                    <Dropdown.Menu>
-                      <Dropdown.Item as={Link} to="/profile">
-                        Profile
+                    <Dropdown.Menu  id="textclr">
+                      <Dropdown.Item  as={Link} to="/profile">
+                      My account
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={() => this.handleClearToken()}
@@ -92,9 +94,9 @@ class Header extends Component {
           </div>
         ) : (
           <div>
-            <Menu fixed="top" inverted style={{ height: '50px'}}>
+            <Menu id="headbg" fixed="top" inverted style={{ height: '50px'}}>
               <Container>
-                <Menu.Item as={Link} to="/" header style={{ left: '-75px'}}>
+                <Menu.Item id="textclr" as={Link} to="/" header style={{ left: '-75px'}}>
                 <Image src={logo} style={{width: '80px', height: '52px'}} />
                   Employee HUB
                 </Menu.Item>
@@ -104,15 +106,16 @@ class Header extends Component {
                     flexDirection: 'row',
                     position: 'absolute',
                     right: '30px',
-                    height: '50px'
+                    height: '50px',
+                    fontSize:'18px'
                   }}
                 >
-                  <Menu.Item as={Link} to="/signIn">
+                  <Menu.Item id="textclr" as={Link} to="/signIn" style={{fontSize:'18px'}}>
                     SignIn
                   </Menu.Item>
-                  <Menu.Item as={Link} to="/about">
+                  {/* <Menu.Item as={Link} to="/about">
                     About
-                  </Menu.Item>
+                  </Menu.Item> */}
                 </div>
               </Container>
             </Menu>
