@@ -47,7 +47,7 @@ class SideBar extends Component {
                         
                       <Link className="bm-item-list" to="/">Home</Link>
                       <Link className="bm-item-list"  to="/signIn">SignIn</Link>
-                      <Link className="bm-item-list" to="/about">About</Link>
+                      
                   
                      </Menu>
                   )}

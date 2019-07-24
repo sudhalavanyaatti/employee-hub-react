@@ -118,35 +118,101 @@
   div.mobile-only {
     display: none;
   }
-}
-@media screen and (max-width: 767px) {
-  div.desktop-only {
-    display: none;
+  .forgotpasswordbg,
+  .newpassbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
-}
-h1 {
-  color: black;
-  margin: 0px;
-}
-.img-circle {
-  position: absolute;
-  border-radius: 50%;
-  top: 90px;
-  left: 170px;
-}
-.img-upload {
-  position: absolute;
-  border-radius: 50%;
-  top: 90px;
-  left: 170px;
-  height: 150px;
-  width: 150px;
-  z-index: 10;
-}
-.img-upld {
-  opacity: 0;
-  z-index: 0;
-  font-size: 0px;
+  .updatebg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 180vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .signupbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .signinbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .profilebg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .aboutbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .detailsbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .passwordbg,
+  .phnobg,
+  .otpvalbg {
+    background-color: rgba(50, 115, 220, 0.048);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media screen and (min-width: 768px) {
+    div.mobile-only {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    div.desktop-only {
+      display: none;
+    }
+  }
+  h1 {
+    color: black;
+    margin: 0px;
+  }
+  .img-circle {
+    position: absolute;
+    border-radius: 50%;
+    top: 90px;
+    left: 170px;
+  }
+  .img-upload {
+    position: absolute;
+    border-radius: 50%;
+    top: 90px;
+    left: 170px;
+    height: 150px;
+    width: 150px;
+    z-index: 10;
+  }
+  .img-upld {
+    opacity: 0;
+    z-index: 0;
+    font-size: 0px;
+  }
 }
 #page-container {
   position: relative;
