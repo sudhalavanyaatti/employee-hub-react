@@ -18,21 +18,21 @@
   color: white;
 }
 .homebg {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+  background-color:  rgba(50, 115, 220, 0.048);
   height:100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   }
   .forgotpasswordbg,.newpassbg{
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+    background-color:  rgba(50, 115, 220, 0.048);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     }
     .updatebg{
-      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+      background-color:  rgba(50, 115, 220, 0.048);
       height: 180vh;
       background-position: center;
       background-repeat: no-repeat;
@@ -42,7 +42,7 @@
       }
      
       .signupbg{
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+        background-color:  rgba(50, 115, 220, 0.048);
         height: 120vh;
         background-position: center;
         background-repeat: no-repeat;
@@ -50,7 +50,7 @@
            
         }
     .signinbg{
-      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+      background-color:  rgba(50, 115, 220, 0.048);
       height: 100vh;
       background-position: center;
       background-repeat: no-repeat;
@@ -58,7 +58,8 @@
          
       }
       .profilebg{
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeiwnEE6hKe_vCLqR2wx4NjaP8OXtsthP7saut0siPncEn-Mq0");
+      
+       background-color:  rgba(50, 115, 220, 0.048);
         height: 100vh;
         background-position: center;
         background-repeat: no-repeat;
@@ -74,7 +75,7 @@
       }
     
       .detailsbg {
-          background-image: url("https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg");
+          background-color:  rgba(50, 115, 220, 0.048);
           height: 100vh;
           background-position: center;
           background-repeat: no-repeat;

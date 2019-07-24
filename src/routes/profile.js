@@ -276,7 +276,7 @@ class Profile extends Component {
   }
   renderAccount() {
     return (
-      <div className="p-page">
+      <div className="p-page" >
         <h2>Account</h2>
         <input
           type="text"
@@ -412,7 +412,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="profilebg" align="center">
+      <div className="profilebg" align="center" id="page-container">
         <div className="header">
           <div className="mobile-only">
             <SideBar />

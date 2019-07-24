@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SideBar from "../components/sidebar";
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from "../components/header";
+import Bottom from '../components/bottom';
 import {
   MDBContainer,
   MDBRow,
@@ -77,7 +78,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div className="signinbg">
+      <div className="signinbg" id="page-container">
         <div className="header">
           <div className="mobile-only">
             <SideBar />
@@ -85,6 +86,7 @@ class SignIn extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
+          <Bottom/>
         </div><br/><br/><br/><br/><br/><br/><br/><br/>
 
         <div className="col-md-4 col-md-offset-4">
