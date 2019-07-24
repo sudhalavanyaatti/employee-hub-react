@@ -32,7 +32,7 @@ class SideBar extends Component {
                     <Menu className="bm-menu">
     
                       <Link  className="bm-item-list" to="/">Home</Link>
-                      <Link className="bm-item-list" onClick={() => this.handleprofile()} to="/profile">Profile</Link>
+                      <Link className="bm-item-list" onClick={() => this.handleprofile()} to="/profile">My Account</Link>
                       <Link className="bm-item-list" to="/details">Details</Link>
                       <Link className="bm-item-list"
                         onClick={() => this.handleClearToken()}
