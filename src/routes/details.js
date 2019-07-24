@@ -7,6 +7,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import Select from "react-select";
 import "../style.css";
+import { exportDefaultSpecifier } from "@babel/types";
 
 library.add(faEnvelope);
 
@@ -23,15 +24,7 @@ class Details extends Component {
     activeMarker: {},
     selectedPlace: {},
     value1: "",
-    value2: "",
-    options: [
-      {
-        label: "engineer",
-        value: "engineer"
-      },
-      { label: "doctor", value: "doctor" },
-      { label: "engineer", value: "engineer" }
-    ]
+    value2: ""
   };
 
   onMarkerClick = (props, marker, e) => {
@@ -129,9 +122,16 @@ class Details extends Component {
             if (data.category == this.state.value2) {
               return (
                 <div key={index}>
-                  <Grid fluid style={{ marginBottom: "20px" }}>
+                  <Grid
+                    fluid
+                    style={{
+                      paddingRight: "0px",
+                      paddingLeft: "0px",
+                      margin: "0px"
+                    }}
+                  >
                     <Row>
-                      <Col xs={2} lg={2} sm={2} md={2}>
+                      <Col xs={2} lg={2} sm={2} md={2} className="col">
                         <img
                           className="responsive"
                           src={data.profilePic}
@@ -140,20 +140,21 @@ class Details extends Component {
                             height: "60px",
                             borderRadius: "50%"
                           }}
+                          alt={data.fullName}
                         />
                       </Col>
-                      <Col xs={3} lg={3} sm={3} md={3}>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <i>
                           {" "}
                           {data.fullName.charAt(0).toUpperCase() +
                             data.fullName.substring(1)}
                         </i>
                       </Col>
-                      <Col xs={3} lg={3} sm={3} md={3}>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
                         {data.category.charAt(0).toUpperCase() +
                           data.category.substring(1)}
                       </Col>
-                      <Col xs={3} lg={3} sm={3} md={3}>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <div>
                           {data.city}
                           <br />
@@ -173,7 +174,7 @@ class Details extends Component {
     );
   }
 
-  renderAddress(event) {
+  renderAddress() {
     return (
       <div>
         <div>
@@ -181,9 +182,15 @@ class Details extends Component {
             if (data.city == this.state.value1) {
               return (
                 <div key={index}>
-                  <Grid fluid style={{ marginBottom: "20px" }}>
+                  <Grid
+                    style={{
+                      paddingRight: "0px",
+                      paddingLeft: "0px",
+                      margin: "0px"
+                    }}
+                  >
                     <Row>
-                      <Col xs={2} lg={2} sm={2} md={2}>
+                      <Col xs={2} lg={2} sm={2} md={2} className="col">
                         <img
                           className="responsive"
                           src={data.profilePic}
@@ -192,20 +199,21 @@ class Details extends Component {
                             height: "60px",
                             borderRadius: "50%"
                           }}
+                          alt={data.fullName}
                         />
                       </Col>
-                      <Col xs={3} lg={3} sm={3} md={3}>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <i>
                           {" "}
                           {data.fullName.charAt(0).toUpperCase() +
                             data.fullName.substring(1)}
                         </i>
                       </Col>
-                      <Col xs={3} lg={3} sm={3} md={3}>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
                         {data.category.charAt(0).toUpperCase() +
                           data.category.substring(1)}
                       </Col>
-                      <Col xs={3} lg={3} sm={3} md={3}>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <div>
                           {data.city}
                           <br />
@@ -227,14 +235,21 @@ class Details extends Component {
   renderDetails() {
     return (
       <div>
-        {this.state.value1 == "" && this.state.value2 == "" ? (
+        {this.state.value1 === "" && this.state.value2 === "" ? (
           <div>
             {this.state.list.map((data, index) => {
               return (
                 <div key={index}>
-                  <Grid fluid style={{ marginBottom: "20px" }}>
+                  <Grid
+                    fluid
+                    style={{
+                      paddingRight: "0px",
+                      paddingLeft: "0px",
+                      margin: "0px"
+                    }}
+                  >
                     <Row>
-                      <Col xs={2} lg={2} sm={2} md={2}>
+                      <Col xs={2} lg={2} sm={2} md={2} className="col">
                         <img
                           className="responsive"
                           src={data.profilePic}
@@ -243,20 +258,21 @@ class Details extends Component {
                             height: "60px",
                             borderRadius: "50%"
                           }}
+                          alt={data.fullName}
                         />
                       </Col>
-                      <Col xs={3} lg={3} sm={3} md={3}>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <i>
                           {" "}
                           {data.fullName.charAt(0).toUpperCase() +
                             data.fullName.substring(1)}
                         </i>
                       </Col>
-                      <Col xs={3} lg={3} sm={3} md={3}>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
                         {data.category.charAt(0).toUpperCase() +
                           data.category.substring(1)}
                       </Col>
-                      <Col xs={3} lg={3} sm={3} md={3}>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <div>
                           {data.city}
                           <br />
@@ -273,7 +289,7 @@ class Details extends Component {
           </div>
         ) : (
           <div>
-            {this.state.value1 != "" ? (
+            {this.state.value1 !== "" ? (
               <div>{this.renderAddress()}</div>
             ) : (
               <div>{this.renderCategory()}</div>
@@ -286,19 +302,20 @@ class Details extends Component {
 
   onHandleClick(event) {
     this.setState({ value1: event.value }, () => {
-      console.log(this.state.value1, "bsdbbhdhvj");
+      
     });
   }
 
   onHandleChange(event) {
     this.setState({ value2: event.value }, () => {
-      console.log(this.state.value2, "hdhvv");
+      
     });
   }
 
   render() {
     let cate = this.state.uniqueCat.map(opt => ({ label: opt, value: opt }));
     let addre = this.state.uniqueAdd.map(opt => ({ label: opt, value: opt }));
+    
 
     return (
       <div>
@@ -310,41 +327,50 @@ class Details extends Component {
             margin: "0px"
           }}
         >
-          <Row style={{height:"50px"}}>
+          <Row style={{ height: "50px" }}>
             <Header />
           </Row>
 
-          <Row>
+          <Row style={{ borderBottom: "1px solid #AA9E9E" }}>
             <Col xs={9} lg={9} md={9} sm={9} className="col">
               {this.state.value === "address" ? (
-                <Select 
+                <Select
                   placeholder={"SEARCH"}
                   options={addre}
                   value={this.state.value1}
                   onChange={this.onHandleClick.bind(this)}
-                  style={{ position: "absolute", height: "100px" }}
+                  style={{
+                    position: "absolute"
+                  }}
                 />
               ) : (
-                <Select 
+                <Select
                   placeholder={"SEARCH"}
                   options={cate}
                   value={this.state.value2}
                   onChange={this.onHandleChange.bind(this)}
-                  style={{ position: "absolute", height: "100px" }}
+                  style={{
+                    position: "absolute"
+                  }}
                 />
               )}
             </Col>
 
-            <Col xs={3} lg={3} md={3} sm={3} className="col">
+            <Col xs={3} lg={3} md={3} sm={3}>
               <select
                 required=""
-                style={{ position: "absolute" }}
+                style={{
+                  position: "absolute",
+                  textAlign: "center",
+                  paddingLeft: "0px",
+                  paddingRight: "0px"
+                }}
                 value={this.state.value}
                 onChange={e => {
                   this.handleChange(e);
                 }}
               >
-                <option defaultValue="">SELECT TYPE</option>
+                <option defaultValue="">PLEASE SELECT</option>
                 <option value="category">category</option>
 
                 <option value="address">address</option>
@@ -369,39 +395,80 @@ class Details extends Component {
                       style={{
                         position: "absolute",
                         width: "50%",
-
-                        border: "1px solid blue",
                         padding: "0"
                       }}
                     >
                       {this.state.list.map(store => {
-                        return (
-                          <Marker
-                            position={{
-                              lat: store.latitude,
-                              lng: store.longitude
-                            }}
-                            onClick={this.onMarkerClick}
-                            name={
-                              store.fullName.charAt(0).toUpperCase() +
-                              store.fullName.substring(1)
-                            }
-                            phone={store.phone}
-                            category={store.category}
-                            email={store.email}
-                          />
-                        );
+                        if (store.city === this.state.value1) {
+                          return (
+                            <Marker
+                              position={{
+                                lat: store.latitude,
+                                lng: store.longitude
+                              }}
+                              onClick={this.onMarkerClick}
+                              name={
+                                store.fullName.charAt(0).toUpperCase() +
+                                store.fullName.substring(1)
+                              }
+                              phone={store.phone}
+                              category={store.category}
+                              email={store.email}
+                              city={store.city}
+                            />
+                          );
+                        }
+                        if (store.category === this.state.value2) {
+                          return (
+                            <Marker
+                              position={{
+                                lat: store.latitude,
+                                lng: store.longitude
+                              }}
+                              onClick={this.onMarkerClick}
+                              name={
+                                store.fullName.charAt(0).toUpperCase() +
+                                store.fullName.substring(1)
+                              }
+                              phone={store.phone}
+                              category={store.category}
+                              email={store.email}
+                              city={store.city}
+                            />
+                          );
+                        }
+                        if (
+                          this.state.value1 === "" &&
+                          this.state.value2 === ""
+                        ) {
+                          return (
+                            <Marker
+                              position={{
+                                lat: store.latitude,
+                                lng: store.longitude
+                              }}
+                              onClick={this.onMarkerClick}
+                              name={
+                                store.fullName.charAt(0).toUpperCase() +
+                                store.fullName.substring(1)
+                              }
+                              phone={store.phone}
+                              category={store.category}
+                              email={store.email}
+                              city={store.city}
+                            />
+                          );
+                        }
                       })}
 
                       <InfoWindow
                         marker={this.state.activeMarker}
                         visible={this.state.showingInfoWindow}
-                        
                         onClose={this.onClose}
                       >
                         <div>
-                          <h1>{this.state.selectedPlace.name}</h1>
-                          <br/>
+                          {this.state.selectedPlace.name}
+                          <br />
 
                           {this.state.selectedPlace.category}
                           <br />
@@ -417,12 +484,18 @@ class Details extends Component {
                 })}
               </div>
             </Col>
-            <Col lg={6} xs={6} md={6} sm={6}>
+            <Col
+              lg={6}
+              xs={6}
+              md={6}
+              sm={6}
+              className="col"
+              style={{ lineHeight: "2.2", borderBottom: "4px",marginTop:"5px" }}
+            >
               {this.renderDetails()}
             </Col>
           </Row>
         </Grid>
-        {/* <Select isMulti options={this.state.options} /> */}
       </div>
     );
   }
