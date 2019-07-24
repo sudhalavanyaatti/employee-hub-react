@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-//import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from "../components/sidebar";
@@ -8,11 +7,12 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
-class NumberVal extends Component {
+class UpdateNumber extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phone: ''
+      phone: '',
+      id:''
     };
   }
   handleChangephone(event) {
@@ -24,7 +24,7 @@ class NumberVal extends Component {
     const data = {
       phone: this.state.phone
     };
-    await fetch('http://localhost:3001/forgot-password', {
+    await fetch('http://localhost:3001/update-number', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -34,9 +34,8 @@ class NumberVal extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        console.log('gf',response);
-        if(response.response!=='null')
-        this.props.history.push('/otpVal', {phone: this.state.phone});
+        if(response.response.success)
+        this.props.history.push('/updateNumberOtpVal', {phone: this.state.phone,id:this.props.location.state.id});
         else
         alert('Enter valid number');
       });
@@ -46,6 +45,7 @@ class NumberVal extends Component {
       <div className="phnobg">
         
         <div className="header">
+        
           <div className="mobile-only">
              <SideBar/>
           </div>
@@ -89,4 +89,4 @@ class NumberVal extends Component {
   }
 }
 
-export default NumberVal;
+export default UpdateNumber;

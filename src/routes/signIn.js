@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SideBar from "../components/sidebar";
 //import {Row, Col} from 'react-flexbox-grid';
 import Header from "../components/header";
+import Bottom from '../components/bottom';
 import {
   MDBContainer,
   MDBRow,
@@ -11,7 +12,7 @@ import {
   MDBBtn,
   MDBModalFooter
 } from "mdbreact";
-//import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import "mdbreact/dist/css/mdb.css";
 import "../App.css";
 
@@ -77,7 +78,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div className="signinbg">
+      <div className="signinbg" id="page-container">
         <div className="header">
           <div className="mobile-only">
             <SideBar />
@@ -85,9 +86,11 @@ class SignIn extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-        </div>
+          <Bottom/>
+        </div><br/><br/><br/><br/><br/><br/><br/><br/>
 
         <div className="col-md-4 col-md-offset-4">
+
           <MDBContainer>
             <h1 align="center">
               <strong>Login Here</strong>
@@ -126,25 +129,25 @@ class SignIn extends React.Component {
 
             <div align="center">
               <MDBBtn
-                color="black"
+                color="blue"
                 type="submit"
                 onClick={() => this.handleSubmit()}
               >
                 Submit
               </MDBBtn>
-            </div>
+            </div><br/>
 
             <MDBModalFooter>
-              <div align="center">
-                <Link to="/forgotPassword">
-                  <strong>Forgot Password ?</strong>
-                </Link>
-                <p>
-                  <h3>Not a member?</h3>
-                </p>{" "}
-                <Link to="/signup">
-                  <strong>Signup</strong>
-                </Link>
+              <div align="center" >
+                  <h5>
+                  <Link id="linksize" to="/forgotPassword">
+                 Forgot Password ?
+                </Link><br/>
+                    Not a member?
+                <Link id="linksize" to="/signup">
+                  Signup
+                </Link></h5>
+              
               </div>
             </MDBModalFooter>
           </MDBContainer>

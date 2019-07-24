@@ -8,7 +8,7 @@ import SideBar from "../components/sidebar";
 //import options from '../components/category';
 import "../App.css";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact"; 
-//import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import "mdbreact/dist/css/mdb.css";
 
 class Signup extends React.Component {
@@ -127,7 +127,7 @@ class Signup extends React.Component {
             <Header />
           </div>
           <Bottom/>
-        </div>
+        </div><br/><br/>
 
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
@@ -245,20 +245,20 @@ class Signup extends React.Component {
 
             <div align="center">
               <MDBBtn
-                color="black"
+                color="blue"
                 type="submit"
                 onClick={() => this.handleSubmit()}
               >
                 Submit
               </MDBBtn>
-            </div>
+            </div><br/>
             <div align="center">
-              <p>
-                <h3>You have account??</h3>
-              </p>
-              <Link to="/signIn">
-                <strong>SignIn</strong>
-              </Link>
+                <h5>
+                  You have account??
+                 <Link id="linksize" to="/signIn">
+                   SignIn
+                 </Link>
+              </h5>
             </div>
           </MDBContainer>
         </div>

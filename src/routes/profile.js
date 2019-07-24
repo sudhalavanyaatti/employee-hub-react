@@ -68,7 +68,7 @@ class Profile extends Component {
   }
   render() {
     return (
-      <div className="profilebg" align="center">
+      <div className="profilebg" align="center" id="page-container">
         <div className="header">
           <div className="mobile-only">
             <SideBar />

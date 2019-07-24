@@ -16,11 +16,11 @@ class About extends Component {
                 <Header/>
             </div>
             <Bottom/>
-        </div>
+        </div><br/><br/><br/><br/><br/>
   
 
-          <div className="text">
-             <h1>Comming soon...!</h1>
+          <div align="center">
+             <h1 align="center">Comming soon...!</h1>
           </div>
       </div>
     );
