@@ -10,13 +10,9 @@ import Otp from './routes/otpVal';
 import ForgotPassword from './routes/forgotPassword';
 import PassOtpValidation from './routes/passwordOtpVal';
 import NewPassword from './routes/newPassword';
-import ResetPassword from './routes/resetPassword';
 import Details from './routes/details';
 import NumberVal from './routes/phoneNumberVal';
-import UpdateNumber from './routes/updateNumber';
 import Profile from './routes/profile';
-import Update_Details from'./routes/update-details';
-import Number_OtpValidation from'./routes/updateNumberOtpVal';
 
 class App extends React.Component {
   render() {
@@ -30,13 +26,9 @@ class App extends React.Component {
         <Route path="/forgotPassword" component={ForgotPassword} />
         <Route path="/passwordOtpVal" component={PassOtpValidation} />
         <Route path="/newPassword" component={NewPassword} />
-        <Route path="/resetPassword" component={ResetPassword} />
         <Route path="/details" component={Details} />
         <Route path="/phoneNumberVal" component={NumberVal} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/update-details" component={Update_Details} />
-        <Route path="/updateNumber" component={UpdateNumber} />
-        <Route path="/updateNumberOtpVal" component={Number_OtpValidation} />
+        <Route exact path="/profile" component={Profile} />
       </Router>
     );
   }

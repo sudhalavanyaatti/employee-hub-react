@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from '../components/sidebar';
-import {Button} from 'semantic-ui-react';
+import Account from '../components/account';
+import Address from '../components/address';
+import Number from '../components/updatenumber';
+import Password from '../components/resetpassword';
+import {Button,Divider,Icon} from 'semantic-ui-react';
 import '../App.css';
 import '../style.css';
 class Profile extends Component {
@@ -10,27 +15,12 @@ class Profile extends Component {
     super(props);
     this.state = {
       id: '',
-      name: '',
-      email: '',
-      mobile: '',
-      umobile: '',
-      otp: '',
-      category: '',
-      city: '',
-      state: '',
-      zip: '',
-      experience:'',
-      password: '',
-      decpassword: '',
-      curpassword: '',
-      newpassword: '',
-      conpassword: '',
+      name:'',
       profilePic: '',
+      uploadpic:'',
       displayContent: 'account'
     };
-    this.Otp = this.Otp.bind(this);
   }
-
   componentDidMount() {
     const data = {
       token: localStorage.getItem('token')
@@ -48,368 +38,34 @@ class Profile extends Component {
         if (data) {
           this.setState({
             id: data.data._id,
-            name: data.data.fullName,
-            email: data.data.email,
-            mobile: data.data.phone,
-            category: data.data.category,
-            city: data.data.city,
-            state: data.data.state,
-            zip: data.data.zip,
-            password: data.data.password,
+            name:data.data.fullName,
             profilePic: data.data.profilePic
           });
         }
       });
   }
-  Capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-  handleChangeName(event) {
-    this.setState({
-      name: event.target.value
-    });
-  }
-  handleChangeEmail(event) {
-    this.setState({
-      email: event.target.value
-    });
-  }
-  handleChangeCategory(event) {
-    this.setState({
-      category: event.target.value
-    });
-  }
-  handleChangeExperience(event) {
-    this.setState({
-      experience: event.target.value
-    });
-  }
-  handleChangeCity(event) {
-    this.setState({
-      city: event.target.value
-    });
-  }
-  handleChangeState(event) {
-    this.setState({
-      state: event.target.value
-    });
-  }
-  handleChangeZip(event) {
-    this.setState({
-      zip: event.target.value
-    });
-  }
-  handleChangeUmobile(event) {
-    this.setState({
-      umobile: event.target.value
-    });
-  }
-  handleChangeotp(event) {
-    this.setState({
-      otp: event.target.value
-    });
-  }
-  handleChangeCpassword(event) {
-    this.setState({
-      curpassword: event.target.value
-    },()=>{
-    
-    const data = {
-  
-      password: this.state.curpassword
-     
-    };
-    console.log('pass',data)
-    fetch('http://localhost:3001/dec-password', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        this.setState({
-          decpassword: data.data
-        });
-      });
-    });
-    
-  }
-  handleChangeNpassword(event) {
-    this.setState({
-      newpassword: event.target.value
-    });
-  }
-  handleChangeConfirmPass(event) {
-    this.setState({
-      conpassword: event.target.value
-    });
-  }
-  handleAccount(data) {
-    data = {
-      id: this.state.id,
-      fullName: this.Capitalize(this.state.fullName),
-      email: this.state.email,
-      category: this.Capitalize(this.state.category)
-    };
-    fetch('http://localhost:3001/update-details', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-      .then(res => res.json())
-      .then(response => {
-        console.log(response);
-      });
-  }
-  handleAddress(data) {
-    data = {
-      id: this.state.id,
-      city: this.Capitalize(this.state.city),
-      state: this.Capitalize(this.state.state),
-      zip: this.state.zip
-    };
-    fetch('http://localhost:3001/update-details', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-      .then(res => res.json())
-      .then(response => {
-        console.log(response);
-      });
-  }
-  handleNumber(data) {
-    data = {
-      phone: this.state.umobile
-    };
-    fetch('http://localhost:3001/update-number', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-      .then(res => res.json())
-      .then(response => {
-        console.log(response);
-        if (response.response.success) {
-          this.Otp();
-        } else alert('Enter valid number');
-      });
-  }
-  handleOtp(data) {
-    data = {
-      id: this.state.id,
-      phone: this.state.umobile,
-      otp: this.state.otp
-    };
-    fetch('http://localhost:3001/updateNumber-OtpVal', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-      .then(res => res.json())
-      .then(response => {
-        if (!response.response.success) {
-          alert('enter Valid OTP');
-        } else {
-          this.props.history.push('/profile');
-        }
-      });
-  }
-  handleResendOtp(data) {
-    data = {
-      phone: this.state.umobile
-    };
-    fetch('http://localhost:3001/resend-otp', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-      .then(res => res.json())
-      .then(response => {
-        console.log(response);
-      });
-  }
-  handlePassword(data) {
-    console.log('svd', this.state.decpassword);
-    console.log('wfe', this.state.password);
-    if (this.state.decpassword === this.state.password) {
-      data = {
-        newPassword: this.state.newpassword,
-        confirmPassword: this.state.conpassword,
-        phone: this.state.phone
-      };
-      if (this.state.newpassword === this.state.conpassword) {
-        fetch('http://localhost:3001/update-password', {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-          }
-        })
-          .then(res => res.json())
-          .then(data => {
-            alert('Password Updated successfully...!');
-            this.props.history.push('/profile');
+  onChangeUploadpic(event){
+    this.setState(
+    {
+      uploadpic: event.target.files[0]
+    },
+    () => {
+      const data = new FormData();
+      data.append('profilePic', this.state.uploadpic);
+      data.append('id', this.state.id);
+      axios
+        .post('http://localhost:3001/update-photo', data, {})
+        .then(data => {
+          if(data){
+          this.setState({
+            profilePic: data.data.data.profilePic
           });
-      } else alert('Enter Same Password');
-    } else alert('Enter Correct Password');
+          window.location.reload();
+        }
+        });
+    }
+    )
   }
-  renderAccount() {
-    return (
-      <div className="p-page">
-        <h2>Account</h2>
-        <input
-          type="text"
-          value={this.state.name}
-          onChange={event => this.handleChangeName(event)}
-          placeholder="Name"
-        />
-        <input
-          type="email"
-          value={this.state.email}
-          onChange={event => this.handleChangeEmail(event)}
-          placeholder="Email"
-        />
-        <input type="tel" value={this.state.mobile} disabled />
-        <input
-          type="text"
-          value={this.state.category}
-          onChange={event => this.handleChangeCategory(event)}
-          placeholder="Category"
-        />
-        <input
-          type="tel"
-          value={this.state.experience}
-          onChange={event => this.handleChangeExperience(event)}
-          placeholder="Experience"
-          minLength="1"
-          maxLength="2"
-        />
-        <button type="submit" onClick={() => this.handleAccount()}>
-          Save
-        </button>
-      </div>
-    );
-  }
-  address() {
-    return (
-      <div className="p-page">
-        <h2>Address</h2>
-        <input
-          type="text"
-          value={this.state.city}
-          onChange={event => this.handleChangeCity(event)}
-          placeholder="City"
-        />
-        <input
-          type="text"
-          value={this.state.state}
-          onChange={event => this.handleChangeState(event)}
-          placeholder="State"
-        />
-        <input
-          type="tel"
-          value={this.state.zip}
-          onChange={event => this.handleChangeZip(event)}
-          placeholder="Zip"
-          minLength="6"
-          maxLength="6"
-        />
-        <button type="submit" onClick={() => this.handleAddress()}>
-          Save
-        </button>
-      </div>
-    );
-  }
-  number() {
-    return (
-      <div className="p-page">
-        <h2>Updare Mobile Number</h2>
-        <input
-          type="tel"
-          maxLength="10"
-          minLength="10"
-          value={this.state.umobile}
-          onChange={event => this.handleChangeUmobile(event)}
-          placeholder="Mobile Number"
-        />
-        <button type="submit" onClick={() => this.handleNumber()}>
-          Submit
-        </button>
-      </div>
-    );
-  }
-  Otp() {
-    console.log('dhcb db');
-    return (
-      <div className="p-page">
-        <h2>Enter your Otp</h2>
-        <input
-          type="tel"
-          maxLength="6"
-          minLength="6"
-          value={this.state.otp}
-          onChange={event => this.handleChangeotp(event)}
-          placeholder="OTP"
-        />
-        <button type="submit" onClick={() => this.handleOtp()}>
-          Submit
-        </button>
-        <button type="submit" onClick={() => this.handleResendOtp()}>
-          Resend OTP
-        </button>
-      </div> 
-    );
-  }
-  password() {
-    return (
-      <div className="p-page">
-        <h2>Reset Password</h2>
-        <input
-          type="password"
-          value={this.state.currentpassword}
-          onChange={event => this.handleChangeCpassword(event)}
-          placeholder="Current Password"
-        />
-        <input
-          type="password"
-          value={this.state.newpassword}
-          onChange={event => this.handleChangeNpassword(event)}
-          placeholder="New Password"
-        />
-        <input
-          type="text"
-          value={this.state.confirmpassword}
-          onChange={event => this.handleChangeConfirmPass(event)}
-          placeholder="Confirm Password"
-        />
-        <button type="submit" onClick={() => this.handlePassword()}>
-          Update
-        </button>
-      </div>
-    );
-  }
-
   render() {
     return (
       <div className="profilebg" align="center">
@@ -427,69 +83,89 @@ class Profile extends Component {
             className="img-circle"
             src={`${this.state.profilePic}`}
             alt="profile"
-            height="180"
-            width="180"
-          />
-
+            height="150"
+            width="150"
+            border="0"
+          /><div className="img-upld">
+          <input type="file" className="img-upload" onChange={event => this.onChangeUploadpic(event)} /></div>
           <div className="P-name">{this.state.name}</div>
           <div>
-            <Button.Group vertical className="sidenav">
+            <Button.Group vertical className="sidenav" >
               <Button
                 onClick={() =>
                   this.setState({
                     displayContent: 'account'
                   })
                 }
+                icon labelPosition='right'
               >
                 Account
+                <Icon name='angle double right' />
               </Button>
+              <Divider fitted />
               <Button
                 onClick={() =>
                   this.setState({
                     displayContent: 'address'
                   })
                 }
+                icon labelPosition='right'
               >
                 Address
+                <Icon name='angle double right' />
               </Button>
+              <Divider fitted />
               <Button
                 onClick={() =>
                   this.setState({
                     displayContent: 'number'
                   })
                 }
+                icon labelPosition='right'
               >
                 Update Mobile Number
+                <Icon name='angle double right' />
               </Button>
+              <Divider fitted />
               <Button
                 onClick={() =>
                   this.setState({
                     displayContent: 'password'
                   })
                 }
+                icon labelPosition='right'
               >
                 Reset Password
+                <Icon name='angle double right' />
               </Button>
             </Button.Group>
           </div>
         </div>
         {this.state.displayContent === 'account' ? (
-          <div>{this.renderAccount()}</div>
+          <div>
+            <Account />
+          </div>
         ) : (
           <div />
         )}
         {this.state.displayContent === 'address' ? (
-          <div>{this.address()}</div>
+          <div>
+            <Address />
+          </div>
         ) : (
           <div />
         )}
         {this.state.displayContent === 'number' ? (
-          <div>{this.number()}</div>
+          <div>
+            <Number />
+          </div>
         ) : (
           <div />
         )}
         {this.state.displayContent === 'password' ? (
-          <div>{this.password()}</div>
+          <div>
+            <Password />
+          </div>
         ) : (
           <div />
         )}

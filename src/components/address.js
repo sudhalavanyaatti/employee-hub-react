@@ -1,31 +1,17 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router';
 import '../App.css';
 import '../style.css';
-class Account extends Component {
+class Address extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: '',
-      name: '',
-      email: '',
-      mobile: '',
-      umobile: '',
-      otp: '',
-      category: '',
       city: '',
       state: '',
-      zip: '',
-      password: '',
-      decpassword: '',
-      curpassword: '',
-      newpassword: '',
-      conpassword: '',
-      profilePic: '',
-      displayContent: 'account'
+      zip: ''
     };
-    this.Otp = this.Otp.bind(this);
   }
-
   componentDidMount() {
     const data = {
       token: localStorage.getItem('token')
@@ -43,15 +29,9 @@ class Account extends Component {
         if (data) {
           this.setState({
             id: data.data._id,
-            name: data.data.fullName,
-            email: data.data.email,
-            mobile: data.data.phone,
-            category: data.data.category,
             city: data.data.city,
             state: data.data.state,
-            zip: data.data.zip,
-            password: data.data.password,
-            profilePic: data.data.profilePic
+            zip: data.data.zip
           });
         }
       });
@@ -59,6 +39,73 @@ class Account extends Component {
   Capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
+    handleChangeCity(event) {
+      this.setState({
+        city: event.target.value
+      });
+    }
+    handleChangeState(event) {
+      this.setState({
+        state: event.target.value
+      });
+    }
+    handleChangeZip(event) {
+      this.setState({
+        zip: event.target.value
+      });
+    }
+    handleAddress(data) {
+      data = {
+        id: this.state.id,
+        city: this.Capitalize(this.state.city),
+        state: this.Capitalize(this.state.state),
+        zip: this.state.zip
+      };
+      fetch('http://localhost:3001/update-details', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
+        .then(res => res.json())
+        .then(response => {
+          if(response)
+          window.location.reload();
+        });
+    }
+    render() {
+      return (
+        <div className="p-page">
+          <h2>Address</h2>
+          <input
+            type="text"
+            value={this.state.city}
+            onChange={event => this.handleChangeCity(event)}
+            placeholder="City"
+          />
+          <input
+            type="text"
+            value={this.state.state}
+            onChange={event => this.handleChangeState(event)}
+            placeholder="State"
+          />
+          <input
+            type="tel"
+            value={this.state.zip}
+            onChange={event => this.handleChangeZip(event)}
+            placeholder="Zip"
+            minLength="6"
+            maxLength="6"
+          />
+          <button type="submit" onClick={() => this.handleAddress()}>
+            Save
+          </button>
+        </div>
+      );
+    }
+
 }
-export default Account;
+export default withRouter(Address);
 

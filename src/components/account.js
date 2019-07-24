@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router';
 import '../App.css';
 import '../style.css';
 class Account extends Component {
@@ -34,6 +35,7 @@ class Account extends Component {
             email: data.data.email,
             mobile: data.data.phone,
             category: data.data.category,
+            experience: data.data.experience
           });
         }
       });
@@ -64,7 +66,7 @@ class Account extends Component {
   handleAccount(data) {
     data = {
       id: this.state.id,
-      fullName: this.Capitalize(this.state.fullName),
+      fullName: this.Capitalize(this.state.name),
       email: this.state.email,
       category: this.Capitalize(this.state.category),
       experience: this.state.experience
@@ -79,10 +81,13 @@ class Account extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        console.log(response);
+          if(response){
+            window.location.reload();
+            this.props.history.push('/profile');
+          }
       });
   }
-  rende() {
+  render () {
     return (
       <div className="p-page">
         <h2>Account</h2>
@@ -120,4 +125,4 @@ class Account extends Component {
     );
   }
 }
-export default Account;
+export default withRouter(Account);
