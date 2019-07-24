@@ -1,15 +1,13 @@
 import axios from 'axios';
-//import btoa from 'btoa';
 import React from 'react';
 import {Link} from 'react-router-dom';
-//import {Row, Col} from 'react-flexbox-grid';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from '../components/sidebar';
 import Top  from '../components/sidetab';
-//import Select from 'react-select';
 //import options from '../components/category';
 import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import '../App.css';
 import '../style.css';
@@ -438,7 +436,7 @@ class Update_Details extends React.Component {
             </MDBRow>
             <div align="center">
               <MDBBtn
-                color="black"
+                color="blue"
                 type="submit"
                 onClick={() => this.handleSubmit()}
               >

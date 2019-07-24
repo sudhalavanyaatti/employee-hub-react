@@ -5,7 +5,7 @@ import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from "../components/sidebar";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
-//import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "../App.css";
 
@@ -51,7 +51,7 @@ class ForgotPassword extends Component {
                 <Header/>
             </div>
             <Bottom/>
-        </div>
+        </div><br/><br/><br/><br/><br/>
 
        <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
@@ -75,7 +75,7 @@ class ForgotPassword extends Component {
           </MDBCol>
           </MDBRow>
           <div align="center">
-          <MDBBtn  color="black" type="submit"  onClick={() => this.handleSubmit()}>
+          <MDBBtn  color="blue" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
           </MDBBtn>  
           </div>

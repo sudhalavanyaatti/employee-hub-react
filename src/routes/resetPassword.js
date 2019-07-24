@@ -75,7 +75,7 @@ class ResetPassword extends React.Component {
                <Header/>
            </div>
            <Bottom/>
-        </div>
+        </div><br/><br/><br/><br/><br/>
        <div className="col-md-4 col-md-offset-4">
        <MDBContainer>
          <h1 align="center"><br/><br/><strong>Reset Your Password</strong></h1>
@@ -113,7 +113,7 @@ class ResetPassword extends React.Component {
             </MDBCol>
             </MDBRow>
               <div align="center">
-                 <MDBBtn  color="black" type="submit"  onClick={() => this.handleSubmit()}>
+                 <MDBBtn  color="blue" type="submit"  onClick={() => this.handleSubmit()}>
                     Submit
                  </MDBBtn> 
               </div>

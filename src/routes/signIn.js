@@ -11,7 +11,7 @@ import {
   MDBBtn,
   MDBModalFooter
 } from "mdbreact";
-//import 'font-awesome/css/font-awesome.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import "mdbreact/dist/css/mdb.css";
 import "../App.css";
 
@@ -85,9 +85,10 @@ class SignIn extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-        </div>
+        </div><br/><br/><br/><br/><br/><br/><br/><br/>
 
         <div className="col-md-4 col-md-offset-4">
+
           <MDBContainer>
             <h1 align="center">
               <strong>Login Here</strong>
@@ -126,7 +127,7 @@ class SignIn extends React.Component {
 
             <div align="center">
               <MDBBtn
-                color="black"
+                color="blue"
                 type="submit"
                 onClick={() => this.handleSubmit()}
               >
