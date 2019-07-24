@@ -8,7 +8,7 @@ import SideBar from "../components/sidebar";
 //import options from '../components/category';
 import "../App.css";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact"; 
-import 'font-awesome/css/font-awesome.min.css';
+//import 'font-awesome/css/font-awesome.min.css';
 import "mdbreact/dist/css/mdb.css";
 
 class Signup extends React.Component {

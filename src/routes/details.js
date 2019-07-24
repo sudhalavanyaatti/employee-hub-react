@@ -1,30 +1,20 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import Header from "../components/header";
-=======
-import Header from '../components/header';
-import Bottom from '../components/bottom';
->>>>>>> eb38d2d65ec0edf2b4ff56a1e49366aa4682f38e
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-<<<<<<< HEAD
 import Select from "react-select";
 import "../style.css";
-=======
-import SideBar from "../components/sidebar";
-import "../App.css";
->>>>>>> eb38d2d65ec0edf2b4ff56a1e49366aa4682f38e
 
 library.add(faEnvelope);
 
 class Details extends Component {
-  constructor(props) {
-    super(props);
-  this.state = {
+  state = {
     categories: [],
+    uniqueCat: [],
+    uniqueAdd: [],
     list: [],
     details: true,
     address: [],
@@ -33,9 +23,16 @@ class Details extends Component {
     activeMarker: {},
     selectedPlace: {},
     value1: "",
-    value2: ""
+    value2: "",
+    options: [
+      {
+        label: "engineer",
+        value: "engineer"
+      },
+      { label: "doctor", value: "doctor" },
+      { label: "engineer", value: "engineer" }
+    ]
   };
-}
 
   onMarkerClick = (props, marker, e) => {
     this.setState(
@@ -72,21 +69,20 @@ class Details extends Component {
       }
     })
       .then(res => res.json())
-      .then(data =>{
+      .then(data =>
         this.setState(
           {
-            list: [data.details]
+            list: data.details
           },
           () => console.log("details", this.state.list)
-      )
-        }
+        )
       );
 
     this.setState(
       {
         categories: this.state.list.map(cat => cat.category)
       },
-      () => console.log("cay", this.state.categories)
+      () => console.log("hjshsd", this.state.categories)
     );
 
     this.setState(
@@ -94,6 +90,23 @@ class Details extends Component {
         address: this.state.list.map(cat => cat.city)
       },
       () => console.log("add", this.state.address)
+    );
+
+    this.setState(
+      {
+        uniqueCat: Array.from(new Set(this.state.categories))
+      },
+      () => {
+        console.log(this.state.uniqueCat, "BHJHBhb");
+      }
+    );
+    this.setState(
+      {
+        uniqueAdd: Array.from(new Set(this.state.address))
+      },
+      () => {
+        console.log(this.state.uniqueAdd, "BHJHBhb");
+      }
     );
   }
 
@@ -116,23 +129,41 @@ class Details extends Component {
             if (data.category == this.state.value2) {
               return (
                 <div key={index}>
-                  <li>
-                    <img
-                      className="responsive"
-                      src={data.profilePic}
-                      style={{
-                        width: "100px",
-                        height: "100px",
-                        borderRadius: "50%"
-                      }}
-                    />
-                  </li>
-
-                  <li>
-                    <b>{data.fullName}</b>
-                  </li>
-                  <li>{data.category}</li>
-                  <li>{data.city}</li>
+                  <Grid fluid style={{ marginBottom: "20px" }}>
+                    <Row>
+                      <Col xs={2} lg={2} sm={2} md={2}>
+                        <img
+                          className="responsive"
+                          src={data.profilePic}
+                          style={{
+                            width: "60px",
+                            height: "60px",
+                            borderRadius: "50%"
+                          }}
+                        />
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3}>
+                        <i>
+                          {" "}
+                          {data.fullName.charAt(0).toUpperCase() +
+                            data.fullName.substring(1)}
+                        </i>
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3}>
+                        {data.category.charAt(0).toUpperCase() +
+                          data.category.substring(1)}
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3}>
+                        <div>
+                          {data.city}
+                          <br />
+                          {data.state}
+                        </div>
+                        {data.zip}
+                        <br />
+                      </Col>
+                    </Row>
+                  </Grid>
                 </div>
               );
             }
@@ -141,57 +172,114 @@ class Details extends Component {
       </div>
     );
   }
-  
 
-  renderAddress() {
+  renderAddress(event) {
     return (
       <div>
-<<<<<<< HEAD
         <div>
           {this.state.list.map((data, index) => {
             if (data.city == this.state.value1) {
               return (
                 <div key={index}>
-                  <li>
-                    <img
-                      className="responsive"
-                      src={data.profilePic}
-                      style={{
-                        width: "100px",
-                        height: "100px",
-                        borderRadius: "50%"
-                      }}
-                    />
-                  </li>
-
-                  <li>
-                    <b>{data.fullName}</b>
-                  </li>
-                  <li>{data.category}</li>
-                  <li>{data.city}</li>
+                  <Grid fluid style={{ marginBottom: "20px" }}>
+                    <Row>
+                      <Col xs={2} lg={2} sm={2} md={2}>
+                        <img
+                          className="responsive"
+                          src={data.profilePic}
+                          style={{
+                            width: "60px",
+                            height: "60px",
+                            borderRadius: "50%"
+                          }}
+                        />
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3}>
+                        <i>
+                          {" "}
+                          {data.fullName.charAt(0).toUpperCase() +
+                            data.fullName.substring(1)}
+                        </i>
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3}>
+                        {data.category.charAt(0).toUpperCase() +
+                          data.category.substring(1)}
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3}>
+                        <div>
+                          {data.city}
+                          <br />
+                          {data.state}
+                        </div>
+                        {data.zip}
+                        <br />
+                      </Col>
+                    </Row>
+                  </Grid>
                 </div>
               );
             }
           })}
         </div>
-=======
-        {this.state.list.map(details => {
-          return (
-            <div key={details._id}>
-              <ul
-                style={{
-                  listStyleType: "square",
-                  listStylePosition: "inside"
-                }}
-              >
-                <li>Email:{details.email}</li>
-                <li>Full name:{details.fullName}</li>
-                <li>Address:{details.city}</li>
-              </ul>
-            </div>
-          );
-        })}
->>>>>>> eb38d2d65ec0edf2b4ff56a1e49366aa4682f38e
+      </div>
+    );
+  }
+  renderDetails() {
+    return (
+      <div>
+        {this.state.value1 == "" && this.state.value2 == "" ? (
+          <div>
+            {this.state.list.map((data, index) => {
+              return (
+                <div key={index}>
+                  <Grid fluid style={{ marginBottom: "20px" }}>
+                    <Row>
+                      <Col xs={2} lg={2} sm={2} md={2}>
+                        <img
+                          className="responsive"
+                          src={data.profilePic}
+                          style={{
+                            width: "60px",
+                            height: "60px",
+                            borderRadius: "50%"
+                          }}
+                        />
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3}>
+                        <i>
+                          {" "}
+                          {data.fullName.charAt(0).toUpperCase() +
+                            data.fullName.substring(1)}
+                        </i>
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3}>
+                        {data.category.charAt(0).toUpperCase() +
+                          data.category.substring(1)}
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3}>
+                        <div>
+                          {data.city}
+                          <br />
+                          {data.state}
+                        </div>
+                        {data.zip}
+                        <br />
+                      </Col>
+                    </Row>
+                  </Grid>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            {this.state.value1 != "" ? (
+              <div>{this.renderAddress()}</div>
+            ) : (
+              <div>{this.renderCategory()}</div>
+            )}
+          </div>
+        )}
       </div>
     );
   }
@@ -209,131 +297,132 @@ class Details extends Component {
   }
 
   render() {
-    let cate = this.state.categories.map(opt => ({ label: opt, value: opt }));
-    let addre = this.state.address.map(opt => ({ label: opt, value: opt }));
+    let cate = this.state.uniqueCat.map(opt => ({ label: opt, value: opt }));
+    let addre = this.state.uniqueAdd.map(opt => ({ label: opt, value: opt }));
 
     return (
-      <div className="detailsbg">
-        <div className="header">
-          <div className="mobile-only">
-            <SideBar />
-          </div>
-          <div className="desktop-only">
+      <div>
+        <Grid
+          fluid
+          style={{
+            paddingRight: "0px",
+            paddingLeft: "0px",
+            margin: "0px"
+          }}
+        >
+          <Row style={{height:"50px"}}>
             <Header />
-          </div>
-          <Bottom/>
-        </div>
-        <Grid fluid>
+          </Row>
+
           <Row>
-            <Col lg={6} sm={6} md={6} xs={6} className="col">
-              {this.state.details ? (
-                <div>
-                  {this.state.list.map((store, index) => {
-                    console.log(store.latitude, "dvfd");
-                    return (
-                      <div className="win">
-                      <Map
-                        key={index}
-                        google={this.props.google}
-                        zoom={7}
-                        initialCenter={{ lat: 17.6868, lng: 83.20161 }}
-                        style={{
-                          position: "absolute",
-                          width: "50%",
-
-                          padding: 0
-                        }}
-                      >
-                        {this.state.list.map(store => {
-                          return (
-                            <Marker
-                              position={{
-                                lat: store.latitude,
-                                lng: store.longitude
-                              }}
-                              onClick={this.onMarkerClick}
-                              name={store.fullName}
-                              phone={store.phone}
-                              category={store.category}
-                              email={store.email}
-                            />
-                          );
-                        })}
-
-                        <InfoWindow
-                          marker={this.state.activeMarker}
-                          visible={this.state.showingInfoWindow}
-                          style={{ width: "50%" }}
-                          onClose={this.onClose}
-                        >
-                          <div>
-                            <p>
-                              <h1>{this.state.selectedPlace.name}</h1>
-
-                              <p>{this.state.selectedPlace.category}</p>
-                              <a
-                                href={`mailto:${
-                                  this.state.selectedPlace.email
-                                }`}
-                              >
-                                <FontAwesomeIcon icon="envelope" />
-                              </a>
-                              <p> {this.state.selectedPlace.phone}</p>
-                            </p>
-                          </div>
-                        </InfoWindow>
-                      </Map>
-                      </div>
-                    );
-                  })}
-                </div>
+            <Col xs={9} lg={9} md={9} sm={9} className="col">
+              {this.state.value === "address" ? (
+                <Select 
+                  placeholder={"SEARCH"}
+                  options={addre}
+                  value={this.state.value1}
+                  onChange={this.onHandleClick.bind(this)}
+                  style={{ position: "absolute", height: "100px" }}
+                />
               ) : (
-                <div>
-                  {this.state.value1 != null && this.renderAddress()}
-                  {this.state.value2 != null && this.renderCategory()}
-                </div>
+                <Select 
+                  placeholder={"SEARCH"}
+                  options={cate}
+                  value={this.state.value2}
+                  onChange={this.onHandleChange.bind(this)}
+                  style={{ position: "absolute", height: "100px" }}
+                />
               )}
             </Col>
-            <Col lg={3} md={3} sm={6} xs={3} className="col">
-              <input
-                type="button"
-                className="button"
-                onClick={() => this.handleClick()}
-                style={{ position: "relative" }}
-                value="MAPVIEW/LISTVIEW"
-              />
-            </Col>
-            <Col lg={3} md={3} sm={6} xs={3} className="col">
+
+            <Col xs={3} lg={3} md={3} sm={3} className="col">
               <select
-                id="mainselection"
-                style={{ position: "relative", width: "50%" }}
+                required=""
+                style={{ position: "absolute" }}
                 value={this.state.value}
                 onChange={e => {
                   this.handleChange(e);
                 }}
               >
+                <option defaultValue="">SELECT TYPE</option>
                 <option value="category">category</option>
+
                 <option value="address">address</option>
               </select>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg={6} sm={6} md={6} xs={6} className="col">
+              <div>
+                {this.state.list.map((store, index) => {
+                  console.log(store.latitude, "dvfd");
 
-              {this.state.value === "address" ? (
-                <Select
-                  options={addre}
-                  style={{ position: "realtive", borderRadius: "10px" }}
-                  value={this.state.value1}
-                  onChange={this.onHandleClick.bind(this)}
-                />
-              ) : (
-                <Select
-                  options={cate}
-                  style={{ position: "realtive", borderRadius: "10px" }}
-                  value={this.state.value2}
-                  onChange={this.onHandleChange.bind(this)}
-                />
-              )}
+                  return (
+                    <Map
+                      key={index}
+                      google={this.props.google}
+                      zoom={7}
+                      initialCenter={{
+                        lat: store.latitude,
+                        lng: store.longitude
+                      }}
+                      style={{
+                        position: "absolute",
+                        width: "50%",
+
+                        border: "1px solid blue",
+                        padding: "0"
+                      }}
+                    >
+                      {this.state.list.map(store => {
+                        return (
+                          <Marker
+                            position={{
+                              lat: store.latitude,
+                              lng: store.longitude
+                            }}
+                            onClick={this.onMarkerClick}
+                            name={
+                              store.fullName.charAt(0).toUpperCase() +
+                              store.fullName.substring(1)
+                            }
+                            phone={store.phone}
+                            category={store.category}
+                            email={store.email}
+                          />
+                        );
+                      })}
+
+                      <InfoWindow
+                        marker={this.state.activeMarker}
+                        visible={this.state.showingInfoWindow}
+                        
+                        onClose={this.onClose}
+                      >
+                        <div>
+                          <h1>{this.state.selectedPlace.name}</h1>
+                          <br/>
+
+                          {this.state.selectedPlace.category}
+                          <br />
+                          <a href={`mailto:${this.state.selectedPlace.email}`}>
+                            <FontAwesomeIcon icon="envelope" />
+                          </a>
+                          <br />
+                          {this.state.selectedPlace.phone}
+                        </div>
+                      </InfoWindow>
+                    </Map>
+                  );
+                })}
+              </div>
+            </Col>
+            <Col lg={6} xs={6} md={6} sm={6}>
+              {this.renderDetails()}
             </Col>
           </Row>
         </Grid>
+        {/* <Select isMulti options={this.state.options} /> */}
       </div>
     );
   }
