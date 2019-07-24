@@ -67,7 +67,7 @@
            
         }
     .aboutbg {
-      background-image: url("https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+      background-color:  rgba(50, 115, 220, 0.048);
       height: 100vh;
       background-position: center;
       background-repeat: no-repeat;
@@ -82,7 +82,7 @@
           background-size:cover;
           }   
           .passwordbg,.phnobg,.otpvalbg{
-            background-image: url("https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+            background-color:  rgba(50, 115, 220, 0.048);
             height: 100vh;
             background-position: center;
             background-repeat: no-repeat;
