@@ -200,7 +200,7 @@ class Update_Details extends React.Component {
   }
   render() {
     return (
-      <div className="updatebg">
+      <div className="updatebg" id="page-container">
         <div className="header">
         <Top/>
           <div className="mobile-only">
@@ -216,16 +216,16 @@ class Update_Details extends React.Component {
             <h1 align="center">
               <br />
               <br/>
-              <strong>Edit Your Profile</strong>
+              <strong>Edit Profile</strong>
             </h1>
-            <br/>
+            <br/><br/>
             <MDBRow>
               <MDBCol align="center" md="12">
                  <img
                   class="img-circle"
                   src={`${this.state.photo}`}
-                  height="180"
-                  width="180"
+                  height="200"
+                  width="200"
                   alt="UpdatePic"
                 />
                 <MDBInput
@@ -248,7 +248,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="6">
+              <MDBCol md="4">
                 <MDBInput
                   type="tel"
                   name="phone"
@@ -259,10 +259,13 @@ class Update_Details extends React.Component {
                   label="Phone "
                   icon="phone"
                   id="materialFormRegisterPhnEx2"
+                 
                   disabled
                 />
                 </MDBCol>
-                <Link to={{pathname: '/updateNumber',state: { id: this.state.id }}}>Update Number</Link>
+                <MDBCol>
+                <Link to={{pathname: '/updateNumber',state: { id: this.state.id }}}>*Update</Link>
+                </MDBCol>
                 </MDBRow>
                 <MDBRow>
               <MDBCol md="6">
@@ -277,7 +280,7 @@ class Update_Details extends React.Component {
                   required
                 />
               </MDBCol>
-              <MDBCol md="6">
+              <MDBCol md="4">
                 <MDBInput
                    type="password"
                    name="password"
@@ -289,7 +292,7 @@ class Update_Details extends React.Component {
                    disabled
                 />
               </MDBCol>
-              <Link to={{pathname: '/newPassword',state: { phone: this.state.phone }}}>Update Password</Link>
+              <Link to={{pathname: '/resetPassword',state: { phone: this.state.phone }}}>*Update </Link>
               </MDBRow>
             <MDBRow>
               <MDBCol md="6">
@@ -435,7 +438,7 @@ class Update_Details extends React.Component {
             </MDBRow>
             <div align="center">
               <MDBBtn
-                gradient="blue"
+                color="black"
                 type="submit"
                 onClick={() => this.handleSubmit()}
               >

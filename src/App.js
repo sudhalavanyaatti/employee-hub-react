@@ -10,6 +10,7 @@ import Otp from './routes/otpVal';
 import ForgotPassword from './routes/forgotPassword';
 import PassOtpValidation from './routes/passwordOtpVal';
 import NewPassword from './routes/newPassword';
+import ResetPassword from './routes/resetPassword';
 import Details from './routes/details';
 import NumberVal from './routes/phoneNumberVal';
 import UpdateNumber from './routes/updateNumber';
@@ -18,28 +19,6 @@ import Update_Details from'./routes/update-details';
 import Number_OtpValidation from'./routes/updateNumberOtpVal';
 
 class App extends React.Component {
-  // state = {
-  //   places: [
-  //     {
-  //       name: "Sydney",
-  //       title: "Sydney",
-  //       position: { lat: -33.847927, lng: 150.6517938 }
-  //     },
-  //     {
-  //       name: "Melbourne",
-  //       title: "Melbourne",
-  //       position: { lat: -37.9722342, lng: 144.7729561 }
-  //     },
-  //     {
-  //       name: "Perth",
-  //       title: "Perth",
-  //       position: { lat: -31.9546904, lng: 115.8350292 }
-  //     }
-  //   ]
-  // };
-  // render() {
-  //   return <MapContainer places={this.state.places} />;
-  // }
   render() {
     return (
       <Router>
@@ -51,6 +30,7 @@ class App extends React.Component {
         <Route path="/forgotPassword" component={ForgotPassword} />
         <Route path="/passwordOtpVal" component={PassOtpValidation} />
         <Route path="/newPassword" component={NewPassword} />
+        <Route path="/resetPassword" component={ResetPassword} />
         <Route path="/details" component={Details} />
         <Route path="/phoneNumberVal" component={NumberVal} />
         <Route path="/profile" component={Profile} />

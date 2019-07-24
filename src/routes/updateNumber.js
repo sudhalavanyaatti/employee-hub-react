@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from "../components/sidebar";
-import Top  from '../components/sidetab';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -36,9 +35,6 @@ class UpdateNumber extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        console.log('gf',response);
-        console.log('gf',this.state.phone);
-        console.log('gf',this.props.location.state.id);
         if(response.response.success)
         this.props.history.push('/updateNumberOtpVal', {phone: this.state.phone,id:this.props.location.state.id});
         else
@@ -50,7 +46,7 @@ class UpdateNumber extends Component {
       <div className="phnobg">
         
         <div className="header">
-        <Top/>
+        
           <div className="mobile-only">
              <SideBar/>
           </div>
@@ -83,7 +79,7 @@ class UpdateNumber extends Component {
           </MDBCol>
           </MDBRow>
           <div align="center">
-          <MDBBtn  gradient="blue" type="submit"  onClick={() => this.handleSubmit()}>
+          <MDBBtn  color="black" type="submit"  onClick={() => this.handleSubmit()}>
                 Submit
           </MDBBtn>     
            </div>

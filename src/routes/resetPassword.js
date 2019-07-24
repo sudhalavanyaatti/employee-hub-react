@@ -11,7 +11,7 @@ import "../App.css";
 
 // import _ from 'lodash';
 // import isEqual from 'lodash/isEqual';
-class NewPassword extends React.Component {
+class ResetPassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,6 +67,7 @@ class NewPassword extends React.Component {
     return (
       <div className="newpassbg">
          <div className="header">
+         
            <div className="mobile-only">
              <SideBar/>
            </div>
@@ -126,4 +127,4 @@ class NewPassword extends React.Component {
   }
 }
 
-export default NewPassword;
+export default ResetPassword;

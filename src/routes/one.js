@@ -10,25 +10,9 @@ class Profile extends Component {
     super(props);
     this.state = {
       id: '',
-      name: '',
-      email: '',
-      mobile: '',
-      umobile: '',
-      otp: '',
-      category: '',
-      city: '',
-      state: '',
-      zip: '',
-      experience:'',
-      password: '',
-      decpassword: '',
-      curpassword: '',
-      newpassword: '',
-      conpassword: '',
       profilePic: '',
       displayContent: 'account'
     };
-    this.Otp = this.Otp.bind(this);
   }
 
   componentDidMount() {
@@ -48,14 +32,6 @@ class Profile extends Component {
         if (data) {
           this.setState({
             id: data.data._id,
-            name: data.data.fullName,
-            email: data.data.email,
-            mobile: data.data.phone,
-            category: data.data.category,
-            city: data.data.city,
-            state: data.data.state,
-            zip: data.data.zip,
-            password: data.data.password,
             profilePic: data.data.profilePic
           });
         }
@@ -64,26 +40,7 @@ class Profile extends Component {
   Capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
-  handleChangeName(event) {
-    this.setState({
-      name: event.target.value
-    });
-  }
-  handleChangeEmail(event) {
-    this.setState({
-      email: event.target.value
-    });
-  }
-  handleChangeCategory(event) {
-    this.setState({
-      category: event.target.value
-    });
-  }
-  handleChangeExperience(event) {
-    this.setState({
-      experience: event.target.value
-    });
-  }
+
   handleChangeCity(event) {
     this.setState({
       city: event.target.value
@@ -148,26 +105,7 @@ class Profile extends Component {
       conpassword: event.target.value
     });
   }
-  handleAccount(data) {
-    data = {
-      id: this.state.id,
-      fullName: this.Capitalize(this.state.fullName),
-      email: this.state.email,
-      category: this.Capitalize(this.state.category)
-    };
-    fetch('http://localhost:3001/update-details', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    })
-      .then(res => res.json())
-      .then(response => {
-        console.log(response);
-      });
-  }
+
   handleAddress(data) {
     data = {
       id: this.state.id,
@@ -274,43 +212,7 @@ class Profile extends Component {
       } else alert('Enter Same Password');
     } else alert('Enter Correct Password');
   }
-  renderAccount() {
-    return (
-      <div className="p-page">
-        <h2>Account</h2>
-        <input
-          type="text"
-          value={this.state.name}
-          onChange={event => this.handleChangeName(event)}
-          placeholder="Name"
-        />
-        <input
-          type="email"
-          value={this.state.email}
-          onChange={event => this.handleChangeEmail(event)}
-          placeholder="Email"
-        />
-        <input type="tel" value={this.state.mobile} disabled />
-        <input
-          type="text"
-          value={this.state.category}
-          onChange={event => this.handleChangeCategory(event)}
-          placeholder="Category"
-        />
-        <input
-          type="tel"
-          value={this.state.experience}
-          onChange={event => this.handleChangeExperience(event)}
-          placeholder="Experience"
-          minLength="1"
-          maxLength="2"
-        />
-        <button type="submit" onClick={() => this.handleAccount()}>
-          Save
-        </button>
-      </div>
-    );
-  }
+  
   address() {
     return (
       <div className="p-page">
