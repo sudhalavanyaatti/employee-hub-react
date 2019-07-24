@@ -115,9 +115,11 @@ class NewPassword extends React.Component {
                  <MDBBtn  color="blue" type="submit"  onClick={() => this.handleSubmit()}>
                     Submit
                  </MDBBtn> 
-              </div>
+              </div><br/>
               <div align="center">
-                 <Link to="/signIn"><strong>SignIn</strong></Link>   
+                <h5>
+                <Link id="linksize" to="/signIn">SignIn</Link>   
+                </h5>
               </div> 
         </MDBContainer>
        </div>      

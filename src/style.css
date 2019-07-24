@@ -423,6 +423,9 @@ select option[data-default] {
   color:black;
   text-transform: capitalize;
 }
+#linksize{
+  font-size: 16px;
+}
 g.social-svg-mask {
   fill: black !important;
 }

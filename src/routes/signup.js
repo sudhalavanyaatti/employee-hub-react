@@ -127,7 +127,7 @@ class Signup extends React.Component {
             <Header />
           </div>
           <Bottom/>
-        </div><br/><br/><br/>
+        </div><br/><br/>
 
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
@@ -251,14 +251,14 @@ class Signup extends React.Component {
               >
                 Submit
               </MDBBtn>
-            </div>
+            </div><br/>
             <div align="center">
-              <p>
-                <h3>You have account??</h3>
-              </p>
-              <Link to="/signIn">
-                <strong>SignIn</strong>
-              </Link>
+                <h5>
+                  You have account??
+                 <Link id="linksize" to="/signIn">
+                   SignIn
+                 </Link>
+              </h5>
             </div>
           </MDBContainer>
         </div>

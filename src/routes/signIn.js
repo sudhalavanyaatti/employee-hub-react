@@ -135,19 +135,19 @@ class SignIn extends React.Component {
               >
                 Submit
               </MDBBtn>
-            </div>
+            </div><br/>
 
             <MDBModalFooter>
-              <div align="center">
-                <Link to="/forgotPassword">
-                  <strong>Forgot Password ?</strong>
-                </Link>
-                <p>
-                  <h3>Not a member?</h3>
-                </p>{" "}
-                <Link to="/signup">
-                  <strong>Signup</strong>
-                </Link>
+              <div align="center" >
+                  <h5>
+                  <Link id="linksize" to="/forgotPassword">
+                 Forgot Password ?
+                </Link><br/>
+                    Not a member?
+                <Link id="linksize" to="/signup">
+                  Signup
+                </Link></h5>
+              
               </div>
             </MDBModalFooter>
           </MDBContainer>
