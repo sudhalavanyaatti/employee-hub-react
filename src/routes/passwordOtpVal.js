@@ -39,6 +39,7 @@ class PassOtpValidation extends Component {
       .then(response => {
         if (!response.response.success) {
           alert('enter Valid OTP');
+          window.location.reload();
         } else {
           this.props.history.push('/newPassword', {
             phone: this.props.location.state.phone
@@ -60,7 +61,8 @@ class PassOtpValidation extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        console.log(response);
+        if(response)
+        window.location.reload();
       });
   }
   render() {

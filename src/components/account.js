@@ -90,7 +90,7 @@ class Account extends Component {
   render () {
     return (
       <div className="p-page">
-        <h2>Account</h2>
+        <h1><strong>Account</strong></h1>
         <input
           type="text"
           value={this.state.name}
@@ -118,7 +118,7 @@ class Account extends Component {
           minLength="1"
           maxLength="2"
         />
-        <button type="submit" onClick={() => this.handleAccount()}>
+        <button type="submit" className="bstyle" onClick={() => this.handleAccount()}>
           Save
         </button>
       </div>

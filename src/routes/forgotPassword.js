@@ -35,7 +35,11 @@ class ForgotPassword extends Component {
     })
       .then(res => res.json())
       .then(response => {
-        console.log(response);
+        if(response.response==='null'){
+          window.location.reload();
+          alert('Enter valid number');
+        }
+        else
         this.props.history.push('/passwordOtpVal', {phone: this.state.phone});
       });
   }

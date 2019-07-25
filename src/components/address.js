@@ -78,7 +78,7 @@ class Address extends Component {
     render() {
       return (
         <div className="p-page">
-          <h2>Address</h2>
+          <h2><strong>Address</strong></h2>
           <input
             type="text"
             value={this.state.city}
@@ -99,7 +99,7 @@ class Address extends Component {
             minLength="6"
             maxLength="6"
           />
-          <button type="submit" onClick={() => this.handleAddress()}>
+          <button type="submit" className="bstyle"  onClick={() => this.handleAddress()}>
             Save
           </button>
         </div>

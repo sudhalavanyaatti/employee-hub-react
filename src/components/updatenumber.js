@@ -56,10 +56,10 @@ class Number extends Component {
           onChange={event => this.handleChangeotp(event)}
           placeholder="OTP"
         />
-        <button type="submit" onClick={() => this.handleOtp()}>
+        <button type="submit" className="bstyle" onClick={() => this.handleOtp()}>
           Submit
         </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit" onClick={() => this.handleResendOtp()}>
+        <button type="submit" className="bstyle" onClick={() => this.handleResendOtp()}>
           Resend
         </button>
         
@@ -113,7 +113,9 @@ class Number extends Component {
       <div>
         {!this.state.otpView ? (
           <div className="p-page">
-            <h2>Update Mobile Number</h2>
+          
+            <h2><strong>Update Mobile Number</strong></h2>
+            
             <input
               type="tel"
               maxLength="10"
@@ -122,7 +124,7 @@ class Number extends Component {
               onChange={event => this.handleChangeUmobile(event)}
               placeholder="Mobile Number"
             />
-            <button type="submit" onClick={() => this.handleNumber()}>
+            <button type="submit" className="bstyle" onClick={() => this.handleNumber()}>
               Submit
             </button>
           </div>

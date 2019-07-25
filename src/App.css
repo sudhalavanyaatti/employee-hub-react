@@ -17,16 +17,12 @@
   color: white;
 }
 .homebg {
-  background-color: rgba(50, 115, 220, 0.048);
+  background-image: url("./images/home.png");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-
-
-
   .forgotpasswordbg,
   .newpassbg {
     background-color: rgba(50, 115, 220, 0.048);
@@ -125,4 +121,13 @@
 
 #page-container {
   position: relative;
+}
+.bstyle{
+  border-radius: 15px;
+  display: inline-block;
+  font-size: 17px;
+  width: 100px;
+   height: 45px;
+ 
+  
 }

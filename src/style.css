@@ -4,20 +4,16 @@ button.btn.btn-blue.Ripple-parent {
   width: 35%;
 }
 .btmnavbar {
-  background-color: white;
+  background-color: rgba(42, 58, 92, 0.897);;
   position: absolute;
   width: 100%;
   height: 40px;
-  left: 0;
-  bottom: 0;
-  margin-bottom: 0px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-
-  text-decoration: none;
-  font-size: 17px;
+  bottom: 0px;
+  font-size: 15px;
+  overflow: hidden;
+  
 }
+
 .pics {
   margin-top: 100px;
   width: 400px;
@@ -241,6 +237,7 @@ a:hover {
 .bm-item-list {
   color:white;
   font-size: 15px;
+  
 }
 
 /* Styling of overlay */
@@ -382,7 +379,7 @@ element.style {
 .P-name{
   position: absolute;
   top:270px;  
-  left:220px;
+  left:250px;
   font-size:20px;
   font-weight: 900;
 }
@@ -430,26 +427,35 @@ body {
   line-height: 1.8 !important;
 }
 
-#footer{
-  color:black;
+.footer{
   text-align: left;
   position:absolute;
+  color: white;
+  overflow: hidden;
+  left:10px;
+  top:10px;
 
 }
 #hdr{
-  text-align:right;
+  top:5px;
+  right:10px;
+  position:absolute;
+  overflow: hidden;
 }
 
 #headbg{
-  background-color: white;
+  background-color: rgba(42, 58, 92, 0.897);
 }
-#textclr{
-  color:black;
-  text-transform: capitalize;
-}
+
 #linksize{
   font-size: 16px;
+  padding: 7px;
+}
+
+#dtext{
+  font-weight: bold;
 }
 g.social-svg-mask {
-  fill: black !important;
+  fill: rgb(143, 139, 139) !important;
 }
+

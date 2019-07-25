@@ -65,7 +65,7 @@ class Details extends Component {
       .then(data =>
         this.setState(
           {
-            list: [data.details]
+            list: data.details
           },
           () => console.log("details", this.state.list)
         )

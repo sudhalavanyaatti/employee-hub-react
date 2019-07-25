@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import SideBar from "../components/sidebar";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import SideBar from '../components/sidebar';
 //import {Row, Col} from 'react-flexbox-grid';
-import Header from "../components/header";
+import Header from '../components/header';
 import Bottom from '../components/bottom';
 import {
   MDBContainer,
@@ -11,10 +11,10 @@ import {
   MDBInput,
   MDBBtn,
   MDBModalFooter
-} from "mdbreact";
+} from 'mdbreact';
 import 'font-awesome/css/font-awesome.min.css';
-import "mdbreact/dist/css/mdb.css";
-import "../App.css";
+import 'mdbreact/dist/css/mdb.css';
+import '../App.css';
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -62,8 +62,10 @@ class SignIn extends React.Component {
       .then(data => {
         if (data.data) {
           console.log('status', data.data.twilioStatus);
-          if (data.data === 'incorrect') alert('Invalid Login');
-          else if (data.data === 'statusFalse') {
+          if (data.data === 'incorrect') {
+            alert('Invalid Login');
+            window.location.reload();
+          } else if (data.data === 'statusFalse') {
             this.props.history.push('/phoneNumberVal');
           } else {
             localStorage.setItem('token', data.token);
@@ -86,11 +88,18 @@ class SignIn extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-          <Bottom/>
-        </div><br/><br/><br/><br/><br/><br/><br/><br/>
+          <Bottom />
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
         <div className="col-md-4 col-md-offset-4">
-
           <MDBContainer>
             <h1 align="center">
               <strong>Login Here</strong>
@@ -135,19 +144,21 @@ class SignIn extends React.Component {
               >
                 Submit
               </MDBBtn>
-            </div><br/>
+            </div>
+            <br />
 
             <MDBModalFooter>
-              <div align="center" >
-                  <h5>
+              <div align="center">
+                <h5>
                   <Link id="linksize" to="/forgotPassword">
-                 Forgot Password ?
-                </Link><br/>
-                    Not a member?
-                <Link id="linksize" to="/signup">
-                  Signup
-                </Link></h5>
-              
+                    Forgot Password ?
+                  </Link>
+                  <br />
+                  Not a member?
+                  <Link id="linksize" to="/signup">
+                    Signup
+                  </Link>
+                </h5>
               </div>
             </MDBModalFooter>
           </MDBContainer>

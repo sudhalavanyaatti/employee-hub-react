@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Dropdown, Menu,Image} from 'semantic-ui-react';
-import logo from "../images/logo2.png";
+import logo from "../images/logo.png";
 
 class Header extends Component {
   state = {
@@ -48,11 +48,11 @@ class Header extends Component {
       <div>
         {this.state.userStatus ? (
           <div>
-            <Menu id="headbg"fixed="top" inverted style={{ height: '50px'}} >
+            <Menu id="headbg"fixed="top" inverted style={{ height: '50px' }} >
               <Container>
              
-                <Menu.Item id="textclr" as={Link} to="/" header style={{ left: '-100px'}}>
-                <Image src={logo} style={{width: '80px', height: '52px'}} />
+                <Menu.Item as={Link} to="/" header style={{ left: '-100px',color: 'white'}}>
+                <Image src={logo} style={{width: '70px', height: '75px'}} />
                   Employee HUB
                 </Menu.Item>
                 <div
@@ -65,18 +65,19 @@ class Header extends Component {
                     fontSize:'18px'
                   }}
                 >
-                  <Menu.Item id="textclr" as={Link} to="/details" style={{fontSize:'18px'}}>
-                    Details
+                  <Menu.Item  as={Link} to="/details" id='dtext' style={{fontSize:'18px',color: 'white'}}>
+                 Details
                   </Menu.Item>
-                  <Dropdown  id="textclr"
+                  <Dropdown
                     onClick={() => this.handleprofile()}
                     item
                     simple
                     text={this.state.name}
-                    
+                    style={{color: 'white'}}
+                    id='dtext'
                   >
-                    <Dropdown.Menu  id="textclr">
-                      <Dropdown.Item  as={Link} to="/profile">
+                    <Dropdown.Menu >
+                      <Dropdown.Item  as={Link} to="/profile" >
                       My account
                       </Dropdown.Item>
                       <Dropdown.Item
@@ -96,8 +97,8 @@ class Header extends Component {
           <div>
             <Menu id="headbg" fixed="top" inverted style={{ height: '50px'}}>
               <Container>
-                <Menu.Item id="textclr" as={Link} to="/" header style={{ left: '-75px'}}>
-                <Image src={logo} style={{width: '80px', height: '52px'}} />
+                <Menu.Item as={Link} to="/" header style={{ left: '-100px',color: 'white'}}>
+                <Image src={logo} style={{width: '70px', height: '75px'}} />
                   Employee HUB
                 </Menu.Item>
                 <div
@@ -105,17 +106,14 @@ class Header extends Component {
                     display: 'flex',
                     flexDirection: 'row',
                     position: 'absolute',
-                    right: '30px',
+                    right: '10px',
                     height: '50px',
                     fontSize:'18px'
                   }}
                 >
-                  <Menu.Item id="textclr" as={Link} to="/signIn" style={{fontSize:'18px'}}>
+                  <Menu.Item as={Link} to="/signIn" style={{fontSize:'18px',color: 'white'}}>
                     SignIn
                   </Menu.Item>
-                  {/* <Menu.Item as={Link} to="/about">
-                    About
-                  </Menu.Item> */}
                 </div>
               </Container>
             </Menu>

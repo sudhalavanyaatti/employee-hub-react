@@ -78,6 +78,7 @@ class Profile extends Component {
           </div>
           <Bottom />
         </div>
+        <div className="col-md-2 col-md-offset-4">
         <div>
           <img
             className="img-circle"
@@ -96,7 +97,7 @@ class Profile extends Component {
           </div>
           <div className="P-name">{this.state.name}</div>
           <div>
-            <Button.Group vertical className="sidenav">
+            <Button.Group  vertical className="sidenav">
               <Button
                 onClick={() =>
                   this.setState({
@@ -179,6 +180,7 @@ class Profile extends Component {
         ) : (
           <div />
         )}
+      </div>
       </div>
     );
   }

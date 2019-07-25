@@ -10,14 +10,12 @@ class Bottom extends Component {
     return ( 
          
       <div className="btmnavbar">
-      <div id="footer">
-      <h6 >&copy; 2019 EmployeeHub.All Rights Reserved.</h6>
-      </div>
+      <div className="footer"> &copy; 2019 EmployeeHub.All Rights Reserved.</div>
        <div id="hdr">
-       <SocialIcon url="http://facebook.com"   style={{  height: 25, width: 25 }} />&nbsp;&nbsp;&nbsp;
-       <SocialIcon url="http://twitter.com"  style={{ height: 25, width: 25 }} />&nbsp;&nbsp;&nbsp;
-       <SocialIcon url="http://googleplus.com" style={{ height: 25, width: 25 }} />&nbsp;&nbsp;&nbsp;
-       <SocialIcon url="http://linkedin.com" style={{ height: 25, width: 25}} />&nbsp;&nbsp;&nbsp;
+       <SocialIcon url="https://www.facebook.com/Employee-HUB-779290129153493/?modal=admin_todo_tour" target="_blank" style={{  height: '20px', width: '20px' }} />&nbsp;&nbsp;&nbsp;
+       <SocialIcon url="https://twitter.com/HubEmployee" target="_blank" style={{ height: 20, width: 20 }} />&nbsp;&nbsp;&nbsp;
+       <SocialIcon url="http://googleplus.com" target="_blank" style={{ height: 20, width: 20 }} />&nbsp;&nbsp;&nbsp;
+       <SocialIcon url="https://www.linkedin.com/in/employee-hub-672447190" target="_blank" style={{ height: 20, width: 20}} />&nbsp;&nbsp;&nbsp;
        </div>
       </div>
     

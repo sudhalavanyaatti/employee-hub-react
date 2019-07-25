@@ -108,7 +108,7 @@ class Password extends Component {
   render() {
     return (
       <div className="p-page">
-        <h2>Reset Password</h2>
+        <h2><strong>Reset Password</strong></h2>
         <input
           type="password"
           value={this.state.currentpassword}
@@ -127,7 +127,7 @@ class Password extends Component {
           onChange={event => this.handleChangeConfirmPass(event)}
           placeholder="Confirm Password"
         />
-        <button type="submit" onClick={() => this.handlePassword()}>
+        <button type="submit" className="bstyle" onClick={() => this.handlePassword()}>
           Update
         </button>
       </div>
