@@ -65,7 +65,7 @@ class Details extends Component {
       .then(data =>
         this.setState(
           {
-            list: data.details
+            list: [data.details]
           },
           () => console.log("details", this.state.list)
         )
@@ -200,7 +200,7 @@ class Details extends Component {
                             height: "60px",
                             borderRadius: "50%"
                           }}
-                          alt="name"
+                          alt={data.fullName}
                         />
                       </Col>
                       <Col xs={3} lg={3} sm={3} md={3} className="col">
@@ -293,7 +293,55 @@ class Details extends Component {
       <div>
         {this.state.value1 === "" && this.state.value2 === "" ? (
           <div>
-           {this.renderPage()}
+            {this.state.list.map((data, index) => {
+              return (
+                <div key={index}>
+                  <Grid
+                    fluid
+                    style={{
+                      paddingRight: "0px",
+                      paddingLeft: "0px",
+                      margin: "0px"
+                    }}
+                  >
+                    <Row>
+                      <Col xs={2} lg={2} sm={2} md={2} className="col">
+                        <img
+                          className="responsive"
+                          src={data.profilePic}
+                          style={{
+                            width: "60px",
+                            height: "60px",
+                            borderRadius: "50%"
+                          }}
+                          alt={data.fullName}
+                        />
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
+                        <i>
+                          {" "}
+                          {data.fullName.charAt(0).toUpperCase() +
+                            data.fullName.substring(1)}
+                        </i>
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
+                        {data.category.charAt(0).toUpperCase() +
+                          data.category.substring(1)}
+                      </Col>
+                      <Col xs={3} lg={3} sm={3} md={3} className="col">
+                        <div>
+                          {data.city}
+                          <br />
+                          {data.state}
+                        </div>
+                        {data.zip}
+                        <br />
+                      </Col>
+                    </Row>
+                  </Grid>
+                </div>
+              );
+            })}
           </div>
         ) : (
           <div>
@@ -309,16 +357,22 @@ class Details extends Component {
   }
 
   onHandleClick(event) {
-    this.setState({ value1: event.value });
+    this.setState({ value1: event.value }, () => {
+      
+    });
   }
 
   onHandleChange(event) {
-    this.setState({ value2: event.value });
+    this.setState({ value2: event.value }, () => {
+      
+    });
   }
 
   render() {
     let cate = this.state.uniqueCat.map(opt => ({ label: opt, value: opt }));
     let addre = this.state.uniqueAdd.map(opt => ({ label: opt, value: opt }));
+    
+
     return (
       <div>
         <Grid
@@ -332,7 +386,6 @@ class Details extends Component {
           <Row style={{ height: "50px" }}>
             <Header />
           </Row>
-          
           <Row style={{ borderBottom: "1px solid #AA9E9E" }}>
             <Col xs={9} lg={9} md={9} sm={9} className="col">
               {this.state.value === "address" ? (
@@ -344,7 +397,6 @@ class Details extends Component {
                   style={{
                     position: "absolute"
                   }}
-                  // onClick={this.handleClick.bind(this)}
                 />
               ) : (
                 <Select
@@ -397,9 +449,8 @@ class Details extends Component {
                       }}
                       style={{
                         position: "absolute",
-                        width: "47%",
-                        padding: "0",
-                        
+                        width: "50%",
+                        padding: "0"
                       }}
                     >
                       {this.state.list.map(store => {
@@ -463,7 +514,7 @@ class Details extends Component {
                             />
                           );
                         }
-                        return console.log(store)
+                        return console.log(store);
                       })}
 
                       <InfoWindow
@@ -495,11 +546,7 @@ class Details extends Component {
               md={6}
               sm={6}
               className="col"
-              style={{
-                lineHeight: "2.2",
-                borderBottom: "4px",
-                marginTop: "5px"
-              }}
+              style={{ lineHeight: "2.2", borderBottom: "4px",marginTop:"5px" }}
             >
               {this.renderDetails()}
             </Col>

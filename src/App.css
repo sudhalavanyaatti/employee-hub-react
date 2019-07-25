@@ -23,101 +23,10 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.aboutbg {
-  background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.detailsbg {
-  background-image: url('https://image.freepik.com/free-photo/gray-wall-textures-background_74190-4389.jpg');
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.passwordbg,
-.phnobg,
-.otpvalbg {
-  background-image: url('https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-@media screen and (min-width: 768px) {
-  div.mobile-only {
-    display: none;
-  }
-}
 
-.forgotpasswordbg,
-.newpassbg {
-  background-color: rgba(50, 115, 220, 0.048);
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.updatebg {
-  background-color: rgba(50, 115, 220, 0.048);
-  height: 180vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.signupbg {
-  background-color: rgba(50, 115, 220, 0.048);
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.signinbg {
-  background-color: rgba(50, 115, 220, 0.048);
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.profilebg {
-  background-color: rgba(50, 115, 220, 0.048);
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.aboutbg {
-  background-image: url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.detailsbg {
-  background-color: rgba(50, 115, 220, 0.048);
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.passwordbg,
-.phnobg,
-.otpvalbg {
-  background-image: url('https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-@media screen and (min-width: 768px) {
-  div.mobile-only {
-    display: none;
-  }
   .forgotpasswordbg,
   .newpassbg {
     background-color: rgba(50, 115, 220, 0.048);
@@ -213,7 +122,7 @@
     z-index: 0;
     font-size: 0px;
   }
-}
+
 #page-container {
   position: relative;
 }

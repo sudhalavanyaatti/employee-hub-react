@@ -14,10 +14,17 @@ class Bottom extends Component {
       <h6 >&copy; 2019 EmployeeHub.All Rights Reserved.</h6>
       </div>
        <div id="hdr">
+<<<<<<< HEAD
        <SocialIcon url="http://facebook.com"   style={{  height: 25, width: 25 }} />
        <SocialIcon url="http://twitter.com"  style={{ height: 25, width: 25 }} />
        <SocialIcon url="http://googleplus.com" style={{ height: 25, width: 25 }} />
        <SocialIcon url="http://linkedin.com" style={{ height: 25, width: 25}} />
+=======
+       <SocialIcon url="http://facebook.com/in/jaketrent"   style={{  height: 25, width: 25 }} />&nbsp;&nbsp;&nbsp;
+       <SocialIcon url="http://twitter.com/in/jaketrent"  style={{ height: 25, width: 25 }} />&nbsp;&nbsp;&nbsp;
+       <SocialIcon url="http://googleplus.com/in/jaketrent" style={{ height: 25, width: 25 }} />&nbsp;&nbsp;&nbsp;
+       <SocialIcon url="http://linkedin.com/in/jaketrent" style={{ height: 25, width: 25}} />&nbsp;&nbsp;&nbsp;
+>>>>>>> 229cc6c965ceb76927497ac18e7e81a2f04dbc1e
        </div>
       </div>
     

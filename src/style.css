@@ -75,6 +75,7 @@ input[type="text"],
 [type="tel"],
 [type="date"],
 select {
+  padding: 10px 10px;
   width: 100%;
   padding: 12px 30px;
   margin: 8px 0;
@@ -82,6 +83,7 @@ select {
   border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
+  width: 350px;
 }
 
 .col {
@@ -136,7 +138,7 @@ h4 {
 
 /* Change color on hover */
 .bm-item:hover {
-  color: rgb(93, 224, 16);
+  color:white;
 }
 
 /* The rest copied directly from react-burger-menu docs */
@@ -204,6 +206,8 @@ a:hover {
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #373a47;
+  width:30px;
+ 
 }
 
 /* Position and sizing of clickable cross button */
@@ -219,11 +223,15 @@ a:hover {
 
 /* General sidebar styles */
 .bm-menu {
-  background: #666c76;
+  background:black;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
+.bm-menu-wrap.bm-menu {
+  width: 40%!important;
+  height: 100%!important;
+}
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
   fill: #373a47;
@@ -231,7 +239,8 @@ a:hover {
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
+  color:white;
+  font-size: 15px;
 }
 
 /* Styling of overlay */
@@ -393,8 +402,34 @@ select option[data-default] {
   color: #888;
 }
 .css-yk16xz-control {
-  border: 2px solid black !important;
+  border-radius: 0px !important;
 }
+.css-tlfecz-indicatorContainer {
+  background-color: whitesmoke !important;
+}
+.css-1hwfws3 {
+  background-color: whitesmoke !important;
+}
+.css-1wa3eu0-placeholder {
+  color: black !important;
+}
+.col-xs-9.col-lg-9.col-md-9.col-sm-9.col {
+  padding: 0px;
+}
+.col-xs-3.col-lg-3.col-md-3.col-sm-3 {
+  padding: 0px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-width: 320px;
+  background: #fff;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.8 !important;
+}
+
 #footer{
   color:black;
   text-align: left;
