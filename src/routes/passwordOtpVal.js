@@ -61,7 +61,6 @@ class PassOtpValidation extends Component {
       .then(res => res.json())
       .then(response => {
         console.log(response);
-        //this.props.history.push('/passwordOtpVal',{phone: this.state.phone});
       });
   }
   render() {

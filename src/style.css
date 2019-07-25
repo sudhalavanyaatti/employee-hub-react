@@ -356,26 +356,24 @@ element.style {
   font-weight: 900;
 }
 
-
-
 .sidenav {
   top:50%;
   position: absolute;
   width: 20%;
-  left: 120px;
+  left: 170px;
   height: 200px;
 
 }
 .p-page{
   top:20%;
   position: absolute;
-  width:40%;
-  left:40%;
+  width:30%;
+  left:48%;
 }
 .P-name{
   position: absolute;
   top:270px;  
-  left:170px;
+  left:220px;
   font-size:20px;
   font-weight: 900;
 }

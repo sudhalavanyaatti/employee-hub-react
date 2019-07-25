@@ -58,10 +58,11 @@ class Number extends Component {
         />
         <button type="submit" onClick={() => this.handleOtp()}>
           Submit
-        </button>
+        </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button type="submit" onClick={() => this.handleResendOtp()}>
-          Resend OTP
+          Resend
         </button>
+        
       </div>
     );
   }

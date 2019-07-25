@@ -197,13 +197,13 @@
     position: absolute;
     border-radius: 50%;
     top: 90px;
-    left: 170px;
+    left: 220px;
   }
   .img-upload {
     position: absolute;
     border-radius: 50%;
     top: 90px;
-    left: 170px;
+    left: 220px;
     height: 150px;
     width: 150px;
     z-index: 10;

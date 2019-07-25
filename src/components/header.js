@@ -51,7 +51,7 @@ class Header extends Component {
             <Menu id="headbg"fixed="top" inverted style={{ height: '50px'}} >
               <Container>
              
-                <Menu.Item id="textclr" as={Link} to="/" header style={{ left: '-75px'}}>
+                <Menu.Item id="textclr" as={Link} to="/" header style={{ left: '-100px'}}>
                 <Image src={logo} style={{width: '80px', height: '52px'}} />
                   Employee HUB
                 </Menu.Item>

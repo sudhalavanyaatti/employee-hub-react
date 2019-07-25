@@ -7,7 +7,7 @@ import Account from '../components/account';
 import Address from '../components/address';
 import Number from '../components/updatenumber';
 import Password from '../components/resetpassword';
-import {Button,Divider,Icon} from 'semantic-ui-react';
+import {Button, Divider, Icon} from 'semantic-ui-react';
 import '../App.css';
 import '../style.css';
 class Profile extends Component {
@@ -15,9 +15,9 @@ class Profile extends Component {
     super(props);
     this.state = {
       id: '',
-      name:'',
+      name: '',
       profilePic: '',
-      uploadpic:'',
+      uploadpic: '',
       displayContent: 'account'
     };
   }
@@ -38,33 +38,33 @@ class Profile extends Component {
         if (data) {
           this.setState({
             id: data.data._id,
-            name:data.data.fullName,
+            name: data.data.fullName,
             profilePic: data.data.profilePic
           });
         }
       });
   }
-  onChangeUploadpic(event){
+  onChangeUploadpic(event) {
     this.setState(
-    {
-      uploadpic: event.target.files[0]
-    },
-    () => {
-      const data = new FormData();
-      data.append('profilePic', this.state.uploadpic);
-      data.append('id', this.state.id);
-      axios
-        .post('http://localhost:3001/update-photo', data, {})
-        .then(data => {
-          if(data){
-          this.setState({
-            profilePic: data.data.data.profilePic
+      {
+        uploadpic: event.target.files[0]
+      },
+      () => {
+        const data = new FormData();
+        data.append('profilePic', this.state.uploadpic);
+        data.append('id', this.state.id);
+        axios
+          .post('http://localhost:3001/update-photo', data, {})
+          .then(data => {
+            if (data) {
+              this.setState({
+                profilePic: data.data.data.profilePic
+              });
+              window.location.reload();
+            }
           });
-          window.location.reload();
-        }
-        });
-    }
-    )
+      }
+    );
   }
   render() {
     return (
@@ -86,21 +86,28 @@ class Profile extends Component {
             height="150"
             width="150"
             border="0"
-          /><div className="img-upld">
-          <input type="file" className="img-upload" onChange={event => this.onChangeUploadpic(event)} /></div>
+          />
+          <div className="img-upld">
+            <input
+              type="file"
+              className="img-upload"
+              onChange={event => this.onChangeUploadpic(event)}
+            />
+          </div>
           <div className="P-name">{this.state.name}</div>
           <div>
-            <Button.Group vertical className="sidenav" >
+            <Button.Group vertical className="sidenav">
               <Button
                 onClick={() =>
                   this.setState({
                     displayContent: 'account'
                   })
                 }
-                icon labelPosition='right'
+                icon
+                labelPosition="right"
               >
                 Account
-                <Icon name='angle double right' />
+                <Icon name="angle right" />
               </Button>
               <Divider fitted />
               <Button
@@ -109,10 +116,11 @@ class Profile extends Component {
                     displayContent: 'address'
                   })
                 }
-                icon labelPosition='right'
+                icon
+                labelPosition="right"
               >
                 Address
-                <Icon name='angle double right' />
+                <Icon name="angle right" />
               </Button>
               <Divider fitted />
               <Button
@@ -121,10 +129,11 @@ class Profile extends Component {
                     displayContent: 'number'
                   })
                 }
-                icon labelPosition='right'
+                icon
+                labelPosition="right"
               >
                 Update Mobile Number
-                <Icon name='angle double right' />
+                <Icon name="angle right" />
               </Button>
               <Divider fitted />
               <Button
@@ -133,10 +142,11 @@ class Profile extends Component {
                     displayContent: 'password'
                   })
                 }
-                icon labelPosition='right'
+                icon
+                labelPosition="right"
               >
                 Reset Password
-                <Icon name='angle double right' />
+                <Icon name="angle right" />
               </Button>
             </Button.Group>
           </div>
