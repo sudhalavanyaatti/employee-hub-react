@@ -13,11 +13,9 @@ class Address extends Component {
     };
   }
   componentDidMount() {
-    const data = {
-      token: localStorage.getItem('token')
-    };
+  
     fetch('http://localhost:3002/profile', {
-      method: 'post',
+      method: 'get',
       headers: {
          'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
@@ -65,6 +63,7 @@ class Address extends Component {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
+          'Authentication-Token' :localStorage.getItem ('token'),
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         }

@@ -54,6 +54,7 @@ class SignIn extends React.Component {
       method: "post",
       body: JSON.stringify(data),
       headers: {
+       
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
       }
