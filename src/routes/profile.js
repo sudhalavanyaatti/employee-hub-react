@@ -25,7 +25,7 @@ class Profile extends Component {
     const data = {
       token: localStorage.getItem('token')
     };
-    fetch('http://localhost:3001/profile', {
+    fetch('http://localhost:3002/profile', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
@@ -54,7 +54,7 @@ class Profile extends Component {
       data.append('profilePic', this.state.uploadpic);
       data.append('id', this.state.id);
       axios
-        .post('http://localhost:3001/update-photo', data, {})
+        .post('http://localhost:3002/update-photo', data, {})
         .then(data => {
           if(data){
           this.setState({

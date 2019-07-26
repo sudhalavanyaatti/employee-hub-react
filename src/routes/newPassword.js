@@ -41,7 +41,7 @@ class NewPassword extends React.Component {
     };
     console.log(data);
     if (this.state.newPassword === this.state.confirmPassword) {
-      await fetch("http://localhost:3001/update-password", {
+      await fetch("http://localhost:3002/update-password", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

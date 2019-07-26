@@ -18,7 +18,7 @@ class Account extends Component {
     const data = {
       token: localStorage.getItem('token')
     };
-    fetch('http://localhost:3001/profile', {
+    fetch('http://localhost:3002/profile', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
@@ -71,7 +71,7 @@ class Account extends Component {
       category: this.Capitalize(this.state.category),
       experience: this.state.experience
     };
-    fetch('http://localhost:3001/update-details', {
+    fetch('http://localhost:3002/update-details', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

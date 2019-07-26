@@ -27,7 +27,7 @@ class PassOtpValidation extends Component {
       phone: this.props.location.state.phone
     };
     console.log('otp', data);
-    await fetch('http://localhost:3001/password-OtpVal', {
+    await fetch('http://localhost:3002/password-OtpVal', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -51,7 +51,7 @@ class PassOtpValidation extends Component {
       phone: this.props.location.state.phone
     };
     //console.log('phone otp', data);
-    await fetch('http://localhost:3001/forgot-password', {
+    await fetch('http://localhost:3002/forgot-password', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

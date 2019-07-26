@@ -26,7 +26,7 @@ class ForgotPassword extends Component {
       phone: this.state.phone
     };
     //console.log('phone otp', data);
-    await fetch('http://localhost:3001/forgot-password', {
+    await fetch('http://localhost:3002/forgot-password', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

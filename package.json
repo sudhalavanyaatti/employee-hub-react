@@ -23,6 +23,7 @@
     "react-dropdown": "^1.6.4",
     "react-flexbox-grid": "^2.1.2",
     "react-images-upload": "^1.2.7",
+    "react-js-pagination": "^3.0.2",
     "react-list-view": "^1.0.0",
     "react-load-script": "0.0.6",
     "react-router": "^5.0.1",

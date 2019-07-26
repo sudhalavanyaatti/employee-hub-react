@@ -17,7 +17,7 @@ class Header extends Component {
       const data = {
         token: localStorage.getItem('token')
       };
-      fetch('http://localhost:3001/profile', {
+      fetch('http://localhost:3002/profile', {
         method: 'post',
         body: JSON.stringify(data),
         headers: {

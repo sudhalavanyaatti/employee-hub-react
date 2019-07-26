@@ -16,7 +16,7 @@ class Address extends Component {
     const data = {
       token: localStorage.getItem('token')
     };
-    fetch('http://localhost:3001/profile', {
+    fetch('http://localhost:3002/profile', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
@@ -61,7 +61,7 @@ class Address extends Component {
         state: this.Capitalize(this.state.state),
         zip: this.state.zip
       };
-      fetch('http://localhost:3001/update-details', {
+      fetch('http://localhost:3002/update-details', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

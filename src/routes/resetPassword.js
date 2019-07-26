@@ -1,12 +1,12 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 //import {Row, Col} from 'react-flexbox-grid';
-import Header from '../components/header';
-import Bottom from '../components/bottom';
+import Header from "../components/header";
+import Bottom from "../components/bottom";
 import SideBar from "../components/sidebar";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
-import 'font-awesome/css/font-awesome.min.css';
-import 'mdbreact/dist/css/mdb.css';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
+import "font-awesome/css/font-awesome.min.css";
+import "mdbreact/dist/css/mdb.css";
 import "../App.css";
 
 // import _ from 'lodash';
@@ -41,13 +41,12 @@ class ResetPassword extends React.Component {
     };
     console.log(data);
     if (this.state.newPassword === this.state.confirmPassword) {
-      await fetch("http://localhost:3001/update-password", {
+      await fetch("http://localhost:3002/update-password", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
-          'Access-Control-Allow-Origin': '*'
-
+          "Access-Control-Allow-Origin": "*"
         }
       })
         .then(res => res.json())
@@ -66,62 +65,76 @@ class ResetPassword extends React.Component {
   render() {
     return (
       <div className="newpassbg">
-         <div className="header">
-         
-           <div className="mobile-only">
-             <SideBar/>
-           </div>
-           <div className="desktop-only">
-               <Header/>
-           </div>
-           <Bottom/>
-        </div><br/><br/><br/><br/><br/>
-       <div className="col-md-4 col-md-offset-4">
-       <MDBContainer>
-         <h1 align="center"><br/><br/><strong>Reset Your Password</strong></h1>
-       
-        <MDBRow  >
-            <MDBCol md="11">
-              <MDBInput
-                type="password"
-                name="newPassword"
-                value={this.state.newPassword}
-                onChange={event => this.handleChange(event)}
-                 label="New Password"
-                 icon="lock"
-                 id="materialFormRegisterPassEx"
-                
-                required
-              >
-              </MDBInput>
-            </MDBCol>
+        <div className="header">
+          <div className="mobile-only">
+            <SideBar />
+          </div>
+          <div className="desktop-only">
+            <Header />
+          </div>
+          <Bottom />
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className="col-md-4 col-md-offset-4">
+          <MDBContainer>
+            <h1 align="center">
+              <br />
+              <br />
+              <strong>Reset Your Password</strong>
+            </h1>
+
+            <MDBRow>
+              <MDBCol md="11">
+                <MDBInput
+                  type="password"
+                  name="newPassword"
+                  value={this.state.newPassword}
+                  onChange={event => this.handleChange(event)}
+                  label="New Password"
+                  icon="lock"
+                  id="materialFormRegisterPassEx"
+                  required
+                />
+              </MDBCol>
             </MDBRow>
-            <MDBRow  >
-            <MDBCol md="11">
-              <MDBInput
+            <MDBRow>
+              <MDBCol md="11">
+                <MDBInput
                   type="text"
                   name="confirmPassword"
                   value={this.state.confirmPassword}
                   onChange={event => this.handleChangePass(event)}
-                 label="Confirm Password"
-                 icon="lock"
-                 id="materialFormRegisterPhnEx"
-                
-                required
-              >
-              </MDBInput>
-            </MDBCol>
+                  label="Confirm Password"
+                  icon="lock"
+                  id="materialFormRegisterPhnEx"
+                  required
+                />
+              </MDBCol>
             </MDBRow>
-              <div align="center">
-                 <MDBBtn  color="blue" type="submit"  onClick={() => this.handleSubmit()}>
-                    Submit
-                 </MDBBtn> 
-              </div><br/>
-              <div align="center">
-                <h5>  <Link id="linksize" to="/signIn">SignIn</Link> </h5>  
-              </div> 
-        </MDBContainer>
-       </div>      
+            <div align="center">
+              <MDBBtn
+                color="blue"
+                type="submit"
+                onClick={() => this.handleSubmit()}
+              >
+                Submit
+              </MDBBtn>
+            </div>
+            <br />
+            <div align="center">
+              <h5>
+                {" "}
+                <Link id="linksize" to="/signIn">
+                  SignIn
+                </Link>{" "}
+              </h5>
+            </div>
+          </MDBContainer>
+        </div>
       </div>
     );
   }

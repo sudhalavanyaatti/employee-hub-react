@@ -26,7 +26,7 @@ class Number extends Component {
     data = {
       phone: this.state.umobile
     };
-    fetch('http://localhost:3001/update-number', {
+    fetch('http://localhost:3002/update-number', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -71,7 +71,7 @@ class Number extends Component {
       phone: this.state.umobile,
       otp: this.state.otp
     };
-    fetch('http://localhost:3001/updateNumber-OtpVal', {
+    fetch('http://localhost:3002/updateNumber-OtpVal', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -93,7 +93,7 @@ class Number extends Component {
     data = {
       phone: this.state.umobile
     };
-    fetch('http://localhost:3001/resend-otp', {
+    fetch('http://localhost:3002/resend-otp', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

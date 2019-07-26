@@ -24,7 +24,7 @@ class UpdateNumber extends Component {
     const data = {
       phone: this.state.phone
     };
-    await fetch('http://localhost:3001/update-number', {
+    await fetch('http://localhost:3002/update-number', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

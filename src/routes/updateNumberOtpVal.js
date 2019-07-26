@@ -29,7 +29,7 @@ class Number_OtpValidation extends Component {
       id:this.props.location.state.id
     };
     console.log('otp', data);
-     fetch('http://localhost:3001/updateNumber-OtpVal', {
+     fetch('http://localhost:3002/updateNumber-OtpVal', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -52,7 +52,7 @@ class Number_OtpValidation extends Component {
       phone: this.props.location.state.phone
     };
     //console.log('phone otp', data);
-     fetch('http://localhost:3001/resend-otp', {
+     fetch('http://localhost:3002/resend-otp', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
