@@ -8,6 +8,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import Select from "react-select";
 import "../style.css";
 import PagiNation from "../components/Pagination";
+import Bottom from '../components/bottom';
+import SideBar from '../components/sidebar';
 import { exportDefaultSpecifier } from "@babel/types";
 
 library.add (faEnvelope);

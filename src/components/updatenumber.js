@@ -76,6 +76,7 @@ class Number extends Component {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
+        
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
@@ -98,6 +99,7 @@ class Number extends Component {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
+       
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }

@@ -22,13 +22,12 @@ class Profile extends Component {
     };
   }
   componentDidMount() {
-    const data = {
-      token: localStorage.getItem('token')
-    };
+    
     fetch('http://localhost:3002/profile', {
-      method: 'post',
-      body: JSON.stringify(data),
+      method: 'get',
+      body: JSON.stringify(),
       headers: {
+        'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
