@@ -7,7 +7,7 @@ import Account from '../components/account';
 import Address from '../components/address';
 import Number from '../components/updatenumber';
 import Password from '../components/resetpassword';
-import {Button,Divider,Icon} from 'semantic-ui-react';
+import {Button, Divider, Icon} from 'semantic-ui-react';
 import '../App.css';
 import '../style.css';
 class Profile extends Component {
