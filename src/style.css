@@ -1,17 +1,14 @@
-
- 
 button.btn.btn-blue.Ripple-parent {
   width: 35%;
 }
 .btmnavbar {
-  background-color: rgba(42, 58, 92, 0.897);;
-  position: absolute;
+  background-color: rgba(42, 58, 92, 0.897);
+  position: fixed;
   width: 100%;
   height: 40px;
   bottom: 0px;
   font-size: 15px;
   overflow: hidden;
-  
 }
 
 .pics {
@@ -65,11 +62,11 @@ button.btn.btn-blue.Ripple-parent {
   background-color: #f2f2f2;
   padding: 20px;
 } */
-input[type="text"],
-[type="email"],
-[type="password"],
-[type="tel"],
-[type="date"],
+input,Select[type='text'],
+[type='email'],
+[type='password'],
+[type='tel'],
+[type='date'],
 select {
   padding: 10px 10px;
   width: 100%;
@@ -83,7 +80,7 @@ select {
 }
 
 .col {
-  padding: "0px";
+  padding: '0px';
 }
 
 #table1 {
@@ -134,7 +131,7 @@ h4 {
 
 /* Change color on hover */
 .bm-item:hover {
-  color:white;
+  color: white;
 }
 
 /* The rest copied directly from react-burger-menu docs */
@@ -202,8 +199,7 @@ a:hover {
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: #373a47;
-  width:30px;
- 
+  width: 30px;
 }
 
 /* Position and sizing of clickable cross button */
@@ -219,14 +215,14 @@ a:hover {
 
 /* General sidebar styles */
 .bm-menu {
-  background:black;
+  background: black;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
 .bm-menu-wrap.bm-menu {
-  width: 40%!important;
-  height: 100%!important;
+  width: 40% !important;
+  height: 100% !important;
 }
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
@@ -235,9 +231,8 @@ a:hover {
 
 /* Wrapper for item list */
 .bm-item-list {
-  color:white;
+  color: white;
   font-size: 15px;
-  
 }
 
 /* Styling of overlay */
@@ -363,32 +358,30 @@ element.style {
 }
 
 .sidenav {
-  top:50%;
+  top: 50%;
   position: absolute;
   width: 20%;
   left: 170px;
   height: 200px;
-
 }
-.p-page{
-  top:20%;
+.p-page {
+  top: 20%;
   position: absolute;
-  width:30%;
-  left:48%;
+  width: 30%;
+  left: 48%;
 }
-.P-name{
+.P-name {
   position: absolute;
-  top:270px;  
-  left:250px;
-  font-size:20px;
+  top: 270px;
+  left: 250px;
+  font-size: 20px;
   font-weight: 900;
 }
-.pic1{
+.pic1 {
   position: absolute;
-  width:100px;
-  height:100px;
-  
- }
+  width: 100px;
+  height: 100px;
+}
 
 .center {
   padding: 70px 0;
@@ -422,40 +415,38 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background: #fff;
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.8 !important;
 }
 
-.footer{
+.footer {
   text-align: left;
-  position:absolute;
+  position: absolute;
   color: white;
   overflow: hidden;
-  left:10px;
-  top:10px;
-
+  left: 10px;
+  top: 10px;
 }
-#hdr{
-  top:5px;
-  right:10px;
-  position:absolute;
+#hdr {
+  top: 5px;
+  right: 10px;
+  position: absolute;
   overflow: hidden;
 }
 
-#headbg{
+#headbg {
   background-color: rgba(42, 58, 92, 0.897);
 }
 
-#linksize{
+#linksize {
   font-size: 16px;
   padding: 7px;
 }
 
-#dtext{
+#dtext {
   font-weight: bold;
 }
 g.social-svg-mask {
   fill: rgb(143, 139, 139) !important;
 }
-

@@ -1,15 +1,17 @@
-import React, { Component } from "react";
-import Header from "../components/header";
-import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
-import { Grid, Row, Col } from "react-flexbox-grid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import Select from "react-select";
-import "../style.css";
+import React, {Component} from 'react';
+import Header from '../components/header';
+import {GoogleApiWrapper, InfoWindow, Map, Marker} from 'google-maps-react';
+import {Grid, Row, Col} from 'react-flexbox-grid';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import Bottom from '../components/bottom';
+import SideBar from '../components/sidebar';
+import Select from 'react-select';
+import '../style.css';
 // import { exportDefaultSpecifier } from "@babel/types";
 
-library.add(faEnvelope);
+library.add (faEnvelope);
 
 class Details extends Component {
   state = {
@@ -19,115 +21,115 @@ class Details extends Component {
     list: [],
     details: true,
     address: [],
-    value: "",
+    value: '',
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
-    value1: "",
-    value2: ""
+    value1: '',
+    value2: '',
   };
 
   onMarkerClick = (props, marker, e) => {
-    this.setState(
+    this.setState (
       {
         selectedPlace: props,
         activeMarker: marker,
-        showingInfoWindow: true
+        showingInfoWindow: true,
       },
       () => {
-        console.log(this.state.showingInfoWindow);
+        console.log (this.state.showingInfoWindow);
       }
     );
   };
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
-      this.setState({
+      this.setState ({
         showingInfoWindow: false,
-        activeMarker: null
+        activeMarker: null,
       });
     }
   };
 
-  async componentDidMount() {
-    const api = localStorage.getItem("token");
+  async componentDidMount () {
+    const api = localStorage.getItem ('token');
 
-    await fetch("http://localhost:3001/details", {
-      method: "get",
+    await fetch ('http://localhost:3001/details', {
+      method: 'get',
       headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "no-cors",
-        "Access-Control-Allow-Credentials": true,
-        "X-Access-Token": api
-      }
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'no-cors',
+        'Access-Control-Allow-Credentials': true,
+        'X-Access-Token': api,
+      },
     })
-      .then(res => res.json())
-      .then(data =>
-        this.setState(
+      .then (res => res.json ())
+      .then (data =>
+        this.setState (
           {
-            list: data.details
+            list: data.details,
           },
-          () => console.log("details", this.state.list)
+          () => console.log ('details', this.state.list)
         )
       );
 
-    this.setState(
+    this.setState (
       {
-        categories: this.state.list.map(cat => cat.category)
+        categories: this.state.list.map (cat => cat.category),
       },
-      () => console.log("hjshsd", this.state.categories)
+      () => console.log ('hjshsd', this.state.categories)
     );
 
-    this.setState(
+    this.setState (
       {
-        address: this.state.list.map(cat => cat.city)
+        address: this.state.list.map (cat => cat.city),
       },
-      () => console.log("add", this.state.address)
+      () => console.log ('add', this.state.address)
     );
 
-    this.setState(
+    this.setState (
       {
-        uniqueCat: Array.from(new Set(this.state.categories))
-      },
-      () => {
-        console.log(this.state.uniqueCat, "BHJHBhb");
-      }
-    );
-    this.setState(
-      {
-        uniqueAdd: Array.from(new Set(this.state.address))
+        uniqueCat: Array.from (new Set (this.state.categories)),
       },
       () => {
-        console.log(this.state.uniqueAdd, "BHJHBhb");
+        console.log (this.state.uniqueCat, 'BHJHBhb');
+      }
+    );
+    this.setState (
+      {
+        uniqueAdd: Array.from (new Set (this.state.address)),
+      },
+      () => {
+        console.log (this.state.uniqueAdd, 'BHJHBhb');
       }
     );
   }
 
-  handleClick() {
-    const { details } = this.state;
-    this.setState({ details: !details }, () =>
-      console.log(this.state.details, "details")
+  handleClick () {
+    const {details} = this.state;
+    this.setState ({details: !details}, () =>
+      console.log (this.state.details, 'details')
     );
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  handleChange (event) {
+    this.setState ({value: event.target.value});
   }
 
-  renderCategory() {
+  renderCategory () {
     return (
       <div>
         <div>
-          {this.state.list.map((data, index) => {
+          {this.state.list.map ((data, index) => {
             if (data.category === this.state.value2) {
               return (
                 <div key={index}>
                   <Grid
                     fluid
                     style={{
-                      paddingRight: "0px",
-                      paddingLeft: "0px",
-                      margin: "0px"
+                      paddingRight: '0px',
+                      paddingLeft: '0px',
+                      margin: '0px',
                     }}
                   >
                     <Row>
@@ -136,23 +138,23 @@ class Details extends Component {
                           className="responsive"
                           src={data.profilePic}
                           style={{
-                            width: "60px",
-                            height: "60px",
-                            borderRadius: "50%"
+                            width: '60px',
+                            height: '60px',
+                            borderRadius: '50%',
                           }}
                           alt={data.fullName}
                         />
                       </Col>
                       <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <i>
-                          {" "}
-                          {data.fullName.charAt(0).toUpperCase() +
-                            data.fullName.substring(1)}
+                          {' '}
+                          {data.fullName.charAt (0).toUpperCase () +
+                            data.fullName.substring (1)}
                         </i>
                       </Col>
                       <Col xs={3} lg={3} sm={3} md={3} className="col">
-                        {data.category.charAt(0).toUpperCase() +
-                          data.category.substring(1)}
+                        {data.category.charAt (0).toUpperCase () +
+                          data.category.substring (1)}
                       </Col>
                       <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <div>
@@ -168,26 +170,26 @@ class Details extends Component {
                 </div>
               );
             }
-            return console.log(data);
+            return console.log (data);
           })}
         </div>
       </div>
     );
   }
 
-  renderAddress() {
+  renderAddress () {
     return (
       <div>
         <div>
-          {this.state.list.map((data, index) => {
+          {this.state.list.map ((data, index) => {
             if (data.city === this.state.value1) {
               return (
                 <div key={index}>
                   <Grid
                     style={{
-                      paddingRight: "0px",
-                      paddingLeft: "0px",
-                      margin: "0px"
+                      paddingRight: '0px',
+                      paddingLeft: '0px',
+                      margin: '0px',
                     }}
                   >
                     <Row>
@@ -196,23 +198,23 @@ class Details extends Component {
                           className="responsive"
                           src={data.profilePic}
                           style={{
-                            width: "60px",
-                            height: "60px",
-                            borderRadius: "50%"
+                            width: '60px',
+                            height: '60px',
+                            borderRadius: '50%',
                           }}
                           alt={data.fullName}
                         />
                       </Col>
                       <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <i>
-                          {" "}
-                          {data.fullName.charAt(0).toUpperCase() +
-                            data.fullName.substring(1)}
+                          {' '}
+                          {data.fullName.charAt (0).toUpperCase () +
+                            data.fullName.substring (1)}
                         </i>
                       </Col>
                       <Col xs={3} lg={3} sm={3} md={3} className="col">
-                        {data.category.charAt(0).toUpperCase() +
-                          data.category.substring(1)}
+                        {data.category.charAt (0).toUpperCase () +
+                          data.category.substring (1)}
                       </Col>
                       <Col xs={3} lg={3} sm={3} md={3} className="col">
                         <div>
@@ -228,201 +230,194 @@ class Details extends Component {
                 </div>
               );
             }
-            return console.log(data);
+            return console.log (data);
           })}
         </div>
       </div>
     );
   }
-  renderPage(){
-    return(
-      this.state.list.map((data, index) => {
-        return (
-          <div key={index}>
-            <Grid
-              fluid
-              style={{
-                paddingRight: "0px",
-                paddingLeft: "0px",
-                margin: "0px"
-              }}
-            >
-              <Row>
-                <Col xs={2} lg={2} sm={2} md={2} className="col">
-                  <img
-                    className="responsive"
-                    src={data.profilePic}
-                    style={{
-                      width: "60px",
-                      height: "60px",
-                      borderRadius: "50%"
-                    }}
-                    alt={data.fullName}
-                  />
-                </Col>
-                <Col xs={3} lg={3} sm={3} md={3} className="col">
-                  <i>
-                    {" "}
-                    {data.fullName.charAt(0).toUpperCase() +
-                      data.fullName.substring(1)}
-                  </i>
-                </Col>
-                <Col xs={3} lg={3} sm={3} md={3} className="col">
-                  {data.category.charAt(0).toUpperCase() +
-                    data.category.substring(1)}
-                </Col>
-                <Col xs={3} lg={3} sm={3} md={3} className="col">
-                  <div>
-                    {data.city}
-                    <br />
-                    {data.state}
-                  </div>
-                  {data.zip}
+  renderPage () {
+    return this.state.list.map ((data, index) => {
+      return (
+        <div key={index}>
+          <Grid
+            fluid
+            style={{
+              paddingRight: '0px',
+              paddingLeft: '0px',
+              margin: '0px',
+            }}
+          >
+            <Row>
+              <Col xs={2} lg={2} sm={2} md={2} className="col">
+                <img
+                  className="responsive"
+                  src={data.profilePic}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '50%',
+                  }}
+                  alt={data.fullName}
+                />
+              </Col>
+              <Col xs={3} lg={3} sm={3} md={3} className="col">
+                <i>
+                  {' '}
+                  {data.fullName.charAt (0).toUpperCase () +
+                    data.fullName.substring (1)}
+                </i>
+              </Col>
+              <Col xs={3} lg={3} sm={3} md={3} className="col">
+                {data.category.charAt (0).toUpperCase () +
+                  data.category.substring (1)}
+              </Col>
+              <Col xs={3} lg={3} sm={3} md={3} className="col">
+                <div>
+                  {data.city}
                   <br />
-                </Col>
-              </Row>
-            </Grid>
-          </div>
-        );
-      })
-
-    )
+                  {data.state}
+                </div>
+                {data.zip}
+                <br />
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+      );
+    });
   }
-  renderDetails() {
+  renderDetails () {
     return (
       <div>
-        {this.state.value1 === "" && this.state.value2 === "" ? (
-          <div>
-            {this.state.list.map((data, index) => {
-              return (
-                <div key={index}>
-                  <Grid
-                    fluid
-                    style={{
-                      paddingRight: "0px",
-                      paddingLeft: "0px",
-                      margin: "0px"
-                    }}
-                  >
-                    <Row>
-                      <Col xs={2} lg={2} sm={2} md={2} className="col">
-                        <img
-                          className="responsive"
-                          src={data.profilePic}
-                          style={{
-                            width: "60px",
-                            height: "60px",
-                            borderRadius: "50%"
-                          }}
-                          alt={data.fullName}
-                        />
-                      </Col>
-                      <Col xs={3} lg={3} sm={3} md={3} className="col">
-                        <i>
-                          {" "}
-                          {data.fullName.charAt(0).toUpperCase() +
-                            data.fullName.substring(1)}
-                        </i>
-                      </Col>
-                      <Col xs={3} lg={3} sm={3} md={3} className="col">
-                        {data.category.charAt(0).toUpperCase() +
-                          data.category.substring(1)}
-                      </Col>
-                      <Col xs={3} lg={3} sm={3} md={3} className="col">
-                        <div>
-                          {data.city}
+        {this.state.value1 === '' && this.state.value2 === ''
+          ? <div>
+              {this.state.list.map ((data, index) => {
+                return (
+                  <div key={index}>
+                    <Grid
+                      fluid
+                      style={{
+                        paddingRight: '0px',
+                        paddingLeft: '0px',
+                        margin: '0px',
+                      }}
+                    >
+                      <Row>
+                        <Col xs={2} lg={2} sm={2} md={2} className="col">
+                          <img
+                            className="responsive"
+                            src={data.profilePic}
+                            style={{
+                              width: '60px',
+                              height: '60px',
+                              borderRadius: '50%',
+                            }}
+                            alt={data.fullName}
+                          />
+                        </Col>
+                        <Col xs={3} lg={3} sm={3} md={3} className="col">
+                          <i>
+                            {' '}
+                            {data.fullName.charAt (0).toUpperCase () +
+                              data.fullName.substring (1)}
+                          </i>
+                        </Col>
+                        <Col xs={3} lg={3} sm={3} md={3} className="col">
+                          {data.category.charAt (0).toUpperCase () +
+                            data.category.substring (1)}
+                        </Col>
+                        <Col xs={3} lg={3} sm={3} md={3} className="col">
+                          <div>
+                            {data.city}
+                            <br />
+                            {data.state}
+                          </div>
+                          {data.zip}
                           <br />
-                          {data.state}
-                        </div>
-                        {data.zip}
-                        <br />
-                      </Col>
-                    </Row>
-                  </Grid>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div>
-            {this.state.value1 !== "" ? (
-              <div>{this.renderAddress()}</div>
-            ) : (
-              <div>{this.renderCategory()}</div>
-            )}
-          </div>
-        )}
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </div>
+                );
+              })}
+            </div>
+          : <div>
+              {this.state.value1 !== ''
+                ? <div>{this.renderAddress ()}</div>
+                : <div>{this.renderCategory ()}</div>}
+            </div>}
       </div>
     );
   }
 
-  onHandleClick(event) {
-    this.setState({ value1: event.value }, () => {
-      
-    });
+  onHandleClick (event) {
+    this.setState ({value1: event.value}, () => {});
   }
 
-  onHandleChange(event) {
-    this.setState({ value2: event.value }, () => {
-      
-    });
+  onHandleChange (event) {
+    this.setState ({value2: event.value}, () => {});
   }
 
-  render() {
-    let cate = this.state.uniqueCat.map(opt => ({ label: opt, value: opt }));
-    let addre = this.state.uniqueAdd.map(opt => ({ label: opt, value: opt }));
-    
-
+  render () {
+    let cate = this.state.uniqueCat.map (opt => ({label: opt, value: opt}));
+    let addre = this.state.uniqueAdd.map (opt => ({label: opt, value: opt}));
     return (
       <div>
         <Grid
           fluid
           style={{
-            paddingRight: "0px",
-            paddingLeft: "0px",
-            margin: "0px"
+            paddingRight: '0px',
+            paddingLeft: '0px',
+            margin: '0px',
           }}
         >
-          <Row style={{ height: "50px" }}>
-            <Header />
+          <Row style={{height: '50px'}}>
+            <div>
+              <div className="mobile-only">
+                <SideBar />
+              </div>
+              <div className="desktop-only">
+                <Header />
+              </div>
+            </div>
           </Row>
-          <Row style={{ borderBottom: "1px solid #AA9E9E" }}>
+
+          <Row style={{borderBottom: '1px solid #AA9E9E'}}>
             <Col xs={9} lg={9} md={9} sm={9} className="col">
-              {this.state.value === "address" ? (
-                <Select
-                  placeholder={"SEARCH"}
-                  options={addre}
-                  value={this.state.value1}
-                  onChange={this.onHandleClick.bind(this)}
-                  style={{
-                    position: "absolute"
-                  }}
-                />
-              ) : (
-                <Select
-                  placeholder={"SEARCH"}
-                  options={cate}
-                  value={this.state.value2}
-                  onChange={this.onHandleChange.bind(this)}
-                  style={{
-                    position: "absolute"
-                  }}
-                />
-              )}
+              {this.state.value === 'address'
+                ? <Select
+                    placeholder={'SEARCH'}
+                    options={addre}
+                    value={this.state.value1}
+                    onChange={this.onHandleClick.bind (this)}
+                    style={{
+                      position: 'absolute',
+                    }}
+                  />
+                : <Select
+                    placeholder={'SEARCH'}
+                    options={cate}
+                    value={this.state.value2}
+                    onChange={this.onHandleChange.bind (this)}
+                    style={{
+                      position: 'absolute',
+                    }}
+                  />}
             </Col>
 
             <Col xs={3} lg={3} md={3} sm={3}>
               <select
                 required=""
                 style={{
-                  position: "absolute",
-                  textAlign: "center",
-                  paddingLeft: "0px",
-                  paddingRight: "0px"
+                  position: 'absolute',
+                  textAlign: 'center',
+                  paddingLeft: '0px',
+                  paddingRight: '0px',
                 }}
                 value={this.state.value}
                 onChange={e => {
-                  this.handleChange(e);
+                  this.handleChange (e);
                 }}
               >
                 <option defaultValue="">PLEASE SELECT</option>
@@ -435,8 +430,8 @@ class Details extends Component {
           <Row>
             <Col lg={6} sm={6} md={6} xs={6} className="col">
               <div>
-                {this.state.list.map((store, index) => {
-                  console.log(store.latitude, "dvfd");
+                {this.state.list.map ((store, index) => {
+                  console.log (store.latitude, 'dvfd');
 
                   return (
                     <Map
@@ -445,26 +440,26 @@ class Details extends Component {
                       zoom={7}
                       initialCenter={{
                         lat: store.latitude,
-                        lng: store.longitude
+                        lng: store.longitude,
                       }}
                       style={{
-                        position: "absolute",
-                        width: "50%",
-                        padding: "0"
+                        position: 'absolute',
+                        width: '50%',
+                        padding: '0',
                       }}
                     >
-                      {this.state.list.map(store => {
+                      {this.state.list.map (store => {
                         if (store.city === this.state.value1) {
                           return (
                             <Marker
                               position={{
                                 lat: store.latitude,
-                                lng: store.longitude
+                                lng: store.longitude,
                               }}
                               onClick={this.onMarkerClick}
                               name={
-                                store.fullName.charAt(0).toUpperCase() +
-                                store.fullName.substring(1)
+                                store.fullName.charAt (0).toUpperCase () +
+                                  store.fullName.substring (1)
                               }
                               phone={store.phone}
                               category={store.category}
@@ -478,12 +473,12 @@ class Details extends Component {
                             <Marker
                               position={{
                                 lat: store.latitude,
-                                lng: store.longitude
+                                lng: store.longitude,
                               }}
                               onClick={this.onMarkerClick}
                               name={
-                                store.fullName.charAt(0).toUpperCase() +
-                                store.fullName.substring(1)
+                                store.fullName.charAt (0).toUpperCase () +
+                                  store.fullName.substring (1)
                               }
                               phone={store.phone}
                               category={store.category}
@@ -493,19 +488,19 @@ class Details extends Component {
                           );
                         }
                         if (
-                          this.state.value1 === "" &&
-                          this.state.value2 === ""
+                          this.state.value1 === '' &&
+                          this.state.value2 === ''
                         ) {
                           return (
                             <Marker
                               position={{
                                 lat: store.latitude,
-                                lng: store.longitude
+                                lng: store.longitude,
                               }}
                               onClick={this.onMarkerClick}
                               name={
-                                store.fullName.charAt(0).toUpperCase() +
-                                store.fullName.substring(1)
+                                store.fullName.charAt (0).toUpperCase () +
+                                  store.fullName.substring (1)
                               }
                               phone={store.phone}
                               category={store.category}
@@ -514,7 +509,7 @@ class Details extends Component {
                             />
                           );
                         }
-                        return console.log(store);
+                        return console.log (store);
                       })}
 
                       <InfoWindow
@@ -546,17 +541,18 @@ class Details extends Component {
               md={6}
               sm={6}
               className="col"
-              style={{ lineHeight: "2.2", borderBottom: "4px",marginTop:"5px" }}
+              style={{lineHeight: '2.2', borderBottom: '4px', marginTop: '5px'}}
             >
-              {this.renderDetails()}
+              {this.renderDetails ()}
             </Col>
           </Row>
         </Grid>
+          <Bottom />
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places"
-})(Details);
+export default GoogleApiWrapper ({
+  apiKey: 'AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places',
+}) (Details);

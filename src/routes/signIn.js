@@ -10,75 +10,75 @@ import {
   MDBCol,
   MDBInput,
   MDBBtn,
-  MDBModalFooter
+  MDBModalFooter,
 } from 'mdbreact';
 import 'font-awesome/css/font-awesome.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import '../App.css';
 
 class SignIn extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
     this.state = {
       phone: '',
-      password: ''
+      password: '',
     };
   }
 
-  componentDidMount() {
-    const token = localStorage.getItem('token');
+  componentDidMount () {
+    const token = localStorage.getItem ('token');
     if (token !== null) {
-      this.props.history.push('/details');
+      this.props.history.push ('/details');
     }
   }
 
-  handleChange(event) {
-    this.setState({
-      phone: event.target.value
+  handleChange (event) {
+    this.setState ({
+      phone: event.target.value,
     });
   }
 
-  handleChangePass(event) {
-    this.setState({
-      password: event.target.value
+  handleChangePass (event) {
+    this.setState ({
+      password: event.target.value,
     });
   }
 
-  handleSubmit(data) {
+  handleSubmit (data) {
     data = {
       phone: this.state.phone,
-      password: this.state.password
+      password: this.state.password,
     };
     //console.log('data', data);
-    fetch('http://localhost:3001/login', {
+    fetch ('http://localhost:3001/login', {
       method: 'post',
-      body: JSON.stringify(data),
+      body: JSON.stringify (data),
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
+        'Access-Control-Allow-Origin': '*',
+      },
     })
-      .then(res => res.json())
-      .then(data => {
+      .then (res => res.json ())
+      .then (data => {
         if (data.data) {
-          console.log('status', data.data.twilioStatus);
+          console.log ('status', data.data.twilioStatus);
           if (data.data === 'incorrect') {
-            alert('Invalid Login');
-            window.location.reload();
+            alert ('Invalid Login');
+            window.location.reload ();
           } else if (data.data === 'statusFalse') {
-            this.props.history.push('/phoneNumberVal');
+            this.props.history.push ('/phoneNumberVal');
           } else {
-            localStorage.setItem('token', data.token);
-            this.props.history.push('/details');
+            localStorage.setItem ('token', data.token);
+            this.props.history.push ('/details');
           }
         } else {
-          alert('You are not Registered..!');
-          this.props.history.push('/signup');
+          alert ('You are not Registered..!');
+          this.props.history.push ('/signup');
         }
       });
   }
 
-  render() {
+  render () {
     return (
       <div className="signinbg" id="page-container">
         <div className="header">
@@ -88,7 +88,7 @@ class SignIn extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-          <Bottom />
+
         </div>
         <br />
         <br />
@@ -113,7 +113,7 @@ class SignIn extends React.Component {
                   maxLength="10"
                   minLength="10"
                   value={this.state.phone}
-                  onChange={event => this.handleChange(event)}
+                  onChange={event => this.handleChange (event)}
                   label="Phone no:"
                   icon="phone"
                   id="materialFormRegisterPhnEx"
@@ -127,7 +127,7 @@ class SignIn extends React.Component {
                   type="password"
                   name="password"
                   value={this.state.password}
-                  onChange={event => this.handleChangePass(event)}
+                  onChange={event => this.handleChangePass (event)}
                   id="materialFormRegisterPasswordEx2"
                   label="Password:"
                   icon="lock"
@@ -140,7 +140,7 @@ class SignIn extends React.Component {
               <MDBBtn
                 color="blue"
                 type="submit"
-                onClick={() => this.handleSubmit()}
+                onClick={() => this.handleSubmit ()}
               >
                 Submit
               </MDBBtn>
@@ -162,7 +162,10 @@ class SignIn extends React.Component {
               </div>
             </MDBModalFooter>
           </MDBContainer>
+          <br/>
+          <br/>
         </div>
+        <Bottom />
       </div>
     );
   }

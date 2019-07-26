@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from '../components/sidebar';
-//import Select from 'react-select';
-//import options from '../components/category';
+import Select from 'react-select';
+import options from '../components/category';
 import '../App.css';
 import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from 'mdbreact';
 import 'font-awesome/css/font-awesome.min.css';
@@ -59,7 +59,7 @@ class Signup extends React.Component {
   }
 
   handleChangeCategory(event) {
-    this.setState({category: event.target.value});
+    this.setState({category: event});
   }
   handleChangeNumber(event) {
     this.setState({
@@ -126,14 +126,14 @@ class Signup extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-          <Bottom />
+          
         </div>
 
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
             <h1 align="center">
-              <br />
-              <br />
+            <br/>
+            <br/>
               <strong>Register Here</strong>
             </h1>
             <br />
@@ -193,34 +193,20 @@ class Signup extends React.Component {
             </MDBRow>
             <MDBRow>
               <MDBCol md="6">
-                <MDBInput
-                  //options={options}
+                <Select
+                  options={options}
                   type="text"
                   value={this.state.category}
                   name="category"
                   onChange={event => this.handleChangeCategory(event)}
-                  label="Category:"
-                  icon="th-large"
+                  placeholder="Category"
+                  // label="Category:"
+                  // icon="th-large"
                   required
                 />
               </MDBCol>
               <MDBCol md="6">
-                <MDBInput
-                  type="text"
-                  name="zip"
-                  id="materialFormRegisterZipEx2"
-                  value={this.state.zip}
-                  onChange={event => this.handleChangeZip(event)}
-                  maxLength="6"
-                  label="Zip:"
-                  icon="file"
-                  required
-                />
-              </MDBCol>
-            </MDBRow>
-            <MDBRow>
-              <MDBCol md="6">
-                <MDBInput
+                  <MDBInput
                   name="city"
                   type="text"
                   value={this.state.city}
@@ -231,8 +217,10 @@ class Signup extends React.Component {
                   required
                 />
               </MDBCol>
+            </MDBRow>
+            <MDBRow>
               <MDBCol md="6">
-                <MDBInput
+                  <MDBInput
                   name="state"
                   type="text"
                   value={this.state.state}
@@ -240,6 +228,19 @@ class Signup extends React.Component {
                   id="materialFormRegisterStateEx2"
                   label="State:"
                   icon="map-marker"
+                  required
+                />
+              </MDBCol>
+              <MDBCol md="6">
+                 <MDBInput
+                  type="text"
+                  name="zip"
+                  id="materialFormRegisterZipEx2"
+                  value={this.state.zip}
+                  onChange={event => this.handleChangeZip(event)}
+                  maxLength="6"
+                  label="Zip:"
+                  icon="file"
                   required
                 />
               </MDBCol>
@@ -264,7 +265,10 @@ class Signup extends React.Component {
               </h5>
             </div>
           </MDBContainer>
+          <br/>
+          <br/>
         </div>
+        <Bottom />
       </div>
     );
   }

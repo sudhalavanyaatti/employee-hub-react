@@ -14,13 +14,10 @@ class Password extends Component {
     };
   }
   componentDidMount() {
-    const data = {
-      token: localStorage.getItem('token')
-    };
     fetch('http://localhost:3001/profile', {
       method: 'post',
-      body: JSON.stringify(data),
       headers: {
+         'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
@@ -56,7 +53,6 @@ class Password extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({
           decpassword: data.data
         });

@@ -14,13 +14,10 @@ class Header extends Component {
       this.setState({
         userStatus: true
       });
-      const data = {
-        token: localStorage.getItem('token')
-      };
       fetch('http://localhost:3001/profile', {
         method: 'post',
-        body: JSON.stringify(data),
         headers: {
+           'Authentication-Token' :localStorage.getItem ('token'),
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         }

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { withRouter } from 'react-router';
+import Select from 'react-select';
+import options from '../components/category';
 import '../App.css';
 import '../style.css';
 class Account extends Component {
@@ -15,13 +17,10 @@ class Account extends Component {
     };
   }
   componentDidMount() {
-    const data = {
-      token: localStorage.getItem('token')
-    };
     fetch('http://localhost:3001/profile', {
       method: 'post',
-      body: JSON.stringify(data),
       headers: {
+         'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
@@ -55,7 +54,7 @@ class Account extends Component {
   }
   handleChangeCategory(event) {
     this.setState({
-      category: event.target.value
+      category: event
     });
   }
   handleChangeExperience(event) {
@@ -104,8 +103,9 @@ class Account extends Component {
           placeholder="Email"
         />
         <input type="tel" value={this.state.mobile} disabled />
-        <input
+        <Select
           type="text"
+          options={options}
           value={this.state.category}
           onChange={event => this.handleChangeCategory(event)}
           placeholder="Category"
