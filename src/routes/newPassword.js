@@ -56,7 +56,10 @@ class NewPassword extends React.Component {
           this.props.history.push("/signIn");
           // localStorage.setItem("token", data.token);
         });
-    } else alert("Enter Same Password");
+    } else{
+      alert("Enter Same Password");
+      window.location.reload();
+     }
     //this.props.history.push("/details");
     //     }
     //     else

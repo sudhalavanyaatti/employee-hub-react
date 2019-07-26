@@ -17,16 +17,12 @@
   color: white;
 }
 .homebg {
-  background-color: rgba(50, 115, 220, 0.048);
+  background-image: url("./images/home.png");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-
-
-
   .forgotpasswordbg,
   .newpassbg {
     background-color: rgba(50, 115, 220, 0.048);
@@ -106,13 +102,13 @@
     position: absolute;
     border-radius: 50%;
     top: 90px;
-    left: 170px;
+    left: 220px;
   }
   .img-upload {
     position: absolute;
     border-radius: 50%;
     top: 90px;
-    left: 170px;
+    left: 220px;
     height: 150px;
     width: 150px;
     z-index: 10;
@@ -125,4 +121,13 @@
 
 #page-container {
   position: relative;
+}
+.bstyle{
+  border-radius: 15px;
+  display: inline-block;
+  font-size: 17px;
+  width: 100px;
+   height: 45px;
+ 
+  
 }

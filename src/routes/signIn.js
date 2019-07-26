@@ -1,52 +1,53 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import SideBar from "../components/sidebar";
+import React from 'react';
+import {Link} from 'react-router-dom';
+import SideBar from '../components/sidebar';
 //import {Row, Col} from 'react-flexbox-grid';
-import Header from "../components/header";
+import Header from '../components/header';
+import Bottom from '../components/bottom';
 import {
   MDBContainer,
   MDBRow,
   MDBCol,
   MDBInput,
   MDBBtn,
-  MDBModalFooter
-} from "mdbreact";
-//import 'font-awesome/css/font-awesome.min.css';
-import "mdbreact/dist/css/mdb.css";
-import "../App.css";
+  MDBModalFooter,
+} from 'mdbreact';
+import 'font-awesome/css/font-awesome.min.css';
+import 'mdbreact/dist/css/mdb.css';
+import '../App.css';
 
 class SignIn extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
     this.state = {
-      phone: "",
-      password: ""
+      phone: '',
+      password: '',
     };
   }
 
-  componentDidMount() {
-    const token = localStorage.getItem("token");
+  componentDidMount () {
+    const token = localStorage.getItem ('token');
     if (token !== null) {
-      this.props.history.push("/details");
+      this.props.history.push ('/details');
     }
   }
 
-  handleChange(event) {
-    this.setState({
-      phone: event.target.value
+  handleChange (event) {
+    this.setState ({
+      phone: event.target.value,
     });
   }
 
-  handleChangePass(event) {
-    this.setState({
-      password: event.target.value
+  handleChangePass (event) {
+    this.setState ({
+      password: event.target.value,
     });
   }
 
-  handleSubmit(data) {
+  handleSubmit (data) {
     data = {
       phone: this.state.phone,
-      password: this.state.password
+      password: this.state.password,
     };
     //console.log('data', data);
     fetch("http://localhost:3002/login", {
@@ -57,25 +58,27 @@ class SignIn extends React.Component {
         "Access-Control-Allow-Origin": "*"
       }
     })
-      .then(res => res.json())
-      .then(data => {
+      .then (res => res.json ())
+      .then (data => {
         if (data.data) {
-          console.log("status", data.data.twilioStatus);
-          if (data.data === "incorrect") alert("Invalid Login");
-          else if (data.data === "statusFalse") {
-            this.props.history.push("/phoneNumberVal");
+          console.log ('status', data.data.twilioStatus);
+          if (data.data === 'incorrect') {
+            alert ('Invalid Login');
+            window.location.reload ();
+          } else if (data.data === 'statusFalse') {
+            this.props.history.push ('/phoneNumberVal');
           } else {
-            localStorage.setItem("token", data.token);
-            this.props.history.push("/details");
+            localStorage.setItem ('token', data.token);
+            this.props.history.push ('/details');
           }
         } else {
-          alert("You are not Registered..!");
-          this.props.history.push("/signup");
+          alert ('You are not Registered..!');
+          this.props.history.push ('/signup');
         }
       });
   }
 
-  render() {
+  render () {
     return (
       <div className="signinbg">
         <div className="header">
@@ -85,7 +88,16 @@ class SignIn extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
+
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
@@ -101,7 +113,7 @@ class SignIn extends React.Component {
                   maxLength="10"
                   minLength="10"
                   value={this.state.phone}
-                  onChange={event => this.handleChange(event)}
+                  onChange={event => this.handleChange (event)}
                   label="Phone no:"
                   icon="phone"
                   id="materialFormRegisterPhnEx"
@@ -115,7 +127,7 @@ class SignIn extends React.Component {
                   type="password"
                   name="password"
                   value={this.state.password}
-                  onChange={event => this.handleChangePass(event)}
+                  onChange={event => this.handleChangePass (event)}
                   id="materialFormRegisterPasswordEx2"
                   label="Password:"
                   icon="lock"
@@ -127,27 +139,32 @@ class SignIn extends React.Component {
               <MDBBtn
                 gradient="blue"
                 type="submit"
-                onClick={() => this.handleSubmit()}
+                onClick={() => this.handleSubmit ()}
               >
                 Submit
               </MDBBtn>
             </div>
+            <br />
 
             <MDBModalFooter>
               <div align="center">
-                <Link to="/forgotPassword">
-                  <strong>Forgot Password ?</strong>
-                </Link>
-                <p>
-                  <h3>Not a member?</h3>
-                </p>{" "}
-                <Link to="/signup">
-                  <strong>Signup</strong>
-                </Link>
+                <h5>
+                  <Link id="linksize" to="/forgotPassword">
+                    Forgot Password ?
+                  </Link>
+                  <br />
+                  Not a member?
+                  <Link id="linksize" to="/signup">
+                    Signup
+                  </Link>
+                </h5>
               </div>
             </MDBModalFooter>
           </MDBContainer>
+          <br/>
+          <br/>
         </div>
+        <Bottom />
       </div>
     );
   }

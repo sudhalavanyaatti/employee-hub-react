@@ -10,7 +10,7 @@ import "../style.css";
 import PagiNation from "../components/Pagination";
 import { exportDefaultSpecifier } from "@babel/types";
 
-library.add(faEnvelope);
+library.add (faEnvelope);
 
 class Details extends Component {
   state = {
@@ -20,7 +20,7 @@ class Details extends Component {
     list: [],
     details: true,
     address: [],
-    value: "",
+    value: '',
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
@@ -33,23 +33,23 @@ class Details extends Component {
   };
 
   onMarkerClick = (props, marker, e) => {
-    this.setState(
+    this.setState (
       {
         selectedPlace: props,
         activeMarker: marker,
-        showingInfoWindow: true
+        showingInfoWindow: true,
       },
       () => {
-        console.log(this.state.showingInfoWindow);
+        console.log (this.state.showingInfoWindow);
       }
     );
   };
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
-      this.setState({
+      this.setState ({
         showingInfoWindow: false,
-        activeMarker: null
+        activeMarker: null,
       });
     }
   };
@@ -66,13 +66,13 @@ class Details extends Component {
         "Authentication-Token": token
       }
     })
-      .then(res => res.json())
-      .then(data =>
-        this.setState(
+      .then (res => res.json ())
+      .then (data =>
+        this.setState (
           {
             list: data.details
           },
-          () => console.log("details", this.state.list)
+          () => console.log ('details', this.state.list)
         )
       );
 
@@ -92,15 +92,15 @@ class Details extends Component {
     });
   }
 
-  handleClick() {
-    const { details } = this.state;
-    this.setState({ details: !details }, () =>
-      console.log(this.state.details, "details")
+  handleClick () {
+    const {details} = this.state;
+    this.setState ({details: !details}, () =>
+      console.log (this.state.details, 'details')
     );
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  handleChange (event) {
+    this.setState ({value: event.target.value});
   }
   windowPopUp() {
     console.log("hello");
@@ -338,16 +338,23 @@ class Details extends Component {
         <Grid
           fluid
           style={{
-            paddingRight: "0px",
-            paddingLeft: "0px",
-            margin: "0px"
+            paddingRight: '0px',
+            paddingLeft: '0px',
+            margin: '0px',
           }}
         >
-          <Row style={{ height: "50px" }}>
-            <Header />
+          <Row style={{height: '50px'}}>
+            <div>
+              <div className="mobile-only">
+                <SideBar />
+              </div>
+              <div className="desktop-only">
+                <Header />
+              </div>
+            </div>
           </Row>
 
-          <Row style={{ borderBottom: "1px solid #AA9E9E" }}>
+          <Row style={{borderBottom: '1px solid #AA9E9E'}}>
             <Col xs={9} lg={9} md={9} sm={9} className="col">
               {this.state.value === "address" ? (
                 <Select
@@ -377,14 +384,14 @@ class Details extends Component {
               <select
                 required=""
                 style={{
-                  position: "absolute",
-                  textAlign: "center",
-                  paddingLeft: "0px",
-                  paddingRight: "0px"
+                  position: 'absolute',
+                  textAlign: 'center',
+                  paddingLeft: '0px',
+                  paddingRight: '0px',
                 }}
                 value={this.state.value}
                 onChange={e => {
-                  this.handleChange(e);
+                  this.handleChange (e);
                 }}
               >
                 <option defaultValue="">PLEASE SELECT</option>
@@ -527,11 +534,12 @@ class Details extends Component {
             </Col>
           </Row>
         </Grid>
+          <Bottom />
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places"
-})(Details);
+export default GoogleApiWrapper ({
+  apiKey: 'AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places',
+}) (Details);

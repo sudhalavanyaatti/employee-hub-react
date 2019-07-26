@@ -19,8 +19,8 @@ class Password extends Component {
     };
     fetch('http://localhost:3002/profile', {
       method: 'post',
-      body: JSON.stringify(data),
       headers: {
+         'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
@@ -56,7 +56,6 @@ class Password extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({
           decpassword: data.data
         });
@@ -108,7 +107,7 @@ class Password extends Component {
   render() {
     return (
       <div className="p-page">
-        <h2>Reset Password</h2>
+        <h2><strong>Reset Password</strong></h2>
         <input
           type="password"
           value={this.state.currentpassword}
@@ -127,7 +126,7 @@ class Password extends Component {
           onChange={event => this.handleChangeConfirmPass(event)}
           placeholder="Confirm Password"
         />
-        <button type="submit" onClick={() => this.handlePassword()}>
+        <button type="submit" className="bstyle" onClick={() => this.handlePassword()}>
           Update
         </button>
       </div>

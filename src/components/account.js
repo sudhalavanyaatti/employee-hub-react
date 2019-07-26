@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { withRouter } from 'react-router';
+import Select from 'react-select';
+import options from '../components/category';
 import '../App.css';
 import '../style.css';
 class Account extends Component {
@@ -20,8 +22,8 @@ class Account extends Component {
     };
     fetch('http://localhost:3002/profile', {
       method: 'post',
-      body: JSON.stringify(data),
       headers: {
+         'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
@@ -55,7 +57,7 @@ class Account extends Component {
   }
   handleChangeCategory(event) {
     this.setState({
-      category: event.target.value
+      category: event
     });
   }
   handleChangeExperience(event) {
@@ -90,7 +92,7 @@ class Account extends Component {
   render () {
     return (
       <div className="p-page">
-        <h2>Account</h2>
+        <h1><strong>Account</strong></h1>
         <input
           type="text"
           value={this.state.name}
@@ -104,8 +106,9 @@ class Account extends Component {
           placeholder="Email"
         />
         <input type="tel" value={this.state.mobile} disabled />
-        <input
+        <Select
           type="text"
+          options={options}
           value={this.state.category}
           onChange={event => this.handleChangeCategory(event)}
           placeholder="Category"
@@ -118,7 +121,7 @@ class Account extends Component {
           minLength="1"
           maxLength="2"
         />
-        <button type="submit" onClick={() => this.handleAccount()}>
+        <button type="submit" className="bstyle" onClick={() => this.handleAccount()}>
           Save
         </button>
       </div>

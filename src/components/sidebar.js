@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import { Link } from 'react-router-dom';
 import {slide as Menu} from 'react-burger-menu';
+import logo from "../images/logo.png";
 import '../style.css';
 class SideBar extends Component {
 
@@ -29,10 +30,11 @@ class SideBar extends Component {
     return (
                <div>
                   {this.state.userStatus ? (
+                    <div>
                     <Menu className="bm-menu">
-    
+                    <img src={logo} style={{position:'absolute',top:'10px',left:'50px', width: '70px', height: '75px'}} alt="logo"/>
                       <Link  className="bm-item-list" to="/">Home</Link>
-                      <Link className="bm-item-list" onClick={() => this.handleprofile()} to="/profile">Profile</Link>
+                      <Link className="bm-item-list" onClick={() => this.handleprofile()} to="/profile">My Account</Link>
                       <Link className="bm-item-list" to="/details">Details</Link>
                       <Link className="bm-item-list"
                         onClick={() => this.handleClearToken()}
@@ -42,14 +44,15 @@ class SideBar extends Component {
                       </Link>
       
                     </Menu>
+                    </div>
                   ) : (
+                    <div>
                      <Menu className="bm-menu">
-                        
+                     <img src={logo} style={{position:'absolute',top:'10px',left:'35px', width: '70px', height: '75px'}} alt="logo"/>
                       <Link className="bm-item-list" to="/">Home</Link>
                       <Link className="bm-item-list"  to="/signIn">SignIn</Link>
-                      
-                  
                      </Menu>
+                     </div>
                   )}
                 </div>
   
