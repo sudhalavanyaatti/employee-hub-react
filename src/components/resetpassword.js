@@ -14,7 +14,10 @@ class Password extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://localhost:3001/profile', {
+    const data = {
+      token: localStorage.getItem('token')
+    };
+    fetch('http://localhost:3002/profile', {
       method: 'post',
       headers: {
          'Authentication-Token' :localStorage.getItem ('token'),
@@ -43,7 +46,7 @@ class Password extends Component {
      
     };
     console.log('pass',data)
-    fetch('http://localhost:3001/dec-password', {
+    fetch('http://localhost:3002/dec-password', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -78,7 +81,7 @@ class Password extends Component {
         phone: this.state.phone
       };
       if (this.state.newpassword === this.state.conpassword) {
-        fetch('http://localhost:3001/update-password', {
+        fetch('http://localhost:3002/update-password', {
           method: 'POST',
           body: JSON.stringify(data),
           headers: {

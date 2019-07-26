@@ -14,7 +14,10 @@ class Header extends Component {
       this.setState({
         userStatus: true
       });
-      fetch('http://localhost:3001/profile', {
+      const data = {
+        token: localStorage.getItem('token')
+      };
+      fetch('http://localhost:3002/profile', {
         method: 'post',
         headers: {
            'Authentication-Token' :localStorage.getItem ('token'),

@@ -13,7 +13,10 @@ class Address extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://localhost:3001/profile', {
+    const data = {
+      token: localStorage.getItem('token')
+    };
+    fetch('http://localhost:3002/profile', {
       method: 'post',
       headers: {
          'Authentication-Token' :localStorage.getItem ('token'),
@@ -58,7 +61,7 @@ class Address extends Component {
         state: this.Capitalize(this.state.state),
         zip: this.state.zip
       };
-      fetch('http://localhost:3001/update-details', {
+      fetch('http://localhost:3002/update-details', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

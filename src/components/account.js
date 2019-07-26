@@ -17,7 +17,10 @@ class Account extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://localhost:3001/profile', {
+    const data = {
+      token: localStorage.getItem('token')
+    };
+    fetch('http://localhost:3002/profile', {
       method: 'post',
       headers: {
          'Authentication-Token' :localStorage.getItem ('token'),
@@ -70,7 +73,7 @@ class Account extends Component {
       category: this.Capitalize(this.state.category),
       experience: this.state.experience
     };
-    fetch('http://localhost:3001/update-details', {
+    fetch('http://localhost:3002/update-details', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

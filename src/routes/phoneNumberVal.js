@@ -24,7 +24,7 @@ class NumberVal extends Component {
     const data = {
       phone: this.state.phone
     };
-    await fetch('http://localhost:3001/forgot-password', {
+    await fetch('http://localhost:3002/forgot-password', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

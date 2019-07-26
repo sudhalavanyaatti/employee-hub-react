@@ -36,13 +36,11 @@ class Update_Details extends React.Component {
   }
 
   componentDidMount() {
-    const data = {
-      token: localStorage.getItem('token')
-    };
     fetch('http://localhost:3001/profile', {
       method: 'post',
       body: JSON.stringify(data),
       headers: {
+        'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       }
@@ -180,7 +178,7 @@ class Update_Details extends React.Component {
       experience: this.state.experience
     };
     console.log('data', data);
-    await fetch('http://localhost:3001/update-details', {
+    await fetch('http://localhost:3002/update-details', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

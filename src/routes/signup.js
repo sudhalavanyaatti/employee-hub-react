@@ -100,8 +100,8 @@ class Signup extends React.Component {
       latitude: this.state.latitude,
       longitude: this.state.longitude
     };
-    await fetch('http://localhost:3001/register', {
-      method: 'POST',
+    await fetch("http://localhost:3002/register", {
+      method: "POST",
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',

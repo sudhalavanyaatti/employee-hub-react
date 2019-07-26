@@ -50,13 +50,13 @@ class SignIn extends React.Component {
       password: this.state.password,
     };
     //console.log('data', data);
-    fetch ('http://localhost:3001/login', {
-      method: 'post',
-      body: JSON.stringify (data),
+    fetch("http://localhost:3002/login", {
+      method: "post",
+      body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
     })
       .then (res => res.json ())
       .then (data => {
@@ -80,7 +80,7 @@ class SignIn extends React.Component {
 
   render () {
     return (
-      <div className="signinbg" id="page-container">
+      <div className="signinbg">
         <div className="header">
           <div className="mobile-only">
             <SideBar />
@@ -135,10 +135,9 @@ class SignIn extends React.Component {
                 />
               </MDBCol>
             </MDBRow>
-
             <div align="center">
               <MDBBtn
-                color="blue"
+                gradient="blue"
                 type="submit"
                 onClick={() => this.handleSubmit ()}
               >
