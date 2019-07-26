@@ -8,7 +8,8 @@ class PagiNation extends Component {
     super(props);
     this.state = {
       activePage: "1",
-      todosPerPage: "3"
+      todosPerPage: "2",
+      popup: false,
     };
   }
   handlePageChange(event) {
@@ -18,6 +19,18 @@ class PagiNation extends Component {
     this.setState({ activePage: Number(event.target.id) }, () => {
       console.log(this.state.activePage, "event");
     });
+  }
+  windowPopUp() {
+    console.log("hello");
+
+    this.setState(
+      {
+        popup: true
+      },
+      () => {
+        console.log(this.state.popup, "popup");
+      }
+    );
   }
 
   render() {
@@ -30,6 +43,7 @@ class PagiNation extends Component {
       indexOfFirstTodo,
       indexOfLastTodo
     );
+    console.log(currentTodos,"todo")
     const renderTodos = currentTodos.map((todo, index) => {
       return (
         <div key={index}>
@@ -52,6 +66,7 @@ class PagiNation extends Component {
                     borderRadius: "50%"
                   }}
                   alt={todo.fullName}
+                  onClick={this.windowPopUp.bind(this)}
                 />
               </Col>
               <Col xs={3} lg={3} sm={3} md={3} className="col">
@@ -79,6 +94,7 @@ class PagiNation extends Component {
         </div>
       );
     });
+   
     const pageNumbers = [];
     for (
       let i = 1;
@@ -99,7 +115,9 @@ class PagiNation extends Component {
 
     return (
       <div>
-        <ul>{renderTodos}</ul>
+      {
+        renderTodos
+      }
         <ul className="pageNumber">{renderPageNumbers}</ul>
       </div>
     );
