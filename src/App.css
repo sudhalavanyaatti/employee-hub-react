@@ -17,117 +17,107 @@
   color: white;
 }
 .homebg {
-  background-image: url("./images/home.png");
+  background-image: url('./images/home.png');
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-  .forgotpasswordbg,
-  .newpassbg {
-    background-color: rgba(50, 115, 220, 0.048);
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .updatebg {
-    background-color: rgba(50, 115, 220, 0.048);
-    height: 180vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+.forgotpasswordbg,
+.newpassbg {
+  background-color: rgba(50, 115, 220, 0.048);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.updatebg {
+  background-color: rgba(50, 115, 220, 0.048);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  .signupbg {
-    background-color: rgba(50, 115, 220, 0.048);
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .signinbg {
-    background-color: rgba(50, 115, 220, 0.048);
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .profilebg {
-    background-color: rgba(50, 115, 220, 0.048);
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .aboutbg {
-    background-color: rgba(50, 115, 220, 0.048);
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+.signupbg {
+  background-color: rgba(50, 115, 220, 0.048);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signinbg {
+  background-color: rgba(50, 115, 220, 0.048);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.profilebg {
+  background-color: rgba(50, 115, 220, 0.048);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.aboutbg {
+  background-color: rgba(50, 115, 220, 0.048);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  .detailsbg {
-    background-color: rgba(50, 115, 220, 0.048);
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.detailsbg {
+  background-color: rgba(50, 115, 220, 0.048);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.passwordbg,
+.phnobg,
+.otpvalbg {
+  background-color: rgba(50, 115, 220, 0.048);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 768px) {
+  div.mobile-only {
+    display: none;
   }
-  .passwordbg,
-  .phnobg,
-  .otpvalbg {
-    background-color: rgba(50, 115, 220, 0.048);
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+}
+@media screen and (max-width: 767px) {
+  div.desktop-only {
+    display: none;
   }
-  @media screen and (min-width: 768px) {
-    div.mobile-only {
-      display: none;
-    }
-  }
-  @media screen and (max-width: 767px) {
-    div.desktop-only {
-      display: none;
-    }
-  }
-  h1 {
-    color: black;
-    margin: 0px;
-  }
-  .img-circle {
-    position: absolute;
-    border-radius: 50%;
-    top: 90px;
-    left: 220px;
-  }
-  .img-upload {
-    position: absolute;
-    border-radius: 50%;
-    top: 90px;
-    left: 220px;
-    height: 150px;
-    width: 150px;
-    z-index: 10;
-  }
-  .img-upld {
-    opacity: 0;
-    z-index: 0;
-    font-size: 0px;
-  }
+}
+/* h1 {
+  color: black;
+  margin: 0px;
+} */
+.img-circle {
+  position: relative;
+  border-radius: 50%;
+}
+.img-upload {
+  position: absolute;
+  border-radius: 50%;
+  height: 150px;
+  top:21%;
+  left:19%;
+  width: 150px;
+  z-index: 10;
+}
+.img-upld {
+  opacity: 0;
+  z-index: 0;
+  font-size: 0px;
+}
 
 #page-container {
   position: relative;
 }
-.bstyle{
-  border-radius: 15px;
-  display: inline-block;
+.bstyle {
+  color: white;
   font-size: 17px;
   width: 100px;
-   height: 45px;
- 
-  
+  padding: 10px 15px;
+  background-color: rgb(87, 118, 185);
+  border-radius: 5px;
+  border: none;
 }

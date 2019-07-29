@@ -35,7 +35,7 @@ button.btn.btn-blue.Ripple-parent {
   font-family: gothambook;
   text-align: center;
 }
-.button {
+/* .button {
   display: inline-block;
   padding: 10px 15px;
   font-size: 20px;
@@ -43,8 +43,8 @@ button.btn.btn-blue.Ripple-parent {
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #fff;
-  background-color: rgb(66, 108, 224);
+  color: rgb(77, 99, 133);
+  background-color: rgb(222, 223, 226);
   border: none;
   border-radius: 15px;
 }
@@ -56,21 +56,25 @@ button.btn.btn-blue.Ripple-parent {
 .button:active {
   background-color: #8b84e9;
   transform: translateY(4px);
-}
+} */
 /* .div {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
 } */
-input,Select[type='text'],
+input[type='text'],
 [type='email'],
 [type='password'],
 [type='tel'],
 [type='date'],
 select {
-  padding: 10px 10px;
   box-sizing: border-box;
-  width: 350px;
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .col {
@@ -291,7 +295,7 @@ li:hover {
   cursor: pointer;
 }
 
-.button {
+/* .button {
   display: inline-block;
   padding: 10px 15px;
   font-size: 15px;
@@ -304,7 +308,7 @@ li:hover {
   border: none;
   border-radius: 15px;
   border-radius: 9px 9px 9px 9px;
-  /* box-shadow: 0 9px #999; */
+  box-shadow: 0 9px #999;
 }
 
 .button:hover {
@@ -313,9 +317,9 @@ li:hover {
 
 .button:active {
   background-color: #3e8e41;
-  /* box-shadow: 0 5px #666; */
+  box-shadow: 0 5px #666;
   transform: translateY(4px);
-}
+} */
 /* 
 #mainselection {
   overflow: hidden;
@@ -340,7 +344,7 @@ element.style {
   width: 100%;
   height: auto;
 }
-.text1 {
+/* .text1 {
   position: absolute;
   bottom: 120px;
   left: 20px;
@@ -360,24 +364,17 @@ element.style {
   right: 200px;
   color: #dad8cc;
   font-weight: 900;
-}
+} */
 /* .Menu{
   padding-Bottom:25px;
 } */
 
 .sidenav {
-  top: 50%;
-  position: absolute;
-  width: 20%;
-  left: 170px;
+  /* width: 60%; */
+  /* left: 170px; */
   height: 200px;
 }
-.p-page {
-  top: 20%;
-  position: absolute;
-  width: 30%;
-  left: 48%;
-}
+
 .P-name {
   position: absolute;
   top: 270px;
@@ -427,15 +424,14 @@ body {
   font-size: 14px;
   line-height: 1.8 !important;
 }
- .pageNumber{
+.pageNumber {
   margin-right: 0.3em;
-  color:black;
+  color: black;
   user-select: none;
-  cursor:pointer;
+  cursor: pointer;
   list-style: none;
   display: flex;
-  
- }
+}
 .footer {
   text-align: left;
   position: absolute;
@@ -444,6 +440,10 @@ body {
   left: 10px;
   top: 10px;
 }
+/* .p-page{
+  
+  border-radius: 50px;
+} */
 #hdr {
   top: 5px;
   right: 10px;

@@ -14,11 +14,11 @@ class Password extends Component {
     };
   }
   componentDidMount() {
-    const data = {
-      token: localStorage.getItem('token')
-    };
+    // const data = {
+    //   token: localStorage.getItem('token')
+    // };
     fetch('http://localhost:3002/profile', {
-      method: 'post',
+      method: 'get',
       headers: {
          'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ class Password extends Component {
   
   render() {
     return (
-      <div className="p-page">
+      <div>
         <h2><strong>Reset Password</strong></h2>
         <input
           type="password"

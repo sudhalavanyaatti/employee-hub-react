@@ -18,7 +18,7 @@ class Signup extends React.Component {
       fullName: '',
       email: '',
       password: '',
-      category: '',
+      category: 'Category ',
       phone: '',
       city: '',
       state: '',
@@ -59,7 +59,7 @@ class Signup extends React.Component {
   }
 
   handleChangeCategory(event) {
-    this.setState({category: event});
+    this.setState({category: event.value});
   }
   handleChangeNumber(event) {
     this.setState({
@@ -100,8 +100,8 @@ class Signup extends React.Component {
       latitude: this.state.latitude,
       longitude: this.state.longitude
     };
-    await fetch("http://localhost:3002/register", {
-      method: "POST",
+    await fetch('http://localhost:3002/register', {
+      method: 'POST',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
@@ -126,14 +126,13 @@ class Signup extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-          
         </div>
 
         <div className="col-md-4 col-md-offset-4">
           <MDBContainer>
             <h1 align="center">
-            <br/>
-            <br/>
+              <br />
+              <br />
               <strong>Register Here</strong>
             </h1>
             <br />
@@ -193,20 +192,18 @@ class Signup extends React.Component {
             </MDBRow>
             <MDBRow>
               <MDBCol md="6">
+                {/* <i class="fa fa-briefcase" aria-hidden="false"></i> */}
                 <Select
                   options={options}
-                  type="text"
                   value={this.state.category}
-                  name="category"
                   onChange={event => this.handleChangeCategory(event)}
-                  placeholder="Category"
-                  // label="Category:"
-                  // icon="th-large"
+                  placeholder={this.state.category}
+                  styles={borderStyles}
                   required
                 />
               </MDBCol>
               <MDBCol md="6">
-                  <MDBInput
+                <MDBInput
                   name="city"
                   type="text"
                   value={this.state.city}
@@ -220,7 +217,7 @@ class Signup extends React.Component {
             </MDBRow>
             <MDBRow>
               <MDBCol md="6">
-                  <MDBInput
+                <MDBInput
                   name="state"
                   type="text"
                   value={this.state.state}
@@ -232,7 +229,7 @@ class Signup extends React.Component {
                 />
               </MDBCol>
               <MDBCol md="6">
-                 <MDBInput
+                <MDBInput
                   type="text"
                   name="zip"
                   id="materialFormRegisterZipEx2"
@@ -265,13 +262,29 @@ class Signup extends React.Component {
               </h5>
             </div>
           </MDBContainer>
-          <br/>
-          <br/>
+          <br />
+          <br />
         </div>
         <Bottom />
       </div>
     );
   }
 }
+const borderStyles = {
+  control: (base) => ({
+    ...base,
+    border: '0 !important',
+    boxShadow: '0 !important',
+    '&:hover': {
+      border: '0 !important'
+    },
+    background: 'rgba(50, 115, 220, 0.048)'
+  }),
+  valueContainer: (styles) => ({
+    ...styles,
+    width:'50px',
+    background: 'rgba(50, 115, 220, 0.048)'
+  })
+};
 
 export default Signup;

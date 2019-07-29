@@ -1,138 +1,147 @@
 import React, {Component} from 'react';
-import { withRouter } from 'react-router';
+import {withRouter} from 'react-router';
 import '../App.css';
 import '../style.css';
 class Number extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
     this.state = {
       mobile: '',
       umobile: '',
       otp: '',
-      otpView: false
+      otpView: false,
     };
   }
-  handleChangeUmobile(event) {
-    this.setState({
-      umobile: event.target.value
+  handleChangeUmobile (event) {
+    this.setState ({
+      umobile: event.target.value,
     });
   }
-  handleChangeotp(event) {
-    this.setState({
-      otp: event.target.value
+  handleChangeotp (event) {
+    this.setState ({
+      otp: event.target.value,
     });
   }
-  handleNumber(data) {
+  handleNumber (data) {
     data = {
-      phone: this.state.umobile
+      phone: this.state.umobile,
     };
-    fetch('http://localhost:3002/update-number', {
+    fetch ('http://localhost:3002/update-number', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify (data),
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
+        'Access-Control-Allow-Origin': '*',
+      },
     })
-      .then(res => res.json())
-      .then(response => {
-        console.log(response);
+      .then (res => res.json ())
+      .then (response => {
+        console.log (response);
         if (response.response.success) {
-          this.setState({
-            otpView: true
+          this.setState ({
+            otpView: true,
           });
-        } else alert('Enter valid number');
+        } else alert ('Enter valid number');
       });
   }
-  Otp() {
+  Otp () {
     return (
-      <div className="p-page">
+      <div>
         <h2>Enter your Otp</h2>
         <input
           type="tel"
           maxLength="6"
           minLength="6"
           value={this.state.otp}
-          onChange={event => this.handleChangeotp(event)}
+          onChange={event => this.handleChangeotp (event)}
           placeholder="OTP"
         />
-        <button type="submit" className="bstyle" onClick={() => this.handleOtp()}>
+        <button
+          type="submit"
+          className="bstyle"
+          onClick={() => this.handleOtp ()}
+        >
           Submit
         </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="submit" className="bstyle" onClick={() => this.handleResendOtp()}>
+        <button
+          type="submit"
+          className="bstyle"
+          onClick={() => this.handleResendOtp ()}
+        >
           Resend
         </button>
-        
+
       </div>
     );
   }
-  handleOtp(data) {
+  handleOtp (data) {
     data = {
       id: this.state.id,
       phone: this.state.umobile,
-      otp: this.state.otp
+      otp: this.state.otp,
     };
-    fetch('http://localhost:3002/updateNumber-OtpVal', {
+    fetch ('http://localhost:3002/updateNumber-OtpVal', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify (data),
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
+        'Access-Control-Allow-Origin': '*',
+      },
     })
-      .then(res => res.json())
-      .then(response => {
+      .then (res => res.json ())
+      .then (response => {
         if (!response.response.success) {
-          alert('enter Valid OTP');
+          alert ('enter Valid OTP');
         } else {
-            window.location.reload();
-          this.props.history.push('/profile');
+          window.location.reload ();
+          this.props.history.push ('/profile');
         }
       });
   }
-  handleResendOtp(data) {
+  handleResendOtp (data) {
     data = {
-      phone: this.state.umobile
+      phone: this.state.umobile,
     };
-    fetch('http://localhost:3002/resend-otp', {
+    fetch ('http://localhost:3002/resend-otp', {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify (data),
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
+        'Access-Control-Allow-Origin': '*',
+      },
     })
-      .then(res => res.json())
-      .then(response => {
-        if(response)
-        window.location.reload();
+      .then (res => res.json ())
+      .then (response => {
+        if (response) window.location.reload ();
       });
   }
-  render() {
+  render () {
     return (
       <div>
-        {!this.state.otpView ? (
-          <div className="p-page">
-          
-            <h2><strong>Update Mobile Number</strong></h2>
-            
-            <input
-              type="tel"
-              maxLength="10"
-              minLength="10"
-              value={this.state.umobile}
-              onChange={event => this.handleChangeUmobile(event)}
-              placeholder="Mobile Number"
-            />
-            <button type="submit" className="bstyle" onClick={() => this.handleNumber()}>
-              Submit
-            </button>
-          </div>
-        ) : (
-          <div>{this.Otp()}</div>
-        )}
+        {!this.state.otpView
+          ? <div>
+
+              <h2><strong>Update Mobile Number</strong></h2>
+
+              <input
+                type="tel"
+                maxLength="10"
+                minLength="10"
+                value={this.state.umobile}
+                onChange={event => this.handleChangeUmobile (event)}
+                placeholder="Mobile Number"
+              />
+              <button
+                type="submit"
+                className="bstyle"
+                onClick={() => this.handleNumber ()}
+              >
+                Submit
+              </button>
+            </div>
+          : <div>{this.Otp ()}</div>}
       </div>
     );
   }
 }
-export default withRouter(Number);
+export default withRouter (Number);

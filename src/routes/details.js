@@ -5,10 +5,12 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import Bottom from '../components/bottom';
+import SideBar from "../components/sidebar";
 import Select from "react-select";
 import "../style.css";
 import PagiNation from "../components/Pagination";
-import { exportDefaultSpecifier } from "@babel/types";
+// import { exportDefaultSpecifier } from "@babel/types";
 
 library.add (faEnvelope);
 
@@ -329,9 +331,9 @@ class Details extends Component {
   render() {
     let cate = this.state.uniqueCat.map(opt => ({ label: opt, value: opt }));
     let addre = this.state.uniqueAdd.map(opt => ({ label: opt, value: opt }));
-    const imageClick = () => {
-      console.log("Click");
-    };
+    // const imageClick = () => {
+    //   console.log("Click");
+    // };
     console.log("list_123");
     return (
       <div>
@@ -483,6 +485,7 @@ class Details extends Component {
                               />
                             );
                           }
+                          return console.log(store);
                         })}
 
                         <InfoWindow

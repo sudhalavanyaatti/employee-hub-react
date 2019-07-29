@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import _ from "lodash";
+// import PropTypes from "prop-types";
+// import _ from "lodash";
 import { Grid, Row, Col } from "react-flexbox-grid";
 
 class PagiNation extends Component {
