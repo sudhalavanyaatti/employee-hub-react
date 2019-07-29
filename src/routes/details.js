@@ -8,12 +8,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import Select from "react-select";
 import "../style.css";
 import PagiNation from "../components/Pagination";
-import Bottom from '../components/bottom';
-import SideBar from '../components/sidebar';
-import { exportDefaultSpecifier } from "@babel/types";
-import SideBar from "../components/sidebar";
 import Bottom from "../components/bottom";
-import { SearchCategory } from "semantic-ui-react";
+import SideBar from "../components/sidebar";
 
 library.add(faEnvelope);
 
@@ -29,11 +25,11 @@ class Details extends Component {
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
-    seelectedcity: "",
+    selectedcity: "",
     selectedcategory: "",
-    
-    isToggleOn: true,
-  
+    popup: false,
+
+    isToggleOn: true
   };
 
   onMarkerClick = (props, marker, e) => {
@@ -57,6 +53,16 @@ class Details extends Component {
       });
     }
   };
+  onImageClick() {
+    this.setState(
+      {
+        popup: true
+      },
+      () => {
+        console.log(this.state.popup);
+      }
+    );
+  }
 
   async componentDidMount() {
     const token = localStorage.getItem("token");
@@ -107,11 +113,10 @@ class Details extends Component {
     this.setState({ value: event.target.value });
   }
 
- 
   getUsers(searchString) {
-    const data={
-      searchValue:searchString
-    }
+    const data = {
+      searchValue: searchString
+    };
     fetch("http://localhost:3002/find-users", {
       method: "post",
       headers: {
@@ -128,17 +133,15 @@ class Details extends Component {
       );
   }
 
-
   onHandleClick(event) {
-    this.setState({ seelectedcity: event.value });
+    this.setState({ selectedcity: event.value });
     {
       this.getUsers(event.value);
     }
   }
 
   onHandleChange(event) {
-    this.setState({ selectedcategory: event.value}
-    );
+    this.setState({ selectedcategory: event.value });
     {
       this.getUsers(event.value);
     }
@@ -147,7 +150,7 @@ class Details extends Component {
   render() {
     let cate = this.state.uniqueCat.map(opt => ({ label: opt, value: opt }));
     let addre = this.state.uniqueAdd.map(opt => ({ label: opt, value: opt }));
-   
+
     console.log("list_123");
     return (
       <div>
@@ -239,7 +242,7 @@ class Details extends Component {
                         }}
                       >
                         {this.state.list.map(store => {
-                          if (store.city === this.state.value1) {
+                          if (store.city === this.state.selectedcity) {
                             return (
                               <Marker
                                 position={{
@@ -258,7 +261,7 @@ class Details extends Component {
                               />
                             );
                           }
-                          if (store.category === this.state.value2) {
+                          if (store.category === this.state.selectedcategory) {
                             return (
                               <Marker
                                 position={{
@@ -278,8 +281,8 @@ class Details extends Component {
                             );
                           }
                           if (
-                            this.state.value1 === "" &&
-                            this.state.value2 === ""
+                            this.state.selectedcity === "" &&
+                            this.state.selectedcategory === ""
                           ) {
                             return (
                               <Marker
@@ -343,7 +346,7 @@ class Details extends Component {
               <div>
                 <PagiNation
                   details={this.state.list}
-                 
+                  popup={this.onImageClick}
                 />
               </div>
             </Col>

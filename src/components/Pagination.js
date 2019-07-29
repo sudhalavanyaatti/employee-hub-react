@@ -2,49 +2,38 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 import { Grid, Row, Col } from "react-flexbox-grid";
+import Pagination from "react-js-pagination";
+import "../style.css";
 
 class PagiNation extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activePage: "1",
-      todosPerPage: "2",
-      popup: false,
+      noOfDetailsPerPage: "2",
+      popup: false
     };
   }
-  handlePageChange(event) {
-    console.log("event.target.key");
-    console.log(event.target.class);
-
-    this.setState({ activePage: Number(event.target.id) }, () => {
-      console.log(this.state.activePage, "event");
-    });
+  handlePageChange(pageNumber) {
+    this.setState({ activePage: pageNumber });
   }
+
   windowPopUp() {
     console.log("hello");
-
-    this.setState(
-      {
-        popup: true
-      },
-      () => {
-        console.log(this.state.popup, "popup");
-      }
-    );
   }
 
   render() {
-    const indexOfLastTodo = this.state.activePage * this.state.todosPerPage;
-    const indexOfFirstTodo = indexOfLastTodo - this.state.todosPerPage;
+    const indexOfLast = this.state.activePage * this.state.noOfDetailsPerPage;
+    const indexOfFirst = indexOfLast - this.state.noOfDetailsPerPage;
     console.log(
-      Math.ceil(this.props.details.length / this.state.todosPerPage, "length")
+      Math.ceil(
+        this.props.details.length / this.state.noOfDetailsPerPage,
+        "length"
+      )
     );
-    const currentTodos = this.props.details.slice(
-      indexOfFirstTodo,
-      indexOfLastTodo
-    );
-    console.log(currentTodos,"todo")
-    const renderTodos = currentTodos.map((todo, index) => {
+    const list = this.props.details.slice(indexOfFirst, indexOfLast);
+
+    const renderPage = list.map((data, index) => {
       return (
         <div key={index}>
           <Grid
@@ -59,34 +48,34 @@ class PagiNation extends Component {
               <Col xs={2} lg={2} sm={2} md={2} className="col">
                 <img
                   className="responsive"
-                  src={todo.profilePic}
+                  src={data.profilePic}
                   style={{
                     width: "60px",
                     height: "60px",
                     borderRadius: "50%"
                   }}
-                  alt={todo.fullName}
-                  onClick={this.windowPopUp.bind(this)}
+                  alt={data.fullName}
+                  onClick={this.props.popup.bind(this)}
                 />
               </Col>
               <Col xs={3} lg={3} sm={3} md={3} className="col">
                 <i>
                   {" "}
-                  {todo.fullName.charAt(0).toUpperCase() +
-                    todo.fullName.substring(1)}
+                  {data.fullName.charAt(0).toUpperCase() +
+                    data.fullName.substring(1)}
                 </i>
               </Col>
               <Col xs={3} lg={3} sm={3} md={3} className="col">
-                {todo.category.charAt(0).toUpperCase() +
-                  todo.category.substring(1)}
+                {data.category.charAt(0).toUpperCase() +
+                  data.category.substring(1)}
               </Col>
               <Col xs={3} lg={3} sm={3} md={3} className="col">
                 <div>
-                  {todo.city}
+                  {data.city}
                   <br />
-                  {todo.state}
+                  {data.state}
                 </div>
-                {todo.zip}
+                {data.zip}
                 <br />
               </Col>
             </Row>
@@ -94,31 +83,19 @@ class PagiNation extends Component {
         </div>
       );
     });
-   
-    const pageNumbers = [];
-    for (
-      let i = 1;
-      i <= Math.ceil(this.props.details.length / this.state.todosPerPage);
-      i++
-    ) {
-      pageNumbers.push(i);
-    }
-    console.log(pageNumbers, "page");
-    const renderPageNumbers = pageNumbers.map(number => {
-      console.log(number);
-      return (
-        <li key={number} id={number} onClick={this.handlePageChange.bind(this)}>
-          {number}
-        </li>
-      );
-    });
 
     return (
       <div>
-      {
-        renderTodos
-      }
-        <ul className="pageNumber">{renderPageNumbers}</ul>
+        {renderPage}
+
+        <Pagination
+          hideNavigation
+          activePage={this.state.activePage}
+          itemsCountPerPage={this.state.noOfDetailsPerPage}
+          totalItemsCount={this.props.details.length}
+          pageRangeDisplayed={2}
+          onChange={this.handlePageChange.bind(this)}
+        />
       </div>
     );
   }
