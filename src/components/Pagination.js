@@ -10,7 +10,7 @@ class PagiNation extends Component {
     super(props);
     this.state = {
       activePage: "1",
-      noOfDetailsPerPage: "2",
+      noOfDetailsPerPage: "3",
       popup: false
     };
   }
@@ -44,7 +44,7 @@ class PagiNation extends Component {
               margin: "0px"
             }}
           >
-            <Row style={{borderBottom:"1px solid #e4ebe6"}}>
+            <Row style={{borderBottom:"1px solid #e4ebe6",textAlign:'center'}}>
               <Col xs={2} lg={2} sm={2} md={2} className="col">
                 <img
                   className="responsive"

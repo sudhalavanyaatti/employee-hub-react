@@ -159,7 +159,7 @@ class Details extends Component {
             margin: "0px"
           }}
         >
-          <Row style={{ height: "50px" }}>
+          <Row style={{ paddingTop: "50px" }}>
             <div>
               <div className="mobile-only">
                 <SideBar />

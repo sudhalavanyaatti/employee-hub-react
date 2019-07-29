@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-//import {Row, Col} from 'react-flexbox-grid';
+import {Row} from 'react-flexbox-grid';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from '../components/sidebar';
@@ -191,8 +191,9 @@ class Signup extends React.Component {
               </MDBCol>
             </MDBRow>
             <MDBRow>
-              <MDBCol md="6" style={{paddingTop: '15px'}}>
-                {/* <i class="fa fa-briefcase icon-4x" aria-hidden="true"></i> */}
+              <MDBCol md="6" >
+              <Row style={{paddingTop:"15px"}}>
+                <i class="fa fa-briefcase fa-2x" aria-hidden="true" style={{position:'relative',left:'10px'}}></i>
                 <Select
                   options={options}
                   value={this.state.category}
@@ -201,12 +202,12 @@ class Signup extends React.Component {
                   styles={borderStyles}
                   required
                 />
-                <hr
+                </Row>
+                {/* <hr
                   style={{
-                    height: '0.5px',
-                    borderColor:'white'
+                    height: '0.5px'
                   }}
-                />
+                /> */}
               </MDBCol>
               <MDBCol md="6">
                 <MDBInput
@@ -243,7 +244,7 @@ class Signup extends React.Component {
                   onChange={event => this.handleChangeZip(event)}
                   maxLength="6"
                   label="Zip:"
-                  icon="file"
+                  icon="map-pin"
                   required
                 />
               </MDBCol>
@@ -284,17 +285,14 @@ const borderStyles = {
     '&:hover': {
       border: '0 !important'
     },
-    // background: 'rgba(50, 90, 110, 0.048)'
+ 
+      background: 'rgba(50, 90, 110, 0.048)'
   }),
   valueContainer: styles => ({
     ...styles,
-    width: '50px',
-    background: 'rgba(50, 115, 220, 0.048)'
-  }),
-  input: (base) => ({
-    ...base,
- 
-      color: 'green'
+    width: '140px',
+    
+    background: 'rgba(50, 90, 110, 0.048)'
   })
 };
 
