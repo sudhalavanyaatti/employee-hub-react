@@ -44,7 +44,7 @@ class PagiNation extends Component {
               margin: "0px"
             }}
           >
-            <Row>
+            <Row style={{borderBottom:"1px solid #e4ebe6"}}>
               <Col xs={2} lg={2} sm={2} md={2} className="col">
                 <img
                   className="responsive"

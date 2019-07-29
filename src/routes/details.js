@@ -135,16 +135,14 @@ class Details extends Component {
 
   onHandleClick(event) {
     this.setState({ selectedcity: event.value });
-    
-      this.getUsers(event.value);
-    
+
+    this.getUsers(event.value);
   }
 
   onHandleChange(event) {
     this.setState({ selectedcategory: event.value });
-    
-      this.getUsers(event.value);
-    
+
+    this.getUsers(event.value);
   }
 
   render() {
@@ -198,14 +196,20 @@ class Details extends Component {
               )}
             </Col>
 
-            <Col xs={3} lg={3} md={3} sm={3}>
-              <select
+            <Col
+              xs={3}
+              lg={3}
+              md={3}
+              sm={3}
+             
+            >
+              <select className="select"
                 required=""
                 style={{
                   position: "absolute",
                   textAlign: "center",
-                  paddingLeft: "0px",
-                  paddingRight: "0px"
+                  paddingLeft: "16px",
+                  paddingRight: "16px"
                 }}
                 value={this.state.value}
                 onChange={e => {

@@ -62,11 +62,11 @@ button.btn.btn-blue.Ripple-parent {
   background-color: #f2f2f2;
   padding: 20px;
 } */
-input[type='text'],
-[type='email'],
-[type='password'],
-[type='tel'],
-[type='date'],
+input[type="text"],
+[type="email"],
+[type="password"],
+[type="tel"],
+[type="date"],
 select {
   box-sizing: border-box;
   width: 80%;
@@ -76,9 +76,19 @@ select {
   border: 1px solid #ccc;
   border-radius: 10px;
 }
+.select {
+  padding: 13.5px 10px;
+  width: 350px;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 0px;
+  background-color: whitesmoke;
+  
+}
+
 
 .col {
-  padding: '0px';
+  padding: "0px";
 }
 
 #table1 {
@@ -169,6 +179,7 @@ h4 {
   font-size: 10px;
   
 } */
+
 
 button {
   border: none;
@@ -407,6 +418,9 @@ select option[data-default] {
 }
 .css-1wa3eu0-placeholder {
   color: black !important;
+  padding-left: 16px;
+  padding-right: 10px;
+  align-items: center
 }
 .col-xs-9.col-lg-9.col-md-9.col-sm-9.col {
   padding: 0px;
@@ -420,7 +434,7 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background: #fff;
-  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.8 !important;
 }
