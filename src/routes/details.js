@@ -5,14 +5,13 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import Bottom from '../components/bottom';
-import SideBar from "../components/sidebar";
 import Select from "react-select";
 import "../style.css";
 import PagiNation from "../components/Pagination";
-// import { exportDefaultSpecifier } from "@babel/types";
+import Bottom from "../components/bottom";
+import SideBar from "../components/sidebar";
 
-library.add (faEnvelope);
+library.add(faEnvelope);
 
 class Details extends Component {
   state = {
@@ -22,39 +21,48 @@ class Details extends Component {
     list: [],
     details: true,
     address: [],
-    value: '',
+    value: "",
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
-    value1: "",
-    value2: "",
+    selectedcity: "",
+    selectedcategory: "",
     popup: false,
-    isToggleOn: true,
-    searchCategory: [],
-    searchCity: []
+
+    isToggleOn: true
   };
 
   onMarkerClick = (props, marker, e) => {
-    this.setState (
+    this.setState(
       {
         selectedPlace: props,
         activeMarker: marker,
-        showingInfoWindow: true,
+        showingInfoWindow: true
       },
       () => {
-        console.log (this.state.showingInfoWindow);
+        console.log(this.state.showingInfoWindow);
       }
     );
   };
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
-      this.setState ({
+      this.setState({
         showingInfoWindow: false,
-        activeMarker: null,
+        activeMarker: null
       });
     }
   };
+  onImageClick() {
+    this.setState(
+      {
+        popup: true
+      },
+      () => {
+        console.log(this.state.popup);
+      }
+    );
+  }
 
   async componentDidMount() {
     const token = localStorage.getItem("token");
@@ -68,13 +76,13 @@ class Details extends Component {
         "Authentication-Token": token
       }
     })
-      .then (res => res.json ())
-      .then (data =>
-        this.setState (
+      .then(res => res.json())
+      .then(data =>
+        this.setState(
           {
             list: data.details
           },
-          () => console.log ('details', this.state.list)
+          () => console.log("details", this.state.list)
         )
       );
 
@@ -94,258 +102,66 @@ class Details extends Component {
     });
   }
 
-  handleClick () {
-    const {details} = this.state;
-    this.setState ({details: !details}, () =>
-      console.log (this.state.details, 'details')
+  handleClick() {
+    const { details } = this.state;
+    this.setState({ details: !details }, () =>
+      console.log(this.state.details, "details")
     );
   }
 
-  handleChange (event) {
-    this.setState ({value: event.target.value});
+  handleChange(event) {
+    this.setState({ value: event.target.value });
   }
-  windowPopUp() {
-    console.log("hello");
 
-    this.setState(
-      {
-        popup: true
+  getUsers(searchString) {
+    const data = {
+      searchValue: searchString
+    };
+    fetch("http://localhost:3002/find-users", {
+      method: "post",
+      headers: {
+        "Authentication-Token": localStorage.getItem("token"),
+        "content-type": "application/json"
       },
-      () => {
-        console.log(this.state.popup, "popup");
-      }
-    );
-  }
-
-  // renderCategory() {
-  //   return (
-  //     <div>
-  //       <div>
-  //         {this.state.list.map((data, index) => {
-  //           if (data.category === this.state.value2) {
-  //             return (
-  //               <div key={index}>
-  //                 <Grid
-  //                   fluid
-  //                   style={{
-  //                     paddingRight: "0px",
-  //                     paddingLeft: "0px",
-  //                     margin: "0px"
-  //                   }}
-  //                 >
-  //                   <Row>
-  //                     <Col xs={2} lg={2} sm={2} md={2} className="col">
-  //                       <img
-  //                         className="responsive"
-  //                         src={data.profilePic}
-  //                         style={{
-  //                           width: "60px",
-  //                           height: "60px",
-  //                           borderRadius: "50%"
-  //                         }}
-  //                         alt={data.fullName}
-  //                       />
-  //                     </Col>
-  //                     <Col xs={3} lg={3} sm={3} md={3} className="col">
-  //                       <i>
-  //                         {" "}
-  //                         {data.fullName.charAt(0).toUpperCase() +
-  //                           data.fullName.substring(1)}
-  //                       </i>
-  //                     </Col>
-  //                     <Col xs={3} lg={3} sm={3} md={3} className="col">
-  //                       {data.category.charAt(0).toUpperCase() +
-  //                         data.category.substring(1)}
-  //                     </Col>
-  //                     <Col xs={3} lg={3} sm={3} md={3} className="col">
-  //                       <div>
-  //                         {data.city}
-  //                         <br />
-  //                         {data.state}
-  //                       </div>
-  //                       {data.zip}
-  //                       <br />
-  //                     </Col>
-  //                   </Row>
-  //                 </Grid>
-  //               </div>
-  //             );
-  //           }
-  //           return console.log(data);
-  //         })}
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
-  // renderAddress() {
-  //   return (
-  //     <div>
-  //       <div>
-  //         {this.state.list.map((data, index) => {
-  //           if (data.city == this.state.value1) {
-  //             return (
-  //               <div key={index}>
-  //                 <Grid
-  //                   style={{
-  //                     paddingRight: "0px",
-  //                     paddingLeft: "0px",
-  //                     margin: "0px"
-  //                   }}
-  //                 >
-  //                   <Row>
-  //                     <Col xs={2} lg={2} sm={2} md={2} className="col">
-  //                       <img
-  //                         className="responsive"
-  //                         src={data.profilePic}
-  //                         alt="photo"
-  //                         style={{
-  //                           width: "60px",
-  //                           height: "60px",
-  //                           borderRadius: "50%"
-  //                         }}
-  //                         alt={data.fullName}
-  //                       />
-  //                     </Col>
-  //                     <Col xs={3} lg={3} sm={3} md={3} className="col">
-  //                       <i>
-  //                         {" "}
-  //                         {data.fullName.charAt(0).toUpperCase() +
-  //                           data.fullName.substring(1)}
-  //                       </i>
-  //                     </Col>
-  //                     <Col xs={3} lg={3} sm={3} md={3} className="col">
-  //                       {data.category.charAt(0).toUpperCase() +
-  //                         data.category.substring(1)}
-  //                     </Col>
-
-  //                     <Col xs={3} lg={3} sm={3} md={3} className="col">
-  //                       <div>
-  //                         {data.city}
-  //                         <br />
-  //                         {data.state}
-  //                       </div>
-  //                       {data.zip}
-  //                       <br />
-  //                     </Col>
-  //                   </Row>
-  //                 </Grid>
-  //               </div>
-  //             );
-  //           }
-  //         })}
-  //       </div>
-  //     </div>
-  //   );
-  // }
-  // renderPage() {
-  //   return (
-  //     <div>
-  //       {this.state.list.map((data, index) => {
-  //         return (
-  //           <div key={index}>
-  //             <Grid
-  //               fluid
-  //               style={{
-  //                 paddingRight: "0px",
-  //                 paddingLeft: "0px",
-  //                 margin: "0px"
-  //               }}
-  //             >
-  //               <Row>
-  //                 <Col xs={2} lg={2} sm={2} md={2} className="col">
-  //                   <img
-  //                     className="responsive"
-  //                     src={data.profilePic}
-  //                     style={{
-  //                       width: "60px",
-  //                       height: "60px",
-  //                       borderRadius: "50%"
-  //                     }}
-  //                     alt={data.fullName}
-  //                     onClick={this.windowPopUp.bind(this)}
-  //                   />
-  //                 </Col>
-  //                 <Col xs={3} lg={3} sm={3} md={3} className="col">
-  //                   <i>
-  //                     {" "}
-  //                     {data.fullName.charAt(0).toUpperCase() +
-  //                       data.fullName.substring(1)}
-  //                   </i>
-  //                 </Col>
-  //                 <Col xs={3} lg={3} sm={3} md={3} className="col">
-  //                   {data.category.charAt(0).toUpperCase() +
-  //                     data.category.substring(1)}
-  //                 </Col>
-  //                 <Col xs={3} lg={3} sm={3} md={3} className="col">
-  //                   <div>
-  //                     {data.city}
-  //                     <br />
-  //                     {data.state}
-  //                   </div>
-  //                   {data.zip}
-  //                   <br />
-  //                 </Col>
-  //               </Row>
-  //             </Grid>
-  //           </div>
-  //         );
-  //       })}
-  //     </div>
-  //   );
-  // }
-  renderDetails() {
-    if (this.state.value1 === "" && this.state.value2 === "") {
-      return <div>{this.renderPage()}</div>;
-    } else if (this.state.value1 !== "") {
-      return <div>{this.renderAddress()}</div>;
-    } else {
-      return <div>{this.renderCategory()}</div>;
-    }
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(data =>
+        this.setState({ list: data }, () => {
+          console.log(this.state.result, "hello");
+        })
+      );
   }
 
   onHandleClick(event) {
-    this.setState({ value1: event.value });
-    fetch("http://localhost:3002/find-users", {
-      method: "post",
-      headers: {
-        "Authentication-Token": localStorage.getItem("token")
-      }
-    })
-      .then(res => res.json())
-      .then(data => this.setState({ searchCity: data }));
+    this.setState({ selectedcity: event.value });
+    
+      this.getUsers(event.value);
+    
   }
 
   onHandleChange(event) {
-    this.setState({ value2: event.value });
-    fetch("http://localhost:3002/find-users", {
-      method: "post",
-      headers: {
-        "Authentication-Token": localStorage.getItem("token")
-      }
-    })
-      .then(res => res.json())
-      .then(data => this.setState({ searchCategory: data }));
+    this.setState({ selectedcategory: event.value });
+    
+      this.getUsers(event.value);
+    
   }
 
   render() {
     let cate = this.state.uniqueCat.map(opt => ({ label: opt, value: opt }));
     let addre = this.state.uniqueAdd.map(opt => ({ label: opt, value: opt }));
-    // const imageClick = () => {
-    //   console.log("Click");
-    // };
     console.log("list_123");
     return (
       <div>
         <Grid
           fluid
           style={{
-            paddingRight: '0px',
-            paddingLeft: '0px',
-            margin: '0px',
+            paddingRight: "0px",
+            paddingLeft: "0px",
+            margin: "0px"
           }}
         >
-          <Row style={{height: '50px'}}>
+          <Row style={{ height: "50px" }}>
             <div>
               <div className="mobile-only">
                 <SideBar />
@@ -356,7 +172,7 @@ class Details extends Component {
             </div>
           </Row>
 
-          <Row style={{borderBottom: '1px solid #AA9E9E'}}>
+          <Row style={{ borderBottom: "1px solid #AA9E9E" }}>
             <Col xs={9} lg={9} md={9} sm={9} className="col">
               {this.state.value === "address" ? (
                 <Select
@@ -386,14 +202,14 @@ class Details extends Component {
               <select
                 required=""
                 style={{
-                  position: 'absolute',
-                  textAlign: 'center',
-                  paddingLeft: '0px',
-                  paddingRight: '0px',
+                  position: "absolute",
+                  textAlign: "center",
+                  paddingLeft: "0px",
+                  paddingRight: "0px"
                 }}
                 value={this.state.value}
                 onChange={e => {
-                  this.handleChange (e);
+                  this.handleChange(e);
                 }}
               >
                 <option defaultValue="">PLEASE SELECT</option>
@@ -425,7 +241,7 @@ class Details extends Component {
                         }}
                       >
                         {this.state.list.map(store => {
-                          if (store.city === this.state.value1) {
+                          if (store.city === this.state.selectedcity) {
                             return (
                               <Marker
                                 position={{
@@ -444,7 +260,7 @@ class Details extends Component {
                               />
                             );
                           }
-                          if (store.category === this.state.value2) {
+                          if (store.category === this.state.selectedcategory) {
                             return (
                               <Marker
                                 position={{
@@ -464,8 +280,8 @@ class Details extends Component {
                             );
                           }
                           if (
-                            this.state.value1 === "" &&
-                            this.state.value2 === ""
+                            this.state.selectedcity === "" &&
+                            this.state.selectedcategory === ""
                           ) {
                             return (
                               <Marker
@@ -530,19 +346,18 @@ class Details extends Component {
               <div>
                 <PagiNation
                   details={this.state.list}
-                  searchCity={this.state.searchCity}
-                  searchCat={this.state.searchCategory}
+                  popup={this.onImageClick}
                 />
               </div>
             </Col>
           </Row>
         </Grid>
-          <Bottom />
+        <Bottom />
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper ({
-  apiKey: 'AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places',
-}) (Details);
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places"
+})(Details);

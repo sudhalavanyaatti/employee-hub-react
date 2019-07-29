@@ -16,8 +16,9 @@ class Account extends Component {
       experience: '',
     };
   }
-  componentDidMount () {
-    fetch ('http://localhost:3002/profile', {
+  componentDidMount() {
+
+    fetch('http://localhost:3002/profile', {
       method: 'get',
       headers: {
         'Authentication-Token': localStorage.getItem ('token'),
@@ -75,7 +76,7 @@ class Account extends Component {
       method: 'POST',
       body: JSON.stringify (data),
       headers: {
-        'Authentication-Token': localStorage.getItem ('token'),
+        'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       },

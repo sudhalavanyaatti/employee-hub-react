@@ -13,6 +13,7 @@ class Address extends Component {
     };
   }
   componentDidMount() {
+  
     fetch('http://localhost:3002/profile', {
       method: 'get',
       headers: {

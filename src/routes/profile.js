@@ -22,14 +22,13 @@ class Profile extends Component {
       displayContent: 'account',
     };
   }
-  componentDidMount () {
-    // const data = {
-    //   token: localStorage.getItem('token')
-    // };
-    fetch ('http://localhost:3002/profile', {
+  componentDidMount() {
+    
+    fetch('http://localhost:3002/profile', {
       method: 'get',
+      body: JSON.stringify(),
       headers: {
-        'Authentication-Token': localStorage.getItem ('token'),
+        'Authentication-Token' :localStorage.getItem ('token'),
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       },
