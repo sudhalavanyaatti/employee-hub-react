@@ -48,7 +48,7 @@ class Header extends Component {
       <div>
         {this.state.userStatus ? (
           <div>
-            <Menu id="headbg"fixed="top" inverted style={{ height: '50px' }} >
+            <Menu id="headbg"fixed="top" inverted style={{ height: '50px'}} >
               <Container>
              
                 <Menu.Item as={Link} to="/" header style={{ left: '-100px',color: 'white'}}>

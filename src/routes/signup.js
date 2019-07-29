@@ -92,7 +92,7 @@ class Signup extends React.Component {
       fullName: this.Capitalize(this.state.fullName),
       email: this.state.email,
       password: this.state.password,
-      category: this.Capitalize(this.state.category),
+      category: this.state.category,
       phone: this.state.phone,
       city: this.Capitalize(this.state.city),
       state: this.Capitalize(this.state.state),
@@ -191,8 +191,8 @@ class Signup extends React.Component {
               </MDBCol>
             </MDBRow>
             <MDBRow>
-              <MDBCol md="6">
-                {/* <i class="fa fa-briefcase" aria-hidden="false"></i> */}
+              <MDBCol md="6" style={{paddingTop: '15px'}}>
+                {/* <i class="fa fa-briefcase icon-4x" aria-hidden="true"></i> */}
                 <Select
                   options={options}
                   value={this.state.category}
@@ -200,6 +200,12 @@ class Signup extends React.Component {
                   placeholder={this.state.category}
                   styles={borderStyles}
                   required
+                />
+                <hr
+                  style={{
+                    height: '0.5px',
+                    borderColor:'white'
+                  }}
                 />
               </MDBCol>
               <MDBCol md="6">
@@ -271,19 +277,24 @@ class Signup extends React.Component {
   }
 }
 const borderStyles = {
-  control: (base) => ({
+  control: base => ({
     ...base,
     border: '0 !important',
     boxShadow: '0 !important',
     '&:hover': {
       border: '0 !important'
     },
+    // background: 'rgba(50, 90, 110, 0.048)'
+  }),
+  valueContainer: styles => ({
+    ...styles,
+    width: '50px',
     background: 'rgba(50, 115, 220, 0.048)'
   }),
-  valueContainer: (styles) => ({
-    ...styles,
-    width:'50px',
-    background: 'rgba(50, 115, 220, 0.048)'
+  input: (base) => ({
+    ...base,
+ 
+      color: 'green'
   })
 };
 
