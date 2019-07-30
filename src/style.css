@@ -495,4 +495,19 @@ span.css-1okebmr-indicatorSeparator {
 .css-1g48xl4-IndicatorsContainer {
   color:  rgba(50, 115, 220, 0.048);
 }
+.css-1hwfws3 {
+  background-color: white !important;
+}
+.css-tlfecz-indicatorContainer {
+  background-color: rgba(50, 115, 220, 0.048)!important;
+}
+.css-1w4u36x {
+  background-color: rgba(50, 115, 220, 0.048)!important;
+}
+.css-1g48xl4-IndicatorsContainer {
+  background-color: rgba(50, 115, 220, 0.048)!important;
+}
+#labelcolor{
+  color: black !important;
+}
 
