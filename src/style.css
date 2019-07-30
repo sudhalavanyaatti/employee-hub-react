@@ -480,3 +480,19 @@ body {
 g.social-svg-mask {
   fill: rgb(143, 139, 139) !important;
 }
+.css-tlfecz-indicatorContainer {
+  margin-right: 4px;
+  background-color: white !important;
+  border: none !important;
+}
+input:focus {
+  /* outline-width: 0; */
+  outline: none;
+}
+span.css-1okebmr-indicatorSeparator {
+  width: 0px;
+}
+.css-1g48xl4-IndicatorsContainer {
+  color:  rgba(50, 115, 220, 0.048);
+}
+

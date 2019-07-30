@@ -151,6 +151,10 @@ const colourStyles = {
     paddingTop: '0',
     paddingBottom: '0',
 
+  }),
+  focus:(styles)=>({
+    ...styles,
+    outline:'none'
   })
 }
 

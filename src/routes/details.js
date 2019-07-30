@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import Header from "../components/header";
-import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react";
-import { Grid, Row, Col } from "react-flexbox-grid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import Select from "react-select";
-import "../style.css";
-import PagiNation from "../components/Pagination";
-import Bottom from "../components/bottom";
-import SideBar from "../components/sidebar";
+import React, {Component} from 'react';
+import Header from '../components/header';
+import {GoogleApiWrapper, InfoWindow, Map, Marker} from 'google-maps-react';
+import {Grid, Row, Col} from 'react-flexbox-grid';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import Select from 'react-select';
+import '../style.css';
+import PagiNation from '../components/Pagination';
+import Bottom from '../components/bottom';
+import SideBar from '../components/sidebar';
 
 library.add(faEnvelope);
 
@@ -21,12 +21,12 @@ class Details extends Component {
     list: [],
     details: true,
     address: [],
-    value: "",
+    value: '',
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
-    selectedcity: "",
-    selectedcategory: "",
+    selectedcity: '',
+    selectedcategory: '',
     popup: false,
 
     isToggleOn: true
@@ -65,15 +65,15 @@ class Details extends Component {
   }
 
   async componentDidMount() {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
 
-    await fetch("http://localhost:3002/details", {
-      method: "get",
+    await fetch('http://localhost:3002/details', {
+      method: 'get',
       headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "no-cors",
-        "Access-Control-Allow-Credentials": true,
-        "Authentication-Token": token
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'no-cors',
+        'Access-Control-Allow-Credentials': true,
+        'Authentication-Token': token
       }
     })
       .then(res => res.json())
@@ -82,7 +82,7 @@ class Details extends Component {
           {
             list: data.details
           },
-          () => console.log("details", this.state.list)
+          () => console.log('details', this.state.list)
         )
       );
 
@@ -103,63 +103,66 @@ class Details extends Component {
   }
 
   handleClick() {
-    const { details } = this.state;
-    this.setState({ details: !details }, () =>
-      console.log(this.state.details, "details")
+    const {details} = this.state;
+    this.setState({details: !details}, () =>
+      console.log(this.state.details, 'details')
     );
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({value: event.target.value});
   }
 
   getUsers(searchString) {
     const data = {
       searchValue: searchString
     };
-    fetch("http://localhost:3002/find-users", {
-      method: "post",
+    fetch('http://localhost:3002/find-users', {
+      method: 'post',
       headers: {
-        "Authentication-Token": localStorage.getItem("token"),
-        "content-type": "application/json"
+        'Authentication-Token': localStorage.getItem('token'),
+        'content-type': 'application/json'
       },
       body: JSON.stringify(data)
     })
       .then(res => res.json())
       .then(data =>
-        this.setState({ list: data }, () => {
-          console.log(this.state.result, "hello");
+        this.setState({list: data}, () => {
+          console.log(this.state.result, 'hello');
         })
       );
   }
 
   onHandleClick(event) {
-    this.setState({ selectedcity: event.value });
+    this.setState({selectedcity: event.value});
 
     this.getUsers(event.value);
   }
 
   onHandleChange(event) {
-    this.setState({ selectedcategory: event.value });
+    this.setState({selectedcategory: event.value});
 
     this.getUsers(event.value);
   }
 
   render() {
-    let cate = this.state.uniqueCat.map(opt => ({ label: opt, value: opt }));
-    let addre = this.state.uniqueAdd.map(opt => ({ label: opt, value: opt }));
-    console.log("list_123");
+    if(this.state.value==='all'){
+      window.location.reload()
+    }
+    let cate = this.state.uniqueCat.map(opt => ({label: opt, value: opt}));
+    let addre = this.state.uniqueAdd.map(opt => ({label: opt, value: opt}));
+    console.log('list_123');
     return (
       <div>
         <Grid
           fluid
           style={{
-            paddingRight: "0px",
-            paddingLeft: "0px",
-            margin: "0px"
+            paddingRight: '0px',
+            paddingLeft: '0px',
+            margin: '0px'
           }}
         >
-          <Row style={{ paddingTop: "50px" }}>
+          <Row style={{paddingTop: '50px'}}>
             <div>
               <div className="mobile-only">
                 <SideBar />
@@ -170,56 +173,45 @@ class Details extends Component {
             </div>
           </Row>
 
-          <Row style={{ borderBottom: "1px solid #AA9E9E" }}>
+          <Row style={{borderBottom: '1px solid #AA9E9E'}}>
             <Col xs={9} lg={9} md={9} sm={9} className="col">
-              {this.state.value === "address" ? (
+              {this.state.value === 'address' ? (
                 <Select
-                  placeholder={"SEARCH"}
+                  placeholder={'SEARCH'}
                   options={addre}
                   value={this.state.value1}
                   onChange={this.onHandleClick.bind(this)}
-                  style={{
-                    position: "absolute",
-                    backgroundColor: "white"
-                  }}
+                  styles={colourStyles}
                 />
               ) : (
                 <Select
-                  placeholder={"SEARCH"}
+                  placeholder={'SEARCH'}
                   options={cate}
                   value={this.state.value2}
                   onChange={this.onHandleChange.bind(this)}
-                  style={{
-                    position: "absolute"
-                  }}
+                  styles={colourStyles}
                 />
               )}
             </Col>
 
-            <Col
-              xs={3}
-              lg={3}
-              md={3}
-              sm={3}
-             
-            >
-              <select className="select"
+            <Col xs={3} lg={3} md={3} sm={3}>
+              <select
+                className="select"
                 required=""
                 style={{
-                  position: "absolute",
-                  textAlign: "center",
-                  paddingLeft: "16px",
-                  paddingRight: "16px"
+                  position: 'absolute',
+                  textAlign: 'center',
+                  paddingLeft: '16px',
+                  paddingRight: '16px'
                 }}
                 value={this.state.value}
                 onChange={e => {
                   this.handleChange(e);
                 }}
               >
-                <option defaultValue="">PLEASE SELECT</option>
-                <option value="category">category</option>
-
-                <option value="address">address</option>
+                <option Value="all">All</option>
+                <option value="category">Category</option>
+                <option value="address">Address</option>
               </select>
             </Col>
           </Row>
@@ -228,7 +220,7 @@ class Details extends Component {
               <div>
                 <div>
                   {this.state.list.map((store, index) => {
-                    console.log(store.latitude, "dvfd");
+                    console.log(store.latitude, 'dvfd');
 
                     return (
                       <Map
@@ -240,8 +232,8 @@ class Details extends Component {
                           lng: store.longitude
                         }}
                         style={{
-                          width: "50%",
-                          padding: "0"
+                          width: '50%',
+                          padding: '0'
                         }}
                       >
                         {this.state.list.map(store => {
@@ -284,8 +276,8 @@ class Details extends Component {
                             );
                           }
                           if (
-                            this.state.selectedcity === "" &&
-                            this.state.selectedcategory === ""
+                            this.state.selectedcity === '' &&
+                            this.state.selectedcategory === ''
                           ) {
                             return (
                               <Marker
@@ -341,9 +333,9 @@ class Details extends Component {
               sm={6}
               className="col"
               style={{
-                lineHeight: "2.2",
-                borderBottom: "4px",
-                marginTop: "5px",
+                lineHeight: '2.2',
+                borderBottom: '4px',
+                marginTop: '5px',
                 zIndex: 0
               }}
             >
@@ -361,7 +353,10 @@ class Details extends Component {
     );
   }
 }
+const colourStyles = {
+  control: styles => ({ ...styles,background: 'white' })
+}
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places"
+  apiKey: 'AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places'
 })(Details);

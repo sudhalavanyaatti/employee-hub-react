@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { withRouter } from 'react-router';
+// import Select from 'react-select';
 import '../App.css';
 import '../style.css';
 class Address extends Component {
@@ -10,6 +11,9 @@ class Address extends Component {
       city: '',
       state: '',
       zip: ''
+      // countrylist:[],
+      // country:''
+
     };
   }
   componentDidMount() {
@@ -33,9 +37,22 @@ class Address extends Component {
           });
         }
       });
-  }
-  Capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+    //   var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+    // targetUrl = 'https://geodata.solutions/restapi?dd=1'
+    //   fetch(proxyUrl+targetUrl, {
+    //     method: 'GET'
+    //   })
+    //     .then(res => res.json())
+    //     .then(response => {
+          
+    //       this.setState({
+    //         countrylist: response
+    //       },()=> console.log('list',this.state.countrylist)
+    //       );
+    //     });
+    //     this.setState({
+
+    //     })
   }
     handleChangeCity(event) {
       this.setState({
@@ -55,8 +72,8 @@ class Address extends Component {
     handleAddress(data) {
       data = {
         id: this.state.id,
-        city: this.Capitalize(this.state.city),
-        state: this.Capitalize(this.state.state),
+        city: this.state.city,
+        state: this.state.state,
         zip: this.state.zip
       };
       fetch('http://localhost:3002/update-details', {
@@ -90,6 +107,14 @@ class Address extends Component {
             onChange={event => this.handleChangeState(event)}
             placeholder="State"
           />
+          
+           {/* <Select
+          options={this.state.countrylist}
+          value={this.state.countrylist}
+          onChange={event => this.handleChangeCategory (event)}
+          placeholder={this.state.countrylist}
+          styles={colourStyles}
+        /> */}
           <input
             type="tel"
             value={this.state.zip}
@@ -106,5 +131,25 @@ class Address extends Component {
     }
 
 }
+// const colourStyles = {
+//   control: styles => ({ ...styles, borderRadius: '15px',background: 'white', }),
+//   option: styles => ({ ...styles,textAlign: 'center', borderRadius: '25px' }),
+//   container: (styles) => ({
+//     ...styles,
+//     display: 'inline-block',
+//     width: '80%',
+//     textAlign: 'center',
+//     border: 'none',
+//     minHeight: '10px',
+//   }),
+//   valueContainer: (styles) => ({
+//     ...styles,
+//     minHeight: '5px',
+//     height: '50px',
+//     paddingTop: '0',
+//     paddingBottom: '0',
+
+//   })
+// }
 export default withRouter(Address);
 

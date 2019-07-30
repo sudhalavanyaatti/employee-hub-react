@@ -203,11 +203,6 @@ class Signup extends React.Component {
                   required
                 />
                 </Row>
-                {/* <hr
-                  style={{
-                    height: '0.5px'
-                  }}
-                /> */}
               </MDBCol>
               <MDBCol md="6">
                 <MDBInput
@@ -286,13 +281,13 @@ const borderStyles = {
       border: '0 !important'
     },
  
-      background: 'rgba(50, 90, 110, 0.048)'
+      background: 'rgba(50, 115, 220, 0)'
   }),
   valueContainer: styles => ({
     ...styles,
     width: '140px',
     
-    background: 'rgba(50, 90, 110, 0.048)'
+    background: 'rgba(50, 115, 220, 0)'
   })
 };
 
