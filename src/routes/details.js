@@ -148,7 +148,6 @@ class Details extends Component {
   render() {
     let cate = this.state.uniqueCat.map(opt => ({ label: opt, value: opt }));
     let addre = this.state.uniqueAdd.map(opt => ({ label: opt, value: opt }));
-    console.log("list_123");
     return (
       <div>
         <Grid
@@ -196,14 +195,9 @@ class Details extends Component {
               )}
             </Col>
 
-            <Col
-              xs={3}
-              lg={3}
-              md={3}
-              sm={3}
-             
-            >
-              <select className="select"
+            <Col xs={3} lg={3} md={3} sm={3}>
+              <select
+                className="select"
                 required=""
                 style={{
                   position: "absolute",
