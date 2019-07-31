@@ -100,7 +100,7 @@ class Profile extends Component {
                 </div>
               </Col>
               <Col>
-                <div>
+                <div style={{paddingTop: '5%'}}>
                   <Button.Group vertical className="sidenav">
                     <Button
                       onClick={() =>
@@ -154,8 +154,8 @@ class Profile extends Component {
               </Col>
             </div>
           </Col>
-          <Col lg={4} xs={12} sm={6} md={6}>
-            <div>
+          <Col lg={4} xs={12} sm={9} md={9}>
+            <div style={{paddingTop: '10%', paddingBottom: '10%'}}>
               {this.state.displayContent === 'account'
                 ? <div>
                     <Account />

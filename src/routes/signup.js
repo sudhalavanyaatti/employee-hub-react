@@ -100,7 +100,7 @@ class Signup extends React.Component {
       latitude: this.state.latitude,
       longitude: this.state.longitude
     };
-    console.log(data)
+    console.log(data);
     await fetch('http://localhost:3002/register', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -112,8 +112,10 @@ class Signup extends React.Component {
       .then(res => res.json())
       .then(response => {
         console.log(response);
-        if (response.response !== 'null') {
-          this.props.history.push('/otpVal', {phone: this.state.phone});
+        if (!response.response.errmsg) {
+          if (response.response !== 'null') {
+            this.props.history.push('/otpVal', {phone: this.state.phone});
+          }
         } else alert('Use Another Mobile Number');
       });
   }
@@ -184,7 +186,7 @@ class Signup extends React.Component {
                   name="password"
                   value={this.state.password}
                   onChange={event => this.handleChangePass(event)}
-                   id="labelcolor"
+                  id="labelcolor"
                   label="Password:"
                   icon="lock"
                   required
@@ -192,18 +194,23 @@ class Signup extends React.Component {
               </MDBCol>
             </MDBRow>
             <MDBRow>
-              <MDBCol md="6" >
-              <Row style={{paddingTop:"10px"}}>
-                <i class="fa fa-briefcase fa-2x" aria-hidden="true" style={{position:'relative',paddingTop:"10px"}}></i>
-                <Select
-                  options={options}
-                  value={this.state.category}
-                  onChange={event => this.handleChangeCategory(event)}
-                  placeholder={this.state.category}
-                  styles={borderStyles}
-                  required
-                />
-                <hr style={{width:'160px',marginLeft:'40px'}}/>
+              <MDBCol md="6">
+                <Row style={{paddingTop: '14px'}}>
+                  <i
+                    class="fa fa-briefcase fa-2x"
+                    aria-hidden="true"
+                    style={{position: 'relative', paddingTop: '10px',paddingLeft:'3px'}}
+                  />
+                  <Select
+                    options={options}
+                    value={this.state.category}
+                    onChange={event => this.handleChangeCategory(event)}
+                    placeholder={this.state.category}
+                    styles={borderStyles}
+                    className="ddown"
+                    required
+                  />
+                  <hr style={{width:'200px',marginLeft:'45px'}}></hr>
                 </Row>
               </MDBCol>
               <MDBCol md="6">
@@ -285,16 +292,16 @@ const borderStyles = {
   }),
   valueContainer: styles => ({
     ...styles,
-    width: '140px',
+    width: '140px'
   }),
-  dropdownIndicator: styles=>({
+  dropdownIndicator: styles => ({
     ...styles,
     backgroundColor: 'rgba(50, 115, 220, 0.048) !important'
   }),
-  indicatorsContainer: styles=>({
+  indicatorsContainer: styles => ({
     ...styles,
     backgroundColor: 'rgba(50, 115, 220, 0.048) !important'
-  }),
+  })
 };
 
 export default Signup;

@@ -89,18 +89,8 @@ class SignIn extends React.Component {
           <div className="desktop-only">
             <Header />
           </div>
-
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-
-        <div className="col-md-4 col-md-offset-4">
+        <div className="col-md-4 col-md-offset-4" style={{paddingTop:'15%'}}>
           <MDBContainer>
             <h1 align="center">
               <strong>Login Here</strong>
@@ -146,7 +136,6 @@ class SignIn extends React.Component {
               </MDBBtn>
             </div>
             <br />
-
             <MDBModalFooter>
               <div align="center">
                 <h5>
@@ -162,8 +151,6 @@ class SignIn extends React.Component {
               </div>
             </MDBModalFooter>
           </MDBContainer>
-          <br/>
-          <br/>
         </div>
         <Bottom />
       </div>

@@ -35,9 +35,9 @@ button.btn.btn-blue.Ripple-parent {
   font-family: gothambook;
   text-align: center;
 }
-#react-select-2-input {
+/* #react-select-2-input {
   padding: 15px !important;
-}
+} */
 input[type='text'],
 [type='email'],
 [type='password'],
@@ -52,14 +52,14 @@ select {
   border: 1px solid #ccc;
   border-radius: 10px;
 }
-/* .select {
+.scat {
   padding: 13.5px 10px;
   width: 350px;
   box-sizing: border-box;
   display: inline-block;
-  border-radius: 0px;
-  background-color: whitesmoke;
-} */
+  border-radius: 5px;
+  background-color: white;
+}
 
 .col {
   padding: 0px;
@@ -367,6 +367,7 @@ input:focus {
   /* outline-width: 0; */
   outline: none;
 }
+
 span.css-1okebmr-indicatorSeparator {
   width: 0px;
 }
@@ -387,4 +388,5 @@ span.css-1okebmr-indicatorSeparator {
 .ui.menu .item:before {
   width: 0px !important;
 }
+
 

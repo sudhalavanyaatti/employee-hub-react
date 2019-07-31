@@ -84,11 +84,21 @@
   div.mobile-only {
     display: none;
   }
+ 
 }
 @media screen and (max-width: 767px) {
   div.desktop-only {
     display: none;
   }
+  .css-1w4u36x {
+    width: 400px !important;}
+    hr{
+      width:420px !important;
+    } 
+    .img-upload{
+      top:5% !important;
+      left:165px !important; 
+    }
 }
 /* h1 {
   color: black;
@@ -111,6 +121,10 @@
   opacity: 0;
   z-index: 0;
   font-size: 0px;
+}
+img:focus {
+  
+  outline: none;
 }
 
 #page-container {

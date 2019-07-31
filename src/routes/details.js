@@ -209,7 +209,7 @@ class Details extends Component {
 
             <Col xs={3} lg={3} md={3} sm={3}>
               <select
-                className="select"
+                className="scat"
                 required=""
                 style={{
                   position: 'absolute',
@@ -377,7 +377,7 @@ const colourStyles = {
   valueContainer: (styles) => ({
     ...styles,
     minHeight: '5px',
-    height: '42px',
+    height: '45px',
     paddingTop: '0',
     paddingBottom: '0',
     paddingLeft:'50px'
