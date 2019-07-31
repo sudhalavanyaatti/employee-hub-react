@@ -49,6 +49,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
 }
 .profilebg {
   background-color: rgba(50, 115, 220, 0.048);
@@ -68,6 +69,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
 }
 .passwordbg,
 .phnobg,
@@ -76,6 +78,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
 }
 @media screen and (min-width: 768px) {
   div.mobile-only {
