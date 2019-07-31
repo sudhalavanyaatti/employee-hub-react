@@ -35,6 +35,9 @@ button.btn.btn-blue.Ripple-parent {
   font-family: gothambook;
   text-align: center;
 }
+#react-select-2-input {
+  padding: 15px !important;
+}
 input[type='text'],
 [type='email'],
 [type='password'],
@@ -49,14 +52,14 @@ select {
   border: 1px solid #ccc;
   border-radius: 10px;
 }
-.select {
+/* .select {
   padding: 13.5px 10px;
   width: 350px;
   box-sizing: border-box;
   display: inline-block;
   border-radius: 0px;
   background-color: whitesmoke;
-}
+} */
 
 .col {
   padding: 0px;

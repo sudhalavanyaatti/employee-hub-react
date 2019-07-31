@@ -14,7 +14,9 @@ import SideBar from '../components/sidebar';
 library.add(faEnvelope);
 
 class Details extends Component {
-  state = {
+  constructor (props) {
+    super (props);
+  this.state = {
     categories: [],
     uniqueCat: [],
     uniqueAdd: [],
@@ -29,10 +31,11 @@ class Details extends Component {
     selectedcategory: '',
     popup: false,
     isToggleOn: true,
-    Dlatitude:'',
-    Dlongitude:''
+    // Dlatitude:'',
+    // Dlongitude:''
   };
 
+  }
   onMarkerClick = (props, marker, e) => {
     this.setState(
       {
@@ -82,8 +85,7 @@ class Details extends Component {
         this.setState(
           {
             list: data.details
-          },
-          () => console.log('details', this.state.list)
+          }
         )
       );
 
@@ -101,16 +103,16 @@ class Details extends Component {
     this.setState({
       uniqueAdd: Array.from(new Set(this.state.address))
     });
-    navigator.geolocation.getCurrentPosition(position => {
+    // navigator.geolocation.getCurrentPosition(position => {
 
-      this.setState(
-        {
-          Dlatitude: position.coords.latitude,
-          Dlongitude: position.coords.longitude
-        },
-        () => console.log('lat:',this.state.Dlatitude,this.state.Dlongitude)
-      );
-    });
+    //   this.setState(
+    //     {
+    //       Dlatitude: position.coords.latitude,
+    //       Dlongitude:position.coords.longitude
+    //     },
+    //     () => console.log('lat:',this.state.Dlatitude,this.state.Dlongitude)
+    //   );
+    // });
 }
 
 
@@ -237,6 +239,8 @@ class Details extends Component {
                         google={this.props.google}
                         zoom={7}
                         // initialCenter={{
+                        //     lat:17.733196100000004,
+                        //     lng:83.3254853
                         //   lat:this.state.Dlatitude,
                         //   lng:this.state.Dlongitude
                         // }}
@@ -246,7 +250,8 @@ class Details extends Component {
                         }}
                         style={{
                           width: '50%',
-                          padding: '0'
+                          padding: '0',
+                          height:'94%'
                         }}
                       >
                         {this.state.list.map(store => {
@@ -368,7 +373,25 @@ class Details extends Component {
   }
 }
 const colourStyles = {
-  control: styles => ({ ...styles,background: 'white' })
+  control: styles => ({ ...styles,background: 'white' }),
+  valueContainer: (styles) => ({
+    ...styles,
+    minHeight: '5px',
+    height: '42px',
+    paddingTop: '0',
+    paddingBottom: '0',
+    paddingLeft:'50px'
+  }),
+  option: (styles) => ({
+    ...styles,
+    paddingLeft:'50px'
+    //  textAlign: 'center',
+  }),
+  singleValue: (styles) => ({
+    ...styles,
+    paddingLeft:'15px'
+    //  textAlign: 'center',
+  })
 }
 
 export default GoogleApiWrapper({

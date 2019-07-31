@@ -112,6 +112,7 @@ class Account extends Component {
           value={this.state.category}
           onChange={event => this.handleChangeCategory (event)}
           placeholder={this.state.category}
+          maxMenuHeight={200}
           styles={colourStyles}
         />
         <input
@@ -142,7 +143,7 @@ const colourStyles = {
     width: '80%',
     textAlign: 'center',
     border: 'none',
-    minHeight: '10px',
+    minHeight: '10px'
   }),
   valueContainer: (styles) => ({
     ...styles,

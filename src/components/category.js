@@ -1,4 +1,3 @@
-
 let options = [
   {label: 'Chiropractor', value: 'Chiropractor'},
   {label: 'Dietitian', value: 'Dietitian'},
@@ -21,51 +20,44 @@ let options = [
   {label: 'Engineer', value: 'Engineer'},
   {label: 'Teacher', value: 'Teacher'},
   {
-    label:
-      'Life Scientist (e.g., Animal, Food, Soil, or Biological Scientist, Zoologist)',
-    value:
-      'Life Scientist (e.g., Animal, Food, Soil, or Biological Scientist, Zoologist)'
+    label: 'Biological Scientist',
+    value: 'Biological Scientist'
   },
   {
-    label:
-      'Physical Scientist (e.g., Astronomer, Physicist, Chemist, Hydrologist)',
-    value:
-      'Physical Scientist (e.g., Astronomer, Physicist, Chemist, Hydrologist)'
+    label: 'Physical Scientist',
+    value: 'Physical Scientist'
   },
   {
-    label:
-      'Religious Worker (e.g., Clergy, Director of Religious Activities or Education)',
-    value:
-      'Religious Worker (e.g., Clergy, Director of Religious Activities or Education)'
+    label: 'Religious Worker',
+    value: 'Religious Worker'
   },
   {
     label: 'Social Scientist and Related Worker',
     value: 'Social Scientist and Related Worker'
   },
   {
-    label: 'Primary, Secondary, or Special Education School Teacher',
-    value: 'Primary, Secondary, or Special Education School Teacher'
+    label: 'School Teacher',
+    value: 'School Teacher'
   },
   {label: 'Other Teacher or Instructor', value: 'Other Teacher or Instructor'},
   {
-    label: 'Other Education, Training, and Library Occupation',
-    value: 'Other Education, Training, and Library Occupation'
+    label: 'Other Education or Training',
+    value: 'Other Education or Training'
   },
   {
-    label: 'Arts, Design, Entertainment, Sports, and Media Occupations',
-    value: 'Arts, Design, Entertainment, Sports, and Media Occupations'
+    label: 'Arts and Design',
+    value: 'Arts and Design'
   },
   {
-    label: 'Computer Specialist, Mathematical Science',
-    value: 'Computer Specialist, Mathematical Science'
+    label: 'Computer Specialist',
+    value: 'Computer Specialist'
   },
   {
-    label:
-      'Counselor, Social Worker, or Other Community and Social Service Specialist',
-    value:
-      'Counselor, Social Worker, or Other Community and Social Service Specialist'
+    label: 'Counselor, or Social Worker',
+    value: 'Counselor, or Social Worker'
   },
-  {label: 'Lawyer, Judge', value: 'Lawyer, Judge'},
+  {label: 'Lawyer', value: 'Lawyer'},
+  {label: 'Judge', value: 'Judge'},
   {
     label: 'Other Professional Occupation',
     value: 'Other Professional Occupation'
@@ -80,18 +72,16 @@ let options = [
     value: 'Secretary or Administrative Assistant'
   },
   {
-    label: 'Material Recording, Scheduling, and Dispatching Worker',
-    value: 'Material Recording, Scheduling, and Dispatching Worker'
+    label: 'Scheduling, and Dispatching Worker',
+    value: 'Scheduling, and Dispatching Worker'
   },
   {
-    label: 'Other Office and Administrative Support Occupation',
-    value: 'Other Office and Administrative Support Occupation'
+    label: 'Administrative Support',
+    value: 'Administrative Support'
   },
   {
-    label:
-      'Protective Service (e.g., Fire Fighting, Police Officer, Correctional Officer)',
-    value:
-      'Protective Service (e.g., Fire Fighting, Police Officer, Correctional Officer)'
+    label: 'Protective Service',
+    value: 'Protective Service'
   },
   {label: 'Chef or Head Cook', value: 'Chef or Head Cook'},
   {
@@ -99,20 +89,16 @@ let options = [
     value: 'Cook or Food Preparation Worker'
   },
   {
-    label:
-      'Food and Beverage Serving Worker (e.g., Bartender, Waiter, Waitress)',
-    value:
-      'Food and Beverage Serving Worker (e.g., Bartender, Waiter, Waitress)'
+    label: 'Food and Beverage Serving Worker',
+    value: 'Food and Beverage Serving Worker'
   },
   {
-    label: 'Building and Grounds Cleaning and Maintenance',
-    value: 'Building and Grounds Cleaning and Maintenance'
+    label: 'Cleaning and Maintenance',
+    value: 'Cleaning and Maintenance'
   },
   {
-    label:
-      'Personal Care and Service (e.g., Hairdresser, Flight Attendant, Concierge)',
-    value:
-      'Personal Care and Service (e.g., Hairdresser, Flight Attendant, Concierge)'
+    label: 'Personal Care and Service',
+    value: 'Personal Care and Service'
   },
   {
     label: 'Sales Supervisor, Retail Sales',
@@ -124,10 +110,8 @@ let options = [
   {label: 'Real Estate Sales Agent', value: 'Real Estate Sales Agent'},
   {label: 'Other Services Occupation', value: 'Other Services Occupation'},
   {
-    label:
-      'Construction and Extraction (e.g., Construction Laborer, Electrician)',
-    value:
-      'Construction and Extraction (e.g., Construction Laborer, Electrician)'
+    label: 'Construction and Extraction',
+    value: 'Construction and Extraction'
   },
   {
     label: 'Farming, Fishing, and Forestry',
@@ -139,20 +123,16 @@ let options = [
   },
   {label: 'Production Occupations', value: 'Production Occupations'},
   {
-    label:
-      'Other Agriculture, Maintenance, Repair, and Skilled Crafts Occupation',
-    value:
-      'Other Agriculture, Maintenance, Repair, and Skilled Crafts Occupation'
+    label: 'Plumber',
+    value: 'Plumber'
   },
   {
     label: 'Aircraft Pilot or Flight Engineer',
     value: 'Aircraft Pilot or Flight Engineer'
   },
   {
-    label:
-      'Motor Vehicle Operator (e.g., Ambulance, Bus, Taxi, or Truck Driver)',
-    value:
-      'Motor Vehicle Operator (e.g., Ambulance, Bus, Taxi, or Truck Driver)'
+    label: 'Motor Vehicle Operator',
+    value: 'Motor Vehicle Operator'
   },
   {label: 'Military', value: 'Military'},
   {label: 'Homemaker', value: 'Homemaker'}
