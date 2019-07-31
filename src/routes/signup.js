@@ -100,6 +100,7 @@ class Signup extends React.Component {
       latitude: this.state.latitude,
       longitude: this.state.longitude
     };
+    console.log(data)
     await fetch('http://localhost:3002/register', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -286,7 +287,15 @@ const borderStyles = {
   valueContainer: styles => ({
     ...styles,
     width: '140px',
-  })
+  }),
+  dropdownIndicator: styles=>({
+    ...styles,
+    backgroundColor: 'rgba(50, 115, 220, 0.048) !important'
+  }),
+  indicatorsContainer: styles=>({
+    ...styles,
+    backgroundColor: 'rgba(50, 115, 220, 0.048) !important'
+  }),
 };
 
 export default Signup;

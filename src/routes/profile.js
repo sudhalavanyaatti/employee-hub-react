@@ -89,7 +89,6 @@ class Profile extends Component {
                     height="150"
                     width="150"
                   />
-                  {/* <Row lg={5} xs={12} sm={6} md={6}> */}
                   <div className="img-upld">
                     <input
                       type="file"
@@ -97,7 +96,6 @@ class Profile extends Component {
                       onChange={event => this.onChangeUploadpic (event)}
                     />
                   </div>
-                  {/* </Row> */}
                   <div style={{fontSize: '20px'}}>{this.state.name}</div>
                 </div>
               </Col>

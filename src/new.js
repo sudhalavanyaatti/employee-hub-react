@@ -28,8 +28,7 @@ class Details extends Component {
     selectedcity: '',
     selectedcategory: '',
     popup: false,
-    // Dlatitude: '',
-    //   Dlongitude: '',
+
     isToggleOn: true
   };
 
@@ -101,17 +100,7 @@ class Details extends Component {
     this.setState({
       uniqueAdd: Array.from(new Set(this.state.address))
     });
-  //   navigator.geolocation.getCurrentPosition (position => {
-  //     this.setState (
-  //       {
-  //         Dlatitude: position.coords.latitude,
-  //         Dlongitude: position.coords.longitude,
-  //       }
-      
-  //     );
-  // });
-}
-
+  }
 
   handleClick() {
     const {details} = this.state;
@@ -243,10 +232,6 @@ class Details extends Component {
                         // key={index}
                         google={this.props.google}
                         zoom={7}
-                        // initialCenter={{
-                        //   lat: this.state.Dlatitude,
-                        //   lng: this.state.Dlongitude
-                        // }}
                         initialCenter={{
                           lat: store.latitude,
                           lng: store.longitude
