@@ -10,12 +10,18 @@ class PagiNation extends Component {
     super(props);
     this.state = {
       activePage: "1",
-      noOfDetailsPerPage: "2",
-      popup: false
+      noOfDetailsPerPage: "2"
     };
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
   handlePageChange(pageNumber) {
     this.setState({ activePage: pageNumber });
+  }
+
+  componentWillReceiveProps(props) {
+    if (this.props.value != "all") {
+      this.setState({ activePage: "1" });
+    }
   }
 
   windowPopUp() {
@@ -44,41 +50,101 @@ class PagiNation extends Component {
               margin: "0px"
             }}
           >
-            <Row style={{borderBottom:"1px solid #e4ebe6"}}>
-              <Col xs={2} lg={2} sm={2} md={2} className="col">
-                <img
-                  className="responsive"
-                  src={'http://localhost:3002'+data.profilePic}
-                  style={{
-                    width: "60px",
-                    height: "60px",
-                    borderRadius: "50%"
-                  }}
-                  alt={data.fullName}
-                  onClick={this.props.popup.bind(this)}
-                />
-              </Col>
-              <Col xs={3} lg={3} sm={3} md={3} className="col">
-                <i>
-                  {" "}
-                  {data.fullName.charAt(0).toUpperCase() +
-                    data.fullName.substring(1)}
-                </i>
-              </Col>
-              <Col xs={3} lg={3} sm={3} md={3} className="col">
-                {data.category.charAt(0).toUpperCase() +
-                  data.category.substring(1)}
-              </Col>
-              <Col xs={3} lg={3} sm={3} md={3} className="col">
-                <div>
-                  {data.city}
-                  <br />
-                  {data.state}
-                </div>
-                {data.zip}
-                <br />
-              </Col>
-            </Row>
+            <div>
+              <Row
+                style={{
+                  borderBottom: "1px solid #e4ebe6",
+                  textAlign: "center"
+                }}
+              >
+                <Col xs={2} lg={2} sm={2} md={2}>
+                  <div className="userpicdisplay">
+                    <img
+                      className="responsive"
+                      src={"http://localhost:3002" + data.profilePic}
+                      style={{
+                        width: "60px",
+                        height: "60px",
+                        borderRadius: "50%"
+                      }}
+                      alt={data.fullName}
+                      onClick={this.props.popup.bind(this)}
+                    />
+                  </div>
+                </Col>
+                <Col xs={3} lg={3} sm={3} md={3}>
+                  <div className="userdisplay">
+                    {data.fullName.charAt(0).toUpperCase() +
+                      data.fullName.substring(1)}
+                  </div>
+                </Col>
+                <Col xs={3} lg={3} sm={3} md={3}>
+                  <div className="userdisplay">
+                    {data.category.charAt(0).toUpperCase() +
+                      data.category.substring(1)}
+                  </div>
+                </Col>
+                <Col xs={2} lg={2} sm={2} md={2}>
+                  <div className="userdisplay">
+                    {data.experience + " Years"}
+                  </div>
+                </Col>
+
+                <Col xs={2} lg={2} sm={2} md={2}>
+                  <div>
+                    {data.city}
+                    <br />
+                    {data.state}
+                    <br />
+                    {data.zip}
+                  </div>
+                </Col>
+              </Row>
+            </div>
+
+            {/* <div>
+              <Row
+                style={{borderBottom: '1px solid #e4ebe6', textAlign: 'center'}}
+              >
+
+                <Col xs={2} lg={2} sm={2} md={2}>
+                  <div className="userpicdisplay">
+                    <img
+                      className="responsive"
+                      src={'http://localhost:3002' + data.profilePic}
+                      style={{
+                        width: '60px',
+                        height: '60px',
+                        borderRadius: '50%',
+                      }}
+                      alt={data.fullName}
+                      onClick={this.props.popup.bind (this)}
+                    />
+                  </div>
+                </Col>
+                <Col xs={3} lg={3} sm={3} md={3}>
+                  <div className="userdisplay">
+                    {data.fullName.charAt (0).toUpperCase () +
+                      data.fullName.substring (1)}
+                  </div>
+                </Col>
+                <Col xs={3} lg={3} sm={3} md={3}>
+                  <div className="userdisplay">
+                    {data.category.charAt (0).toUpperCase () +
+                      data.category.substring (1)}
+                  </div>
+                </Col>
+                <Col xs={3} lg={3} sm={3} md={3}>
+                  <div>
+                    {data.city}
+                    <br />
+                    {data.state}
+                    <br />
+                    {data.zip}
+                  </div>
+                </Col>
+              </Row>
+            </div> */}
           </Grid>
         </div>
       );

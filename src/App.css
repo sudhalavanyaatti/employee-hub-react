@@ -28,7 +28,7 @@
   background-color: rgba(50, 115, 220, 0.048);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  min-height: 100vh;
 }
 .updatebg {
   background-color: rgba(50, 115, 220, 0.048);
@@ -42,6 +42,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
 }
 .signinbg {
   background-color: rgba(50, 115, 220, 0.048);
@@ -121,3 +122,4 @@
   border-radius: 5px;
   border: none;
 }
+

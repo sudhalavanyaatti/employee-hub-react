@@ -134,7 +134,7 @@ class Account extends Component {
   }
 }
 const colourStyles = {
-  control: styles => ({ ...styles, borderRadius: '15px',background: 'white', }),
+  control: styles => ({ ...styles, borderRadius: '15px',background: 'white',boxShadow: 'none' }),
   option: styles => ({ ...styles,textAlign: 'center', borderRadius: '25px' }),
   container: (styles) => ({
     ...styles,

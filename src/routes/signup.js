@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-//import {Row, Col} from 'react-flexbox-grid';
+import {Row} from 'react-flexbox-grid';
 import Header from '../components/header';
 import Bottom from '../components/bottom';
 import SideBar from '../components/sidebar';
@@ -92,7 +92,7 @@ class Signup extends React.Component {
       fullName: this.Capitalize(this.state.fullName),
       email: this.state.email,
       password: this.state.password,
-      category: this.Capitalize(this.state.category),
+      category: this.state.category,
       phone: this.state.phone,
       city: this.Capitalize(this.state.city),
       state: this.Capitalize(this.state.state),
@@ -100,6 +100,7 @@ class Signup extends React.Component {
       latitude: this.state.latitude,
       longitude: this.state.longitude
     };
+    console.log(data)
     await fetch('http://localhost:3002/register', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -145,7 +146,7 @@ class Signup extends React.Component {
                   onChange={event => this.handleChangeFullname(event)}
                   label="Full Name:"
                   icon="user"
-                  id="materialFormRegisterNameEx"
+                  id="labelcolor"
                   required
                 />
               </MDBCol>
@@ -157,7 +158,7 @@ class Signup extends React.Component {
                   minLength="10"
                   value={this.state.phone}
                   onChange={event => this.handleChangeNumber(event)}
-                  id="materialFormRegisterPhnEx2"
+                  id="labelcolor"
                   label="Phone: "
                   icon="phone"
                   required
@@ -171,7 +172,7 @@ class Signup extends React.Component {
                   name="email"
                   value={this.state.email}
                   onChange={event => this.handleChangeEmail(event)}
-                  id="materialFormRegisterEmailEx2"
+                  id="labelcolor"
                   label="Email:"
                   icon="envelope"
                   required
@@ -183,7 +184,7 @@ class Signup extends React.Component {
                   name="password"
                   value={this.state.password}
                   onChange={event => this.handleChangePass(event)}
-                  id="materialFormRegisterPasswordEx2"
+                   id="labelcolor"
                   label="Password:"
                   icon="lock"
                   required
@@ -191,8 +192,9 @@ class Signup extends React.Component {
               </MDBCol>
             </MDBRow>
             <MDBRow>
-              <MDBCol md="6">
-                {/* <i class="fa fa-briefcase" aria-hidden="false"></i> */}
+              <MDBCol md="6" >
+              <Row style={{paddingTop:"10px"}}>
+                <i class="fa fa-briefcase fa-2x" aria-hidden="true" style={{position:'relative'}}></i>
                 <Select
                   options={options}
                   value={this.state.category}
@@ -201,6 +203,9 @@ class Signup extends React.Component {
                   styles={borderStyles}
                   required
                 />
+                <hr style={{width:'160px',marginLeft:'40px'}}>
+                </hr>
+                </Row>
               </MDBCol>
               <MDBCol md="6">
                 <MDBInput
@@ -208,7 +213,7 @@ class Signup extends React.Component {
                   type="text"
                   value={this.state.city}
                   onChange={event => this.handleChangeCity(event)}
-                  id="materialFormRegisterCityEx2"
+                  id="labelcolor"
                   label="City:"
                   icon="home"
                   required
@@ -222,7 +227,7 @@ class Signup extends React.Component {
                   type="text"
                   value={this.state.state}
                   onChange={event => this.handleChangeState(event)}
-                  id="materialFormRegisterStateEx2"
+                  id="labelcolor"
                   label="State:"
                   icon="map-marker"
                   required
@@ -232,12 +237,12 @@ class Signup extends React.Component {
                 <MDBInput
                   type="text"
                   name="zip"
-                  id="materialFormRegisterZipEx2"
+                  id="labelcolor"
                   value={this.state.zip}
                   onChange={event => this.handleChangeZip(event)}
                   maxLength="6"
                   label="Zip:"
-                  icon="file"
+                  icon="map-pin"
                   required
                 />
               </MDBCol>
@@ -271,20 +276,26 @@ class Signup extends React.Component {
   }
 }
 const borderStyles = {
-  control: (base) => ({
+  control: base => ({
     ...base,
     border: '0 !important',
     boxShadow: '0 !important',
     '&:hover': {
       border: '0 !important'
-    },
-    background: 'rgba(50, 115, 220, 0.048)'
+    }
   }),
-  valueContainer: (styles) => ({
+  valueContainer: styles => ({
     ...styles,
-    width:'50px',
-    background: 'rgba(50, 115, 220, 0.048)'
-  })
+    width: '140px',
+  }),
+  dropdownIndicator: styles=>({
+    ...styles,
+    backgroundColor: 'rgba(50, 115, 220, 0.048) !important'
+  }),
+  indicatorsContainer: styles=>({
+    ...styles,
+    backgroundColor: 'rgba(50, 115, 220, 0.048) !important'
+  }),
 };
 
 export default Signup;

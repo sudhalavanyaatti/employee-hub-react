@@ -11,158 +11,178 @@ import PagiNation from '../components/Pagination';
 import Bottom from '../components/bottom';
 import SideBar from '../components/sidebar';
 
-library.add(faEnvelope);
+library.add (faEnvelope);
 
 class Details extends Component {
-  state = {
-    categories: [],
-    uniqueCat: [],
-    uniqueAdd: [],
-    list: [],
-    details: true,
-    address: [],
-    value: '',
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {},
-    selectedcity: '',
-    selectedcategory: '',
-    popup: false,
-    isToggleOn: true,
-    Dlatitude:'',
-    Dlongitude:''
-  };
+  constructor (props) {
+    super (props);
+    this.state = {
+      categories: [],
+      uniqueCat: [],
+      uniqueAdd: [],
+      list: [],
+      details: true,
+      address: [],
+      value: '',
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+      selectedcity: '',
+      selectedcategory: '',
+      popup: false,
+      isToggleOn: true,
+      Dlatitude: '',
+      Dlongitude: '',
+    };
+
+    // this.Dlatitude = null;
+    // this.Dlongitude = null;
+  }
 
   onMarkerClick = (props, marker, e) => {
-    this.setState(
+    this.setState (
       {
         selectedPlace: props,
         activeMarker: marker,
-        showingInfoWindow: true
+        showingInfoWindow: true,
       },
       () => {
-        console.log(this.state.showingInfoWindow);
+        console.log (this.state.showingInfoWindow);
       }
     );
   };
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
-      this.setState({
+      this.setState ({
         showingInfoWindow: false,
-        activeMarker: null
+        activeMarker: null,
       });
     }
   };
-  onImageClick() {
-    this.setState(
+  onImageClick () {
+    this.setState (
       {
-        popup: true
+        popup: true,
       },
       () => {
-        console.log(this.state.popup);
+        console.log (this.state.popup);
       }
     );
   }
 
-  async componentDidMount() {
-    const token = localStorage.getItem('token');
+  async componentDidMount () {
+    const token = await localStorage.getItem ('token');
+    let that = this;
 
-    await fetch('http://localhost:3002/details', {
+    await fetch ('http://localhost:3002/details', {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': 'no-cors',
         'Access-Control-Allow-Credentials': true,
-        'Authentication-Token': token
-      }
+        'Authentication-Token': token,
+      },
     })
-      .then(res => res.json())
-      .then(data =>
-        this.setState(
+      .then (res => res.json ())
+      .then (data =>
+        this.setState (
           {
-            list: data.details
+            list: data.details,
           },
-          () => console.log('details', this.state.list)
+          () => console.log ('details', this.state.list)
         )
       );
 
-    this.setState({
-      categories: this.state.list.map(cat => cat.category)
+    this.setState ({
+      categories: this.state.list.map (cat => cat.category),
     });
 
-    this.setState({
-      address: this.state.list.map(cat => cat.city)
+    this.setState ({
+      address: this.state.list.map (cat => cat.city),
     });
 
-    this.setState({
-      uniqueCat: Array.from(new Set(this.state.categories))
+    this.setState ({
+      uniqueCat: Array.from (new Set (this.state.categories)),
     });
-    this.setState({
-      uniqueAdd: Array.from(new Set(this.state.address))
+    this.setState ({
+      uniqueAdd: Array.from (new Set (this.state.address)),
     });
-    // navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition (position => {
+      that.setState (
+        {
+          Dlatitude: position.coords.latitude,
+          Dlongitude: position.coords.longitude,
+        },
+        () => {
+          console.log (that.state);
+        }
+      );
+      // this.Dlatitude = position.coords.latitude;
+      // this.Dlongitude = position.coords.longitude;
+      // console.log ('first', this.Dlatitude, this.Dlongitude);
+    });
+  }
 
-    //   // this.setState(
-    //   //   {
-    //   //     Dlatitude: position.coords.latitude,
-    //   //     Dlongitude: position.coords.longitude
-    //   //   },
-    //   //   () => console.log('lat:',this.state.Dlatitude,this.state.Dlongitude)
-    //   // );
-    // });
-}
-
-
-  handleClick() {
+  handleClick () {
     const {details} = this.state;
-    this.setState({details: !details}, () =>
-      console.log(this.state.details, 'details')
+    this.setState ({details: !details}, () =>
+      console.log (this.state.details, 'details')
     );
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleChange (event) {
+    this.setState ({value: event.target.value});
   }
 
-  getUsers(searchString) {
+  getUsers (searchString) {
     const data = {
-      searchValue: searchString
+      searchValue: searchString,
     };
-    fetch('http://localhost:3002/find-users', {
+    fetch ('http://localhost:3002/find-users', {
       method: 'post',
       headers: {
-        'Authentication-Token': localStorage.getItem('token'),
-        'content-type': 'application/json'
+        'Authentication-Token': localStorage.getItem ('token'),
+        'content-type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify (data),
     })
-      .then(res => res.json())
-      .then(data =>
-        this.setState({list: data}, () => {
-          console.log(this.state.result, 'hello');
+      .then (res => res.json ())
+      .then (data =>
+        this.setState ({list: data}, () => {
+          console.log (this.state.result, 'hello');
         })
       );
   }
 
-  onHandleClick(event) {
-    this.setState({selectedcity: event.value});
+  onHandleClick (event) {
+    this.setState ({selectedcity: event.value});
 
-    this.getUsers(event.value);
+    this.getUsers (event.value);
   }
 
-  onHandleChange(event) {
-    this.setState({selectedcategory: event.value});
+  onHandleChange (event) {
+    this.setState ({selectedcategory: event.value});
 
-    this.getUsers(event.value);
+    this.getUsers (event.value);
+  }
+  setcenter (lat, long) {
+    if (this.state.lat !== lat && this.state.lng !== long)
+      this.setState ({Dlongitude: long, Dlatitude: lat});
   }
 
-  render() {
-    if(this.state.value==='all'){
-      window.location.reload()
+  render () {
+    // if (this.state.Dlongitude !== '') {
+    //   this.lat = 17.733196100000004;
+    //   this.lng = 83.3254853;
+    // }
+
+    if (this.state.value === 'all') {
+      window.location.reload ();
     }
-    let cate = this.state.uniqueCat.map(opt => ({label: opt, value: opt}));
-    let addre = this.state.uniqueAdd.map(opt => ({label: opt, value: opt}));
+    let cate = this.state.uniqueCat.map (opt => ({label: opt, value: opt}));
+    let addre = this.state.uniqueAdd.map (opt => ({label: opt, value: opt}));
+    console.log ('list_123');
     return (
       <div>
         <Grid
@@ -170,7 +190,7 @@ class Details extends Component {
           style={{
             paddingRight: '0px',
             paddingLeft: '0px',
-            margin: '0px'
+            margin: '0px',
           }}
         >
           <Row style={{paddingTop: '50px'}}>
@@ -186,23 +206,21 @@ class Details extends Component {
 
           <Row style={{borderBottom: '1px solid #AA9E9E'}}>
             <Col xs={9} lg={9} md={9} sm={9} className="col">
-              {this.state.value === 'address' ? (
-                <Select
-                  placeholder={'SEARCH'}
-                  options={addre}
-                  value={this.state.value1}
-                  onChange={this.onHandleClick.bind(this)}
-                  styles={colourStyles}
-                />
-              ) : (
-                <Select
-                  placeholder={'SEARCH'}
-                  options={cate}
-                  value={this.state.value2}
-                  onChange={this.onHandleChange.bind(this)}
-                  styles={colourStyles}
-                />
-              )}
+              {this.state.value === 'address'
+                ? <Select
+                    placeholder={'SEARCH'}
+                    options={addre}
+                    value={this.state.value1}
+                    onChange={this.onHandleClick.bind (this)}
+                    styles={colourStyles}
+                  />
+                : <Select
+                    placeholder={'SEARCH'}
+                    options={cate}
+                    value={this.state.value2}
+                    onChange={this.onHandleChange.bind (this)}
+                    styles={colourStyles}
+                  />}
             </Col>
 
             <Col xs={3} lg={3} md={3} sm={3}>
@@ -213,11 +231,11 @@ class Details extends Component {
                   position: 'absolute',
                   textAlign: 'center',
                   paddingLeft: '16px',
-                  paddingRight: '16px'
+                  paddingRight: '16px',
                 }}
                 value={this.state.value}
                 onChange={e => {
-                  this.handleChange(e);
+                  this.handleChange (e);
                 }}
               >
                 <option Value="all">All</option>
@@ -230,37 +248,44 @@ class Details extends Component {
             <Col lg={6} sm={6} md={6} xs={6} className="col">
               <div>
                 <div>
-                  {this.state.list.map((store, index) => {
+                  {this.state.list.map ((store, index) => {
+                     console.log('store',store);
+                    if (
+                      store.city === this.state.selectedcity ||
+                      store.category === this.state.selectedcategory
+                    ) {
+                      // this.Dlatitude = store.latitude;
+                      // this.Dlongitude = store.longitude;
+                      // console.log (this.Dlatitude);
+                      this.setcenter (store.latitude, store.longitude);
+                    }
                     return (
                       <Map
-                        //  key={index}
+                        key={index}
                         google={this.props.google}
                         zoom={7}
-                        // initialCenter={{
-                        //   lat:this.state.Dlatitude,
-                        //   lng:this.state.Dlongitude
-                        // }}
+                        // initialCenter={initialValues}
                         center={{
-                          lat: store.latitude,
-                          lng: store.longitude
+                          lat: this.state.Dlatitude,
+                          lng: this.state.Dlongitude,
                         }}
                         style={{
                           width: '50%',
-                          padding: '0'
+                          padding: '0',
                         }}
                       >
-                        {this.state.list.map(store => {
+                        {this.state.list.map (store => {
                           if (store.city === this.state.selectedcity) {
                             return (
                               <Marker
                                 position={{
                                   lat: store.latitude,
-                                  lng: store.longitude
+                                  lng: store.longitude,
                                 }}
                                 onClick={this.onMarkerClick}
                                 name={
-                                  store.fullName.charAt(0).toUpperCase() +
-                                  store.fullName.substring(1)
+                                  store.fullName.charAt (0).toUpperCase () +
+                                    store.fullName.substring (1)
                                 }
                                 phone={store.phone}
                                 category={store.category}
@@ -274,13 +299,14 @@ class Details extends Component {
                               <Marker
                                 position={{
                                   lat: store.latitude,
-                                  lng: store.longitude
+                                  lng: store.longitude,
                                 }}
                                 onClick={this.onMarkerClick}
                                 name={
-                                  store.fullName.charAt(0).toUpperCase() +
-                                  store.fullName.substring(1)
+                                  store.fullName.charAt (0).toUpperCase () +
+                                    store.fullName.substring (1)
                                 }
+                                Map
                                 phone={store.phone}
                                 category={store.category}
                                 email={store.email}
@@ -296,12 +322,12 @@ class Details extends Component {
                               <Marker
                                 position={{
                                   lat: store.latitude,
-                                  lng: store.longitude
+                                  lng: store.longitude,
                                 }}
                                 onClick={this.onMarkerClick}
                                 name={
-                                  store.fullName.charAt(0).toUpperCase() +
-                                  store.fullName.substring(1)
+                                  store.fullName.charAt (0).toUpperCase () +
+                                    store.fullName.substring (1)
                                 }
                                 phone={store.phone}
                                 category={store.category}
@@ -310,7 +336,7 @@ class Details extends Component {
                               />
                             );
                           }
-                          return console.log(store);
+                          return console.log (store);
                         })}
 
                         <InfoWindow
@@ -335,7 +361,6 @@ class Details extends Component {
                         </InfoWindow>
                       </Map>
                     );
-                    // }return console.log(store)
                   })}
                 </div>
               </div>
@@ -350,7 +375,7 @@ class Details extends Component {
                 lineHeight: '2.2',
                 borderBottom: '4px',
                 marginTop: '5px',
-                zIndex: 0
+                zIndex: 0,
               }}
             >
               <div>
@@ -368,9 +393,9 @@ class Details extends Component {
   }
 }
 const colourStyles = {
-  control: styles => ({ ...styles,background: 'white' })
-}
+  control: styles => ({...styles, background: 'white'}),
+};
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places'
-})(Details);
+export default GoogleApiWrapper ({
+  apiKey: 'AIzaSyAjYIJDSpRo90YUDZNtLnSCTmuMHfLMAlo&libraries=places',
+}) (Details);
