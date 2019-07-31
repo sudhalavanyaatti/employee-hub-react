@@ -67,13 +67,13 @@ class PagiNation extends Component {
                     />
                   </div>
                 </Col>
-                <Col xs={3} lg={3} sm={3} md={3}>
+                <Col xs={4} lg={4} sm={4} md={4}>
                   <div className="userdisplay">
                     {data.fullName.charAt (0).toUpperCase () +
                       data.fullName.substring (1)}
                   </div>
                 </Col>
-                <Col xs={3} lg={3} sm={3} md={3}>
+                <Col xs={2} lg={2} sm={2} md={2}>
                   <div className="userdisplay">
                     {data.category.charAt (0).toUpperCase () +
                       data.category.substring (1)}
@@ -85,7 +85,7 @@ class PagiNation extends Component {
                   </div>
                 </Col>
                
-                <Col xs={2} lg={2} sm={2} md={2}>
+                <Col xs={3} lg={3} sm={3} md={3}>
                 <div>
                     {data.city}
                     <br />

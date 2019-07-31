@@ -28,7 +28,9 @@ class Details extends Component {
     selectedcity: '',
     selectedcategory: '',
     popup: false,
-    isToggleOn: true
+    isToggleOn: true,
+    Dlatitude:'',
+    Dlongitude:''
   };
 
   onMarkerClick = (props, marker, e) => {
@@ -99,6 +101,16 @@ class Details extends Component {
     this.setState({
       uniqueAdd: Array.from(new Set(this.state.address))
     });
+    navigator.geolocation.getCurrentPosition(position => {
+
+      this.setState(
+        {
+          Dlatitude: position.coords.latitude,
+          Dlongitude: position.coords.longitude
+        },
+        () => console.log('lat:',this.state.Dlatitude,this.state.Dlongitude)
+      );
+    });
 }
 
 
@@ -151,7 +163,6 @@ class Details extends Component {
     }
     let cate = this.state.uniqueCat.map(opt => ({label: opt, value: opt}));
     let addre = this.state.uniqueAdd.map(opt => ({label: opt, value: opt}));
-    console.log('list_123');
     return (
       <div>
         <Grid
@@ -222,10 +233,13 @@ class Details extends Component {
                   {this.state.list.map((store, index) => {
                     return (
                       <Map
-                        // key={index}
+                        //  key={index}
                         google={this.props.google}
                         zoom={7}
-                       
+                        // initialCenter={{
+                        //   lat:this.state.Dlatitude,
+                        //   lng:this.state.Dlongitude
+                        // }}
                         center={{
                           lat: store.latitude,
                           lng: store.longitude
