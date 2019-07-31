@@ -138,7 +138,7 @@ class SignIn extends React.Component {
             </MDBRow>
             <div align="center">
               <MDBBtn
-                gradient="blue"
+                color="blue"
                 type="submit"
                 onClick={() => this.handleSubmit ()}
               >

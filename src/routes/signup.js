@@ -194,7 +194,7 @@ class Signup extends React.Component {
             <MDBRow>
               <MDBCol md="6" >
               <Row style={{paddingTop:"10px"}}>
-                <i class="fa fa-briefcase fa-2x" aria-hidden="true" style={{position:'relative'}}></i>
+                <i class="fa fa-briefcase fa-2x" aria-hidden="true" style={{position:'relative',paddingTop:"10px"}}></i>
                 <Select
                   options={options}
                   value={this.state.category}
@@ -203,8 +203,7 @@ class Signup extends React.Component {
                   styles={borderStyles}
                   required
                 />
-                <hr style={{width:'160px',marginLeft:'40px'}}>
-                </hr>
+                <hr style={{width:'160px',marginLeft:'40px'}}/>
                 </Row>
               </MDBCol>
               <MDBCol md="6">

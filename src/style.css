@@ -64,6 +64,8 @@ select {
 .userdisplay{
   text-align: center;
   margin-top: 35px;
+  /* vertical-align: middle; */
+
 }
 .userpicdisplay{
   text-align: center;
@@ -378,5 +380,8 @@ span.css-1okebmr-indicatorSeparator {
 }
 .css-yhrk8z-control{
   border-color: none !important;
+}
+.ui.menu .item:before {
+  width: 0px !important;
 }
 

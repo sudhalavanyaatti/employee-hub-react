@@ -60,7 +60,7 @@ class Header extends Component {
                     display: 'flex',
                     flexDirection: 'row',
                     position: 'absolute',
-                    right: '30px',
+                    right: '5px',
                     height: '50px',
                     fontSize:'18px'
                   }}
@@ -89,6 +89,7 @@ class Header extends Component {
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
+                
                 </div>
               </Container>
             </Menu>
