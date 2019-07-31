@@ -28,8 +28,6 @@ class Details extends Component {
     selectedcity: '',
     selectedcategory: '',
     popup: false,
-    // Dlatitude: '',
-    //   Dlongitude: '',
     isToggleOn: true
   };
 
@@ -101,15 +99,6 @@ class Details extends Component {
     this.setState({
       uniqueAdd: Array.from(new Set(this.state.address))
     });
-  //   navigator.geolocation.getCurrentPosition (position => {
-  //     this.setState (
-  //       {
-  //         Dlatitude: position.coords.latitude,
-  //         Dlongitude: position.coords.longitude,
-  //       }
-      
-  //     );
-  // });
 }
 
 
@@ -230,24 +219,14 @@ class Details extends Component {
             <Col lg={6} sm={6} md={6} xs={6} className="col">
               <div>
                 <div>
-                  {/* {this.state.list.map((store, index) => {
-                    console.log(store.latitude, 'dvfd'); */}
-                    {this.state.list.map (store => {
-                    if (
-                      store.city === this.state.selectedcity ||
-                      store.category === this.state.selectedcategory
-                    ) {
-
+                  {this.state.list.map((store, index) => {
                     return (
                       <Map
                         // key={index}
                         google={this.props.google}
                         zoom={7}
-                        // initialCenter={{
-                        //   lat: this.state.Dlatitude,
-                        //   lng: this.state.Dlongitude
-                        // }}
-                        initialCenter={{
+                       
+                        center={{
                           lat: store.latitude,
                           lng: store.longitude
                         }}
@@ -342,7 +321,7 @@ class Details extends Component {
                         </InfoWindow>
                       </Map>
                     );
-                    }return console.log(store)
+                    // }return console.log(store)
                   })}
                 </div>
               </div>
