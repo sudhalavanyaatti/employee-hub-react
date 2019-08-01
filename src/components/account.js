@@ -123,6 +123,7 @@ class Account extends Component {
           minLength="1"
           maxLength="2"
         />
+        <br />
         <button
           type="submit"
           className="bstyle"

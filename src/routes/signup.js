@@ -18,7 +18,7 @@ class Signup extends React.Component {
       fullName: '',
       email: '',
       password: '',
-      category: 'Category ',
+      category: 'Category:',
       phone: '',
       city: '',
       state: '',
@@ -195,7 +195,7 @@ class Signup extends React.Component {
             </MDBRow>
             <MDBRow>
               <MDBCol md="6">
-                <Row style={{paddingTop: '14px'}}>
+                <Row style={{paddingTop: '10px',paddingBottom:'17px'}}>
                   <i
                     class="fa fa-briefcase fa-2x"
                     aria-hidden="true"
@@ -210,7 +210,7 @@ class Signup extends React.Component {
                     className="ddown"
                     required
                   />
-                  <hr style={{width:'200px',marginLeft:'45px'}}></hr>
+                  <hr />
                 </Row>
               </MDBCol>
               <MDBCol md="6">
@@ -301,6 +301,10 @@ const borderStyles = {
   indicatorsContainer: styles => ({
     ...styles,
     backgroundColor: 'rgba(50, 115, 220, 0.048) !important'
+  }),
+  placeholder: styles => ({
+    ...styles,
+    // paddingtop: '20px'
   })
 };
 

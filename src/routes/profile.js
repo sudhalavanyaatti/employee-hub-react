@@ -77,7 +77,7 @@ class Profile extends Component {
         <div className="desktop-only">
           <Header />
         </div>
-        <Row style={{paddingTop: '10%', paddingBottom: '6%'}}>
+        <Row style={{paddingTop: '8%', paddingBottom: '6%'}}>
           <Col lg={6} xs={12} sm={6} md={6}>
             <div style={{flexDirection: 'column'}}>
               <Col>
@@ -154,8 +154,8 @@ class Profile extends Component {
               </Col>
             </div>
           </Col>
-          <Col lg={4} xs={12} sm={9} md={9}>
-            <div style={{paddingTop: '10%', paddingBottom: '10%'}}>
+          <Col lg={4} xs={12} sm={9} md={4}>
+            <div style={{paddingTop: '8%', paddingBottom: '10%'}}>
               {this.state.displayContent === 'account'
                 ? <div>
                     <Account />

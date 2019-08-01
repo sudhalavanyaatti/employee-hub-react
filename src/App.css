@@ -139,4 +139,9 @@ img:focus {
   border-radius: 5px;
   border: none;
 }
+hr{
+  width:200px;
+  margin-left:45px;
+  border: 0.3px solid rgba(28, 34, 43, 0.13);
+}
 
